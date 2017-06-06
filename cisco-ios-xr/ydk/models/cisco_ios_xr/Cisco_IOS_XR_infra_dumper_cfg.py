@@ -155,8 +155,6 @@ class Exception(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.compress is not None:
@@ -248,8 +246,6 @@ class Exception(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.compress is not None:
@@ -341,8 +337,6 @@ class Exception(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.compress is not None:
@@ -377,8 +371,6 @@ class Exception(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.choice1 is not None and self.choice1._has_data():
             return True
 

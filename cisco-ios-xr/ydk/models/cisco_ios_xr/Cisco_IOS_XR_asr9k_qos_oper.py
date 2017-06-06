@@ -1215,8 +1215,6 @@ class PlatformQos(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.max_bundle_members is not None:
                         return True
 
@@ -1507,8 +1505,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.unit is not None:
                                                 return True
 
@@ -1563,8 +1559,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.unit is not None:
                                                 return True
 
@@ -1619,8 +1613,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.unit is not None:
                                                 return True
 
@@ -1675,8 +1667,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.unit is not None:
                                                 return True
 
@@ -1702,8 +1692,6 @@ class PlatformQos(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ancp_config_bandwidth is not None and self.ancp_config_bandwidth._has_data():
                                             return True
 
@@ -1764,8 +1752,6 @@ class PlatformQos(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.unit is not None:
                                             return True
 
@@ -1791,8 +1777,6 @@ class PlatformQos(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.classes is not None:
                                         return True
 
@@ -1988,8 +1972,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.class_name is not None:
                                                 return True
 
@@ -2092,8 +2074,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -2148,8 +2128,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -2175,8 +2153,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.config_queue_limit is not None and self.config_queue_limit._has_data():
                                                 return True
 
@@ -2295,8 +2271,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -2373,8 +2347,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -2400,8 +2372,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.minimum_rate is not None and self.minimum_rate._has_data():
                                                     return True
 
@@ -2453,8 +2423,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -2509,8 +2477,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -2565,8 +2531,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -2592,8 +2556,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cbs is not None and self.cbs._has_data():
                                                 return True
 
@@ -2724,8 +2686,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -2780,8 +2740,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -2836,8 +2794,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -2892,8 +2848,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -2991,8 +2945,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -3047,8 +2999,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -3103,8 +3053,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -3159,8 +3107,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -3186,8 +3132,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.average_rate is not None and self.average_rate._has_data():
                                                     return True
 
@@ -3219,8 +3163,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cbs is not None and self.cbs._has_data():
                                                 return True
 
@@ -3367,8 +3309,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -3423,8 +3363,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -3450,8 +3388,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.bandwidth is not None and self.bandwidth._has_data():
                                                 return True
 
@@ -3634,8 +3570,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -3690,8 +3624,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -3746,8 +3678,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -3802,8 +3732,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -3829,8 +3757,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.match is not None:
                                                     return True
 
@@ -3865,8 +3791,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.curve is not None:
                                                 for child_ref in self.curve:
                                                     if child_ref._has_data():
@@ -4035,8 +3959,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -4062,8 +3984,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -4149,8 +4069,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -4176,8 +4094,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -4263,8 +4179,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -4290,8 +4204,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -4377,8 +4289,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -4404,8 +4314,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -4491,8 +4399,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -4518,8 +4424,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -4605,8 +4509,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -4632,8 +4534,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -4719,8 +4619,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -4746,8 +4644,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -4833,8 +4729,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -4860,8 +4754,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -4889,8 +4781,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.child_mark is not None and self.child_mark._has_data():
                                                 return True
 
@@ -4934,8 +4824,6 @@ class PlatformQos(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.class_level is not None:
                                             return True
 
@@ -4991,8 +4879,6 @@ class PlatformQos(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.qos_show_ea_st_v1 is not None:
                                         for child_ref in self.qos_show_ea_st_v1:
                                             if child_ref._has_data():
@@ -5181,8 +5067,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.class_name is not None:
                                                 return True
 
@@ -5293,8 +5177,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -5349,8 +5231,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -5376,8 +5256,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.absolute_index is not None:
                                                 return True
 
@@ -5542,8 +5420,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -5620,8 +5496,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -5647,8 +5521,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.minimum_rate is not None and self.minimum_rate._has_data():
                                                         return True
 
@@ -5700,8 +5572,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -5727,8 +5597,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.cbs is not None and self.cbs._has_data():
                                                     return True
 
@@ -5848,8 +5716,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -5904,8 +5770,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -5931,8 +5795,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.chunk_id is not None:
                                                     return True
 
@@ -5967,8 +5829,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cir_shape is not None and self.cir_shape._has_data():
                                                 return True
 
@@ -6093,8 +5953,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -6149,8 +6007,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -6205,8 +6061,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -6261,8 +6115,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -6360,8 +6212,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -6416,8 +6266,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -6472,8 +6320,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -6528,8 +6374,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -6555,8 +6399,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.average_rate is not None and self.average_rate._has_data():
                                                     return True
 
@@ -6588,8 +6430,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cbs is not None and self.cbs._has_data():
                                                 return True
 
@@ -6736,8 +6576,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -6792,8 +6630,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -6819,8 +6655,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.bandwidth is not None and self.bandwidth._has_data():
                                                 return True
 
@@ -7009,8 +6843,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -7065,8 +6897,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -7121,8 +6951,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -7177,8 +7005,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -7204,8 +7030,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.absolute_index is not None:
                                                     return True
 
@@ -7252,8 +7076,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.curve is not None:
                                                 for child_ref in self.curve:
                                                     if child_ref._has_data():
@@ -7413,8 +7235,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -7440,8 +7260,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -7527,8 +7345,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -7554,8 +7370,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -7641,8 +7455,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -7668,8 +7480,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -7755,8 +7565,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -7782,8 +7590,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -7869,8 +7675,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -7896,8 +7700,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -7983,8 +7785,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -8010,8 +7810,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -8097,8 +7895,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -8124,8 +7920,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -8211,8 +8005,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -8238,8 +8030,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -8267,8 +8057,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.child_mark is not None and self.child_mark._has_data():
                                                 return True
 
@@ -8312,8 +8100,6 @@ class PlatformQos(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.class_level is not None:
                                             return True
 
@@ -8369,8 +8155,6 @@ class PlatformQos(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.qos_show_ea_st_v2 is not None:
                                         for child_ref in self.qos_show_ea_st_v2:
                                             if child_ref._has_data():
@@ -8395,8 +8179,6 @@ class PlatformQos(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.header is not None and self.header._has_data():
                                     return True
 
@@ -8425,8 +8207,6 @@ class PlatformQos(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.details is not None and self.details._has_data():
                                 return True
 
@@ -8624,8 +8404,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.unit is not None:
                                                 return True
 
@@ -8680,8 +8458,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.unit is not None:
                                                 return True
 
@@ -8736,8 +8512,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.unit is not None:
                                                 return True
 
@@ -8792,8 +8566,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.unit is not None:
                                                 return True
 
@@ -8819,8 +8591,6 @@ class PlatformQos(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ancp_config_bandwidth is not None and self.ancp_config_bandwidth._has_data():
                                             return True
 
@@ -8881,8 +8651,6 @@ class PlatformQos(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.unit is not None:
                                             return True
 
@@ -8908,8 +8676,6 @@ class PlatformQos(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.classes is not None:
                                         return True
 
@@ -9105,8 +8871,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.class_name is not None:
                                                 return True
 
@@ -9209,8 +8973,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -9265,8 +9027,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -9292,8 +9052,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.config_queue_limit is not None and self.config_queue_limit._has_data():
                                                 return True
 
@@ -9412,8 +9170,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -9490,8 +9246,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -9517,8 +9271,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.minimum_rate is not None and self.minimum_rate._has_data():
                                                     return True
 
@@ -9570,8 +9322,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -9626,8 +9376,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -9682,8 +9430,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -9709,8 +9455,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cbs is not None and self.cbs._has_data():
                                                 return True
 
@@ -9841,8 +9585,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -9897,8 +9639,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -9953,8 +9693,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -10009,8 +9747,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -10108,8 +9844,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -10164,8 +9898,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -10220,8 +9952,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -10276,8 +10006,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -10303,8 +10031,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.average_rate is not None and self.average_rate._has_data():
                                                     return True
 
@@ -10336,8 +10062,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cbs is not None and self.cbs._has_data():
                                                 return True
 
@@ -10484,8 +10208,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -10540,8 +10262,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -10567,8 +10287,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.bandwidth is not None and self.bandwidth._has_data():
                                                 return True
 
@@ -10751,8 +10469,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -10807,8 +10523,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -10863,8 +10577,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -10919,8 +10631,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -10946,8 +10656,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.match is not None:
                                                     return True
 
@@ -10982,8 +10690,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.curve is not None:
                                                 for child_ref in self.curve:
                                                     if child_ref._has_data():
@@ -11152,8 +10858,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -11179,8 +10883,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -11266,8 +10968,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -11293,8 +10993,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -11380,8 +11078,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -11407,8 +11103,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -11494,8 +11188,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -11521,8 +11213,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -11608,8 +11298,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -11635,8 +11323,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -11722,8 +11408,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -11749,8 +11433,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -11836,8 +11518,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -11863,8 +11543,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -11950,8 +11628,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -11977,8 +11653,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -12006,8 +11680,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.child_mark is not None and self.child_mark._has_data():
                                                 return True
 
@@ -12051,8 +11723,6 @@ class PlatformQos(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.class_level is not None:
                                             return True
 
@@ -12108,8 +11778,6 @@ class PlatformQos(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.qos_show_ea_st_v1 is not None:
                                         for child_ref in self.qos_show_ea_st_v1:
                                             if child_ref._has_data():
@@ -12298,8 +11966,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.class_name is not None:
                                                 return True
 
@@ -12410,8 +12076,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -12466,8 +12130,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -12493,8 +12155,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.absolute_index is not None:
                                                 return True
 
@@ -12659,8 +12319,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -12737,8 +12395,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -12764,8 +12420,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.minimum_rate is not None and self.minimum_rate._has_data():
                                                         return True
 
@@ -12817,8 +12471,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -12844,8 +12496,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.cbs is not None and self.cbs._has_data():
                                                     return True
 
@@ -12965,8 +12615,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -13021,8 +12669,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -13048,8 +12694,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.chunk_id is not None:
                                                     return True
 
@@ -13084,8 +12728,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cir_shape is not None and self.cir_shape._has_data():
                                                 return True
 
@@ -13210,8 +12852,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -13266,8 +12906,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -13322,8 +12960,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -13378,8 +13014,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -13477,8 +13111,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -13533,8 +13165,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -13589,8 +13219,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -13645,8 +13273,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -13672,8 +13298,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.average_rate is not None and self.average_rate._has_data():
                                                     return True
 
@@ -13705,8 +13329,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cbs is not None and self.cbs._has_data():
                                                 return True
 
@@ -13853,8 +13475,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -13909,8 +13529,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -13936,8 +13554,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.bandwidth is not None and self.bandwidth._has_data():
                                                 return True
 
@@ -14126,8 +13742,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -14182,8 +13796,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -14238,8 +13850,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -14294,8 +13904,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -14321,8 +13929,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.absolute_index is not None:
                                                     return True
 
@@ -14369,8 +13975,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.curve is not None:
                                                 for child_ref in self.curve:
                                                     if child_ref._has_data():
@@ -14530,8 +14134,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -14557,8 +14159,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -14644,8 +14244,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -14671,8 +14269,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -14758,8 +14354,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -14785,8 +14379,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -14872,8 +14464,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -14899,8 +14489,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -14986,8 +14574,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -15013,8 +14599,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -15100,8 +14684,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -15127,8 +14709,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -15214,8 +14794,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -15241,8 +14819,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -15328,8 +14904,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.action_opcode is not None:
                                                         return True
 
@@ -15355,8 +14929,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.action_type is not None:
                                                     return True
 
@@ -15384,8 +14956,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.child_mark is not None and self.child_mark._has_data():
                                                 return True
 
@@ -15429,8 +14999,6 @@ class PlatformQos(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.class_level is not None:
                                             return True
 
@@ -15486,8 +15054,6 @@ class PlatformQos(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.qos_show_ea_st_v2 is not None:
                                         for child_ref in self.qos_show_ea_st_v2:
                                             if child_ref._has_data():
@@ -15512,8 +15078,6 @@ class PlatformQos(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.header is not None and self.header._has_data():
                                     return True
 
@@ -15542,8 +15106,6 @@ class PlatformQos(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.details is not None and self.details._has_data():
                                 return True
 
@@ -15568,8 +15130,6 @@ class PlatformQos(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -15598,8 +15158,6 @@ class PlatformQos(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -15912,8 +15470,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -15968,8 +15524,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -16024,8 +15578,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -16080,8 +15632,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -16107,8 +15657,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.ancp_config_bandwidth is not None and self.ancp_config_bandwidth._has_data():
                                                     return True
 
@@ -16169,8 +15717,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -16196,8 +15742,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.classes is not None:
                                                 return True
 
@@ -16393,8 +15937,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.class_name is not None:
                                                         return True
 
@@ -16497,8 +16039,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -16553,8 +16093,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -16580,8 +16118,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.config_queue_limit is not None and self.config_queue_limit._has_data():
                                                         return True
 
@@ -16700,8 +16236,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -16778,8 +16312,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -16805,8 +16337,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.minimum_rate is not None and self.minimum_rate._has_data():
                                                             return True
 
@@ -16858,8 +16388,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -16914,8 +16442,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -16970,8 +16496,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -16997,8 +16521,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.cbs is not None and self.cbs._has_data():
                                                         return True
 
@@ -17129,8 +16651,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -17185,8 +16705,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -17241,8 +16759,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -17297,8 +16813,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -17396,8 +16910,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -17452,8 +16964,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -17508,8 +17018,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -17564,8 +17072,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -17591,8 +17097,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.average_rate is not None and self.average_rate._has_data():
                                                             return True
 
@@ -17624,8 +17128,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.cbs is not None and self.cbs._has_data():
                                                         return True
 
@@ -17772,8 +17274,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -17828,8 +17328,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -17855,8 +17353,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.bandwidth is not None and self.bandwidth._has_data():
                                                         return True
 
@@ -18039,8 +17535,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -18095,8 +17589,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -18151,8 +17643,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -18207,8 +17697,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -18234,8 +17722,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.match is not None:
                                                             return True
 
@@ -18270,8 +17756,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.curve is not None:
                                                         for child_ref in self.curve:
                                                             if child_ref._has_data():
@@ -18440,8 +17924,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -18467,8 +17949,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -18554,8 +18034,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -18581,8 +18059,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -18668,8 +18144,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -18695,8 +18169,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -18782,8 +18254,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -18809,8 +18279,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -18896,8 +18364,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -18923,8 +18389,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -19010,8 +18474,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -19037,8 +18499,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -19124,8 +18584,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -19151,8 +18609,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -19238,8 +18694,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -19265,8 +18719,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -19294,8 +18746,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.child_mark is not None and self.child_mark._has_data():
                                                         return True
 
@@ -19339,8 +18789,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.class_level is not None:
                                                     return True
 
@@ -19396,8 +18844,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.qos_show_ea_st_v1 is not None:
                                                 for child_ref in self.qos_show_ea_st_v1:
                                                     if child_ref._has_data():
@@ -19586,8 +19032,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.class_name is not None:
                                                         return True
 
@@ -19698,8 +19142,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -19754,8 +19196,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -19781,8 +19221,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.absolute_index is not None:
                                                         return True
 
@@ -19947,8 +19385,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -20025,8 +19461,6 @@ class PlatformQos(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.unit is not None:
                                                                     return True
 
@@ -20052,8 +19486,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.minimum_rate is not None and self.minimum_rate._has_data():
                                                                 return True
 
@@ -20105,8 +19537,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -20132,8 +19562,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cbs is not None and self.cbs._has_data():
                                                             return True
 
@@ -20253,8 +19681,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -20309,8 +19735,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -20336,8 +19760,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.chunk_id is not None:
                                                             return True
 
@@ -20372,8 +19794,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.cir_shape is not None and self.cir_shape._has_data():
                                                         return True
 
@@ -20498,8 +19918,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -20554,8 +19972,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -20610,8 +20026,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -20666,8 +20080,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -20765,8 +20177,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -20821,8 +20231,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -20877,8 +20285,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -20933,8 +20339,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -20960,8 +20364,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.average_rate is not None and self.average_rate._has_data():
                                                             return True
 
@@ -20993,8 +20395,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.cbs is not None and self.cbs._has_data():
                                                         return True
 
@@ -21141,8 +20541,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -21197,8 +20595,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -21224,8 +20620,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.bandwidth is not None and self.bandwidth._has_data():
                                                         return True
 
@@ -21414,8 +20808,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -21470,8 +20862,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -21526,8 +20916,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -21582,8 +20970,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -21609,8 +20995,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.absolute_index is not None:
                                                             return True
 
@@ -21657,8 +21041,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.curve is not None:
                                                         for child_ref in self.curve:
                                                             if child_ref._has_data():
@@ -21818,8 +21200,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -21845,8 +21225,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -21932,8 +21310,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -21959,8 +21335,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -22046,8 +21420,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -22073,8 +21445,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -22160,8 +21530,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -22187,8 +21555,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -22274,8 +21640,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -22301,8 +21665,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -22388,8 +21750,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -22415,8 +21775,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -22502,8 +21860,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -22529,8 +21885,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -22616,8 +21970,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -22643,8 +21995,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -22672,8 +22022,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.child_mark is not None and self.child_mark._has_data():
                                                         return True
 
@@ -22717,8 +22065,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.class_level is not None:
                                                     return True
 
@@ -22774,8 +22120,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.qos_show_ea_st_v2 is not None:
                                                 for child_ref in self.qos_show_ea_st_v2:
                                                     if child_ref._has_data():
@@ -22800,8 +22144,6 @@ class PlatformQos(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.header is not None and self.header._has_data():
                                             return True
 
@@ -22832,8 +22174,6 @@ class PlatformQos(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -22859,8 +22199,6 @@ class PlatformQos(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.member_interface is not None:
                                     for child_ref in self.member_interface:
                                         if child_ref._has_data():
@@ -22885,8 +22223,6 @@ class PlatformQos(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.member_interfaces is not None and self.member_interfaces._has_data():
                                 return True
 
@@ -23137,8 +22473,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -23193,8 +22527,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -23249,8 +22581,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -23305,8 +22635,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.unit is not None:
                                                         return True
 
@@ -23332,8 +22660,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.ancp_config_bandwidth is not None and self.ancp_config_bandwidth._has_data():
                                                     return True
 
@@ -23394,8 +22720,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.unit is not None:
                                                     return True
 
@@ -23421,8 +22745,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.classes is not None:
                                                 return True
 
@@ -23618,8 +22940,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.class_name is not None:
                                                         return True
 
@@ -23722,8 +23042,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -23778,8 +23096,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -23805,8 +23121,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.config_queue_limit is not None and self.config_queue_limit._has_data():
                                                         return True
 
@@ -23925,8 +23239,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -24003,8 +23315,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -24030,8 +23340,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.minimum_rate is not None and self.minimum_rate._has_data():
                                                             return True
 
@@ -24083,8 +23391,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -24139,8 +23445,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -24195,8 +23499,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -24222,8 +23524,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.cbs is not None and self.cbs._has_data():
                                                         return True
 
@@ -24354,8 +23654,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -24410,8 +23708,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -24466,8 +23762,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -24522,8 +23816,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -24621,8 +23913,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -24677,8 +23967,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -24733,8 +24021,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -24789,8 +24075,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -24816,8 +24100,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.average_rate is not None and self.average_rate._has_data():
                                                             return True
 
@@ -24849,8 +24131,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.cbs is not None and self.cbs._has_data():
                                                         return True
 
@@ -24997,8 +24277,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -25053,8 +24331,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -25080,8 +24356,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.bandwidth is not None and self.bandwidth._has_data():
                                                         return True
 
@@ -25264,8 +24538,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -25320,8 +24592,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -25376,8 +24646,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -25432,8 +24700,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -25459,8 +24725,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.match is not None:
                                                             return True
 
@@ -25495,8 +24759,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.curve is not None:
                                                         for child_ref in self.curve:
                                                             if child_ref._has_data():
@@ -25665,8 +24927,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -25692,8 +24952,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -25779,8 +25037,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -25806,8 +25062,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -25893,8 +25147,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -25920,8 +25172,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -26007,8 +25257,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -26034,8 +25282,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -26121,8 +25367,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -26148,8 +25392,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -26235,8 +25477,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -26262,8 +25502,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -26349,8 +25587,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -26376,8 +25612,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -26463,8 +25697,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -26490,8 +25722,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -26519,8 +25749,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.child_mark is not None and self.child_mark._has_data():
                                                         return True
 
@@ -26564,8 +25792,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.class_level is not None:
                                                     return True
 
@@ -26621,8 +25847,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.qos_show_ea_st_v1 is not None:
                                                 for child_ref in self.qos_show_ea_st_v1:
                                                     if child_ref._has_data():
@@ -26811,8 +26035,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.class_name is not None:
                                                         return True
 
@@ -26923,8 +26145,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -26979,8 +26199,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -27006,8 +26224,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.absolute_index is not None:
                                                         return True
 
@@ -27172,8 +26388,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -27250,8 +26464,6 @@ class PlatformQos(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.unit is not None:
                                                                     return True
 
@@ -27277,8 +26489,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.minimum_rate is not None and self.minimum_rate._has_data():
                                                                 return True
 
@@ -27330,8 +26540,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -27357,8 +26565,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cbs is not None and self.cbs._has_data():
                                                             return True
 
@@ -27478,8 +26684,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -27534,8 +26738,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -27561,8 +26763,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.chunk_id is not None:
                                                             return True
 
@@ -27597,8 +26797,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.cir_shape is not None and self.cir_shape._has_data():
                                                         return True
 
@@ -27723,8 +26921,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -27779,8 +26975,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -27835,8 +27029,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -27891,8 +27083,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -27990,8 +27180,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -28046,8 +27234,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -28102,8 +27288,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -28158,8 +27342,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -28185,8 +27367,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.average_rate is not None and self.average_rate._has_data():
                                                             return True
 
@@ -28218,8 +27398,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.cbs is not None and self.cbs._has_data():
                                                         return True
 
@@ -28366,8 +27544,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -28422,8 +27598,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.unit is not None:
                                                             return True
 
@@ -28449,8 +27623,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.bandwidth is not None and self.bandwidth._has_data():
                                                         return True
 
@@ -28639,8 +27811,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -28695,8 +27865,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -28751,8 +27919,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -28807,8 +27973,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.unit is not None:
                                                                 return True
 
@@ -28834,8 +27998,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.absolute_index is not None:
                                                             return True
 
@@ -28882,8 +28044,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.curve is not None:
                                                         for child_ref in self.curve:
                                                             if child_ref._has_data():
@@ -29043,8 +28203,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -29070,8 +28228,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -29157,8 +28313,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -29184,8 +28338,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -29271,8 +28423,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -29298,8 +28448,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -29385,8 +28533,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -29412,8 +28558,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -29499,8 +28643,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -29526,8 +28668,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -29613,8 +28753,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -29640,8 +28778,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -29727,8 +28863,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -29754,8 +28888,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -29841,8 +28973,6 @@ class PlatformQos(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.action_opcode is not None:
                                                                 return True
 
@@ -29868,8 +28998,6 @@ class PlatformQos(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.action_type is not None:
                                                             return True
 
@@ -29897,8 +29025,6 @@ class PlatformQos(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.child_mark is not None and self.child_mark._has_data():
                                                         return True
 
@@ -29942,8 +29068,6 @@ class PlatformQos(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.class_level is not None:
                                                     return True
 
@@ -29999,8 +29123,6 @@ class PlatformQos(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.qos_show_ea_st_v2 is not None:
                                                 for child_ref in self.qos_show_ea_st_v2:
                                                     if child_ref._has_data():
@@ -30025,8 +29147,6 @@ class PlatformQos(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.header is not None and self.header._has_data():
                                             return True
 
@@ -30057,8 +29177,6 @@ class PlatformQos(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -30084,8 +29202,6 @@ class PlatformQos(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.member_interface is not None:
                                     for child_ref in self.member_interface:
                                         if child_ref._has_data():
@@ -30110,8 +29226,6 @@ class PlatformQos(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.member_interfaces is not None and self.member_interfaces._has_data():
                                 return True
 
@@ -30136,8 +29250,6 @@ class PlatformQos(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -30166,8 +29278,6 @@ class PlatformQos(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         for child_ref in self.bundle_interface:
                             if child_ref._has_data():
@@ -30192,8 +29302,6 @@ class PlatformQos(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -30223,8 +29331,6 @@ class PlatformQos(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -30247,8 +29353,6 @@ class PlatformQos(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

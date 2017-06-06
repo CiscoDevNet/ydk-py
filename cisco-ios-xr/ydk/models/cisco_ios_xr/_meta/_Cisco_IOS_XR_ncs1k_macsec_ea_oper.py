@@ -36,7 +36,7 @@ _meta_table = {
                 'device_association_number',
                 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
             _MetaInfoClassMember('key-crc', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                32bit CRC of Programmed Key
                 ''',
                 'key_crc',
@@ -54,7 +54,7 @@ _meta_table = {
                 'short_secure_channel_id',
                 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
             _MetaInfoClassMember('xpn-salt', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                XPN Salt
                 ''',
                 'xpn_salt',
@@ -148,7 +148,7 @@ _meta_table = {
                 'device_association_number',
                 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
             _MetaInfoClassMember('key-crc', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                32bit CRC of Programmed Key
                 ''',
                 'key_crc',
@@ -166,7 +166,7 @@ _meta_table = {
                 'short_secure_channel_id',
                 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
             _MetaInfoClassMember('xpn-salt', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                XPN Salt
                 ''',
                 'xpn_salt',
@@ -289,7 +289,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Port name
                 ''',
                 'name',

@@ -138,8 +138,6 @@ class Banners(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.banner_name is not None:
                 return True
 
@@ -163,8 +161,6 @@ class Banners(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.banner is not None:
             for child_ref in self.banner:
                 if child_ref._has_data():

@@ -217,8 +217,6 @@ class Vpdn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.failure is not None:
                 return True
 
@@ -288,8 +286,6 @@ class Vpdn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.switchover is not None:
                     return True
 
@@ -310,8 +306,6 @@ class Vpdn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.enable is not None:
                 return True
 
@@ -380,8 +374,6 @@ class Vpdn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.cache_disabled is not None:
                 return True
 
@@ -539,8 +531,6 @@ class Vpdn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.mask is not None:
                         return True
 
@@ -624,8 +614,6 @@ class Vpdn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.index is not None:
                             return True
 
@@ -651,8 +639,6 @@ class Vpdn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.id is not None and self.id._has_data():
                         return True
 
@@ -703,8 +689,6 @@ class Vpdn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.busy_timeout is not None:
                         return True
 
@@ -750,8 +734,6 @@ class Vpdn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tos is not None:
                         return True
 
@@ -803,8 +785,6 @@ class Vpdn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.df_bit is not None:
                         return True
 
@@ -830,8 +810,6 @@ class Vpdn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.template_name is not None:
                     return True
 
@@ -876,8 +854,6 @@ class Vpdn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.template is not None:
                 for child_ref in self.template:
                     if child_ref._has_data():
@@ -923,8 +899,6 @@ class Vpdn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mask is not None:
                 return True
 
@@ -1092,8 +1066,6 @@ class Vpdn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vpn_id_index is not None:
                         return True
 
@@ -1142,8 +1114,6 @@ class Vpdn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tos is not None:
                         return True
 
@@ -1166,8 +1136,6 @@ class Vpdn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vpd_ngroupname is not None:
                     return True
 
@@ -1215,8 +1183,6 @@ class Vpdn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vpd_ngroup is not None:
                 for child_ref in self.vpd_ngroup:
                     if child_ref._has_data():
@@ -1285,8 +1251,6 @@ class Vpdn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.option is not None:
                     return True
 
@@ -1307,8 +1271,6 @@ class Vpdn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.logging is not None:
                 for child_ref in self.logging:
                     if child_ref._has_data():
@@ -1410,8 +1372,6 @@ class Vpdn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.hierarchy is not None:
                         return True
 
@@ -1432,8 +1392,6 @@ class Vpdn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.space is not None and self.space._has_data():
                     return True
 
@@ -1454,8 +1412,6 @@ class Vpdn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.reassembly is not None:
                 return True
 
@@ -1482,8 +1438,6 @@ class Vpdn(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.caller_id is not None and self.caller_id._has_data():
             return True
 

@@ -13,10 +13,13 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'ErrorSeverityTypeEnum' : _MetaInfoEnum('ErrorSeverityTypeEnum', 'ydk.models.ietf.ietf_netconf',
+    'EditOperationTypeEnum' : _MetaInfoEnum('EditOperationTypeEnum', 'ydk.models.ietf.ietf_netconf',
         {
-            'error':'error',
-            'warning':'warning',
+            'merge':'merge',
+            'replace':'replace',
+            'create':'create',
+            'delete':'delete',
+            'remove':'remove',
         }, 'ietf-netconf', _yang_ns._namespaces['ietf-netconf']),
     'ErrorTagTypeEnum' : _MetaInfoEnum('ErrorTagTypeEnum', 'ydk.models.ietf.ietf_netconf',
         {
@@ -41,13 +44,10 @@ _meta_table = {
             'partial-operation':'partial_operation',
             'malformed-message':'malformed_message',
         }, 'ietf-netconf', _yang_ns._namespaces['ietf-netconf']),
-    'EditOperationTypeEnum' : _MetaInfoEnum('EditOperationTypeEnum', 'ydk.models.ietf.ietf_netconf',
+    'ErrorSeverityTypeEnum' : _MetaInfoEnum('ErrorSeverityTypeEnum', 'ydk.models.ietf.ietf_netconf',
         {
-            'merge':'merge',
-            'replace':'replace',
-            'create':'create',
-            'delete':'delete',
-            'remove':'remove',
+            'error':'error',
+            'warning':'warning',
         }, 'ietf-netconf', _yang_ns._namespaces['ietf-netconf']),
     'GetConfigRpc.Input.Source' : {
         'meta_info' : _MetaInfoClass('GetConfigRpc.Input.Source',

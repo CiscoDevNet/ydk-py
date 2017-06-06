@@ -120,8 +120,6 @@ class LocalRoutes(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             return False
 
         @staticmethod
@@ -154,8 +152,6 @@ class LocalRoutes(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             return False
 
         @staticmethod
@@ -303,8 +299,6 @@ class LocalRoutes(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.prefix is not None:
                         return True
 
@@ -381,8 +375,6 @@ class LocalRoutes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.prefix is not None:
                         return True
 
@@ -540,8 +532,6 @@ class LocalRoutes(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.index is not None:
                                 return True
 
@@ -635,8 +625,6 @@ class LocalRoutes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.index is not None:
                                 return True
 
@@ -730,8 +718,6 @@ class LocalRoutes(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface is not None:
                                     return True
 
@@ -790,8 +776,6 @@ class LocalRoutes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface is not None:
                                     return True
 
@@ -817,8 +801,6 @@ class LocalRoutes(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -846,8 +828,6 @@ class LocalRoutes(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.index is not None:
                             return True
 
@@ -879,8 +859,6 @@ class LocalRoutes(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.next_hop is not None:
                         for child_ref in self.next_hop:
                             if child_ref._has_data():
@@ -905,8 +883,6 @@ class LocalRoutes(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.prefix is not None:
                     return True
 
@@ -936,8 +912,6 @@ class LocalRoutes(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.static is not None:
                 for child_ref in self.static:
                     if child_ref._has_data():
@@ -1092,8 +1066,6 @@ class LocalRoutes(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.discard is not None:
                         return True
 
@@ -1182,8 +1154,6 @@ class LocalRoutes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.discard is not None:
                         return True
 
@@ -1212,8 +1182,6 @@ class LocalRoutes(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.prefix is not None:
                     return True
 
@@ -1240,8 +1208,6 @@ class LocalRoutes(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.aggregate is not None:
                 for child_ref in self.aggregate:
                     if child_ref._has_data():
@@ -1264,8 +1230,6 @@ class LocalRoutes(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.config is not None and self.config._has_data():
             return True
 

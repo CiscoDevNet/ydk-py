@@ -402,8 +402,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.processed_bytes is not None:
                                             return True
 
@@ -462,8 +460,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.terminated_bytes is not None:
                                             return True
 
@@ -489,8 +485,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.spi_si is not None and self.spi_si._has_data():
                                         return True
 
@@ -549,8 +543,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.processed_bytes is not None:
                                         return True
 
@@ -609,8 +601,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.terminated_bytes is not None:
                                         return True
 
@@ -669,8 +659,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.processed_bytes is not None:
                                         return True
 
@@ -729,8 +717,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.processed_bytes is not None:
                                         return True
 
@@ -807,8 +793,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.lookup_err_bytes is not None:
                                         return True
 
@@ -840,8 +824,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sf is not None and self.sf._has_data():
                                     return True
 
@@ -980,8 +962,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.processed_bytes is not None:
                                             return True
 
@@ -1040,8 +1020,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.terminated_bytes is not None:
                                             return True
 
@@ -1067,8 +1045,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.spi_si is not None and self.spi_si._has_data():
                                         return True
 
@@ -1097,8 +1073,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -1124,8 +1098,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.data is not None and self.data._has_data():
                                 return True
 
@@ -1309,8 +1281,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.processed_bytes is not None:
                                             return True
 
@@ -1369,8 +1339,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.terminated_bytes is not None:
                                             return True
 
@@ -1396,8 +1364,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.spi_si is not None and self.spi_si._has_data():
                                         return True
 
@@ -1456,8 +1422,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.processed_bytes is not None:
                                         return True
 
@@ -1516,8 +1480,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.terminated_bytes is not None:
                                         return True
 
@@ -1576,8 +1538,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.processed_bytes is not None:
                                         return True
 
@@ -1636,8 +1596,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.processed_bytes is not None:
                                         return True
 
@@ -1714,8 +1672,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.lookup_err_bytes is not None:
                                         return True
 
@@ -1747,8 +1703,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sf is not None and self.sf._has_data():
                                     return True
 
@@ -1887,8 +1841,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.processed_bytes is not None:
                                             return True
 
@@ -1947,8 +1899,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.terminated_bytes is not None:
                                             return True
 
@@ -1974,8 +1924,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.spi_si is not None and self.spi_si._has_data():
                                         return True
 
@@ -2004,8 +1952,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -2031,8 +1977,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.data is not None and self.data._has_data():
                                 return True
 
@@ -2060,8 +2004,6 @@ class GlobalServiceFunctionChaining(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detail is not None and self.detail._has_data():
                             return True
 
@@ -2274,8 +2216,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.processed_bytes is not None:
                                             return True
 
@@ -2334,8 +2274,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.terminated_bytes is not None:
                                             return True
 
@@ -2361,8 +2299,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.spi_si is not None and self.spi_si._has_data():
                                         return True
 
@@ -2421,8 +2357,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.processed_bytes is not None:
                                         return True
 
@@ -2481,8 +2415,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.terminated_bytes is not None:
                                         return True
 
@@ -2541,8 +2473,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.processed_bytes is not None:
                                         return True
 
@@ -2601,8 +2531,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.processed_bytes is not None:
                                         return True
 
@@ -2679,8 +2607,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.lookup_err_bytes is not None:
                                         return True
 
@@ -2712,8 +2638,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sf is not None and self.sf._has_data():
                                     return True
 
@@ -2852,8 +2776,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.processed_bytes is not None:
                                             return True
 
@@ -2912,8 +2834,6 @@ class GlobalServiceFunctionChaining(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.terminated_bytes is not None:
                                             return True
 
@@ -2939,8 +2859,6 @@ class GlobalServiceFunctionChaining(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.spi_si is not None and self.spi_si._has_data():
                                         return True
 
@@ -2969,8 +2887,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -2998,8 +2914,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.index is not None:
                                 return True
 
@@ -3030,8 +2944,6 @@ class GlobalServiceFunctionChaining(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.service_index is not None:
                             for child_ref in self.service_index:
                                 if child_ref._has_data():
@@ -3056,8 +2968,6 @@ class GlobalServiceFunctionChaining(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.id is not None:
                         return True
 
@@ -3084,8 +2994,6 @@ class GlobalServiceFunctionChaining(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.path_id is not None:
                     for child_ref in self.path_id:
                         if child_ref._has_data():
@@ -3108,8 +3016,6 @@ class GlobalServiceFunctionChaining(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.path_ids is not None and self.path_ids._has_data():
                 return True
 
@@ -3340,8 +3246,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.processed_bytes is not None:
                                     return True
 
@@ -3400,8 +3304,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.terminated_bytes is not None:
                                     return True
 
@@ -3427,8 +3329,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.spi_si is not None and self.spi_si._has_data():
                                 return True
 
@@ -3487,8 +3387,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.processed_bytes is not None:
                                 return True
 
@@ -3547,8 +3445,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.terminated_bytes is not None:
                                 return True
 
@@ -3607,8 +3503,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.processed_bytes is not None:
                                 return True
 
@@ -3667,8 +3561,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.processed_bytes is not None:
                                 return True
 
@@ -3745,8 +3637,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lookup_err_bytes is not None:
                                 return True
 
@@ -3778,8 +3668,6 @@ class GlobalServiceFunctionChaining(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sf is not None and self.sf._has_data():
                             return True
 
@@ -3918,8 +3806,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.processed_bytes is not None:
                                     return True
 
@@ -3978,8 +3864,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.terminated_bytes is not None:
                                     return True
 
@@ -4005,8 +3889,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.spi_si is not None and self.spi_si._has_data():
                                 return True
 
@@ -4035,8 +3917,6 @@ class GlobalServiceFunctionChaining(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.data is not None and self.data._has_data():
                             return True
 
@@ -4062,8 +3942,6 @@ class GlobalServiceFunctionChaining(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -4092,8 +3970,6 @@ class GlobalServiceFunctionChaining(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sf_name is not None:
                     for child_ref in self.sf_name:
                         if child_ref._has_data():
@@ -4116,8 +3992,6 @@ class GlobalServiceFunctionChaining(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sf_names is not None and self.sf_names._has_data():
                 return True
 
@@ -4355,8 +4229,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.processed_bytes is not None:
                                     return True
 
@@ -4415,8 +4287,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.terminated_bytes is not None:
                                     return True
 
@@ -4442,8 +4312,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.spi_si is not None and self.spi_si._has_data():
                                 return True
 
@@ -4502,8 +4370,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.processed_bytes is not None:
                                 return True
 
@@ -4562,8 +4428,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.terminated_bytes is not None:
                                 return True
 
@@ -4622,8 +4486,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.processed_bytes is not None:
                                 return True
 
@@ -4682,8 +4544,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.processed_bytes is not None:
                                 return True
 
@@ -4760,8 +4620,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lookup_err_bytes is not None:
                                 return True
 
@@ -4793,8 +4651,6 @@ class GlobalServiceFunctionChaining(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sf is not None and self.sf._has_data():
                             return True
 
@@ -4933,8 +4789,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.processed_bytes is not None:
                                     return True
 
@@ -4993,8 +4847,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.terminated_bytes is not None:
                                     return True
 
@@ -5020,8 +4872,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.spi_si is not None and self.spi_si._has_data():
                                 return True
 
@@ -5050,8 +4900,6 @@ class GlobalServiceFunctionChaining(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.data is not None and self.data._has_data():
                             return True
 
@@ -5077,8 +4925,6 @@ class GlobalServiceFunctionChaining(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -5107,8 +4953,6 @@ class GlobalServiceFunctionChaining(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sff_name is not None:
                     for child_ref in self.sff_name:
                         if child_ref._has_data():
@@ -5310,8 +5154,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.processed_bytes is not None:
                                     return True
 
@@ -5368,8 +5210,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.terminated_bytes is not None:
                                     return True
 
@@ -5393,8 +5233,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.spi_si is not None and self.spi_si._has_data():
                                 return True
 
@@ -5451,8 +5289,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.processed_bytes is not None:
                                 return True
 
@@ -5509,8 +5345,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.terminated_bytes is not None:
                                 return True
 
@@ -5567,8 +5401,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.processed_bytes is not None:
                                 return True
 
@@ -5625,8 +5457,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.processed_bytes is not None:
                                 return True
 
@@ -5701,8 +5531,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lookup_err_bytes is not None:
                                 return True
 
@@ -5732,8 +5560,6 @@ class GlobalServiceFunctionChaining(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sf is not None and self.sf._has_data():
                             return True
 
@@ -5870,8 +5696,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.processed_bytes is not None:
                                     return True
 
@@ -5928,8 +5752,6 @@ class GlobalServiceFunctionChaining(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.terminated_bytes is not None:
                                     return True
 
@@ -5953,8 +5775,6 @@ class GlobalServiceFunctionChaining(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.spi_si is not None and self.spi_si._has_data():
                                 return True
 
@@ -5981,8 +5801,6 @@ class GlobalServiceFunctionChaining(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.data is not None and self.data._has_data():
                             return True
 
@@ -6006,8 +5824,6 @@ class GlobalServiceFunctionChaining(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.data is not None and self.data._has_data():
                         return True
 
@@ -6033,8 +5849,6 @@ class GlobalServiceFunctionChaining(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.error is not None and self.error._has_data():
                     return True
 
@@ -6055,8 +5869,6 @@ class GlobalServiceFunctionChaining(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.local is not None and self.local._has_data():
                 return True
 
@@ -6080,8 +5892,6 @@ class GlobalServiceFunctionChaining(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.service_function is not None and self.service_function._has_data():
             return True
 

@@ -13,27 +13,27 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'RsvpBwCfgEnum' : _MetaInfoEnum('RsvpBwCfgEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg',
-        {
-            'absolute':'absolute',
-            'percentage':'percentage',
-        }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
     'RsvpBc0Enum' : _MetaInfoEnum('RsvpBc0Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg',
         {
             'bc0':'bc0',
             'global-pool':'global_pool',
             'not-specified':'not_specified',
         }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
-    'RsvpBc1Enum' : _MetaInfoEnum('RsvpBc1Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg',
+    'RsvpBwCfgEnum' : _MetaInfoEnum('RsvpBwCfgEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg',
         {
-            'bc1':'bc1',
-            'sub-pool':'sub_pool',
+            'absolute':'absolute',
+            'percentage':'percentage',
         }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
     'RsvpRdmEnum' : _MetaInfoEnum('RsvpRdmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg',
         {
             'rdm':'rdm',
             'not-specified':'not_specified',
             'use-default-bandwidth':'use_default_bandwidth',
+        }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
+    'RsvpBc1Enum' : _MetaInfoEnum('RsvpBc1Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg',
+        {
+            'bc1':'bc1',
+            'sub-pool':'sub_pool',
         }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
     'Rsvp.Neighbors.Neighbor.Authentication' : {
         'meta_info' : _MetaInfoClass('Rsvp.Neighbors.Neighbor.Authentication',
@@ -78,7 +78,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Neighbor IP address
                 ''',
                 'neighbor',
@@ -161,7 +161,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('controller-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of controller
                 ''',
                 'controller_name',
@@ -657,7 +657,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of interface
                 ''',
                 'name',

@@ -77,8 +77,6 @@ class Groups(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.group_name is not None:
                 return True
 
@@ -99,8 +97,6 @@ class Groups(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.group is not None:
             for child_ref in self.group:
                 if child_ref._has_data():
@@ -145,8 +141,6 @@ class ApplyGroups(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.apply_group is not None:
             return True
 

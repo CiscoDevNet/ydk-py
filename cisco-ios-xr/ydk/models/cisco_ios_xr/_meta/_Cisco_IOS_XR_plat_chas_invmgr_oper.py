@@ -13,21 +13,11 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'InvAdminStateEnum' : _MetaInfoEnum('InvAdminStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper',
+    'InvPowerAdminStateEnum' : _MetaInfoEnum('InvPowerAdminStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper',
         {
-            'admin-state-invalid':'admin_state_invalid',
-            'admin-up':'admin_up',
-            'admin-down':'admin_down',
-        }, 'Cisco-IOS-XR-plat-chas-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper']),
-    'InvResetReasonEnum' : _MetaInfoEnum('InvResetReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper',
-        {
-            'module-reset-reason-unknown':'module_reset_reason_unknown',
-            'module-reset-reason-powerup':'module_reset_reason_powerup',
-            'module-reset-reason-user-shutdown':'module_reset_reason_user_shutdown',
-            'module-reset-reason-user-reload':'module_reset_reason_user_reload',
-            'module-reset-reason-auto-reload':'module_reset_reason_auto_reload',
-            'module-reset-reason-environment':'module_reset_reason_environment',
-            'module-reset-reason-user-unpower':'module_reset_reason_user_unpower',
+            'admin-power-invalid':'admin_power_invalid',
+            'admin-on':'admin_on',
+            'admin-off':'admin_off',
         }, 'Cisco-IOS-XR-plat-chas-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper']),
     'InvCardStateEnum' : _MetaInfoEnum('InvCardStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper',
         {
@@ -75,6 +65,27 @@ _meta_table = {
         {
             'unmonitored':'unmonitored',
             'monitored':'monitored',
+        }, 'Cisco-IOS-XR-plat-chas-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper']),
+    'InvAdminStateEnum' : _MetaInfoEnum('InvAdminStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper',
+        {
+            'admin-state-invalid':'admin_state_invalid',
+            'admin-up':'admin_up',
+            'admin-down':'admin_down',
+        }, 'Cisco-IOS-XR-plat-chas-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper']),
+    'InvResetReasonEnum' : _MetaInfoEnum('InvResetReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper',
+        {
+            'module-reset-reason-unknown':'module_reset_reason_unknown',
+            'module-reset-reason-powerup':'module_reset_reason_powerup',
+            'module-reset-reason-user-shutdown':'module_reset_reason_user_shutdown',
+            'module-reset-reason-user-reload':'module_reset_reason_user_reload',
+            'module-reset-reason-auto-reload':'module_reset_reason_auto_reload',
+            'module-reset-reason-environment':'module_reset_reason_environment',
+            'module-reset-reason-user-unpower':'module_reset_reason_user_unpower',
+        }, 'Cisco-IOS-XR-plat-chas-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper']),
+    'CardRedundancyStateEnum' : _MetaInfoEnum('CardRedundancyStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper',
+        {
+            'active':'active',
+            'standby':'standby',
         }, 'Cisco-IOS-XR-plat-chas-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper']),
     'NodeStateEnum' : _MetaInfoEnum('NodeStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper',
         {
@@ -129,17 +140,6 @@ _meta_table = {
             'down':'down',
             'max':'max',
             'unknown':'unknown',
-        }, 'Cisco-IOS-XR-plat-chas-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper']),
-    'CardRedundancyStateEnum' : _MetaInfoEnum('CardRedundancyStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper',
-        {
-            'active':'active',
-            'standby':'standby',
-        }, 'Cisco-IOS-XR-plat-chas-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper']),
-    'InvPowerAdminStateEnum' : _MetaInfoEnum('InvPowerAdminStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper',
-        {
-            'admin-power-invalid':'admin_power_invalid',
-            'admin-on':'admin_on',
-            'admin-off':'admin_off',
         }, 'Cisco-IOS-XR-plat-chas-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper']),
     'Platform.Racks.Rack.Slots.Slot.Instances.Instance.State' : {
         'meta_info' : _MetaInfoClass('Platform.Racks.Rack.Slots.Slot.Instances.Instance.State',
@@ -345,7 +345,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('slot-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Slot name
                 ''',
                 'slot_name',
@@ -397,7 +397,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('rack-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Rack name
                 ''',
                 'rack_name',
@@ -1029,7 +1029,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Sensor name
                 ''',
                 'name',
@@ -1257,7 +1257,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                HW component name
                 ''',
                 'name',
@@ -1491,7 +1491,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Sensor name
                 ''',
                 'name',
@@ -1719,7 +1719,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Port name
                 ''',
                 'name',
@@ -1959,7 +1959,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Sensor name
                 ''',
                 'name',
@@ -2187,7 +2187,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Port slot name
                 ''',
                 'name',
@@ -2427,7 +2427,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Sensor name
                 ''',
                 'name',
@@ -2872,7 +2872,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Subslot name
                 ''',
                 'name',
@@ -3106,7 +3106,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Sensor name
                 ''',
                 'name',
@@ -3334,7 +3334,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                HW component name
                 ''',
                 'name',
@@ -3568,7 +3568,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Sensor name
                 ''',
                 'name',
@@ -3796,7 +3796,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Port name
                 ''',
                 'name',
@@ -4036,7 +4036,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Sensor name
                 ''',
                 'name',
@@ -4264,7 +4264,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Port slot name
                 ''',
                 'name',
@@ -4504,7 +4504,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Sensor name
                 ''',
                 'name',
@@ -4732,7 +4732,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                HW component name
                 ''',
                 'name',
@@ -4966,7 +4966,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Sensor name
                 ''',
                 'name',
@@ -5194,7 +5194,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Card name
                 ''',
                 'name',
@@ -5452,7 +5452,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Slot name
                 ''',
                 'name',
@@ -5686,7 +5686,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Rack name
                 ''',
                 'name',

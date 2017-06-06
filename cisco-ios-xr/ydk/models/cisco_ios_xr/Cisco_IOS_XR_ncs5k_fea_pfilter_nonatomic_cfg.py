@@ -103,8 +103,6 @@ class Hardware(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.atomic_disable is not None:
                 return True
 
@@ -125,8 +123,6 @@ class Hardware(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.access_list is not None and self.access_list._has_data():
             return True
 

@@ -310,7 +310,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('record-type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Record type
                 ''',
                 'record_type',

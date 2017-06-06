@@ -243,8 +243,6 @@ class EthernetFeatures(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.egress_filtering_default_on is not None:
                 return True
 
@@ -335,8 +333,6 @@ class EthernetFeatures(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.cache_size is not None:
                     return True
 
@@ -618,8 +614,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.enable is not None:
@@ -688,8 +682,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.ccm_interval is not None:
@@ -754,8 +746,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.ccm_learning_enable is not None:
@@ -843,8 +833,6 @@ class EthernetFeatures(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.ais_interval is not None:
@@ -872,8 +860,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.transmission is not None and self.transmission._has_data():
                                     return True
 
@@ -987,8 +973,6 @@ class EthernetFeatures(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.mep_id is not None:
                                             return True
 
@@ -1017,8 +1001,6 @@ class EthernetFeatures(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.cross_check_mep is not None:
                                         for child_ref in self.cross_check_mep:
                                             if child_ref._has_data():
@@ -1043,8 +1025,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.auto is not None:
                                     return True
 
@@ -1184,8 +1164,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.ce_id is not None:
@@ -1245,8 +1223,6 @@ class EthernetFeatures(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.service is not None:
                                 return True
 
@@ -1314,8 +1290,6 @@ class EthernetFeatures(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.service is not None:
                             for child_ref in self.service:
                                 if child_ref._has_data():
@@ -1393,8 +1367,6 @@ class EthernetFeatures(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -1429,8 +1401,6 @@ class EthernetFeatures(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain is not None:
                         return True
 
@@ -1457,8 +1427,6 @@ class EthernetFeatures(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.domain is not None:
                     for child_ref in self.domain:
                         if child_ref._has_data():
@@ -1481,8 +1449,6 @@ class EthernetFeatures(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.domains is not None and self.domains._has_data():
                 return True
 
@@ -1713,8 +1679,6 @@ class EthernetFeatures(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.capabilities_conflict is not None:
                             return True
 
@@ -1803,8 +1767,6 @@ class EthernetFeatures(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.link_monitoring is not None:
                             return True
 
@@ -1965,8 +1927,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.multiplier is not None:
@@ -2053,8 +2013,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.multiplier_high is not None:
                                     return True
 
@@ -2089,8 +2047,6 @@ class EthernetFeatures(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.threshold is not None and self.threshold._has_data():
                                 return True
 
@@ -2196,8 +2152,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.multiplier is not None:
@@ -2284,8 +2238,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.multiplier_high is not None:
                                     return True
 
@@ -2320,8 +2272,6 @@ class EthernetFeatures(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.threshold is not None and self.threshold._has_data():
                                 return True
 
@@ -2419,8 +2369,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.threshold_high is not None:
                                     return True
 
@@ -2446,8 +2394,6 @@ class EthernetFeatures(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.threshold is not None and self.threshold._has_data():
                                 return True
 
@@ -2554,8 +2500,6 @@ class EthernetFeatures(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.multiplier_high is not None:
                                     return True
 
@@ -2587,8 +2531,6 @@ class EthernetFeatures(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.threshold is not None and self.threshold._has_data():
                                 return True
 
@@ -2614,8 +2556,6 @@ class EthernetFeatures(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.frame is not None and self.frame._has_data():
                             return True
 
@@ -2650,8 +2590,6 @@ class EthernetFeatures(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profile is not None:
                         return True
 
@@ -2699,8 +2637,6 @@ class EthernetFeatures(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.profile is not None:
                     for child_ref in self.profile:
                         if child_ref._has_data():
@@ -2723,8 +2659,6 @@ class EthernetFeatures(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.profiles is not None and self.profiles._has_data():
                 return True
 
@@ -2745,8 +2679,6 @@ class EthernetFeatures(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.cfm is not None and self.cfm._has_data():
             return True
 

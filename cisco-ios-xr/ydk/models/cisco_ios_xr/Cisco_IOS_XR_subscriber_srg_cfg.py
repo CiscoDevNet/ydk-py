@@ -441,8 +441,6 @@ class SubscriberRedundancy(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -468,8 +466,6 @@ class SubscriberRedundancy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -517,16 +513,16 @@ class SubscriberRedundancy(object):
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
-                        .. attribute:: sub_interface_range_end  <key>
+                        .. attribute:: sub_interface_range_start  <key>
                         
-                        	Sub Interface End Range
+                        	Sub Interface Start Range
                         	**type**\:  int
                         
                         	**range:** 0..2147483647
                         
-                        .. attribute:: sub_interface_range_start  <key>
+                        .. attribute:: sub_interface_range_end  <key>
                         
-                        	Sub Interface Start Range
+                        	Sub Interface End Range
                         	**type**\:  int
                         
                         	**range:** 0..2147483647
@@ -555,8 +551,8 @@ class SubscriberRedundancy(object):
                         def __init__(self):
                             self.parent = None
                             self.interface_name = None
-                            self.sub_interface_range_end = None
                             self.sub_interface_range_start = None
+                            self.sub_interface_range_end = None
                             self.interface_id_range_end = None
                             self.interface_id_range_start = None
 
@@ -566,27 +562,25 @@ class SubscriberRedundancy(object):
                                 raise YPYModelError('parent is not set . Cannot derive path.')
                             if self.interface_name is None:
                                 raise YPYModelError('Key property interface_name is None')
-                            if self.sub_interface_range_end is None:
-                                raise YPYModelError('Key property sub_interface_range_end is None')
                             if self.sub_interface_range_start is None:
                                 raise YPYModelError('Key property sub_interface_range_start is None')
+                            if self.sub_interface_range_end is None:
+                                raise YPYModelError('Key property sub_interface_range_end is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-srg-cfg:interface-range[Cisco-IOS-XR-subscriber-srg-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-subscriber-srg-cfg:sub-interface-range-end = ' + str(self.sub_interface_range_end) + '][Cisco-IOS-XR-subscriber-srg-cfg:sub-interface-range-start = ' + str(self.sub_interface_range_start) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-srg-cfg:interface-range[Cisco-IOS-XR-subscriber-srg-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-subscriber-srg-cfg:sub-interface-range-start = ' + str(self.sub_interface_range_start) + '][Cisco-IOS-XR-subscriber-srg-cfg:sub-interface-range-end = ' + str(self.sub_interface_range_end) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
-                            if self.sub_interface_range_end is not None:
+                            if self.sub_interface_range_start is not None:
                                 return True
 
-                            if self.sub_interface_range_start is not None:
+                            if self.sub_interface_range_end is not None:
                                 return True
 
                             if self.interface_id_range_end is not None:
@@ -614,8 +608,6 @@ class SubscriberRedundancy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_range is not None:
                             for child_ref in self.interface_range:
                                 if child_ref._has_data():
@@ -640,8 +632,6 @@ class SubscriberRedundancy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enable is not None:
                         return True
 
@@ -737,8 +727,6 @@ class SubscriberRedundancy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address_family is not None:
                             return True
 
@@ -764,8 +752,6 @@ class SubscriberRedundancy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipaddress is not None and self.ipaddress._has_data():
                         return True
 
@@ -824,8 +810,6 @@ class SubscriberRedundancy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.max_value is not None:
                         return True
 
@@ -880,8 +864,6 @@ class SubscriberRedundancy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -991,8 +973,6 @@ class SubscriberRedundancy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address_family is not None:
                             return True
 
@@ -1108,8 +1088,6 @@ class SubscriberRedundancy(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address_family is not None:
                                 return True
 
@@ -1196,8 +1174,6 @@ class SubscriberRedundancy(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address_family is not None:
                                 return True
 
@@ -1229,8 +1205,6 @@ class SubscriberRedundancy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv6na_route is not None and self.ipv6na_route._has_data():
                             return True
 
@@ -1256,8 +1230,6 @@ class SubscriberRedundancy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipv4_route is not None and self.ipv4_route._has_data():
                         return True
 
@@ -1283,8 +1255,6 @@ class SubscriberRedundancy(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.group_id is not None:
                     return True
 
@@ -1353,8 +1323,6 @@ class SubscriberRedundancy(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.group is not None:
                 for child_ref in self.group:
                     if child_ref._has_data():
@@ -1410,8 +1378,6 @@ class SubscriberRedundancy(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.max_value is not None:
                 return True
 
@@ -1435,8 +1401,6 @@ class SubscriberRedundancy(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.enable is not None:
             return True
 

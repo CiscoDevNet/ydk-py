@@ -172,8 +172,6 @@ class SystemMonitoring(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.process_cpu_fifteen_minute is not None:
                     return True
 
@@ -208,8 +206,6 @@ class SystemMonitoring(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node_name is not None:
                 return True
 
@@ -244,8 +240,6 @@ class SystemMonitoring(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.cpu_utilization is not None:
             for child_ref in self.cpu_utilization:
                 if child_ref._has_data():

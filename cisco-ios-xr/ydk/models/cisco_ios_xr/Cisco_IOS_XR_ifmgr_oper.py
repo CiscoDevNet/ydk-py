@@ -398,8 +398,6 @@ class InterfaceDampening(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flaps is not None:
                             return True
 
@@ -515,8 +513,6 @@ class InterfaceDampening(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.flaps is not None:
                                 return True
 
@@ -551,8 +547,6 @@ class InterfaceDampening(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.capsulation_dampening is not None and self.capsulation_dampening._has_data():
                             return True
 
@@ -578,8 +572,6 @@ class InterfaceDampening(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.capsulation is not None:
                         for child_ref in self.capsulation:
                             if child_ref._has_data():
@@ -631,8 +623,6 @@ class InterfaceDampening(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -656,8 +646,6 @@ class InterfaceDampening(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -968,8 +956,6 @@ class InterfaceDampening(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.flaps is not None:
                                         return True
 
@@ -1085,8 +1071,6 @@ class InterfaceDampening(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.flaps is not None:
                                             return True
 
@@ -1121,8 +1105,6 @@ class InterfaceDampening(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.capsulation_dampening is not None and self.capsulation_dampening._has_data():
                                         return True
 
@@ -1150,8 +1132,6 @@ class InterfaceDampening(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_handle_name is not None:
                                     return True
 
@@ -1206,8 +1186,6 @@ class InterfaceDampening(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.if_handle is not None:
                                 for child_ref in self.if_handle:
                                     if child_ref._has_data():
@@ -1413,8 +1391,6 @@ class InterfaceDampening(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.flaps is not None:
                                         return True
 
@@ -1530,8 +1506,6 @@ class InterfaceDampening(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.flaps is not None:
                                             return True
 
@@ -1566,8 +1540,6 @@ class InterfaceDampening(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.capsulation_dampening is not None and self.capsulation_dampening._has_data():
                                         return True
 
@@ -1595,8 +1567,6 @@ class InterfaceDampening(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -1651,8 +1621,6 @@ class InterfaceDampening(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
@@ -1677,8 +1645,6 @@ class InterfaceDampening(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.if_handles is not None and self.if_handles._has_data():
                             return True
 
@@ -1704,8 +1670,6 @@ class InterfaceDampening(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dampening is not None and self.dampening._has_data():
                         return True
 
@@ -1728,8 +1692,6 @@ class InterfaceDampening(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -1753,8 +1715,6 @@ class InterfaceDampening(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -1777,8 +1737,6 @@ class InterfaceDampening(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 
@@ -2090,8 +2048,6 @@ class InterfaceProperties(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -2153,8 +2109,6 @@ class InterfaceProperties(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
@@ -2181,8 +2135,6 @@ class InterfaceProperties(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.locationview_name is not None:
                             return True
 
@@ -2208,8 +2160,6 @@ class InterfaceProperties(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.locationview is not None:
                         for child_ref in self.locationview:
                             if child_ref._has_data():
@@ -2431,8 +2381,6 @@ class InterfaceProperties(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -2494,8 +2442,6 @@ class InterfaceProperties(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
@@ -2522,8 +2468,6 @@ class InterfaceProperties(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pq_node_name is not None:
                             return True
 
@@ -2549,8 +2493,6 @@ class InterfaceProperties(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.pq_node_location is not None:
                         for child_ref in self.pq_node_location:
                             if child_ref._has_data():
@@ -2739,8 +2681,6 @@ class InterfaceProperties(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -2802,8 +2742,6 @@ class InterfaceProperties(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -2828,8 +2766,6 @@ class InterfaceProperties(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
@@ -2852,8 +2788,6 @@ class InterfaceProperties(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.data_node_name is not None:
                     return True
 
@@ -2883,8 +2817,6 @@ class InterfaceProperties(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.data_node is not None:
                 for child_ref in self.data_node:
                     if child_ref._has_data():
@@ -2907,8 +2839,6 @@ class InterfaceProperties(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.data_nodes is not None and self.data_nodes._has_data():
             return True
 

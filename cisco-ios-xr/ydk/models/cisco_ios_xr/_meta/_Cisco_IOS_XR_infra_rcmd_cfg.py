@@ -223,7 +223,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Specified location
                 ''',
                 'node_name',
@@ -264,7 +264,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['((([a-zA-Z0-9_]*\\d+)|(\\*))/){2}(([a-zA-Z0-9_]*\\d+)|(\\*))'], 
+                [], [b'((([a-zA-Z0-9_]*\\d+)|(\\*))/){2}(([a-zA-Z0-9_]*\\d+)|(\\*))'], 
                 '''                Wildcard expression(eg. */*/*, R/*/*, R/S/*,
                 R/S/I)
                 ''',

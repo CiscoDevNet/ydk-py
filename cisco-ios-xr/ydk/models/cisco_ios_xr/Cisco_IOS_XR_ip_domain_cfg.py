@@ -213,8 +213,6 @@ class IpDomain(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.host_name is not None:
                             return True
 
@@ -242,8 +240,6 @@ class IpDomain(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipv6_host is not None:
                         for child_ref in self.ipv6_host:
                             if child_ref._has_data():
@@ -336,8 +332,6 @@ class IpDomain(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.order is not None:
                             return True
 
@@ -363,8 +357,6 @@ class IpDomain(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.server is not None:
                         for child_ref in self.server:
                             if child_ref._has_data():
@@ -407,19 +399,19 @@ class IpDomain(object):
                     Domain name to complete unqualified host
                     names
                     
-                    .. attribute:: list_name  <key>
-                    
-                    	A domain name
-                    	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: order  <key>
                     
                     	This is used to sort the names in the order of precedence
                     	**type**\:  int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: list_name  <key>
+                    
+                    	A domain name
+                    	**type**\:  str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     
 
@@ -430,31 +422,29 @@ class IpDomain(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.list_name = None
                         self.order = None
+                        self.list_name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.list_name is None:
-                            raise YPYModelError('Key property list_name is None')
                         if self.order is None:
                             raise YPYModelError('Key property order is None')
+                        if self.list_name is None:
+                            raise YPYModelError('Key property list_name is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-cfg:list[Cisco-IOS-XR-ip-domain-cfg:list-name = ' + str(self.list_name) + '][Cisco-IOS-XR-ip-domain-cfg:order = ' + str(self.order) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-cfg:list[Cisco-IOS-XR-ip-domain-cfg:order = ' + str(self.order) + '][Cisco-IOS-XR-ip-domain-cfg:list-name = ' + str(self.list_name) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.list_name is not None:
+                        if self.order is not None:
                             return True
 
-                        if self.order is not None:
+                        if self.list_name is not None:
                             return True
 
                         return False
@@ -476,8 +466,6 @@ class IpDomain(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.list is not None:
                         for child_ref in self.list:
                             if child_ref._has_data():
@@ -558,8 +546,6 @@ class IpDomain(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.host_name is not None:
                             return True
 
@@ -587,8 +573,6 @@ class IpDomain(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipv4_host is not None:
                         for child_ref in self.ipv4_host:
                             if child_ref._has_data():
@@ -613,8 +597,6 @@ class IpDomain(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -659,8 +641,6 @@ class IpDomain(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -683,8 +663,6 @@ class IpDomain(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 

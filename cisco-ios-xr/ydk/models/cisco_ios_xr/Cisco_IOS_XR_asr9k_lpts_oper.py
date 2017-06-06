@@ -260,8 +260,6 @@ class PlatformLptspIfib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.accepted_stats is not None:
                             return True
 
@@ -320,8 +318,6 @@ class PlatformLptspIfib(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.police_info is not None:
                         for child_ref in self.police_info:
                             if child_ref._has_data():
@@ -393,8 +389,6 @@ class PlatformLptspIfib(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.accepted is not None:
                         return True
 
@@ -426,8 +420,6 @@ class PlatformLptspIfib(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -454,8 +446,6 @@ class PlatformLptspIfib(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -478,8 +468,6 @@ class PlatformLptspIfib(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

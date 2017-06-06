@@ -13,6 +13,38 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'VrrpVmacStateEnum' : _MetaInfoEnum('VrrpVmacStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
+        {
+            'stored':'stored',
+            'reserved':'reserved',
+            'active':'active',
+            'reserving':'reserving',
+        }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
+    'VrrpProtAuthEnum' : _MetaInfoEnum('VrrpProtAuthEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
+        {
+            'authentication-none':'authentication_none',
+            'authentication-text':'authentication_text',
+            'authentication-ip':'authentication_ip',
+        }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
+    'VrrpBAfEnum' : _MetaInfoEnum('VrrpBAfEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
+        {
+            'address-family-ipv4':'address_family_ipv4',
+            'address-family-ipv6':'address_family_ipv6',
+            'vrrp-baf-count':'vrrp_baf_count',
+        }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
+    'VrrpBfdSessionStateEnum' : _MetaInfoEnum('VrrpBfdSessionStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
+        {
+            'bfd-state-none':'bfd_state_none',
+            'bfd-state-inactive':'bfd_state_inactive',
+            'bfd-state-up':'bfd_state_up',
+            'bfd-state-down':'bfd_state_down',
+        }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
+    'VrrpBagProtocolStateEnum' : _MetaInfoEnum('VrrpBagProtocolStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
+        {
+            'state-initial':'state_initial',
+            'state-backup':'state_backup',
+            'state-master':'state_master',
+        }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
     'VrrpStateChangeReasonEnum' : _MetaInfoEnum('VrrpStateChangeReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
         {
             'state-change-bfd-down':'state_change_bfd_down',
@@ -29,42 +61,10 @@ _meta_table = {
             'state-change-chkpt-update':'state_change_chkpt_update',
             'state-change-issu-resync':'state_change_issu_resync',
         }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
-    'VrrpVmacStateEnum' : _MetaInfoEnum('VrrpVmacStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
-        {
-            'stored':'stored',
-            'reserved':'reserved',
-            'active':'active',
-            'reserving':'reserving',
-        }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
-    'VrrpBAfEnum' : _MetaInfoEnum('VrrpBAfEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
-        {
-            'address-family-ipv4':'address_family_ipv4',
-            'address-family-ipv6':'address_family_ipv6',
-            'vrrp-baf-count':'vrrp_baf_count',
-        }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
     'VrrpVipStateEnum' : _MetaInfoEnum('VrrpVipStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
         {
             'virtual-ip-state-down':'virtual_ip_state_down',
             'virtual-ip-state-up':'virtual_ip_state_up',
-        }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
-    'VrrpProtAuthEnum' : _MetaInfoEnum('VrrpProtAuthEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
-        {
-            'authentication-none':'authentication_none',
-            'authentication-text':'authentication_text',
-            'authentication-ip':'authentication_ip',
-        }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
-    'VrrpBfdSessionStateEnum' : _MetaInfoEnum('VrrpBfdSessionStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
-        {
-            'bfd-state-none':'bfd_state_none',
-            'bfd-state-inactive':'bfd_state_inactive',
-            'bfd-state-up':'bfd_state_up',
-            'bfd-state-down':'bfd_state_down',
-        }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
-    'VrrpBagProtocolStateEnum' : _MetaInfoEnum('VrrpBagProtocolStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
-        {
-            'state-initial':'state_initial',
-            'state-backup':'state_backup',
-            'state-master':'state_master',
         }, 'Cisco-IOS-XR-ipv4-vrrp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-oper']),
     'Vrrp.Summary' : {
         'meta_info' : _MetaInfoClass('Vrrp.Summary',
@@ -384,16 +384,10 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name to track
                 ''',
                 'interface_name',
-                'Cisco-IOS-XR-ipv4-vrrp-oper', True),
-            _MetaInfoClassMember('tracked-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                The name of the tracked interface
-                ''',
-                'tracked_interface_name',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', True),
             _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
@@ -401,8 +395,14 @@ _meta_table = {
                 ''',
                 'virtual_router_id',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', True),
+            _MetaInfoClassMember('tracked-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                The name of the tracked interface
+                ''',
+                'tracked_interface_name',
+                'Cisco-IOS-XR-ipv4-vrrp-oper', True),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                IM Interface
                 ''',
                 'interface',
@@ -512,7 +512,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPV6Address
                 ''',
                 'ipv6_address',
@@ -529,7 +529,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPV6Address
                 ''',
                 'ipv6_address',
@@ -604,7 +604,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -676,13 +676,13 @@ _meta_table = {
                 'authentication_type',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('bfd-cfg-remote-ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                BFD configured remote IP
                 ''',
                 'bfd_cfg_remote_ip',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('bfd-configured-remote-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                BFD configured remote IPv6
                 ''',
                 'bfd_configured_remote_ipv6_address',
@@ -754,13 +754,13 @@ _meta_table = {
                 'force_timer_flag',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('interface-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The Interface Primary IPv4 address
                 ''',
                 'interface_ipv4_address',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('interface-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                The Interface linklocal IPv6 address
                 ''',
                 'interface_ipv6_address',
@@ -790,7 +790,7 @@ _meta_table = {
                 'ip_address_owner_flag',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('ipv4-configured-down-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Configured but Down VRRP addresses
                 ''',
                 'ipv4_configured_down_address',
@@ -826,13 +826,13 @@ _meta_table = {
                 'master_count',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('master-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Master router real IP address
                 ''',
                 'master_ip_address',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('master-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Master router real IPv6 address
                 ''',
                 'master_ipv6_address',
@@ -856,7 +856,7 @@ _meta_table = {
                 'oper_advertize_time',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('operational-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Operational IPv4 VRRP addresses
                 ''',
                 'operational_address',
@@ -898,7 +898,7 @@ _meta_table = {
                 'primary_state',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('primary-virtual-ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configured IPv4 Primary address
                 ''',
                 'primary_virtual_ip',
@@ -1031,13 +1031,13 @@ _meta_table = {
                 'version',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('virtual-linklocal-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Virtual linklocal IPv6 address
                 ''',
                 'virtual_linklocal_ipv6_address',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('virtual-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Virtual mac address
                 ''',
                 'virtual_mac_address',
@@ -1089,13 +1089,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', True),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                IM Interface
                 ''',
                 'interface',
@@ -1182,13 +1182,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', True),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                IM Interface
                 ''',
                 'interface',
@@ -1246,16 +1246,10 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name to track
                 ''',
                 'interface_name',
-                'Cisco-IOS-XR-ipv4-vrrp-oper', True),
-            _MetaInfoClassMember('tracked-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                The name of the tracked interface
-                ''',
-                'tracked_interface_name',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', True),
             _MetaInfoClassMember('virtual-router-id', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
@@ -1263,8 +1257,14 @@ _meta_table = {
                 ''',
                 'virtual_router_id',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', True),
+            _MetaInfoClassMember('tracked-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                The name of the tracked interface
+                ''',
+                'tracked_interface_name',
+                'Cisco-IOS-XR-ipv4-vrrp-oper', True),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                IM Interface
                 ''',
                 'interface',
@@ -1374,7 +1374,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPV6Address
                 ''',
                 'ipv6_address',
@@ -1391,7 +1391,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPV6Address
                 ''',
                 'ipv6_address',
@@ -1466,7 +1466,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -1538,13 +1538,13 @@ _meta_table = {
                 'authentication_type',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('bfd-cfg-remote-ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                BFD configured remote IP
                 ''',
                 'bfd_cfg_remote_ip',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('bfd-configured-remote-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                BFD configured remote IPv6
                 ''',
                 'bfd_configured_remote_ipv6_address',
@@ -1616,13 +1616,13 @@ _meta_table = {
                 'force_timer_flag',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('interface-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The Interface Primary IPv4 address
                 ''',
                 'interface_ipv4_address',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('interface-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                The Interface linklocal IPv6 address
                 ''',
                 'interface_ipv6_address',
@@ -1652,7 +1652,7 @@ _meta_table = {
                 'ip_address_owner_flag',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('ipv4-configured-down-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Configured but Down VRRP addresses
                 ''',
                 'ipv4_configured_down_address',
@@ -1688,13 +1688,13 @@ _meta_table = {
                 'master_count',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('master-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Master router real IP address
                 ''',
                 'master_ip_address',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('master-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Master router real IPv6 address
                 ''',
                 'master_ipv6_address',
@@ -1718,7 +1718,7 @@ _meta_table = {
                 'oper_advertize_time',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('operational-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Operational IPv4 VRRP addresses
                 ''',
                 'operational_address',
@@ -1760,7 +1760,7 @@ _meta_table = {
                 'primary_state',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('primary-virtual-ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configured IPv4 Primary address
                 ''',
                 'primary_virtual_ip',
@@ -1893,13 +1893,13 @@ _meta_table = {
                 'version',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('virtual-linklocal-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Virtual linklocal IPv6 address
                 ''',
                 'virtual_linklocal_ipv6_address',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('virtual-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Virtual mac address
                 ''',
                 'virtual_mac_address',
@@ -2003,7 +2003,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('session-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                The name of the session
                 ''',
                 'session_name',
@@ -2015,7 +2015,7 @@ _meta_table = {
                 'primary_af_name',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('primary-session-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface of primary session
                 ''',
                 'primary_session_interface',

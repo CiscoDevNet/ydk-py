@@ -139,8 +139,6 @@ class Eem(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.library is not None:
                     return True
 
@@ -191,8 +189,6 @@ class Eem(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.library is not None:
                     return True
 
@@ -216,8 +212,6 @@ class Eem(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.library is not None and self.library._has_data():
                 return True
 
@@ -301,8 +295,6 @@ class Eem(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -329,8 +321,6 @@ class Eem(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.env_variable is not None:
                 for child_ref in self.env_variable:
                     if child_ref._has_data():
@@ -376,8 +366,6 @@ class Eem(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.refreshtime is not None:
                 return True
 
@@ -502,8 +490,6 @@ class Eem(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -551,8 +537,6 @@ class Eem(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.reg_policy is not None:
                 for child_ref in self.reg_policy:
                     if child_ref._has_data():
@@ -641,8 +625,6 @@ class Eem(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -672,8 +654,6 @@ class Eem(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.avl_policy is not None:
                 for child_ref in self.avl_policy:
                     if child_ref._has_data():
@@ -696,8 +676,6 @@ class Eem(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.avl_policies is not None and self.avl_policies._has_data():
             return True
 

@@ -901,8 +901,6 @@ class Otu(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.if_index is not None:
                             return True
 
@@ -959,8 +957,6 @@ class Otu(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.if_index is not None:
                             return True
 
@@ -1109,8 +1105,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dapi is not None:
                                 for child in self.dapi:
                                     if child is not None:
@@ -1199,8 +1193,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dapi is not None:
                                 for child in self.dapi:
                                     if child is not None:
@@ -1289,8 +1281,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dapi is not None:
                                 for child in self.dapi:
                                     if child is not None:
@@ -1328,8 +1318,6 @@ class Otu(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.exp is not None and self.exp._has_data():
                             return True
 
@@ -1433,8 +1421,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.set_id is not None:
                                 return True
 
@@ -1462,8 +1448,6 @@ class Otu(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srlg_info is not None:
                             for child_ref in self.srlg_info:
                                 if child_ref._has_data():
@@ -1663,8 +1647,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -1737,8 +1719,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -1811,8 +1791,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -1885,8 +1863,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -1959,8 +1935,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2033,8 +2007,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2107,8 +2079,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2181,8 +2151,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2255,8 +2223,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2329,8 +2295,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2403,8 +2367,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2477,8 +2439,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2551,8 +2511,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2625,8 +2583,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2699,8 +2655,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2773,8 +2727,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2847,8 +2799,6 @@ class Otu(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2880,8 +2830,6 @@ class Otu(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ais is not None and self.ais._has_data():
                             return True
 
@@ -3045,8 +2993,6 @@ class Otu(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config_sec_state is not None:
                             return True
 
@@ -3126,8 +3072,6 @@ class Otu(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.post_fec_ber is not None:
                             return True
 
@@ -3153,8 +3097,6 @@ class Otu(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auto_tti_flag is not None:
                         return True
 
@@ -3270,8 +3212,6 @@ class Otu(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.controller_name is not None:
                     return True
 
@@ -3295,8 +3235,6 @@ class Otu(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.controller is not None:
                 for child_ref in self.controller:
                     if child_ref._has_data():
@@ -3319,8 +3257,6 @@ class Otu(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.controllers is not None and self.controllers._has_data():
             return True
 

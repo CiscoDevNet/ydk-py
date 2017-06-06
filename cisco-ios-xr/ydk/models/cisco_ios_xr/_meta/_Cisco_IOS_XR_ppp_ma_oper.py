@@ -13,26 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'NcpIdentEnum' : _MetaInfoEnum('NcpIdentEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper',
-        {
-            'cdpcp':'cdpcp',
-            'ipcp':'ipcp',
-            'ipcpiw':'ipcpiw',
-            'ipv6cp':'ipv6cp',
-            'mplscp':'mplscp',
-            'osicp':'osicp',
-        }, 'Cisco-IOS-XR-ppp-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ppp-ma-oper']),
-    'PppSsoFsmStateEnum' : _MetaInfoEnum('PppSsoFsmStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper',
-        {
-            'ppp-sso-state-not-ready-0':'ppp_sso_state_not_ready_0',
-            'ppp-sso-state-standby-unnegd-1':'ppp_sso_state_standby_unnegd_1',
-            'ppp-sso-state-active-down-2':'ppp_sso_state_active_down_2',
-            'ppp-sso-state-deactivating-3':'ppp_sso_state_deactivating_3',
-            'ppp-sso-state-active-unnegd-4':'ppp_sso_state_active_unnegd_4',
-            'ppp-sso-state-standby-negd-5':'ppp_sso_state_standby_negd_5',
-            'ppp-sso-state-activating-6':'ppp_sso_state_activating_6',
-            'ppp-sso-state-active-negd-7':'ppp_sso_state_active_negd_7',
-        }, 'Cisco-IOS-XR-ppp-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ppp-ma-oper']),
     'PppIphcCompressionEnum' : _MetaInfoEnum('PppIphcCompressionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper',
         {
             'ppp-iphc-compression-fmt-none':'ppp_iphc_compression_fmt_none',
@@ -40,19 +20,6 @@ _meta_table = {
             'ppp-iphc-compression-fmt-ietf':'ppp_iphc_compression_fmt_ietf',
             'ppp-iphc-compression-fmt-iphc':'ppp_iphc_compression_fmt_iphc',
             'ppp-iphc-compression-fmt-cisco':'ppp_iphc_compression_fmt_cisco',
-        }, 'Cisco-IOS-XR-ppp-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ppp-ma-oper']),
-    'PppFsmStateEnum' : _MetaInfoEnum('PppFsmStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper',
-        {
-            'ppp-fsm-state-initial-0':'ppp_fsm_state_initial_0',
-            'ppp-fsm-state-starting-1':'ppp_fsm_state_starting_1',
-            'ppp-fsm-state-closed-2':'ppp_fsm_state_closed_2',
-            'ppp-fsm-state-stopped-3':'ppp_fsm_state_stopped_3',
-            'ppp-fsm-state-closing-4':'ppp_fsm_state_closing_4',
-            'ppp-fsm-state-stopping-5':'ppp_fsm_state_stopping_5',
-            'ppp-fsm-state-req-sent-6':'ppp_fsm_state_req_sent_6',
-            'ppp-fsm-state-ack-rcvd-7':'ppp_fsm_state_ack_rcvd_7',
-            'ppp-fsm-state-ack-sent-8':'ppp_fsm_state_ack_sent_8',
-            'ppp-fsm-state-opened-9':'ppp_fsm_state_opened_9',
         }, 'Cisco-IOS-XR-ppp-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ppp-ma-oper']),
     'PppLcpMpMbrStateEnum' : _MetaInfoEnum('PppLcpMpMbrStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper',
         {
@@ -70,6 +37,39 @@ _meta_table = {
             'ppp-lcp-mp-mbr-state-mcmp-peer-mismatch':'ppp_lcp_mp_mbr_state_mcmp_peer_mismatch',
             'ppp-lcp-mp-mbr-state-standby-up':'ppp_lcp_mp_mbr_state_standby_up',
             'ppp-lcp-mp-mbr-state-active':'ppp_lcp_mp_mbr_state_active',
+        }, 'Cisco-IOS-XR-ppp-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ppp-ma-oper']),
+    'PppSsoFsmStateEnum' : _MetaInfoEnum('PppSsoFsmStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper',
+        {
+            'ppp-sso-state-not-ready-0':'ppp_sso_state_not_ready_0',
+            'ppp-sso-state-standby-unnegd-1':'ppp_sso_state_standby_unnegd_1',
+            'ppp-sso-state-active-down-2':'ppp_sso_state_active_down_2',
+            'ppp-sso-state-deactivating-3':'ppp_sso_state_deactivating_3',
+            'ppp-sso-state-active-unnegd-4':'ppp_sso_state_active_unnegd_4',
+            'ppp-sso-state-standby-negd-5':'ppp_sso_state_standby_negd_5',
+            'ppp-sso-state-activating-6':'ppp_sso_state_activating_6',
+            'ppp-sso-state-active-negd-7':'ppp_sso_state_active_negd_7',
+        }, 'Cisco-IOS-XR-ppp-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ppp-ma-oper']),
+    'PppFsmStateEnum' : _MetaInfoEnum('PppFsmStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper',
+        {
+            'ppp-fsm-state-initial-0':'ppp_fsm_state_initial_0',
+            'ppp-fsm-state-starting-1':'ppp_fsm_state_starting_1',
+            'ppp-fsm-state-closed-2':'ppp_fsm_state_closed_2',
+            'ppp-fsm-state-stopped-3':'ppp_fsm_state_stopped_3',
+            'ppp-fsm-state-closing-4':'ppp_fsm_state_closing_4',
+            'ppp-fsm-state-stopping-5':'ppp_fsm_state_stopping_5',
+            'ppp-fsm-state-req-sent-6':'ppp_fsm_state_req_sent_6',
+            'ppp-fsm-state-ack-rcvd-7':'ppp_fsm_state_ack_rcvd_7',
+            'ppp-fsm-state-ack-sent-8':'ppp_fsm_state_ack_sent_8',
+            'ppp-fsm-state-opened-9':'ppp_fsm_state_opened_9',
+        }, 'Cisco-IOS-XR-ppp-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ppp-ma-oper']),
+    'NcpIdentEnum' : _MetaInfoEnum('NcpIdentEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper',
+        {
+            'cdpcp':'cdpcp',
+            'ipcp':'ipcp',
+            'ipcpiw':'ipcpiw',
+            'ipv6cp':'ipv6cp',
+            'mplscp':'mplscp',
+            'osicp':'osicp',
         }, 'Cisco-IOS-XR-ppp-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ppp-ma-oper']),
     'Ppp.Nodes.Node.Statistics.LcpStatistics' : {
         'meta_info' : _MetaInfoClass('Ppp.Nodes.Node.Statistics.LcpStatistics',
@@ -462,7 +462,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member Interface
                 ''',
                 'interface',
@@ -516,7 +516,7 @@ _meta_table = {
                 'minimum_active_links',
                 'Cisco-IOS-XR-ppp-ma-oper', False),
             _MetaInfoClassMember('mp-bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                MP Bundle Interface
                 ''',
                 'mp_bundle_interface',
@@ -751,13 +751,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dns-primary', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer DNS Primary
                 ''',
                 'dns_primary',
                 'Cisco-IOS-XR-ppp-ma-oper', False),
             _MetaInfoClassMember('dns-secondary', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer DNS Secondary
                 ''',
                 'dns_secondary',
@@ -769,7 +769,7 @@ _meta_table = {
                 'is_iphc_configured',
                 'Cisco-IOS-XR-ppp-ma-oper', False),
             _MetaInfoClassMember('local-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local IPv4 address
                 ''',
                 'local_address',
@@ -781,7 +781,7 @@ _meta_table = {
                 'local_iphc_options',
                 'Cisco-IOS-XR-ppp-ma-oper', False),
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer IPv4 address
                 ''',
                 'peer_address',
@@ -793,19 +793,19 @@ _meta_table = {
                 'peer_iphc_options',
                 'Cisco-IOS-XR-ppp-ma-oper', False),
             _MetaInfoClassMember('peer-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer IPv4 netmask
                 ''',
                 'peer_netmask',
                 'Cisco-IOS-XR-ppp-ma-oper', False),
             _MetaInfoClassMember('wins-primary', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer WINS Primary
                 ''',
                 'wins_primary',
                 'Cisco-IOS-XR-ppp-ma-oper', False),
             _MetaInfoClassMember('wins-secondary', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer WINS Secondary
                 ''',
                 'wins_secondary',
@@ -822,13 +822,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local IPv4 address
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-ppp-ma-oper', False),
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer IPv4 address
                 ''',
                 'peer_address',
@@ -845,13 +845,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local IPv6 address
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-ppp-ma-oper', False),
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer IPv6 address
                 ''',
                 'peer_address',
@@ -944,7 +944,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface running PPP
                 ''',
                 'interface',
@@ -1276,7 +1276,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface with SSO Alert
                 ''',
                 'interface',
@@ -1607,7 +1607,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface running PPP
                 ''',
                 'interface_name',
@@ -1886,7 +1886,7 @@ _meta_table = {
                 'session_id',
                 'Cisco-IOS-XR-ppp-ma-oper', True),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
@@ -2196,7 +2196,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The identifier for the node
                 ''',
                 'node_name',

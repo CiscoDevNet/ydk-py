@@ -180,8 +180,6 @@ class TrafficCollector(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -214,8 +212,6 @@ class TrafficCollector(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.external_interface is not None:
                 for child_ref in self.external_interface:
                     if child_ref._has_data():
@@ -371,8 +367,6 @@ class TrafficCollector(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.number_of_add_o_perations is not None:
                     return True
 
@@ -484,8 +478,6 @@ class TrafficCollector(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.number_of_add_o_perations is not None:
                         return True
 
@@ -562,8 +554,6 @@ class TrafficCollector(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.number_of_add_o_perations is not None:
                         return True
 
@@ -593,8 +583,6 @@ class TrafficCollector(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.database_statistics_ipv4 is not None and self.database_statistics_ipv4._has_data():
                     return True
 
@@ -688,8 +676,6 @@ class TrafficCollector(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.byte_received is not None:
                     return True
 
@@ -792,8 +778,6 @@ class TrafficCollector(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.byte_received is not None:
                     return True
 
@@ -829,8 +813,6 @@ class TrafficCollector(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.checkpoint_message_statistic is not None:
                 for child_ref in self.checkpoint_message_statistic:
                     if child_ref._has_data():
@@ -1201,8 +1183,6 @@ class TrafficCollector(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.event_end_timestamp is not None:
                                                 return True
 
@@ -1237,8 +1217,6 @@ class TrafficCollector(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.count_history is not None:
                                             for child_ref in self.count_history:
                                                 if child_ref._has_data():
@@ -1367,8 +1345,6 @@ class TrafficCollector(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.event_end_timestamp is not None:
                                                 return True
 
@@ -1403,8 +1379,6 @@ class TrafficCollector(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.count_history is not None:
                                             for child_ref in self.count_history:
                                                 if child_ref._has_data():
@@ -1435,8 +1409,6 @@ class TrafficCollector(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.base_counter_statistics is not None and self.base_counter_statistics._has_data():
                                         return True
 
@@ -1480,8 +1452,6 @@ class TrafficCollector(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     for child_ref in self.prefix:
                                         if child_ref._has_data():
@@ -1685,8 +1655,6 @@ class TrafficCollector(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.event_end_timestamp is not None:
                                                 return True
 
@@ -1721,8 +1689,6 @@ class TrafficCollector(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.count_history is not None:
                                             for child_ref in self.count_history:
                                                 if child_ref._has_data():
@@ -1755,8 +1721,6 @@ class TrafficCollector(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -1794,8 +1758,6 @@ class TrafficCollector(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.tunnel is not None:
                                     for child_ref in self.tunnel:
                                         if child_ref._has_data():
@@ -1820,8 +1782,6 @@ class TrafficCollector(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefixes is not None and self.prefixes._has_data():
                                 return True
 
@@ -1847,8 +1807,6 @@ class TrafficCollector(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af_name is not None:
                             return True
 
@@ -1872,8 +1830,6 @@ class TrafficCollector(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af is not None:
                         for child_ref in self.af:
                             if child_ref._has_data():
@@ -1896,8 +1852,6 @@ class TrafficCollector(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.afs is not None and self.afs._has_data():
                     return True
 
@@ -1918,8 +1872,6 @@ class TrafficCollector(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.default_vrf is not None and self.default_vrf._has_data():
                 return True
 
@@ -2216,8 +2168,6 @@ class TrafficCollector(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.event_end_timestamp is not None:
                                         return True
 
@@ -2252,8 +2202,6 @@ class TrafficCollector(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.count_history is not None:
                                     for child_ref in self.count_history:
                                         if child_ref._has_data():
@@ -2382,8 +2330,6 @@ class TrafficCollector(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.event_end_timestamp is not None:
                                         return True
 
@@ -2418,8 +2364,6 @@ class TrafficCollector(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.count_history is not None:
                                     for child_ref in self.count_history:
                                         if child_ref._has_data():
@@ -2450,8 +2394,6 @@ class TrafficCollector(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.base_counter_statistics is not None and self.base_counter_statistics._has_data():
                                 return True
 
@@ -2495,8 +2437,6 @@ class TrafficCollector(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix is not None:
                             for child_ref in self.prefix:
                                 if child_ref._has_data():
@@ -2700,8 +2640,6 @@ class TrafficCollector(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.event_end_timestamp is not None:
                                         return True
 
@@ -2736,8 +2674,6 @@ class TrafficCollector(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.count_history is not None:
                                     for child_ref in self.count_history:
                                         if child_ref._has_data():
@@ -2770,8 +2706,6 @@ class TrafficCollector(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -2809,8 +2743,6 @@ class TrafficCollector(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.tunnel is not None:
                             for child_ref in self.tunnel:
                                 if child_ref._has_data():
@@ -2835,8 +2767,6 @@ class TrafficCollector(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.prefixes is not None and self.prefixes._has_data():
                         return True
 
@@ -2862,8 +2792,6 @@ class TrafficCollector(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.af_name is not None:
                     return True
 
@@ -2887,8 +2815,6 @@ class TrafficCollector(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.af is not None:
                 for child_ref in self.af:
                     if child_ref._has_data():
@@ -2911,8 +2837,6 @@ class TrafficCollector(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.afs is not None and self.afs._has_data():
             return True
 

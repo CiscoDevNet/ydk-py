@@ -119,8 +119,6 @@ class FabVqiConfig(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.id1 is not None:
                     return True
 
@@ -147,8 +145,6 @@ class FabVqiConfig(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.operate is not None:
                 for child_ref in self.operate:
                     if child_ref._has_data():
@@ -171,8 +167,6 @@ class FabVqiConfig(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.operates is not None and self.operates._has_data():
             return True
 

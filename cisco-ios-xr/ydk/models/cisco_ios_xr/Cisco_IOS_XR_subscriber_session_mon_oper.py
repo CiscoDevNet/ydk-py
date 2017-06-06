@@ -228,8 +228,6 @@ class SessionMon(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active_sessions is not None:
                         return True
 
@@ -418,8 +416,6 @@ class SessionMon(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -475,8 +471,6 @@ class SessionMon(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_all_statistic is not None:
                         for child_ref in self.interface_all_statistic:
                             if child_ref._has_data():
@@ -604,8 +598,6 @@ class SessionMon(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active_sessions is not None:
                         return True
 
@@ -658,8 +650,6 @@ class SessionMon(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_id is not None:
                     return True
 
@@ -689,8 +679,6 @@ class SessionMon(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -713,8 +701,6 @@ class SessionMon(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

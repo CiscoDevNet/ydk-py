@@ -332,8 +332,6 @@ class Mfwd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -363,8 +361,6 @@ class Mfwd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.static_rpf_rule is not None:
                         for child_ref in self.static_rpf_rule:
                             if child_ref._has_data():
@@ -457,8 +453,6 @@ class Mfwd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -488,8 +482,6 @@ class Mfwd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -512,8 +504,6 @@ class Mfwd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.accounting is not None:
                     return True
 
@@ -770,8 +760,6 @@ class Mfwd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -801,8 +789,6 @@ class Mfwd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.static_rpf_rule is not None:
                         for child_ref in self.static_rpf_rule:
                             if child_ref._has_data():
@@ -895,8 +881,6 @@ class Mfwd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -926,8 +910,6 @@ class Mfwd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -950,8 +932,6 @@ class Mfwd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.accounting is not None:
                     return True
 
@@ -1008,8 +988,6 @@ class Mfwd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.ipv4 is not None and self.ipv4._has_data():
@@ -1256,8 +1234,6 @@ class Mfwd(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -1289,8 +1265,6 @@ class Mfwd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.static_rpf_rule is not None:
                             for child_ref in self.static_rpf_rule:
                                 if child_ref._has_data():
@@ -1385,8 +1359,6 @@ class Mfwd(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -1418,8 +1390,6 @@ class Mfwd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -1444,8 +1414,6 @@ class Mfwd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.accounting is not None:
                         return True
 
@@ -1645,8 +1613,6 @@ class Mfwd(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -1678,8 +1644,6 @@ class Mfwd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.static_rpf_rule is not None:
                             for child_ref in self.static_rpf_rule:
                                 if child_ref._has_data():
@@ -1774,8 +1738,6 @@ class Mfwd(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -1807,8 +1769,6 @@ class Mfwd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -1833,8 +1793,6 @@ class Mfwd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.accounting is not None:
                         return True
 
@@ -1875,8 +1833,6 @@ class Mfwd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -1903,8 +1859,6 @@ class Mfwd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -1927,8 +1881,6 @@ class Mfwd(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self._is_presence:
             return True
         if self.default_context is not None and self.default_context._has_data():

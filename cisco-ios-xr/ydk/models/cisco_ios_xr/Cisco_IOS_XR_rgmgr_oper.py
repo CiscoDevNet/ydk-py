@@ -160,8 +160,6 @@ class RedundancyGroupManager(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.controller_name is not None:
                     return True
 
@@ -203,8 +201,6 @@ class RedundancyGroupManager(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.controller is not None:
                 for child_ref in self.controller:
                     if child_ref._has_data():
@@ -227,8 +223,6 @@ class RedundancyGroupManager(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.controllers is not None and self.controllers._has_data():
             return True
 

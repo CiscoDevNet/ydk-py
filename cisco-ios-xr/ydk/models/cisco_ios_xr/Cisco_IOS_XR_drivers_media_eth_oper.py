@@ -3610,8 +3610,6 @@ class EthernetInterface(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -3797,8 +3795,6 @@ class EthernetInterface(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.statistic is not None:
                 for child_ref in self.statistic:
                     if child_ref._has_data():
@@ -4114,8 +4110,6 @@ class EthernetInterface(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.laser_bias_valid is not None:
                                 return True
 
@@ -4384,8 +4378,6 @@ class EthernetInterface(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.laser_bias_valid is not None:
                                     return True
 
@@ -4420,8 +4412,6 @@ class EthernetInterface(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.field_validity is not None and self.field_validity._has_data():
                                 return True
 
@@ -4549,8 +4539,6 @@ class EthernetInterface(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.laser_bias_current is not None:
                                 return True
 
@@ -4681,8 +4669,6 @@ class EthernetInterface(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.laser_bias_current is not None:
                                     return True
 
@@ -4711,8 +4697,6 @@ class EthernetInterface(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.center_wavelength is not None:
                                 return True
 
@@ -4750,8 +4734,6 @@ class EthernetInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dig_opt_mon_alarm_thresholds is not None and self.dig_opt_mon_alarm_thresholds._has_data():
                             return True
 
@@ -4849,8 +4831,6 @@ class EthernetInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.corrected_codeword_count is not None:
                             return True
 
@@ -4879,8 +4859,6 @@ class EthernetInterface(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.fec_details is not None and self.fec_details._has_data():
                         return True
 
@@ -5102,8 +5080,6 @@ class EthernetInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.autoneg_enabled is not None:
                             return True
 
@@ -5219,8 +5195,6 @@ class EthernetInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.hi_ber_alarm is not None:
                             return True
 
@@ -5345,8 +5319,6 @@ class EthernetInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.hi_ber_alarm is not None:
                             return True
 
@@ -5427,8 +5399,6 @@ class EthernetInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pcsbip_errors is not None:
                             return True
 
@@ -5539,8 +5509,6 @@ class EthernetInterface(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.signal_degrade_alarm is not None:
                                 return True
 
@@ -5575,8 +5543,6 @@ class EthernetInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.settings is not None and self.settings._has_data():
                             return True
 
@@ -5663,8 +5629,6 @@ class EthernetInterface(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.received_optical_power_degrade_threshold is not None:
                                 return True
 
@@ -5690,8 +5654,6 @@ class EthernetInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.settings is not None and self.settings._has_data():
                             return True
 
@@ -5766,8 +5728,6 @@ class EthernetInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.priority_enabled_bitmap is not None:
                             return True
 
@@ -5803,8 +5763,6 @@ class EthernetInterface(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.autoneg is not None and self.autoneg._has_data():
                         return True
 
@@ -5958,8 +5916,6 @@ class EthernetInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.unicast_mac_address is not None:
                             for child in self.unicast_mac_address:
                                 if child is not None:
@@ -6045,8 +6001,6 @@ class EthernetInterface(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mac_address is not None:
                                 return True
 
@@ -6072,8 +6026,6 @@ class EthernetInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.multicast_mac_address is not None:
                             for child_ref in self.multicast_mac_address:
                                 if child_ref._has_data():
@@ -6101,8 +6053,6 @@ class EthernetInterface(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.burned_in_mac_address is not None:
                         return True
 
@@ -6187,8 +6137,6 @@ class EthernetInterface(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ains_status is not None:
                         return True
 
@@ -6220,8 +6168,6 @@ class EthernetInterface(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -6260,8 +6206,6 @@ class EthernetInterface(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -6434,8 +6378,6 @@ class EthernetInterface(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bert_state_enabled is not None:
                         return True
 
@@ -6482,8 +6424,6 @@ class EthernetInterface(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -6513,8 +6453,6 @@ class EthernetInterface(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bert is not None:
                 for child_ref in self.bert:
                     if child_ref._has_data():
@@ -6537,8 +6475,6 @@ class EthernetInterface(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.berts is not None and self.berts._has_data():
             return True
 

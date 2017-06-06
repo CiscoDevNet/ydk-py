@@ -13,13 +13,12 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'SpaResetReasonEnum' : _MetaInfoEnum('SpaResetReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper',
+    'SpaOperStateEnum' : _MetaInfoEnum('SpaOperStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper',
         {
-            'spa-reset-reason-unknown':'spa_reset_reason_unknown',
-            'spa-reset-reason-manual':'spa_reset_reason_manual',
-            'spa-reset-reason-fpd-upgrade':'spa_reset_reason_fpd_upgrade',
-            'spa-reset-reason-audit-fail':'spa_reset_reason_audit_fail',
-            'spa-reset-reason-failure':'spa_reset_reason_failure',
+            'spa-state-reset':'spa_state_reset',
+            'spa-state-failed':'spa_state_failed',
+            'spa-state-booting':'spa_state_booting',
+            'spa-state-ready':'spa_state_ready',
         }, 'Cisco-IOS-XR-asr9k-lc-fca-oper', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-lc-fca-oper']),
     'SpaFailureReasonEnum' : _MetaInfoEnum('SpaFailureReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper',
         {
@@ -32,12 +31,13 @@ _meta_table = {
             'spa-failure-reason-check-fpd':'spa_failure_reason_check_fpd',
             'spa-failure-reason-read-type':'spa_failure_reason_read_type',
         }, 'Cisco-IOS-XR-asr9k-lc-fca-oper', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-lc-fca-oper']),
-    'SpaOperStateEnum' : _MetaInfoEnum('SpaOperStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper',
+    'SpaResetReasonEnum' : _MetaInfoEnum('SpaResetReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper',
         {
-            'spa-state-reset':'spa_state_reset',
-            'spa-state-failed':'spa_state_failed',
-            'spa-state-booting':'spa_state_booting',
-            'spa-state-ready':'spa_state_ready',
+            'spa-reset-reason-unknown':'spa_reset_reason_unknown',
+            'spa-reset-reason-manual':'spa_reset_reason_manual',
+            'spa-reset-reason-fpd-upgrade':'spa_reset_reason_fpd_upgrade',
+            'spa-reset-reason-audit-fail':'spa_reset_reason_audit_fail',
+            'spa-reset-reason-failure':'spa_reset_reason_failure',
         }, 'Cisco-IOS-XR-asr9k-lc-fca-oper', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-lc-fca-oper']),
     'MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo' : {
         'meta_info' : _MetaInfoClass('MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo',
@@ -115,7 +115,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('number', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ifsubsys number
                 ''',
                 'number',
@@ -178,7 +178,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                node number
                 ''',
                 'node',
@@ -367,7 +367,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                node number
                 ''',
                 'node',

@@ -99,27 +99,6 @@ class MatchSetOptionsTypeEnum(Enum):
 
 
 
-class InstallProtocolTypeIdentity(object):
-    """
-    Base type for protocols which can install prefixes into the
-    RIB
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['InstallProtocolTypeIdentity']['meta_info']
-
-
 class AttributeComparisonIdentity(object):
     """
     base type for supported comparison operators on route
@@ -141,9 +120,10 @@ class AttributeComparisonIdentity(object):
         return meta._meta_table['AttributeComparisonIdentity']['meta_info']
 
 
-class IsisIdentity(InstallProtocolTypeIdentity):
+class InstallProtocolTypeIdentity(object):
     """
-    IS\-IS
+    Base type for protocols which can install prefixes into the
+    RIB
     
     
 
@@ -153,12 +133,12 @@ class IsisIdentity(InstallProtocolTypeIdentity):
     _revision = '2015-10-09'
 
     def __init__(self):
-        InstallProtocolTypeIdentity.__init__(self)
+        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['IsisIdentity']['meta_info']
+        return meta._meta_table['InstallProtocolTypeIdentity']['meta_info']
 
 
 class AttributeLeIdentity(AttributeComparisonIdentity):
@@ -181,46 +161,6 @@ class AttributeLeIdentity(AttributeComparisonIdentity):
         return meta._meta_table['AttributeLeIdentity']['meta_info']
 
 
-class AttributeGeIdentity(AttributeComparisonIdentity):
-    """
-    >= comparison
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        AttributeComparisonIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['AttributeGeIdentity']['meta_info']
-
-
-class BgpIdentity(InstallProtocolTypeIdentity):
-    """
-    BGP
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        InstallProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['BgpIdentity']['meta_info']
-
-
 class DirectlyConnectedIdentity(InstallProtocolTypeIdentity):
     """
     A directly connected route
@@ -239,46 +179,6 @@ class DirectlyConnectedIdentity(InstallProtocolTypeIdentity):
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_policy_types as meta
         return meta._meta_table['DirectlyConnectedIdentity']['meta_info']
-
-
-class StaticIdentity(InstallProtocolTypeIdentity):
-    """
-    Locally\-installed static route
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        InstallProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['StaticIdentity']['meta_info']
-
-
-class LocalAggregateIdentity(InstallProtocolTypeIdentity):
-    """
-    Locally defined aggregate route
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        InstallProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
-        return meta._meta_table['LocalAggregateIdentity']['meta_info']
 
 
 class AttributeEqIdentity(AttributeComparisonIdentity):
@@ -301,6 +201,46 @@ class AttributeEqIdentity(AttributeComparisonIdentity):
         return meta._meta_table['AttributeEqIdentity']['meta_info']
 
 
+class BgpIdentity(InstallProtocolTypeIdentity):
+    """
+    BGP
+    
+    
+
+    """
+
+    _prefix = 'ptypes'
+    _revision = '2015-10-09'
+
+    def __init__(self):
+        InstallProtocolTypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
+        return meta._meta_table['BgpIdentity']['meta_info']
+
+
+class AttributeGeIdentity(AttributeComparisonIdentity):
+    """
+    >= comparison
+    
+    
+
+    """
+
+    _prefix = 'ptypes'
+    _revision = '2015-10-09'
+
+    def __init__(self):
+        AttributeComparisonIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
+        return meta._meta_table['AttributeGeIdentity']['meta_info']
+
+
 class OspfIdentity(InstallProtocolTypeIdentity):
     """
     OSPFv2
@@ -321,6 +261,46 @@ class OspfIdentity(InstallProtocolTypeIdentity):
         return meta._meta_table['OspfIdentity']['meta_info']
 
 
+class LocalAggregateIdentity(InstallProtocolTypeIdentity):
+    """
+    Locally defined aggregate route
+    
+    
+
+    """
+
+    _prefix = 'ptypes'
+    _revision = '2015-10-09'
+
+    def __init__(self):
+        InstallProtocolTypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
+        return meta._meta_table['LocalAggregateIdentity']['meta_info']
+
+
+class IsisIdentity(InstallProtocolTypeIdentity):
+    """
+    IS\-IS
+    
+    
+
+    """
+
+    _prefix = 'ptypes'
+    _revision = '2015-10-09'
+
+    def __init__(self):
+        InstallProtocolTypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
+        return meta._meta_table['IsisIdentity']['meta_info']
+
+
 class Ospf3Identity(InstallProtocolTypeIdentity):
     """
     OSPFv3
@@ -339,5 +319,25 @@ class Ospf3Identity(InstallProtocolTypeIdentity):
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_policy_types as meta
         return meta._meta_table['Ospf3Identity']['meta_info']
+
+
+class StaticIdentity(InstallProtocolTypeIdentity):
+    """
+    Locally\-installed static route
+    
+    
+
+    """
+
+    _prefix = 'ptypes'
+    _revision = '2015-10-09'
+
+    def __init__(self):
+        InstallProtocolTypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_policy_types as meta
+        return meta._meta_table['StaticIdentity']['meta_info']
 
 

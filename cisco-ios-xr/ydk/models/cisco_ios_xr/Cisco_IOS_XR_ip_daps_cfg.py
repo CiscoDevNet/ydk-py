@@ -316,8 +316,6 @@ class AddressPoolService(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.start_address is not None:
                                         return True
 
@@ -346,8 +344,6 @@ class AddressPoolService(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address_range is not None:
                                     for child_ref in self.address_range:
                                         if child_ref._has_data():
@@ -452,8 +448,6 @@ class AddressPoolService(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.start_address is not None:
                                         return True
 
@@ -479,8 +473,6 @@ class AddressPoolService(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.exclude is not None:
                                     for child_ref in self.exclude:
                                         if child_ref._has_data():
@@ -540,8 +532,6 @@ class AddressPoolService(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.high_mark is not None:
                                     return True
 
@@ -655,8 +645,6 @@ class AddressPoolService(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.start_prefix is not None:
                                         return True
 
@@ -685,8 +673,6 @@ class AddressPoolService(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix_range is not None:
                                     for child_ref in self.prefix_range:
                                         if child_ref._has_data():
@@ -787,8 +773,6 @@ class AddressPoolService(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -817,8 +801,6 @@ class AddressPoolService(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.network is not None:
                                     for child_ref in self.network:
                                         if child_ref._has_data():
@@ -845,8 +827,6 @@ class AddressPoolService(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv6_pool_name is not None:
                                 return True
 
@@ -887,8 +867,6 @@ class AddressPoolService(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pool is not None:
                             for child_ref in self.pool:
                                 if child_ref._has_data():
@@ -913,8 +891,6 @@ class AddressPoolService(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.pools is not None and self.pools._has_data():
                         return True
 
@@ -1111,8 +1087,6 @@ class AddressPoolService(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.start_address is not None:
                                         return True
 
@@ -1141,8 +1115,6 @@ class AddressPoolService(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address_range is not None:
                                     for child_ref in self.address_range:
                                         if child_ref._has_data():
@@ -1237,8 +1209,6 @@ class AddressPoolService(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.start_address is not None:
                                         return True
 
@@ -1264,8 +1234,6 @@ class AddressPoolService(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.exclude is not None:
                                     for child_ref in self.exclude:
                                         if child_ref._has_data():
@@ -1325,8 +1293,6 @@ class AddressPoolService(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.high is not None:
                                     return True
 
@@ -1436,8 +1402,6 @@ class AddressPoolService(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_prefix is not None:
                                         return True
 
@@ -1469,8 +1433,6 @@ class AddressPoolService(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.network is not None:
                                     for child_ref in self.network:
                                         if child_ref._has_data():
@@ -1497,8 +1459,6 @@ class AddressPoolService(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.pool_name is not None:
                                 return True
 
@@ -1533,8 +1493,6 @@ class AddressPoolService(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pool is not None:
                             for child_ref in self.pool:
                                 if child_ref._has_data():
@@ -1559,8 +1517,6 @@ class AddressPoolService(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.pools is not None and self.pools._has_data():
                         return True
 
@@ -1583,8 +1539,6 @@ class AddressPoolService(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -1611,8 +1565,6 @@ class AddressPoolService(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -1635,8 +1587,6 @@ class AddressPoolService(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 

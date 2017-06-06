@@ -329,8 +329,6 @@ class MacsecCtrlrOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.association_number is not None:
                                 return True
 
@@ -356,8 +354,6 @@ class MacsecCtrlrOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_association is not None:
                             for child_ref in self.active_association:
                                 if child_ref._has_data():
@@ -496,8 +492,6 @@ class MacsecCtrlrOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.association_number is not None:
                                 return True
 
@@ -523,8 +517,6 @@ class MacsecCtrlrOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_association is not None:
                             for child_ref in self.active_association:
                                 if child_ref._has_data():
@@ -567,8 +559,6 @@ class MacsecCtrlrOper(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.decrypt_sc_status is not None and self.decrypt_sc_status._has_data():
                         return True
 
@@ -606,8 +596,6 @@ class MacsecCtrlrOper(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -631,8 +619,6 @@ class MacsecCtrlrOper(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.macsec_ctrlr_port is not None:
                 for child_ref in self.macsec_ctrlr_port:
                     if child_ref._has_data():
@@ -655,8 +641,6 @@ class MacsecCtrlrOper(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.macsec_ctrlr_ports is not None and self.macsec_ctrlr_ports._has_data():
             return True
 

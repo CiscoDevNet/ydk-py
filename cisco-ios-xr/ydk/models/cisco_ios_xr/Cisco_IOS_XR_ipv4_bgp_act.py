@@ -702,8 +702,6 @@ class ClearBgpAllGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -738,8 +736,6 @@ class ClearBgpAllRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -821,8 +817,6 @@ class ClearBgpIpAddrGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -843,8 +837,6 @@ class ClearBgpIpAddrGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -929,8 +921,6 @@ class ClearBgpIpAddrLongLivedStaleRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -951,8 +941,6 @@ class ClearBgpIpAddrLongLivedStaleRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1036,8 +1024,6 @@ class ClearBgpIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -1058,8 +1044,6 @@ class ClearBgpIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1132,8 +1116,6 @@ class ClearBgpAfiSafiAllSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -1154,8 +1136,6 @@ class ClearBgpAfiSafiAllSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1227,8 +1207,6 @@ class ClearBgpAfiSafiAllSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -1249,8 +1227,6 @@ class ClearBgpAfiSafiAllSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1322,8 +1298,6 @@ class ClearBgpAfiSafiAllSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -1344,8 +1318,6 @@ class ClearBgpAfiSafiAllSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1416,8 +1388,6 @@ class ClearBgpAfiSafiAllSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -1438,8 +1408,6 @@ class ClearBgpAfiSafiAllSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1531,8 +1499,6 @@ class ClearBgpAfiSafiIpAddrLongLivedStaleRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -1556,8 +1522,6 @@ class ClearBgpAfiSafiIpAddrLongLivedStaleRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1651,8 +1615,6 @@ class ClearBgpAfiSafiIpAddrSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -1676,8 +1638,6 @@ class ClearBgpAfiSafiIpAddrSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1770,8 +1730,6 @@ class ClearBgpAfiSafiIpAddrSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -1795,8 +1753,6 @@ class ClearBgpAfiSafiIpAddrSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1889,8 +1845,6 @@ class ClearBgpAfiSafiIpAddrSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -1914,8 +1868,6 @@ class ClearBgpAfiSafiIpAddrSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2007,8 +1959,6 @@ class ClearBgpAfiSafiIpAddrSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -2032,8 +1982,6 @@ class ClearBgpAfiSafiIpAddrSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2138,8 +2086,6 @@ class ClearBgpAfiSafiAsSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -2163,8 +2109,6 @@ class ClearBgpAfiSafiAsSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2268,8 +2212,6 @@ class ClearBgpAfiSafiAsSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -2293,8 +2235,6 @@ class ClearBgpAfiSafiAsSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2398,8 +2338,6 @@ class ClearBgpAfiSafiAsSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -2423,8 +2361,6 @@ class ClearBgpAfiSafiAsSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2527,8 +2463,6 @@ class ClearBgpAfiSafiAsSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -2552,8 +2486,6 @@ class ClearBgpAfiSafiAsSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2645,8 +2577,6 @@ class ClearBgpAfiSafiDampeningIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -2670,8 +2600,6 @@ class ClearBgpAfiSafiDampeningIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2741,8 +2669,6 @@ class ClearBgpAfiSafiDampeningRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -2763,8 +2689,6 @@ class ClearBgpAfiSafiDampeningRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2837,8 +2761,6 @@ class ClearBgpAfiSafiExternalSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -2859,8 +2781,6 @@ class ClearBgpAfiSafiExternalSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2932,8 +2852,6 @@ class ClearBgpAfiSafiExternalSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -2954,8 +2872,6 @@ class ClearBgpAfiSafiExternalSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -3027,8 +2943,6 @@ class ClearBgpAfiSafiExternalSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -3049,8 +2963,6 @@ class ClearBgpAfiSafiExternalSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -3121,8 +3033,6 @@ class ClearBgpAfiSafiExternalSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -3143,8 +3053,6 @@ class ClearBgpAfiSafiExternalSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -3246,8 +3154,6 @@ class ClearBgpAfiSafiFlapStatisticsIpAddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -3274,8 +3180,6 @@ class ClearBgpAfiSafiFlapStatisticsIpAddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -3367,8 +3271,6 @@ class ClearBgpAfiSafiFlapStatisticsIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -3392,8 +3294,6 @@ class ClearBgpAfiSafiFlapStatisticsIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -3485,8 +3385,6 @@ class ClearBgpAfiSafiFlapStatisticsIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -3510,8 +3408,6 @@ class ClearBgpAfiSafiFlapStatisticsIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -3590,8 +3486,6 @@ class ClearBgpAfiSafiFlapStatisticsRegexpRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -3615,8 +3509,6 @@ class ClearBgpAfiSafiFlapStatisticsRegexpRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -3695,8 +3587,6 @@ class ClearBgpAfiSafiFlapStatisticsRoutePolicyRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -3720,8 +3610,6 @@ class ClearBgpAfiSafiFlapStatisticsRoutePolicyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -3791,8 +3679,6 @@ class ClearBgpAfiSafiFlapStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -3813,8 +3699,6 @@ class ClearBgpAfiSafiFlapStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -3885,8 +3769,6 @@ class ClearBgpAfiSafiNexthopPerformanceStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -3907,8 +3789,6 @@ class ClearBgpAfiSafiNexthopPerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -4001,8 +3881,6 @@ class ClearBgpAfiSafiNexthopRegistrationIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -4026,8 +3904,6 @@ class ClearBgpAfiSafiNexthopRegistrationIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -4097,8 +3973,6 @@ class ClearBgpAfiSafiSelfOriginatedRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -4119,8 +3993,6 @@ class ClearBgpAfiSafiSelfOriginatedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -4190,8 +4062,6 @@ class ClearBgpAfiSafiShutdownRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -4212,8 +4082,6 @@ class ClearBgpAfiSafiShutdownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -4286,8 +4154,6 @@ class ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -4308,8 +4174,6 @@ class ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -4381,8 +4245,6 @@ class ClearBgpAfiSafiUpdateOutqAddressFamilyRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -4403,8 +4265,6 @@ class ClearBgpAfiSafiUpdateOutqAddressFamilyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -4500,8 +4360,6 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -4525,8 +4383,6 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -4621,8 +4477,6 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -4646,8 +4500,6 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -4742,8 +4594,6 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -4767,8 +4617,6 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -4862,8 +4710,6 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -4887,8 +4733,6 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -4982,8 +4826,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -5010,8 +4852,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -5104,8 +4944,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -5132,8 +4970,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -5227,8 +5063,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParentRpc
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -5255,8 +5089,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParentRpc
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -5349,8 +5181,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -5377,8 +5207,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -5461,8 +5289,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -5486,8 +5312,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -5569,8 +5393,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -5594,8 +5416,6 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -5690,8 +5510,6 @@ class ClearBgpAsGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.as_number is not None:
                 return True
 
@@ -5712,8 +5530,6 @@ class ClearBgpAsGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -5807,8 +5623,6 @@ class ClearBgpAsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.as_number is not None:
                 return True
 
@@ -5829,8 +5643,6 @@ class ClearBgpAsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -5936,8 +5748,6 @@ class ClearBgpBestpathIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -5961,8 +5771,6 @@ class ClearBgpBestpathIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -6046,8 +5854,6 @@ class ClearBgpBestpathIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -6068,8 +5874,6 @@ class ClearBgpBestpathIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -6153,8 +5957,6 @@ class ClearBgpBestpathIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_prefix is not None:
                 return True
 
@@ -6175,8 +5977,6 @@ class ClearBgpBestpathIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -6290,8 +6090,6 @@ class ClearBgpBestpathAfiSafiIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -6318,8 +6116,6 @@ class ClearBgpBestpathAfiSafiIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -6411,8 +6207,6 @@ class ClearBgpBestpathAfiSafiIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -6436,8 +6230,6 @@ class ClearBgpBestpathAfiSafiIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -6529,8 +6321,6 @@ class ClearBgpBestpathAfiSafiIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -6554,8 +6344,6 @@ class ClearBgpBestpathAfiSafiIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -6678,8 +6466,6 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -6709,8 +6495,6 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -6811,8 +6595,6 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -6839,8 +6621,6 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -6941,8 +6721,6 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -6969,8 +6747,6 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -7123,8 +6899,6 @@ class ClearBgpBestpathAfiSafiRdIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -7154,8 +6928,6 @@ class ClearBgpBestpathAfiSafiRdIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -7286,8 +7058,6 @@ class ClearBgpBestpathAfiSafiRdIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -7314,8 +7084,6 @@ class ClearBgpBestpathAfiSafiRdIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -7446,8 +7214,6 @@ class ClearBgpBestpathAfiSafiRdIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -7474,8 +7240,6 @@ class ClearBgpBestpathAfiSafiRdIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -7565,8 +7329,6 @@ class ClearBgpBestpathAfiSafiIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -7593,8 +7355,6 @@ class ClearBgpBestpathAfiSafiIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -7674,8 +7434,6 @@ class ClearBgpBestpathAfiSafiIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -7699,8 +7457,6 @@ class ClearBgpBestpathAfiSafiIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -7780,8 +7536,6 @@ class ClearBgpBestpathAfiSafiIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -7805,8 +7559,6 @@ class ClearBgpBestpathAfiSafiIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -7925,8 +7677,6 @@ class ClearBgpBestpathAfiSafiRdIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -7953,8 +7703,6 @@ class ClearBgpBestpathAfiSafiRdIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -8043,8 +7791,6 @@ class ClearBgpBestpathAfiSafiVrfIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -8071,8 +7817,6 @@ class ClearBgpBestpathAfiSafiVrfIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -8150,8 +7894,6 @@ class ClearBgpBestpathAfiSafiNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -8175,8 +7917,6 @@ class ClearBgpBestpathAfiSafiNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -8293,8 +8033,6 @@ class ClearBgpBestpathAfiSafiRdNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -8321,8 +8059,6 @@ class ClearBgpBestpathAfiSafiRdNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -8409,8 +8145,6 @@ class ClearBgpBestpathAfiSafiVrfNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -8437,8 +8171,6 @@ class ClearBgpBestpathAfiSafiVrfNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -8516,8 +8248,6 @@ class ClearBgpBestpathAfiSafiRtConstraintNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -8541,8 +8271,6 @@ class ClearBgpBestpathAfiSafiRtConstraintNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -8620,8 +8348,6 @@ class ClearBgpBestpathAfiSafiIpv4TunnelNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -8645,8 +8371,6 @@ class ClearBgpBestpathAfiSafiIpv4TunnelNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -8736,8 +8460,6 @@ class ClearBgpBestpathAfiSafiIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -8764,8 +8486,6 @@ class ClearBgpBestpathAfiSafiIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -8845,8 +8565,6 @@ class ClearBgpBestpathAfiSafiIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -8870,8 +8588,6 @@ class ClearBgpBestpathAfiSafiIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -8951,8 +8667,6 @@ class ClearBgpBestpathAfiSafiIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -8976,8 +8690,6 @@ class ClearBgpBestpathAfiSafiIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -9086,8 +8798,6 @@ class ClearBgpBestpathAfiSafiRdRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -9111,8 +8821,6 @@ class ClearBgpBestpathAfiSafiRdRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -9191,8 +8899,6 @@ class ClearBgpBestpathAfiSafiVrfRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -9216,8 +8922,6 @@ class ClearBgpBestpathAfiSafiVrfRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -9287,8 +8991,6 @@ class ClearBgpBestpathAfiSafiRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -9309,8 +9011,6 @@ class ClearBgpBestpathAfiSafiRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -9388,8 +9088,6 @@ class ClearBgpBestpathAfiSafiSrPolicyPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -9413,8 +9111,6 @@ class ClearBgpBestpathAfiSafiSrPolicyPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -9503,8 +9199,6 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -9531,8 +9225,6 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -9651,8 +9343,6 @@ class ClearBgpBestpathAfiSafiRdIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -9679,8 +9369,6 @@ class ClearBgpBestpathAfiSafiRdIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -9769,8 +9457,6 @@ class ClearBgpBestpathAfiSafiMp2MpIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -9797,8 +9483,6 @@ class ClearBgpBestpathAfiSafiMp2MpIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -9887,8 +9571,6 @@ class ClearBgpBestpathAfiSafiVrfIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -9915,8 +9597,6 @@ class ClearBgpBestpathAfiSafiVrfIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -10045,8 +9725,6 @@ class ClearBgpBestpathAfiSafiRdIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -10076,8 +9754,6 @@ class ClearBgpBestpathAfiSafiRdIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -10176,8 +9852,6 @@ class ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -10207,8 +9881,6 @@ class ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -10337,8 +10009,6 @@ class ClearBgpBestpathAfiSafiRdIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -10368,8 +10038,6 @@ class ClearBgpBestpathAfiSafiRdIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -10488,8 +10156,6 @@ class ClearBgpBestpathAfiSafiRdIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -10516,8 +10182,6 @@ class ClearBgpBestpathAfiSafiRdIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -10636,8 +10300,6 @@ class ClearBgpBestpathAfiSafiRdIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -10664,8 +10326,6 @@ class ClearBgpBestpathAfiSafiRdIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -10764,8 +10424,6 @@ class ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -10795,8 +10453,6 @@ class ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -10885,8 +10541,6 @@ class ClearBgpBestpathAfiSafiVrfIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -10913,8 +10567,6 @@ class ClearBgpBestpathAfiSafiVrfIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -11003,8 +10655,6 @@ class ClearBgpBestpathAfiSafiVrfIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -11031,8 +10681,6 @@ class ClearBgpBestpathAfiSafiVrfIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -11157,8 +10805,6 @@ class ClearBgpBestpathVrfIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -11185,8 +10831,6 @@ class ClearBgpBestpathVrfIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -11289,8 +10933,6 @@ class ClearBgpBestpathVrfIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -11314,8 +10956,6 @@ class ClearBgpBestpathVrfIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -11418,8 +11058,6 @@ class ClearBgpBestpathVrfIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_prefix is not None:
                 return True
 
@@ -11443,8 +11081,6 @@ class ClearBgpBestpathVrfIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -11543,8 +11179,6 @@ class ClearBgpBestpathVrfAfiSafiIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -11571,8 +11205,6 @@ class ClearBgpBestpathVrfAfiSafiIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -11681,8 +11313,6 @@ class ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -11712,8 +11342,6 @@ class ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -11812,8 +11440,6 @@ class ClearBgpBestpathVrfAfiSafiIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -11840,8 +11466,6 @@ class ClearBgpBestpathVrfAfiSafiIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -11938,8 +11562,6 @@ class ClearBgpBestpathVrfAfiSafiNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -11966,8 +11588,6 @@ class ClearBgpBestpathVrfAfiSafiNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -12103,8 +11723,6 @@ class ClearBgpBestpathVrfAfiSafiRdNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -12134,8 +11752,6 @@ class ClearBgpBestpathVrfAfiSafiRdNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -12241,8 +11857,6 @@ class ClearBgpBestpathVrfAfiSafiVrfNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -12272,8 +11886,6 @@ class ClearBgpBestpathVrfAfiSafiVrfNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -12382,8 +11994,6 @@ class ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -12413,8 +12023,6 @@ class ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -12513,8 +12121,6 @@ class ClearBgpBestpathVrfAfiSafiIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -12541,8 +12147,6 @@ class ClearBgpBestpathVrfAfiSafiIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -12641,8 +12245,6 @@ class ClearBgpBestpathVrfAfiSafiIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -12669,8 +12271,6 @@ class ClearBgpBestpathVrfAfiSafiIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -12798,8 +12398,6 @@ class ClearBgpBestpathVrfAfiSafiRdRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -12826,8 +12424,6 @@ class ClearBgpBestpathVrfAfiSafiRdRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -12925,8 +12521,6 @@ class ClearBgpBestpathVrfAfiSafiVrfRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -12953,8 +12547,6 @@ class ClearBgpBestpathVrfAfiSafiVrfRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -13043,8 +12635,6 @@ class ClearBgpBestpathVrfAfiSafiRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -13068,8 +12658,6 @@ class ClearBgpBestpathVrfAfiSafiRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -13108,8 +12696,6 @@ class ClearBgpExternalGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -13144,8 +12730,6 @@ class ClearBgpExternalRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -13224,8 +12808,6 @@ class ClearBgpInstanceAllGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -13246,8 +12828,6 @@ class ClearBgpInstanceAllGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -13328,8 +12908,6 @@ class ClearBgpInstanceAllRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -13350,8 +12928,6 @@ class ClearBgpInstanceAllRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -13454,8 +13030,6 @@ class ClearBgpInstanceIpAddrGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -13479,8 +13053,6 @@ class ClearBgpInstanceIpAddrGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -13583,8 +13155,6 @@ class ClearBgpInstanceIpAddrLongLivedStaleRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -13608,8 +13178,6 @@ class ClearBgpInstanceIpAddrLongLivedStaleRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -13711,8 +13279,6 @@ class ClearBgpInstanceIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -13736,8 +13302,6 @@ class ClearBgpInstanceIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -13829,8 +13393,6 @@ class ClearBgpInstanceAfiSafiAllSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -13854,8 +13416,6 @@ class ClearBgpInstanceAfiSafiAllSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -13946,8 +13506,6 @@ class ClearBgpInstanceAfiSafiAllSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -13971,8 +13529,6 @@ class ClearBgpInstanceAfiSafiAllSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -14063,8 +13619,6 @@ class ClearBgpInstanceAfiSafiAllSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -14088,8 +13642,6 @@ class ClearBgpInstanceAfiSafiAllSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -14179,8 +13731,6 @@ class ClearBgpInstanceAfiSafiAllSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -14204,8 +13754,6 @@ class ClearBgpInstanceAfiSafiAllSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -14316,8 +13864,6 @@ class ClearBgpInstanceAfiSafiIpAddrLongLivedStaleRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -14344,8 +13890,6 @@ class ClearBgpInstanceAfiSafiIpAddrLongLivedStaleRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -14458,8 +14002,6 @@ class ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -14486,8 +14028,6 @@ class ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -14599,8 +14139,6 @@ class ClearBgpInstanceAfiSafiIpAddrSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -14627,8 +14165,6 @@ class ClearBgpInstanceAfiSafiIpAddrSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -14740,8 +14276,6 @@ class ClearBgpInstanceAfiSafiIpAddrSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -14768,8 +14302,6 @@ class ClearBgpInstanceAfiSafiIpAddrSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -14880,8 +14412,6 @@ class ClearBgpInstanceAfiSafiIpAddrSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -14908,8 +14438,6 @@ class ClearBgpInstanceAfiSafiIpAddrSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -15033,8 +14561,6 @@ class ClearBgpInstanceAfiSafiAsSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -15061,8 +14587,6 @@ class ClearBgpInstanceAfiSafiAsSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -15185,8 +14709,6 @@ class ClearBgpInstanceAfiSafiAsSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -15213,8 +14735,6 @@ class ClearBgpInstanceAfiSafiAsSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -15337,8 +14857,6 @@ class ClearBgpInstanceAfiSafiAsSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -15365,8 +14883,6 @@ class ClearBgpInstanceAfiSafiAsSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -15488,8 +15004,6 @@ class ClearBgpInstanceAfiSafiAsSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -15516,8 +15030,6 @@ class ClearBgpInstanceAfiSafiAsSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -15628,8 +15140,6 @@ class ClearBgpInstanceAfiSafiDampeningIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -15656,8 +15166,6 @@ class ClearBgpInstanceAfiSafiDampeningIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -15746,8 +15254,6 @@ class ClearBgpInstanceAfiSafiDampeningRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -15771,8 +15277,6 @@ class ClearBgpInstanceAfiSafiDampeningRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -15864,8 +15368,6 @@ class ClearBgpInstanceAfiSafiExternalSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -15889,8 +15391,6 @@ class ClearBgpInstanceAfiSafiExternalSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -15981,8 +15481,6 @@ class ClearBgpInstanceAfiSafiExternalSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -16006,8 +15504,6 @@ class ClearBgpInstanceAfiSafiExternalSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -16098,8 +15594,6 @@ class ClearBgpInstanceAfiSafiExternalSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -16123,8 +15617,6 @@ class ClearBgpInstanceAfiSafiExternalSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -16214,8 +15706,6 @@ class ClearBgpInstanceAfiSafiExternalSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -16239,8 +15729,6 @@ class ClearBgpInstanceAfiSafiExternalSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -16361,8 +15849,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -16392,8 +15878,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -16504,8 +15988,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -16532,8 +16014,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -16644,8 +16124,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -16672,8 +16150,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -16771,8 +16247,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRegexpRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -16799,8 +16273,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRegexpRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -16898,8 +16370,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicyRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -16926,8 +16396,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -17016,8 +16484,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -17041,8 +16507,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -17132,8 +16596,6 @@ class ClearBgpInstanceAfiSafiNexthopPerformanceStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -17157,8 +16619,6 @@ class ClearBgpInstanceAfiSafiNexthopPerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -17270,8 +16730,6 @@ class ClearBgpInstanceAfiSafiNexthopRegistrationIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -17298,8 +16756,6 @@ class ClearBgpInstanceAfiSafiNexthopRegistrationIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -17388,8 +16844,6 @@ class ClearBgpInstanceAfiSafiSelfOriginatedRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -17413,8 +16867,6 @@ class ClearBgpInstanceAfiSafiSelfOriginatedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -17503,8 +16955,6 @@ class ClearBgpInstanceAfiSafiShutdownRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -17528,8 +16978,6 @@ class ClearBgpInstanceAfiSafiShutdownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -17621,8 +17069,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -17646,8 +17092,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -17738,8 +17182,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -17763,8 +17205,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -17879,8 +17319,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(obje
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -17907,8 +17345,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(obje
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -18022,8 +17458,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -18050,8 +17484,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -18165,8 +17597,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -18193,8 +17623,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -18307,8 +17735,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -18335,8 +17761,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -18449,8 +17873,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -18480,8 +17902,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -18593,8 +18013,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -18624,8 +18042,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -18738,8 +18154,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateP
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -18769,8 +18183,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateP
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -18882,8 +18294,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(obj
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -18913,8 +18323,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(obj
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -19016,8 +18424,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -19044,8 +18450,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -19146,8 +18550,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -19174,8 +18576,6 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -19289,8 +18689,6 @@ class ClearBgpInstanceAsGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.as_number is not None:
                 return True
 
@@ -19314,8 +18712,6 @@ class ClearBgpInstanceAsGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -19428,8 +18824,6 @@ class ClearBgpInstanceAsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.as_number is not None:
                 return True
 
@@ -19453,8 +18847,6 @@ class ClearBgpInstanceAsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -19579,8 +18971,6 @@ class ClearBgpInstanceBestpathIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -19607,8 +18997,6 @@ class ClearBgpInstanceBestpathIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -19711,8 +19099,6 @@ class ClearBgpInstanceBestpathIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -19736,8 +19122,6 @@ class ClearBgpInstanceBestpathIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -19840,8 +19224,6 @@ class ClearBgpInstanceBestpathIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -19865,8 +19247,6 @@ class ClearBgpInstanceBestpathIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -19999,8 +19379,6 @@ class ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -20030,8 +19408,6 @@ class ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -20142,8 +19518,6 @@ class ClearBgpInstanceBestpathAfiSafiIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -20170,8 +19544,6 @@ class ClearBgpInstanceBestpathAfiSafiIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -20282,8 +19654,6 @@ class ClearBgpInstanceBestpathAfiSafiIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -20310,8 +19680,6 @@ class ClearBgpInstanceBestpathAfiSafiIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -20453,8 +19821,6 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -20487,8 +19853,6 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -20608,8 +19972,6 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -20639,8 +20001,6 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -20760,8 +20120,6 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -20791,8 +20149,6 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -20964,8 +20320,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -20998,8 +20352,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -21149,8 +20501,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -21180,8 +20530,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -21331,8 +20679,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -21362,8 +20708,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -21472,8 +20816,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -21503,8 +20845,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -21603,8 +20943,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -21631,8 +20969,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -21731,8 +21067,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -21759,8 +21093,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -21898,8 +21230,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -21929,8 +21259,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -22038,8 +21366,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -22069,8 +21395,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -22167,8 +21491,6 @@ class ClearBgpInstanceBestpathAfiSafiNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -22195,8 +21517,6 @@ class ClearBgpInstanceBestpathAfiSafiNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -22332,8 +21652,6 @@ class ClearBgpInstanceBestpathAfiSafiRdNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -22363,8 +21681,6 @@ class ClearBgpInstanceBestpathAfiSafiRdNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -22470,8 +21786,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -22501,8 +21815,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -22599,8 +21911,6 @@ class ClearBgpInstanceBestpathAfiSafiRtConstraintNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -22627,8 +21937,6 @@ class ClearBgpInstanceBestpathAfiSafiRtConstraintNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -22725,8 +22033,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -22753,8 +22059,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -22863,8 +22167,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -22894,8 +22196,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -22994,8 +22294,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -23022,8 +22320,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -23122,8 +22418,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -23150,8 +22444,6 @@ class ClearBgpInstanceBestpathAfiSafiIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -23279,8 +22571,6 @@ class ClearBgpInstanceBestpathAfiSafiRdRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -23307,8 +22597,6 @@ class ClearBgpInstanceBestpathAfiSafiRdRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -23406,8 +22694,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -23434,8 +22720,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -23524,8 +22808,6 @@ class ClearBgpInstanceBestpathAfiSafiRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -23549,8 +22831,6 @@ class ClearBgpInstanceBestpathAfiSafiRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -23647,8 +22927,6 @@ class ClearBgpInstanceBestpathAfiSafiSrPolicyPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -23675,8 +22953,6 @@ class ClearBgpInstanceBestpathAfiSafiSrPolicyPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -23784,8 +23060,6 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -23815,8 +23089,6 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -23954,8 +23226,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -23985,8 +23255,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -24094,8 +23362,6 @@ class ClearBgpInstanceBestpathAfiSafiMp2MpIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -24125,8 +23391,6 @@ class ClearBgpInstanceBestpathAfiSafiMp2MpIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -24234,8 +23498,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -24265,8 +23527,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -24414,8 +23674,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -24448,8 +23706,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -24567,8 +23823,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -24601,8 +23855,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -24750,8 +24002,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -24784,8 +24034,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -24923,8 +24171,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -24954,8 +24200,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -25093,8 +24337,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -25124,8 +24366,6 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -25243,8 +24483,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -25277,8 +24515,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -25386,8 +24622,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -25417,8 +24651,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -25526,8 +24758,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -25557,8 +24787,6 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -25702,8 +24930,6 @@ class ClearBgpInstanceBestpathVrfIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -25733,8 +24959,6 @@ class ClearBgpInstanceBestpathVrfIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -25856,8 +25080,6 @@ class ClearBgpInstanceBestpathVrfIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -25884,8 +25106,6 @@ class ClearBgpInstanceBestpathVrfIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -26007,8 +25227,6 @@ class ClearBgpInstanceBestpathVrfIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -26035,8 +25253,6 @@ class ClearBgpInstanceBestpathVrfIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -26154,8 +25370,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -26185,8 +25399,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -26314,8 +25526,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -26348,8 +25558,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -26467,8 +25675,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -26498,8 +25704,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -26615,8 +25819,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -26646,8 +25848,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -26802,8 +26002,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiRdNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -26836,8 +26034,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiRdNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -26962,8 +26158,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrfNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -26996,8 +26190,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrfNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -27125,8 +26317,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -27159,8 +26349,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -27278,8 +26466,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -27309,8 +26495,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -27428,8 +26612,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -27459,8 +26641,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -27607,8 +26787,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiRdRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -27638,8 +26816,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiRdRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -27756,8 +26932,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrfRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -27787,8 +26961,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrfRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -27896,8 +27068,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -27924,8 +27094,6 @@ class ClearBgpInstanceBestpathVrfAfiSafiRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -28007,8 +27175,6 @@ class ClearBgpInstanceExternalGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -28029,8 +27195,6 @@ class ClearBgpInstanceExternalGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -28111,8 +27275,6 @@ class ClearBgpInstanceExternalRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -28133,8 +27295,6 @@ class ClearBgpInstanceExternalRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -28233,8 +27393,6 @@ class ClearBgpInstanceAfiSafiDampeningIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -28261,8 +27419,6 @@ class ClearBgpInstanceAfiSafiDampeningIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -28361,8 +27517,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -28389,8 +27543,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -28489,8 +27641,6 @@ class ClearBgpInstanceAfiSafiDampeningIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -28517,8 +27667,6 @@ class ClearBgpInstanceAfiSafiDampeningIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -28617,8 +27765,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -28645,8 +27791,6 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -28728,8 +27872,6 @@ class ClearBgpInstanceNexthopPerformanceStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -28750,8 +27892,6 @@ class ClearBgpInstanceNexthopPerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -28855,8 +27995,6 @@ class ClearBgpInstanceNexthopRegistrationIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -28880,8 +28018,6 @@ class ClearBgpInstanceNexthopRegistrationIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -28963,8 +28099,6 @@ class ClearBgpInstancePeerDropsAllRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -28985,8 +28119,6 @@ class ClearBgpInstancePeerDropsAllRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -29089,8 +28221,6 @@ class ClearBgpInstancePeerDropsIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -29114,8 +28244,6 @@ class ClearBgpInstancePeerDropsIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -29196,8 +28324,6 @@ class ClearBgpInstancePerformanceStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -29218,8 +28344,6 @@ class ClearBgpInstancePerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -29303,8 +28427,6 @@ class ClearBgpInstanceRpkiServerAllSerialQueryRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -29325,8 +28447,6 @@ class ClearBgpInstanceRpkiServerAllSerialQueryRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -29409,8 +28529,6 @@ class ClearBgpInstanceRpkiServerAllRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -29431,8 +28549,6 @@ class ClearBgpInstanceRpkiServerAllRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -29522,8 +28638,6 @@ class ClearBgpInstanceRpkiServerRpkiServerRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -29547,8 +28661,6 @@ class ClearBgpInstanceRpkiServerRpkiServerRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -29631,8 +28743,6 @@ class ClearBgpInstanceRpkiValidationIpv4Rpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -29653,8 +28763,6 @@ class ClearBgpInstanceRpkiValidationIpv4Rpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -29737,8 +28845,6 @@ class ClearBgpInstanceRpkiValidationIpv6Rpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -29759,8 +28865,6 @@ class ClearBgpInstanceRpkiValidationIpv6Rpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -29842,8 +28946,6 @@ class ClearBgpInstanceRpkiValidationRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -29864,8 +28966,6 @@ class ClearBgpInstanceRpkiValidationRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -29946,8 +29046,6 @@ class ClearBgpInstanceShutdownRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -29968,8 +29066,6 @@ class ClearBgpInstanceShutdownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -30053,8 +29149,6 @@ class ClearBgpInstanceUpdateOutqAddressFamilyUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -30075,8 +29169,6 @@ class ClearBgpInstanceUpdateOutqAddressFamilyUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -30159,8 +29251,6 @@ class ClearBgpInstanceUpdateOutqAddressFamilyRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -30181,8 +29271,6 @@ class ClearBgpInstanceUpdateOutqAddressFamilyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -30289,8 +29377,6 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -30314,8 +29400,6 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -30421,8 +29505,6 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -30446,8 +29528,6 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -30553,8 +29633,6 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -30578,8 +29656,6 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -30684,8 +29760,6 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -30709,8 +29783,6 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -30793,8 +29865,6 @@ class ClearBgpInstanceUpdateOutqProcessRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -30815,8 +29885,6 @@ class ClearBgpInstanceUpdateOutqProcessRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -30921,8 +29989,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -30949,8 +30015,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -31054,8 +30118,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -31082,8 +30144,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -31188,8 +30248,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParentRp
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -31216,8 +30274,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParentRp
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -31321,8 +30377,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -31349,8 +30403,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -31444,8 +30496,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -31469,8 +30519,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -31563,8 +30611,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -31588,8 +30634,6 @@ class ClearBgpInstanceUpdateOutqUpdateGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -31714,8 +30758,6 @@ class ClearBgpInstanceVersionIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -31742,8 +30784,6 @@ class ClearBgpInstanceVersionIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -31846,8 +30886,6 @@ class ClearBgpInstanceVersionIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -31871,8 +30909,6 @@ class ClearBgpInstanceVersionIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -31975,8 +31011,6 @@ class ClearBgpInstanceVersionIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -32000,8 +31034,6 @@ class ClearBgpInstanceVersionIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -32134,8 +31166,6 @@ class ClearBgpInstanceVersionAfiSafiIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -32165,8 +31195,6 @@ class ClearBgpInstanceVersionAfiSafiIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -32277,8 +31305,6 @@ class ClearBgpInstanceVersionAfiSafiIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -32305,8 +31331,6 @@ class ClearBgpInstanceVersionAfiSafiIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -32417,8 +31441,6 @@ class ClearBgpInstanceVersionAfiSafiIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -32445,8 +31467,6 @@ class ClearBgpInstanceVersionAfiSafiIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -32588,8 +31608,6 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -32622,8 +31640,6 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -32743,8 +31759,6 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -32774,8 +31788,6 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -32895,8 +31907,6 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -32926,8 +31936,6 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -33099,8 +32107,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -33133,8 +32139,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -33284,8 +32288,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -33315,8 +32317,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -33466,8 +32466,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -33497,8 +32495,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -33607,8 +32603,6 @@ class ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -33638,8 +32632,6 @@ class ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -33738,8 +32730,6 @@ class ClearBgpInstanceVersionAfiSafiIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -33766,8 +32756,6 @@ class ClearBgpInstanceVersionAfiSafiIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -33866,8 +32854,6 @@ class ClearBgpInstanceVersionAfiSafiIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -33894,8 +32880,6 @@ class ClearBgpInstanceVersionAfiSafiIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -34033,8 +33017,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -34064,8 +33046,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -34173,8 +33153,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -34204,8 +33182,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -34302,8 +33278,6 @@ class ClearBgpInstanceVersionAfiSafiNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -34330,8 +33304,6 @@ class ClearBgpInstanceVersionAfiSafiNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -34467,8 +33439,6 @@ class ClearBgpInstanceVersionAfiSafiRdNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -34498,8 +33468,6 @@ class ClearBgpInstanceVersionAfiSafiRdNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -34605,8 +33573,6 @@ class ClearBgpInstanceVersionAfiSafiVrfNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -34636,8 +33602,6 @@ class ClearBgpInstanceVersionAfiSafiVrfNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -34734,8 +33698,6 @@ class ClearBgpInstanceVersionAfiSafiRtConstraintNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -34762,8 +33724,6 @@ class ClearBgpInstanceVersionAfiSafiRtConstraintNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -34860,8 +33820,6 @@ class ClearBgpInstanceVersionAfiSafiIpv4TunnelNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -34888,8 +33846,6 @@ class ClearBgpInstanceVersionAfiSafiIpv4TunnelNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -34998,8 +33954,6 @@ class ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -35029,8 +33983,6 @@ class ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -35129,8 +34081,6 @@ class ClearBgpInstanceVersionAfiSafiIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -35157,8 +34107,6 @@ class ClearBgpInstanceVersionAfiSafiIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -35257,8 +34205,6 @@ class ClearBgpInstanceVersionAfiSafiIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -35285,8 +34231,6 @@ class ClearBgpInstanceVersionAfiSafiIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -35414,8 +34358,6 @@ class ClearBgpInstanceVersionAfiSafiRdRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -35442,8 +34384,6 @@ class ClearBgpInstanceVersionAfiSafiRdRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -35541,8 +34481,6 @@ class ClearBgpInstanceVersionAfiSafiVrfRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -35569,8 +34507,6 @@ class ClearBgpInstanceVersionAfiSafiVrfRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -35659,8 +34595,6 @@ class ClearBgpInstanceVersionAfiSafiRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -35684,8 +34618,6 @@ class ClearBgpInstanceVersionAfiSafiRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -35782,8 +34714,6 @@ class ClearBgpInstanceVersionAfiSafiSrPolicyPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -35810,8 +34740,6 @@ class ClearBgpInstanceVersionAfiSafiSrPolicyPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -35919,8 +34847,6 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -35950,8 +34876,6 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -36089,8 +35013,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -36120,8 +35042,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -36229,8 +35149,6 @@ class ClearBgpInstanceVersionAfiSafiMp2MpIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -36260,8 +35178,6 @@ class ClearBgpInstanceVersionAfiSafiMp2MpIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -36369,8 +35285,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -36400,8 +35314,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -36549,8 +35461,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -36583,8 +35493,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -36702,8 +35610,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -36736,8 +35642,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -36885,8 +35789,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -36919,8 +35821,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -37058,8 +35958,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -37089,8 +35987,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -37228,8 +36124,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -37259,8 +36153,6 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -37378,8 +36270,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -37412,8 +36302,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -37521,8 +36409,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -37552,8 +36438,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -37661,8 +36545,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -37692,8 +36574,6 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -37837,8 +36717,6 @@ class ClearBgpInstanceVersionVrfIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -37868,8 +36746,6 @@ class ClearBgpInstanceVersionVrfIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -37991,8 +36867,6 @@ class ClearBgpInstanceVersionVrfIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -38019,8 +36893,6 @@ class ClearBgpInstanceVersionVrfIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -38142,8 +37014,6 @@ class ClearBgpInstanceVersionVrfIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -38170,8 +37040,6 @@ class ClearBgpInstanceVersionVrfIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -38289,8 +37157,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -38320,8 +37186,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -38449,8 +37313,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -38483,8 +37345,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -38602,8 +37462,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -38633,8 +37491,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -38750,8 +37606,6 @@ class ClearBgpInstanceVersionVrfAfiSafiNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -38781,8 +37635,6 @@ class ClearBgpInstanceVersionVrfAfiSafiNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -38937,8 +37789,6 @@ class ClearBgpInstanceVersionVrfAfiSafiRdNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -38971,8 +37821,6 @@ class ClearBgpInstanceVersionVrfAfiSafiRdNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -39097,8 +37945,6 @@ class ClearBgpInstanceVersionVrfAfiSafiVrfNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -39131,8 +37977,6 @@ class ClearBgpInstanceVersionVrfAfiSafiVrfNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -39260,8 +38104,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -39294,8 +38136,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -39413,8 +38253,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -39444,8 +38282,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -39563,8 +38399,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -39594,8 +38428,6 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -39742,8 +38574,6 @@ class ClearBgpInstanceVersionVrfAfiSafiRdRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -39773,8 +38603,6 @@ class ClearBgpInstanceVersionVrfAfiSafiRdRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -39891,8 +38719,6 @@ class ClearBgpInstanceVersionVrfAfiSafiVrfRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -39922,8 +38748,6 @@ class ClearBgpInstanceVersionVrfAfiSafiVrfRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -40031,8 +38855,6 @@ class ClearBgpInstanceVersionVrfAfiSafiRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -40059,8 +38881,6 @@ class ClearBgpInstanceVersionVrfAfiSafiRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -40161,8 +38981,6 @@ class ClearBgpInstanceVrfAllGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -40186,8 +39004,6 @@ class ClearBgpInstanceVrfAllGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -40287,8 +39103,6 @@ class ClearBgpInstanceVrfAllRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -40312,8 +39126,6 @@ class ClearBgpInstanceVrfAllRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -40435,8 +39247,6 @@ class ClearBgpInstanceVrfIpAddrGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -40463,8 +39273,6 @@ class ClearBgpInstanceVrfIpAddrGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -40586,8 +39394,6 @@ class ClearBgpInstanceVrfIpAddrLongLivedStaleRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -40614,8 +39420,6 @@ class ClearBgpInstanceVrfIpAddrLongLivedStaleRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -40736,8 +39540,6 @@ class ClearBgpInstanceVrfIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -40764,8 +39566,6 @@ class ClearBgpInstanceVrfIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -40898,8 +39698,6 @@ class ClearBgpInstanceVrfAsGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.as_number is not None:
                 return True
 
@@ -40926,8 +39724,6 @@ class ClearBgpInstanceVrfAsGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -41059,8 +39855,6 @@ class ClearBgpInstanceVrfAsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.as_number is not None:
                 return True
 
@@ -41087,8 +39881,6 @@ class ClearBgpInstanceVrfAsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -41189,8 +39981,6 @@ class ClearBgpInstanceVrfExternalGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -41214,8 +40004,6 @@ class ClearBgpInstanceVrfExternalGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -41315,8 +40103,6 @@ class ClearBgpInstanceVrfExternalRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -41340,8 +40126,6 @@ class ClearBgpInstanceVrfExternalRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -41452,8 +40236,6 @@ class ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -41480,8 +40262,6 @@ class ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -41591,8 +40371,6 @@ class ClearBgpInstanceVrfAfiSafiAllSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -41619,8 +40397,6 @@ class ClearBgpInstanceVrfAfiSafiAllSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -41730,8 +40506,6 @@ class ClearBgpInstanceVrfAfiSafiAllSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -41758,8 +40532,6 @@ class ClearBgpInstanceVrfAfiSafiAllSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -41868,8 +40640,6 @@ class ClearBgpInstanceVrfAfiSafiAllSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -41896,8 +40666,6 @@ class ClearBgpInstanceVrfAfiSafiAllSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -42027,8 +40795,6 @@ class ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStaleRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -42058,8 +40824,6 @@ class ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStaleRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -42191,8 +40955,6 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -42222,8 +40984,6 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -42354,8 +41114,6 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -42385,8 +41143,6 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -42517,8 +41273,6 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -42548,8 +41302,6 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -42679,8 +41431,6 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -42710,8 +41460,6 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -42854,8 +41602,6 @@ class ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -42885,8 +41631,6 @@ class ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -43028,8 +41772,6 @@ class ClearBgpInstanceVrfAfiSafiAsSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -43059,8 +41801,6 @@ class ClearBgpInstanceVrfAfiSafiAsSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -43202,8 +41942,6 @@ class ClearBgpInstanceVrfAfiSafiAsSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -43233,8 +41971,6 @@ class ClearBgpInstanceVrfAfiSafiAsSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -43375,8 +42111,6 @@ class ClearBgpInstanceVrfAfiSafiAsSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -43406,8 +42140,6 @@ class ClearBgpInstanceVrfAfiSafiAsSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -43525,8 +42257,6 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -43556,8 +42286,6 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -43665,8 +42393,6 @@ class ClearBgpInstanceVrfAfiSafiDampeningRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -43693,8 +42419,6 @@ class ClearBgpInstanceVrfAfiSafiDampeningRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -43805,8 +42529,6 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -43833,8 +42555,6 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -43944,8 +42664,6 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -43972,8 +42690,6 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -44083,8 +42799,6 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -44111,8 +42825,6 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -44221,8 +42933,6 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -44249,8 +42959,6 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -44390,8 +43098,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -44424,8 +43130,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -44555,8 +43259,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -44586,8 +43288,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -44705,8 +43405,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -44736,8 +43434,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -44854,8 +43550,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexpRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -44885,8 +43579,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexpRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -45003,8 +43695,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicyRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -45034,8 +43724,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -45143,8 +43831,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -45171,8 +43857,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -45281,8 +43965,6 @@ class ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -45309,8 +43991,6 @@ class ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -45441,8 +44121,6 @@ class ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -45472,8 +44150,6 @@ class ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -45581,8 +44257,6 @@ class ClearBgpInstanceVrfAfiSafiSelfOriginatedRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -45609,8 +44283,6 @@ class ClearBgpInstanceVrfAfiSafiSelfOriginatedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -45718,8 +44390,6 @@ class ClearBgpInstanceVrfAfiSafiShutdownRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -45746,8 +44416,6 @@ class ClearBgpInstanceVrfAfiSafiShutdownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -45858,8 +44526,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -45886,8 +44552,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -45997,8 +44661,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -46025,8 +44687,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -46160,8 +44820,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(o
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -46191,8 +44849,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(o
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -46325,8 +44981,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -46356,8 +45010,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -46490,8 +45142,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -46521,8 +45171,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -46654,8 +45302,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -46685,8 +45331,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -46818,8 +45462,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParentRpc(obj
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -46852,8 +45494,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParentRpc(obj
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -46984,8 +45624,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -47018,8 +45656,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -47151,8 +45787,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpda
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -47185,8 +45819,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpda
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -47317,8 +45949,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -47351,8 +45981,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -47473,8 +46101,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -47504,8 +46130,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -47625,8 +46249,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -47656,8 +46278,6 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -47775,8 +46395,6 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -47806,8 +46424,6 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -47925,8 +46541,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -47956,8 +46570,6 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -48058,8 +46670,6 @@ class ClearBgpInstanceVrfNexthopPerformanceStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -48083,8 +46693,6 @@ class ClearBgpInstanceVrfNexthopPerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -48207,8 +46815,6 @@ class ClearBgpInstanceVrfNexthopRegistrationIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -48235,8 +46841,6 @@ class ClearBgpInstanceVrfNexthopRegistrationIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -48337,8 +46941,6 @@ class ClearBgpInstanceVrfPeerDropsAllRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -48362,8 +46964,6 @@ class ClearBgpInstanceVrfPeerDropsAllRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -48485,8 +47085,6 @@ class ClearBgpInstanceVrfPeerDropsIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -48513,8 +47111,6 @@ class ClearBgpInstanceVrfPeerDropsIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -48614,8 +47210,6 @@ class ClearBgpInstanceVrfPerformanceStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -48639,8 +47233,6 @@ class ClearBgpInstanceVrfPerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -48740,8 +47332,6 @@ class ClearBgpInstanceVrfShutdownRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -48765,8 +47355,6 @@ class ClearBgpInstanceVrfShutdownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -48869,8 +47457,6 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -48894,8 +47480,6 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -48997,8 +47581,6 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamilyRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -49022,8 +47604,6 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamilyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -49149,8 +47729,6 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -49177,8 +47755,6 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -49303,8 +47879,6 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -49331,8 +47905,6 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -49457,8 +48029,6 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -49485,8 +48055,6 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -49610,8 +48178,6 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -49638,8 +48204,6 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -49763,8 +48327,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -49794,8 +48356,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -49918,8 +48478,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -49949,8 +48507,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -50074,8 +48630,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParen
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -50105,8 +48659,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParen
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -50229,8 +48781,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object)
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -50260,8 +48810,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object)
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -50374,8 +48922,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -50402,8 +48948,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -50515,8 +49059,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance_name is not None:
                 return True
 
@@ -50543,8 +49085,6 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -50624,8 +49164,6 @@ class ClearBgpAfiSafiDampeningIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -50649,8 +49187,6 @@ class ClearBgpAfiSafiDampeningIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -50730,8 +49266,6 @@ class ClearBgpAfiSafiFlapStatisticsIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -50755,8 +49289,6 @@ class ClearBgpAfiSafiFlapStatisticsIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -50836,8 +49368,6 @@ class ClearBgpAfiSafiDampeningIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -50861,8 +49391,6 @@ class ClearBgpAfiSafiDampeningIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -50942,8 +49470,6 @@ class ClearBgpAfiSafiFlapStatisticsIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -50967,8 +49493,6 @@ class ClearBgpAfiSafiFlapStatisticsIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -51007,8 +49531,6 @@ class ClearBgpNexthopPerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -51090,8 +49612,6 @@ class ClearBgpNexthopRegistrationIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -51112,8 +49632,6 @@ class ClearBgpNexthopRegistrationIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -51152,8 +49670,6 @@ class ClearBgpPeerDropsAllRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -51234,8 +49750,6 @@ class ClearBgpPeerDropsIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -51256,8 +49770,6 @@ class ClearBgpPeerDropsIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -51295,8 +49807,6 @@ class ClearBgpPerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -51334,8 +49844,6 @@ class ClearBgpRpkiServerAllSerialQueryRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -51372,8 +49880,6 @@ class ClearBgpRpkiServerAllRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -51441,8 +49947,6 @@ class ClearBgpRpkiServerRpkiServerRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rpki_server is not None:
                 return True
 
@@ -51463,8 +49967,6 @@ class ClearBgpRpkiServerRpkiServerRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -51504,8 +50006,6 @@ class ClearBgpRpkiValidationIpv4Rpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -51542,8 +50042,6 @@ class ClearBgpRpkiValidationIpv6Rpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -51579,8 +50077,6 @@ class ClearBgpRpkiValidationRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -51615,8 +50111,6 @@ class ClearBgpShutdownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -51654,8 +50148,6 @@ class ClearBgpUpdateOutqAddressFamilyUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -51692,8 +50184,6 @@ class ClearBgpUpdateOutqAddressFamilyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -51778,8 +50268,6 @@ class ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -51800,8 +50288,6 @@ class ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -51888,8 +50374,6 @@ class ClearBgpUpdateOutqNeighborIpAddrRefreshRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -51910,8 +50394,6 @@ class ClearBgpUpdateOutqNeighborIpAddrRefreshRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -51998,8 +50480,6 @@ class ClearBgpUpdateOutqNeighborIpAddrUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -52020,8 +50500,6 @@ class ClearBgpUpdateOutqNeighborIpAddrUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -52107,8 +50585,6 @@ class ClearBgpUpdateOutqNeighborIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -52129,8 +50605,6 @@ class ClearBgpUpdateOutqNeighborIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -52170,8 +50644,6 @@ class ClearBgpUpdateOutqProcessRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -52254,8 +50726,6 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sub_group is not None:
                 return True
 
@@ -52279,8 +50749,6 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -52365,8 +50833,6 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sub_group is not None:
                 return True
 
@@ -52390,8 +50856,6 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -52477,8 +50941,6 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParentRpc(object
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.refresh_sub_group is not None:
                 return True
 
@@ -52502,8 +50964,6 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParentRpc(object
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -52588,8 +51048,6 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.refresh_sub_group is not None:
                 return True
 
@@ -52613,8 +51071,6 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -52689,8 +51145,6 @@ class ClearBgpUpdateOutqUpdateGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.update_group is not None:
                 return True
 
@@ -52711,8 +51165,6 @@ class ClearBgpUpdateOutqUpdateGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -52786,8 +51238,6 @@ class ClearBgpUpdateOutqUpdateGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.update_group is not None:
                 return True
 
@@ -52808,8 +51258,6 @@ class ClearBgpUpdateOutqUpdateGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -52915,8 +51363,6 @@ class ClearBgpVersionIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -52940,8 +51386,6 @@ class ClearBgpVersionIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -53025,8 +51469,6 @@ class ClearBgpVersionIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -53047,8 +51489,6 @@ class ClearBgpVersionIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -53132,8 +51572,6 @@ class ClearBgpVersionIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_prefix is not None:
                 return True
 
@@ -53154,8 +51592,6 @@ class ClearBgpVersionIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -53269,8 +51705,6 @@ class ClearBgpVersionAfiSafiIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -53297,8 +51731,6 @@ class ClearBgpVersionAfiSafiIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -53390,8 +51822,6 @@ class ClearBgpVersionAfiSafiIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -53415,8 +51845,6 @@ class ClearBgpVersionAfiSafiIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -53508,8 +51936,6 @@ class ClearBgpVersionAfiSafiIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -53533,8 +51959,6 @@ class ClearBgpVersionAfiSafiIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -53657,8 +52081,6 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -53688,8 +52110,6 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -53790,8 +52210,6 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -53818,8 +52236,6 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -53920,8 +52336,6 @@ class ClearBgpVersionAfiSafiBridgeDomainIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -53948,8 +52362,6 @@ class ClearBgpVersionAfiSafiBridgeDomainIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -54102,8 +52514,6 @@ class ClearBgpVersionAfiSafiRdIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -54133,8 +52543,6 @@ class ClearBgpVersionAfiSafiRdIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -54265,8 +52673,6 @@ class ClearBgpVersionAfiSafiRdIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -54293,8 +52699,6 @@ class ClearBgpVersionAfiSafiRdIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -54425,8 +52829,6 @@ class ClearBgpVersionAfiSafiRdIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -54453,8 +52855,6 @@ class ClearBgpVersionAfiSafiRdIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -54544,8 +52944,6 @@ class ClearBgpVersionAfiSafiIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -54572,8 +52970,6 @@ class ClearBgpVersionAfiSafiIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -54653,8 +53049,6 @@ class ClearBgpVersionAfiSafiIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -54678,8 +53072,6 @@ class ClearBgpVersionAfiSafiIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -54759,8 +53151,6 @@ class ClearBgpVersionAfiSafiIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -54784,8 +53174,6 @@ class ClearBgpVersionAfiSafiIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -54904,8 +53292,6 @@ class ClearBgpVersionAfiSafiRdIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -54932,8 +53318,6 @@ class ClearBgpVersionAfiSafiRdIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -55022,8 +53406,6 @@ class ClearBgpVersionAfiSafiVrfIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -55050,8 +53432,6 @@ class ClearBgpVersionAfiSafiVrfIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -55129,8 +53509,6 @@ class ClearBgpVersionAfiSafiNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -55154,8 +53532,6 @@ class ClearBgpVersionAfiSafiNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -55272,8 +53648,6 @@ class ClearBgpVersionAfiSafiRdNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -55300,8 +53674,6 @@ class ClearBgpVersionAfiSafiRdNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -55388,8 +53760,6 @@ class ClearBgpVersionAfiSafiVrfNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -55416,8 +53786,6 @@ class ClearBgpVersionAfiSafiVrfNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -55495,8 +53863,6 @@ class ClearBgpVersionAfiSafiRtConstraintNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -55520,8 +53886,6 @@ class ClearBgpVersionAfiSafiRtConstraintNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -55599,8 +53963,6 @@ class ClearBgpVersionAfiSafiIpv4TunnelNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -55624,8 +53986,6 @@ class ClearBgpVersionAfiSafiIpv4TunnelNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -55715,8 +54075,6 @@ class ClearBgpVersionAfiSafiIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -55743,8 +54101,6 @@ class ClearBgpVersionAfiSafiIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -55824,8 +54180,6 @@ class ClearBgpVersionAfiSafiIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -55849,8 +54203,6 @@ class ClearBgpVersionAfiSafiIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -55930,8 +54282,6 @@ class ClearBgpVersionAfiSafiIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -55955,8 +54305,6 @@ class ClearBgpVersionAfiSafiIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -56065,8 +54413,6 @@ class ClearBgpVersionAfiSafiRdRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -56090,8 +54436,6 @@ class ClearBgpVersionAfiSafiRdRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -56170,8 +54514,6 @@ class ClearBgpVersionAfiSafiVrfRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -56195,8 +54537,6 @@ class ClearBgpVersionAfiSafiVrfRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -56266,8 +54606,6 @@ class ClearBgpVersionAfiSafiRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -56288,8 +54626,6 @@ class ClearBgpVersionAfiSafiRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -56367,8 +54703,6 @@ class ClearBgpVersionAfiSafiSrPolicyPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -56392,8 +54726,6 @@ class ClearBgpVersionAfiSafiSrPolicyPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -56482,8 +54814,6 @@ class ClearBgpVersionAfiSafiBridgeDomainIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -56510,8 +54840,6 @@ class ClearBgpVersionAfiSafiBridgeDomainIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -56630,8 +54958,6 @@ class ClearBgpVersionAfiSafiRdIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -56658,8 +54984,6 @@ class ClearBgpVersionAfiSafiRdIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -56748,8 +55072,6 @@ class ClearBgpVersionAfiSafiMp2MpIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -56776,8 +55098,6 @@ class ClearBgpVersionAfiSafiMp2MpIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -56866,8 +55186,6 @@ class ClearBgpVersionAfiSafiVrfIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -56894,8 +55212,6 @@ class ClearBgpVersionAfiSafiVrfIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -57024,8 +55340,6 @@ class ClearBgpVersionAfiSafiRdIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -57055,8 +55369,6 @@ class ClearBgpVersionAfiSafiRdIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -57155,8 +55467,6 @@ class ClearBgpVersionAfiSafiVrfIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -57186,8 +55496,6 @@ class ClearBgpVersionAfiSafiVrfIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -57316,8 +55624,6 @@ class ClearBgpVersionAfiSafiRdIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -57347,8 +55653,6 @@ class ClearBgpVersionAfiSafiRdIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -57467,8 +55771,6 @@ class ClearBgpVersionAfiSafiRdIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -57495,8 +55797,6 @@ class ClearBgpVersionAfiSafiRdIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -57615,8 +55915,6 @@ class ClearBgpVersionAfiSafiRdIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -57643,8 +55941,6 @@ class ClearBgpVersionAfiSafiRdIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -57743,8 +56039,6 @@ class ClearBgpVersionAfiSafiVrfIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -57774,8 +56068,6 @@ class ClearBgpVersionAfiSafiVrfIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -57864,8 +56156,6 @@ class ClearBgpVersionAfiSafiVrfIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -57892,8 +56182,6 @@ class ClearBgpVersionAfiSafiVrfIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -57982,8 +56270,6 @@ class ClearBgpVersionAfiSafiVrfIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -58010,8 +56296,6 @@ class ClearBgpVersionAfiSafiVrfIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -58136,8 +56420,6 @@ class ClearBgpVersionVrfIpAddrIpNetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -58164,8 +56446,6 @@ class ClearBgpVersionVrfIpAddrIpNetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -58268,8 +56548,6 @@ class ClearBgpVersionVrfIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -58293,8 +56571,6 @@ class ClearBgpVersionVrfIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -58397,8 +56673,6 @@ class ClearBgpVersionVrfIpPrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_prefix is not None:
                 return True
 
@@ -58422,8 +56696,6 @@ class ClearBgpVersionVrfIpPrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -58522,8 +56794,6 @@ class ClearBgpVersionVrfAfiSafiIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -58550,8 +56820,6 @@ class ClearBgpVersionVrfAfiSafiIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -58660,8 +56928,6 @@ class ClearBgpVersionVrfAfiSafiIpv4AddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -58691,8 +56957,6 @@ class ClearBgpVersionVrfAfiSafiIpv4AddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -58791,8 +57055,6 @@ class ClearBgpVersionVrfAfiSafiIpv4AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -58819,8 +57081,6 @@ class ClearBgpVersionVrfAfiSafiIpv4AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -58917,8 +57177,6 @@ class ClearBgpVersionVrfAfiSafiNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -58945,8 +57203,6 @@ class ClearBgpVersionVrfAfiSafiNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -59082,8 +57338,6 @@ class ClearBgpVersionVrfAfiSafiRdNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -59113,8 +57367,6 @@ class ClearBgpVersionVrfAfiSafiRdNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -59220,8 +57472,6 @@ class ClearBgpVersionVrfAfiSafiVrfNetworkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -59251,8 +57501,6 @@ class ClearBgpVersionVrfAfiSafiVrfNetworkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -59361,8 +57609,6 @@ class ClearBgpVersionVrfAfiSafiIpv6AddrIpv6NetmaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -59392,8 +57638,6 @@ class ClearBgpVersionVrfAfiSafiIpv6AddrIpv6NetmaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -59492,8 +57736,6 @@ class ClearBgpVersionVrfAfiSafiIpv6AddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -59520,8 +57762,6 @@ class ClearBgpVersionVrfAfiSafiIpv6AddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -59620,8 +57860,6 @@ class ClearBgpVersionVrfAfiSafiIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -59648,8 +57886,6 @@ class ClearBgpVersionVrfAfiSafiIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -59777,8 +58013,6 @@ class ClearBgpVersionVrfAfiSafiRdRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -59805,8 +58039,6 @@ class ClearBgpVersionVrfAfiSafiRdRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -59904,8 +58136,6 @@ class ClearBgpVersionVrfAfiSafiVrfRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -59932,8 +58162,6 @@ class ClearBgpVersionVrfAfiSafiVrfRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -60022,8 +58250,6 @@ class ClearBgpVersionVrfAfiSafiRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -60047,8 +58273,6 @@ class ClearBgpVersionVrfAfiSafiRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -60130,8 +58354,6 @@ class ClearBgpVrfAllGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_all is not None:
                 return True
 
@@ -60152,8 +58374,6 @@ class ClearBgpVrfAllGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -60234,8 +58454,6 @@ class ClearBgpVrfAllRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_all is not None:
                 return True
 
@@ -60256,8 +58474,6 @@ class ClearBgpVrfAllRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -60360,8 +58576,6 @@ class ClearBgpVrfIpAddrGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -60385,8 +58599,6 @@ class ClearBgpVrfIpAddrGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -60489,8 +58701,6 @@ class ClearBgpVrfIpAddrLongLivedStaleRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -60514,8 +58724,6 @@ class ClearBgpVrfIpAddrLongLivedStaleRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -60617,8 +58825,6 @@ class ClearBgpVrfIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -60642,8 +58848,6 @@ class ClearBgpVrfIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -60757,8 +58961,6 @@ class ClearBgpVrfAsGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.as_number is not None:
                 return True
 
@@ -60782,8 +58984,6 @@ class ClearBgpVrfAsGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -60896,8 +59096,6 @@ class ClearBgpVrfAsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.as_number is not None:
                 return True
 
@@ -60921,8 +59119,6 @@ class ClearBgpVrfAsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -61004,8 +59200,6 @@ class ClearBgpVrfExternalGracefulRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_all is not None:
                 return True
 
@@ -61026,8 +59220,6 @@ class ClearBgpVrfExternalGracefulRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -61108,8 +59300,6 @@ class ClearBgpVrfExternalRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_all is not None:
                 return True
 
@@ -61130,8 +59320,6 @@ class ClearBgpVrfExternalRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -61223,8 +59411,6 @@ class ClearBgpVrfAfiSafiAllSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -61248,8 +59434,6 @@ class ClearBgpVrfAfiSafiAllSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -61340,8 +59524,6 @@ class ClearBgpVrfAfiSafiAllSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -61365,8 +59547,6 @@ class ClearBgpVrfAfiSafiAllSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -61457,8 +59637,6 @@ class ClearBgpVrfAfiSafiAllSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -61482,8 +59660,6 @@ class ClearBgpVrfAfiSafiAllSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -61573,8 +59749,6 @@ class ClearBgpVrfAfiSafiAllSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -61598,8 +59772,6 @@ class ClearBgpVrfAfiSafiAllSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -61710,8 +59882,6 @@ class ClearBgpVrfAfiSafiIpAddrLongLivedStaleRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -61738,8 +59908,6 @@ class ClearBgpVrfAfiSafiIpAddrLongLivedStaleRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -61852,8 +60020,6 @@ class ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -61880,8 +60046,6 @@ class ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -61993,8 +60157,6 @@ class ClearBgpVrfAfiSafiIpAddrSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -62021,8 +60183,6 @@ class ClearBgpVrfAfiSafiIpAddrSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -62134,8 +60294,6 @@ class ClearBgpVrfAfiSafiIpAddrSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -62162,8 +60320,6 @@ class ClearBgpVrfAfiSafiIpAddrSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -62274,8 +60430,6 @@ class ClearBgpVrfAfiSafiIpAddrSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -62302,8 +60456,6 @@ class ClearBgpVrfAfiSafiIpAddrSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -62427,8 +60579,6 @@ class ClearBgpVrfAfiSafiAsSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -62455,8 +60605,6 @@ class ClearBgpVrfAfiSafiAsSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -62579,8 +60727,6 @@ class ClearBgpVrfAfiSafiAsSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -62607,8 +60753,6 @@ class ClearBgpVrfAfiSafiAsSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -62731,8 +60875,6 @@ class ClearBgpVrfAfiSafiAsSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -62759,8 +60901,6 @@ class ClearBgpVrfAfiSafiAsSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -62882,8 +61022,6 @@ class ClearBgpVrfAfiSafiAsSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -62910,8 +61048,6 @@ class ClearBgpVrfAfiSafiAsSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -63010,8 +61146,6 @@ class ClearBgpVrfAfiSafiDampeningIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -63038,8 +61172,6 @@ class ClearBgpVrfAfiSafiDampeningIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -63128,8 +61260,6 @@ class ClearBgpVrfAfiSafiDampeningRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -63153,8 +61283,6 @@ class ClearBgpVrfAfiSafiDampeningRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -63246,8 +61374,6 @@ class ClearBgpVrfAfiSafiExternalSoftInPrefixFilterRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -63271,8 +61397,6 @@ class ClearBgpVrfAfiSafiExternalSoftInPrefixFilterRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -63363,8 +61487,6 @@ class ClearBgpVrfAfiSafiExternalSoftInRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -63388,8 +61510,6 @@ class ClearBgpVrfAfiSafiExternalSoftInRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -63480,8 +61600,6 @@ class ClearBgpVrfAfiSafiExternalSoftOutRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -63505,8 +61623,6 @@ class ClearBgpVrfAfiSafiExternalSoftOutRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -63596,8 +61712,6 @@ class ClearBgpVrfAfiSafiExternalSoftRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -63621,8 +61735,6 @@ class ClearBgpVrfAfiSafiExternalSoftRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -63743,8 +61855,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4MaskRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -63774,8 +61884,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4MaskRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -63886,8 +61994,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -63914,8 +62020,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -64014,8 +62118,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv4PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -64042,8 +62144,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv4PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -64141,8 +62241,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsRegexpRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -64169,8 +62267,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsRegexpRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -64268,8 +62364,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsRoutePolicyRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -64296,8 +62390,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsRoutePolicyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -64386,8 +62478,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -64411,8 +62501,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -64502,8 +62590,6 @@ class ClearBgpVrfAfiSafiNexthopPerformanceStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -64527,8 +62613,6 @@ class ClearBgpVrfAfiSafiNexthopPerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -64640,8 +62724,6 @@ class ClearBgpVrfAfiSafiNexthopRegistrationIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -64668,8 +62750,6 @@ class ClearBgpVrfAfiSafiNexthopRegistrationIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -64758,8 +62838,6 @@ class ClearBgpVrfAfiSafiSelfOriginatedRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -64783,8 +62861,6 @@ class ClearBgpVrfAfiSafiSelfOriginatedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -64873,8 +62949,6 @@ class ClearBgpVrfAfiSafiShutdownRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -64898,8 +62972,6 @@ class ClearBgpVrfAfiSafiShutdownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -64991,8 +63063,6 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -65016,8 +63086,6 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -65108,8 +63176,6 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamilyRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -65133,8 +63199,6 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamilyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -65249,8 +63313,6 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -65277,8 +63339,6 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -65392,8 +63452,6 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -65420,8 +63478,6 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -65535,8 +63591,6 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -65563,8 +63617,6 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -65677,8 +63729,6 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -65705,8 +63755,6 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -65819,8 +63867,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -65850,8 +63896,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -65963,8 +64007,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -65994,8 +64036,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -66108,8 +64148,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -66139,8 +64177,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -66252,8 +64288,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -66283,8 +64317,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -66386,8 +64418,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -66414,8 +64444,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -66516,8 +64544,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -66544,8 +64570,6 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -66644,8 +64668,6 @@ class ClearBgpVrfAfiSafiDampeningIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -66672,8 +64694,6 @@ class ClearBgpVrfAfiSafiDampeningIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -66772,8 +64792,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv6PrefixRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_name is not None:
                 return True
 
@@ -66800,8 +64818,6 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv6PrefixRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -66883,8 +64899,6 @@ class ClearBgpVrfNexthopPerformanceStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_all is not None:
                 return True
 
@@ -66905,8 +64919,6 @@ class ClearBgpVrfNexthopPerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -67010,8 +65022,6 @@ class ClearBgpVrfNexthopRegistrationIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -67035,8 +65045,6 @@ class ClearBgpVrfNexthopRegistrationIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -67118,8 +65126,6 @@ class ClearBgpVrfPeerDropsAllRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_all is not None:
                 return True
 
@@ -67140,8 +65146,6 @@ class ClearBgpVrfPeerDropsAllRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -67244,8 +65248,6 @@ class ClearBgpVrfPeerDropsIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -67269,8 +65271,6 @@ class ClearBgpVrfPeerDropsIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -67351,8 +65351,6 @@ class ClearBgpVrfPerformanceStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_all is not None:
                 return True
 
@@ -67373,8 +65371,6 @@ class ClearBgpVrfPerformanceStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -67455,8 +65451,6 @@ class ClearBgpVrfShutdownRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_all is not None:
                 return True
 
@@ -67477,8 +65471,6 @@ class ClearBgpVrfShutdownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -67562,8 +65554,6 @@ class ClearBgpVrfUpdateOutqAddressFamilyUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_all is not None:
                 return True
 
@@ -67584,8 +65574,6 @@ class ClearBgpVrfUpdateOutqAddressFamilyUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -67668,8 +65656,6 @@ class ClearBgpVrfUpdateOutqAddressFamilyRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_all is not None:
                 return True
 
@@ -67690,8 +65676,6 @@ class ClearBgpVrfUpdateOutqAddressFamilyRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -67798,8 +65782,6 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -67823,8 +65805,6 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -67930,8 +65910,6 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefreshRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -67955,8 +65933,6 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefreshRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -68062,8 +66038,6 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -68087,8 +66061,6 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -68193,8 +66165,6 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_addr is not None:
                 return True
 
@@ -68218,8 +66188,6 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -68324,8 +66292,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sub_group is not None:
                 return True
 
@@ -68352,8 +66318,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -68457,8 +66421,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sub_group is not None:
                 return True
 
@@ -68485,8 +66447,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -68591,8 +66551,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParentRpc(obj
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.refresh_sub_group is not None:
                 return True
 
@@ -68619,8 +66577,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParentRpc(obj
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -68724,8 +66680,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.refresh_sub_group is not None:
                 return True
 
@@ -68752,8 +66706,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -68847,8 +66799,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupUpdateParentRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.update_group is not None:
                 return True
 
@@ -68872,8 +66822,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupUpdateParentRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -68966,8 +66914,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.update_group is not None:
                 return True
 
@@ -68991,8 +66937,6 @@ class ClearBgpVrfUpdateOutqUpdateGroupRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 

@@ -13,6 +13,42 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'SensorStatusEnum' : _MetaInfoEnum('SensorStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
+        {
+            'ok':'ok',
+            'unavailable':'unavailable',
+            'non-operational':'non_operational',
+        }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
+    'UnitEnum' : _MetaInfoEnum('UnitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
+        {
+            'celsius':'celsius',
+            'milli-volts':'milli_volts',
+            'milli-amperes':'milli_amperes',
+            'rpm':'rpm',
+            'watts':'watts',
+            'dbm':'dbm',
+            'db':'db',
+        }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
+    'ThresholdSeverityEnum' : _MetaInfoEnum('ThresholdSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
+        {
+            'other':'other',
+            'minor':'minor',
+            'major':'major',
+            'critical':'critical',
+        }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
+    'SensorDataEnum' : _MetaInfoEnum('SensorDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
+        {
+            'unknown':'unknown',
+            'ac-volts':'ac_volts',
+            'dc-volts':'dc_volts',
+            'amperes':'amperes',
+            'watts':'watts',
+            'hertz':'hertz',
+            'celsius':'celsius',
+            'rpm':'rpm',
+            'dbm':'dbm',
+            'db':'db',
+        }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
     'CardResetReasonEnum' : _MetaInfoEnum('CardResetReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
             'reset-unknown':'reset_unknown',
@@ -40,32 +76,6 @@ _meta_table = {
             'memory-protection-error-reset':'memory_protection_error_reset',
             'card-reset-reason-max':'card_reset_reason_max',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
-    'ThresholdSeverityEnum' : _MetaInfoEnum('ThresholdSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
-        {
-            'other':'other',
-            'minor':'minor',
-            'major':'major',
-            'critical':'critical',
-        }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
-    'SensorDataEnum' : _MetaInfoEnum('SensorDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
-        {
-            'unknown':'unknown',
-            'ac-volts':'ac_volts',
-            'dc-volts':'dc_volts',
-            'amperes':'amperes',
-            'watts':'watts',
-            'hertz':'hertz',
-            'celsius':'celsius',
-            'rpm':'rpm',
-            'dbm':'dbm',
-            'db':'db',
-        }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
-    'SensorStatusEnum' : _MetaInfoEnum('SensorStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
-        {
-            'ok':'ok',
-            'unavailable':'unavailable',
-            'non-operational':'non_operational',
-        }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
     'ThresholdRelationEnum' : _MetaInfoEnum('ThresholdRelationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
             'less-than':'less_than',
@@ -75,22 +85,12 @@ _meta_table = {
             'equal':'equal',
             'not-equal':'not_equal',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
-    'UnitEnum' : _MetaInfoEnum('UnitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
-        {
-            'celsius':'celsius',
-            'milli-volts':'milli_volts',
-            'milli-amperes':'milli_amperes',
-            'rpm':'rpm',
-            'watts':'watts',
-            'dbm':'dbm',
-            'db':'db',
-        }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
     'Inventory.Entities.Entity.Subentities.Subentity' : {
         'meta_info' : _MetaInfoClass('Inventory.Entities.Entity.Subentities.Subentity',
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Subentity name
                 ''',
                 'name',
@@ -379,7 +379,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Entity name
                 ''',
                 'name',
@@ -1810,7 +1810,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -1916,7 +1916,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI11
                 ''',
                 'name',
@@ -3341,7 +3341,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -3447,7 +3447,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI10
                 ''',
                 'name',
@@ -4878,7 +4878,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -4984,7 +4984,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI9
                 ''',
                 'name',
@@ -6415,7 +6415,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -6521,7 +6521,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI8
                 ''',
                 'name',
@@ -7952,7 +7952,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -8058,7 +8058,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI7
                 ''',
                 'name',
@@ -9489,7 +9489,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -9595,7 +9595,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI6
                 ''',
                 'name',
@@ -11026,7 +11026,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -11132,7 +11132,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI5
                 ''',
                 'name',
@@ -12563,7 +12563,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -12669,7 +12669,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI4
                 ''',
                 'name',
@@ -14100,7 +14100,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -14206,7 +14206,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI3
                 ''',
                 'name',
@@ -15637,7 +15637,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -15743,7 +15743,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI2
                 ''',
                 'name',
@@ -17174,7 +17174,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -17280,7 +17280,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI1
                 ''',
                 'name',
@@ -18711,7 +18711,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -18817,7 +18817,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Slot name
                 ''',
                 'name',
@@ -20248,7 +20248,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -20354,7 +20354,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI11
                 ''',
                 'name',
@@ -21779,7 +21779,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -21885,7 +21885,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI10
                 ''',
                 'name',
@@ -23316,7 +23316,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -23422,7 +23422,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI9
                 ''',
                 'name',
@@ -24853,7 +24853,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -24959,7 +24959,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI8
                 ''',
                 'name',
@@ -26390,7 +26390,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -26496,7 +26496,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI7
                 ''',
                 'name',
@@ -27927,7 +27927,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -28033,7 +28033,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI6
                 ''',
                 'name',
@@ -29464,7 +29464,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -29570,7 +29570,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI5
                 ''',
                 'name',
@@ -31001,7 +31001,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -31107,7 +31107,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI4
                 ''',
                 'name',
@@ -32538,7 +32538,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -32644,7 +32644,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI3
                 ''',
                 'name',
@@ -34075,7 +34075,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -34181,7 +34181,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI2
                 ''',
                 'name',
@@ -35612,7 +35612,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -35718,7 +35718,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI1
                 ''',
                 'name',
@@ -37149,7 +37149,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -37255,7 +37255,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Slot name
                 ''',
                 'name',
@@ -38686,7 +38686,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -38792,7 +38792,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI11
                 ''',
                 'name',
@@ -40217,7 +40217,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -40323,7 +40323,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI10
                 ''',
                 'name',
@@ -41754,7 +41754,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -41860,7 +41860,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI9
                 ''',
                 'name',
@@ -43291,7 +43291,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -43397,7 +43397,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI8
                 ''',
                 'name',
@@ -44828,7 +44828,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -44934,7 +44934,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI7
                 ''',
                 'name',
@@ -46365,7 +46365,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -46471,7 +46471,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI6
                 ''',
                 'name',
@@ -47902,7 +47902,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -48008,7 +48008,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI5
                 ''',
                 'name',
@@ -49439,7 +49439,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -49545,7 +49545,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI4
                 ''',
                 'name',
@@ -50976,7 +50976,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -51082,7 +51082,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI3
                 ''',
                 'name',
@@ -52513,7 +52513,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -52619,7 +52619,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI2
                 ''',
                 'name',
@@ -54050,7 +54050,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -54156,7 +54156,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                TSI1
                 ''',
                 'name',
@@ -55587,7 +55587,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -55693,7 +55693,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Slot name
                 ''',
                 'name',
@@ -57124,7 +57124,7 @@ _meta_table = {
                 'inv_card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                EEPROM hex data
                 ''',
                 'opaque_data',
@@ -57230,7 +57230,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Rack name
                 ''',
                 'name',

@@ -196,8 +196,6 @@ class Fib(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.forward_class_number is not None:
                     return True
 
@@ -226,8 +224,6 @@ class Fib(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.pbts_forward_class_fallback is not None:
                 for child_ref in self.pbts_forward_class_fallback:
                     if child_ref._has_data():
@@ -297,8 +293,6 @@ class Fib(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.frr_holdtime is not None:
                     return True
 
@@ -319,8 +313,6 @@ class Fib(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.label_switched_multicast is not None and self.label_switched_multicast._has_data():
                 return True
 
@@ -341,8 +333,6 @@ class Fib(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.pbts_forward_class_fallbacks is not None and self.pbts_forward_class_fallbacks._has_data():
             return True
 

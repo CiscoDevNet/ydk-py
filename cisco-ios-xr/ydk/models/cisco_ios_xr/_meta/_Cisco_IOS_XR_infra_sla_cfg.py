@@ -274,7 +274,7 @@ _meta_table = {
                 'padding_type',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('padding-value', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Pattern to be used for hex padding. This
                 can be specified if, and only if, the
                 PaddingType is 'Hex'.
@@ -338,7 +338,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Profile name
                 ''',
                 'profile_name',

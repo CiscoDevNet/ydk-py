@@ -13,13 +13,20 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'GroupEnum' : _MetaInfoEnum('GroupEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
+    'AddressFamilyEnum' : _MetaInfoEnum('AddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
         {
-            'address-family-group':'address_family_group',
-            'session-group':'session_group',
-            'neighbor-group':'neighbor_group',
-            'neighbor':'neighbor',
-            'error-group':'error_group',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+            'l2vpn':'l2vpn',
+            'ls':'ls',
+            'af-none':'af_none',
+            'af-unknown':'af_unknown',
+        }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
+    'ObjectStatusEnum' : _MetaInfoEnum('ObjectStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
+        {
+            'active':'active',
+            'inactive':'inactive',
+            'unused':'unused',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
     'AttachPointDirectionEnum' : _MetaInfoEnum('AttachPointDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
         {
@@ -42,20 +49,13 @@ _meta_table = {
             'saf-none':'saf_none',
             'saf-unknown':'saf_unknown',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
-    'AddressFamilyEnum' : _MetaInfoEnum('AddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
+    'GroupEnum' : _MetaInfoEnum('GroupEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
         {
-            'ipv4':'ipv4',
-            'ipv6':'ipv6',
-            'l2vpn':'l2vpn',
-            'ls':'ls',
-            'af-none':'af_none',
-            'af-unknown':'af_unknown',
-        }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
-    'ObjectStatusEnum' : _MetaInfoEnum('ObjectStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
-        {
-            'active':'active',
-            'inactive':'inactive',
-            'unused':'unused',
+            'address-family-group':'address_family_group',
+            'session-group':'session_group',
+            'neighbor-group':'neighbor_group',
+            'neighbor':'neighbor',
+            'error-group':'error_group',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
     'RoutingPolicy.Limits' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Limits',
@@ -471,7 +471,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Route policy name
                 ''',
                 'route_policy_name',
@@ -817,7 +817,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -1156,7 +1156,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -1495,7 +1495,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -1834,7 +1834,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -2173,7 +2173,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -2512,7 +2512,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -2851,7 +2851,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -3190,7 +3190,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -3529,7 +3529,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -3868,7 +3868,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -4207,7 +4207,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -4522,7 +4522,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -4861,7 +4861,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -5200,7 +5200,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -5539,7 +5539,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',

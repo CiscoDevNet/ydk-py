@@ -13,12 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'AlAlarmBistateEnum' : _MetaInfoEnum('AlAlarmBistateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper',
-        {
-            'not-available':'not_available',
-            'active':'active',
-            'clear':'clear',
-        }, 'Cisco-IOS-XR-infra-correlator-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-correlator-oper']),
     'AlAlarmSeverityEnum' : _MetaInfoEnum('AlAlarmSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper',
         {
             'unknown':'unknown',
@@ -30,6 +24,12 @@ _meta_table = {
             'notice':'notice',
             'informational':'informational',
             'debugging':'debugging',
+        }, 'Cisco-IOS-XR-infra-correlator-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-correlator-oper']),
+    'AlAlarmBistateEnum' : _MetaInfoEnum('AlAlarmBistateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper',
+        {
+            'not-available':'not_available',
+            'active':'active',
+            'clear':'clear',
         }, 'Cisco-IOS-XR-infra-correlator-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-correlator-oper']),
     'AcRuleStateEnum' : _MetaInfoEnum('AcRuleStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper',
         {
@@ -175,7 +175,7 @@ _meta_table = {
                 'all_alarms',
                 'Cisco-IOS-XR-infra-correlator-oper', False),
             _MetaInfoClassMember('apply-source', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Sources (R/S/M) to which the rule is applied
                 ''',
                 'apply_source',
@@ -289,7 +289,7 @@ _meta_table = {
                 'apply_context',
                 'Cisco-IOS-XR-infra-correlator-oper', False, max_elements=32),
             _MetaInfoClassMember('apply-location', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Locations (R/S/M) to which the rule is  applied
                 ''',
                 'apply_location',
@@ -703,7 +703,7 @@ _meta_table = {
                 'apply_context',
                 'Cisco-IOS-XR-infra-correlator-oper', False),
             _MetaInfoClassMember('apply-location', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Locations (R/S/M) to which the rule is applied
                 ''',
                 'apply_location',

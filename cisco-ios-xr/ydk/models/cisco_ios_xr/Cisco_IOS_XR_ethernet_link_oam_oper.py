@@ -807,8 +807,6 @@ class EtherLinkOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.member_interface is not None:
                     return True
 
@@ -976,8 +974,6 @@ class EtherLinkOam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.discovery_info_interface is not None:
                 for child_ref in self.discovery_info_interface:
                     if child_ref._has_data():
@@ -1183,8 +1179,6 @@ class EtherLinkOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.caps_add_error_code is not None:
                         return True
 
@@ -1279,8 +1273,6 @@ class EtherLinkOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.capabilities_conflict is not None:
                         return True
 
@@ -1315,8 +1307,6 @@ class EtherLinkOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.member_interface is not None:
                     return True
 
@@ -1358,8 +1348,6 @@ class EtherLinkOam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_state_interface is not None:
                 for child_ref in self.interface_state_interface:
                     if child_ref._has_data():
@@ -1956,8 +1944,6 @@ class EtherLinkOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.member_interface is not None:
                     return True
 
@@ -2212,8 +2198,6 @@ class EtherLinkOam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.running_config_interface is not None:
                 for child_ref in self.running_config_interface:
                     if child_ref._has_data():
@@ -2483,8 +2467,6 @@ class EtherLinkOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active_send is not None:
                         return True
 
@@ -2570,8 +2552,6 @@ class EtherLinkOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -2595,8 +2575,6 @@ class EtherLinkOam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -2872,8 +2850,6 @@ class EtherLinkOam(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.event_log_entry_index is not None:
                             return True
 
@@ -2953,8 +2929,6 @@ class EtherLinkOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.event_log_entry_index is not None:
                         for child_ref in self.event_log_entry_index:
                             if child_ref._has_data():
@@ -2979,8 +2953,6 @@ class EtherLinkOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.member_interface is not None:
                     return True
 
@@ -3004,8 +2976,6 @@ class EtherLinkOam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.event_log_entry_interface is not None:
                 for child_ref in self.event_log_entry_interface:
                     if child_ref._has_data():
@@ -3285,8 +3255,6 @@ class EtherLinkOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.member_interface is not None:
                     return True
 
@@ -3385,8 +3353,6 @@ class EtherLinkOam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.stats_interface is not None:
                 for child_ref in self.stats_interface:
                     if child_ref._has_data():
@@ -3409,8 +3375,6 @@ class EtherLinkOam(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.discovery_info_interfaces is not None and self.discovery_info_interfaces._has_data():
             return True
 

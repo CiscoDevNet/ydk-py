@@ -13,17 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'LptsPreIFibPrecedenceNumberEnum' : _MetaInfoEnum('LptsPreIFibPrecedenceNumberEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg',
-        {
-            'critical':'critical',
-            'flash':'flash',
-            'flash-override':'flash_override',
-            'immediate':'immediate',
-            'internet':'internet',
-            'network':'network',
-            'priority':'priority',
-            'routine':'routine',
-        }, 'Cisco-IOS-XR-lpts-pre-ifib-cfg', _yang_ns._namespaces['Cisco-IOS-XR-lpts-pre-ifib-cfg']),
     'LptsFlowEnum' : _MetaInfoEnum('LptsFlowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg',
         {
             'config-default':'config_default',
@@ -123,5 +112,16 @@ _meta_table = {
             'dhcp6':'dhcp6',
             'onepk':'onepk',
             'exr':'exr',
+        }, 'Cisco-IOS-XR-lpts-pre-ifib-cfg', _yang_ns._namespaces['Cisco-IOS-XR-lpts-pre-ifib-cfg']),
+    'LptsPreIFibPrecedenceNumberEnum' : _MetaInfoEnum('LptsPreIFibPrecedenceNumberEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg',
+        {
+            'critical':'critical',
+            'flash':'flash',
+            'flash-override':'flash_override',
+            'immediate':'immediate',
+            'internet':'internet',
+            'network':'network',
+            'priority':'priority',
+            'routine':'routine',
         }, 'Cisco-IOS-XR-lpts-pre-ifib-cfg', _yang_ns._namespaces['Cisco-IOS-XR-lpts-pre-ifib-cfg']),
 }

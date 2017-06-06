@@ -756,8 +756,6 @@ class Vrrp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bfd_session_inactive is not None:
                 return True
 
@@ -974,19 +972,19 @@ class Vrrp(object):
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
-                .. attribute:: tracked_interface_name  <key>
-                
-                	The name of the tracked interface
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
                 .. attribute:: virtual_router_id  <key>
                 
                 	The VRRP virtual router id
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                .. attribute:: tracked_interface_name  <key>
+                
+                	The name of the tracked interface
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: interface
                 
@@ -1040,8 +1038,8 @@ class Vrrp(object):
                 def __init__(self):
                     self.parent = None
                     self.interface_name = None
-                    self.tracked_interface_name = None
                     self.virtual_router_id = None
+                    self.tracked_interface_name = None
                     self.interface = None
                     self.priority = None
                     self.state = None
@@ -1053,27 +1051,25 @@ class Vrrp(object):
                 def _common_path(self):
                     if self.interface_name is None:
                         raise YPYModelError('Key property interface_name is None')
-                    if self.tracked_interface_name is None:
-                        raise YPYModelError('Key property tracked_interface_name is None')
                     if self.virtual_router_id is None:
                         raise YPYModelError('Key property virtual_router_id is None')
+                    if self.tracked_interface_name is None:
+                        raise YPYModelError('Key property tracked_interface_name is None')
 
-                    return '/Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/Cisco-IOS-XR-ipv4-vrrp-oper:ipv6/Cisco-IOS-XR-ipv4-vrrp-oper:track-items/Cisco-IOS-XR-ipv4-vrrp-oper:track-item[Cisco-IOS-XR-ipv4-vrrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-vrrp-oper:tracked-interface-name = ' + str(self.tracked_interface_name) + '][Cisco-IOS-XR-ipv4-vrrp-oper:virtual-router-id = ' + str(self.virtual_router_id) + ']'
+                    return '/Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/Cisco-IOS-XR-ipv4-vrrp-oper:ipv6/Cisco-IOS-XR-ipv4-vrrp-oper:track-items/Cisco-IOS-XR-ipv4-vrrp-oper:track-item[Cisco-IOS-XR-ipv4-vrrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-vrrp-oper:virtual-router-id = ' + str(self.virtual_router_id) + '][Cisco-IOS-XR-ipv4-vrrp-oper:tracked-interface-name = ' + str(self.tracked_interface_name) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
-                    if self.tracked_interface_name is not None:
+                    if self.virtual_router_id is not None:
                         return True
 
-                    if self.virtual_router_id is not None:
+                    if self.tracked_interface_name is not None:
                         return True
 
                     if self.interface is not None:
@@ -1111,8 +1107,6 @@ class Vrrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.track_item is not None:
                     for child_ref in self.track_item:
                         if child_ref._has_data():
@@ -1802,8 +1796,6 @@ class Vrrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -1864,8 +1856,6 @@ class Vrrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -1914,8 +1904,6 @@ class Vrrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv6_address is not None:
                             return True
 
@@ -1961,8 +1949,6 @@ class Vrrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv6_address is not None:
                             return True
 
@@ -2060,8 +2046,6 @@ class Vrrp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nanoseconds is not None:
                                 return True
 
@@ -2087,8 +2071,6 @@ class Vrrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.new_state is not None:
                             return True
 
@@ -2122,8 +2104,6 @@ class Vrrp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -2379,8 +2359,6 @@ class Vrrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.virtual_router is not None:
                     for child_ref in self.virtual_router:
                         if child_ref._has_data():
@@ -2491,8 +2469,6 @@ class Vrrp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -2528,8 +2504,6 @@ class Vrrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -2552,8 +2526,6 @@ class Vrrp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interfaces is not None and self.interfaces._has_data():
                 return True
 
@@ -2704,8 +2676,6 @@ class Vrrp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -2741,8 +2711,6 @@ class Vrrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -2790,19 +2758,19 @@ class Vrrp(object):
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
-                .. attribute:: tracked_interface_name  <key>
-                
-                	The name of the tracked interface
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
                 .. attribute:: virtual_router_id  <key>
                 
                 	The VRRP virtual router id
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                .. attribute:: tracked_interface_name  <key>
+                
+                	The name of the tracked interface
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: interface
                 
@@ -2856,8 +2824,8 @@ class Vrrp(object):
                 def __init__(self):
                     self.parent = None
                     self.interface_name = None
-                    self.tracked_interface_name = None
                     self.virtual_router_id = None
+                    self.tracked_interface_name = None
                     self.interface = None
                     self.priority = None
                     self.state = None
@@ -2869,27 +2837,25 @@ class Vrrp(object):
                 def _common_path(self):
                     if self.interface_name is None:
                         raise YPYModelError('Key property interface_name is None')
-                    if self.tracked_interface_name is None:
-                        raise YPYModelError('Key property tracked_interface_name is None')
                     if self.virtual_router_id is None:
                         raise YPYModelError('Key property virtual_router_id is None')
+                    if self.tracked_interface_name is None:
+                        raise YPYModelError('Key property tracked_interface_name is None')
 
-                    return '/Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/Cisco-IOS-XR-ipv4-vrrp-oper:ipv4/Cisco-IOS-XR-ipv4-vrrp-oper:track-items/Cisco-IOS-XR-ipv4-vrrp-oper:track-item[Cisco-IOS-XR-ipv4-vrrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-vrrp-oper:tracked-interface-name = ' + str(self.tracked_interface_name) + '][Cisco-IOS-XR-ipv4-vrrp-oper:virtual-router-id = ' + str(self.virtual_router_id) + ']'
+                    return '/Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/Cisco-IOS-XR-ipv4-vrrp-oper:ipv4/Cisco-IOS-XR-ipv4-vrrp-oper:track-items/Cisco-IOS-XR-ipv4-vrrp-oper:track-item[Cisco-IOS-XR-ipv4-vrrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-vrrp-oper:virtual-router-id = ' + str(self.virtual_router_id) + '][Cisco-IOS-XR-ipv4-vrrp-oper:tracked-interface-name = ' + str(self.tracked_interface_name) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
-                    if self.tracked_interface_name is not None:
+                    if self.virtual_router_id is not None:
                         return True
 
-                    if self.virtual_router_id is not None:
+                    if self.tracked_interface_name is not None:
                         return True
 
                     if self.interface is not None:
@@ -2927,8 +2893,6 @@ class Vrrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.track_item is not None:
                     for child_ref in self.track_item:
                         if child_ref._has_data():
@@ -3618,8 +3582,6 @@ class Vrrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -3680,8 +3642,6 @@ class Vrrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -3730,8 +3690,6 @@ class Vrrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv6_address is not None:
                             return True
 
@@ -3777,8 +3735,6 @@ class Vrrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv6_address is not None:
                             return True
 
@@ -3876,8 +3832,6 @@ class Vrrp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nanoseconds is not None:
                                 return True
 
@@ -3903,8 +3857,6 @@ class Vrrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.new_state is not None:
                             return True
 
@@ -3938,8 +3890,6 @@ class Vrrp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -4195,8 +4145,6 @@ class Vrrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.virtual_router is not None:
                     for child_ref in self.virtual_router:
                         if child_ref._has_data():
@@ -4219,8 +4167,6 @@ class Vrrp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interfaces is not None and self.interfaces._has_data():
                 return True
 
@@ -4370,8 +4316,6 @@ class Vrrp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slave_interface is not None:
                         return True
 
@@ -4397,8 +4341,6 @@ class Vrrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.session_name is not None:
                     return True
 
@@ -4439,8 +4381,6 @@ class Vrrp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mgo_session is not None:
                 for child_ref in self.mgo_session:
                     if child_ref._has_data():
@@ -4463,8 +4403,6 @@ class Vrrp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.ipv4 is not None and self.ipv4._has_data():
             return True
 

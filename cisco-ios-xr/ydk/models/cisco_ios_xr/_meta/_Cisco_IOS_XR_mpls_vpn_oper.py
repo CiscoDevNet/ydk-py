@@ -13,16 +13,16 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'MplsVpnAfiEnum' : _MetaInfoEnum('MplsVpnAfiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper',
+        {
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+        }, 'Cisco-IOS-XR-mpls-vpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-vpn-oper']),
     'MplsVpnRtEnum' : _MetaInfoEnum('MplsVpnRtEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper',
         {
             'import':'import_',
             'export':'export',
             'both':'both',
-        }, 'Cisco-IOS-XR-mpls-vpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-vpn-oper']),
-    'MplsVpnAfiEnum' : _MetaInfoEnum('MplsVpnAfiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper',
-        {
-            'ipv4':'ipv4',
-            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-mpls-vpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-vpn-oper']),
     'MplsVpnSafiEnum' : _MetaInfoEnum('MplsVpnSafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper',
         {

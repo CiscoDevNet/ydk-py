@@ -929,8 +929,6 @@ class ObjectGroup(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.operator_type is not None:
                                 return True
 
@@ -956,8 +954,6 @@ class ObjectGroup(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.operator is not None:
                             for child_ref in self.operator:
                                 if child_ref._has_data():
@@ -1030,8 +1026,6 @@ class ObjectGroup(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nested_group_name is not None:
                                 return True
 
@@ -1054,8 +1048,6 @@ class ObjectGroup(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nested_group is not None:
                             for child_ref in self.nested_group:
                                 if child_ref._has_data():
@@ -1096,12 +1088,12 @@ class ObjectGroup(object):
                         """
                         Match only packets on a given port range
                         
-                        .. attribute:: end_port  <key>
+                        .. attribute:: start_port  <key>
                         
                         	Port number
                         	**type**\: one of the below types:
                         
-                        	**type**\:   :py:class:`EndPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.EndPortEnum>`
+                        	**type**\:   :py:class:`StartPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.StartPortEnum>`
                         
                         
                         ----
@@ -1111,12 +1103,12 @@ class ObjectGroup(object):
                         
                         
                         ----
-                        .. attribute:: start_port  <key>
+                        .. attribute:: end_port  <key>
                         
                         	Port number
                         	**type**\: one of the below types:
                         
-                        	**type**\:   :py:class:`StartPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.StartPortEnum>`
+                        	**type**\:   :py:class:`EndPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.EndPortEnum>`
                         
                         
                         ----
@@ -1135,31 +1127,29 @@ class ObjectGroup(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.end_port = None
                             self.start_port = None
+                            self.end_port = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.end_port is None:
-                                raise YPYModelError('Key property end_port is None')
                             if self.start_port is None:
                                 raise YPYModelError('Key property start_port is None')
+                            if self.end_port is None:
+                                raise YPYModelError('Key property end_port is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:port-range[Cisco-IOS-XR-infra-objmgr-cfg:end-port = ' + str(self.end_port) + '][Cisco-IOS-XR-infra-objmgr-cfg:start-port = ' + str(self.start_port) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:port-range[Cisco-IOS-XR-infra-objmgr-cfg:start-port = ' + str(self.start_port) + '][Cisco-IOS-XR-infra-objmgr-cfg:end-port = ' + str(self.end_port) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.end_port is not None:
+                            if self.start_port is not None:
                                 return True
 
-                            if self.start_port is not None:
+                            if self.end_port is not None:
                                 return True
 
                             return False
@@ -1181,8 +1171,6 @@ class ObjectGroup(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.port_range is not None:
                             for child_ref in self.port_range:
                                 if child_ref._has_data():
@@ -1207,8 +1195,6 @@ class ObjectGroup(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object_name is not None:
                         return True
 
@@ -1241,8 +1227,6 @@ class ObjectGroup(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.udf_object is not None:
                     for child_ref in self.udf_object:
                         if child_ref._has_data():
@@ -1265,8 +1249,6 @@ class ObjectGroup(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.udf_objects is not None and self.udf_objects._has_data():
                 return True
 
@@ -1470,8 +1452,6 @@ class ObjectGroup(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nested_group_name is not None:
                                     return True
 
@@ -1494,8 +1474,6 @@ class ObjectGroup(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nested_group is not None:
                                 for child_ref in self.nested_group:
                                     if child_ref._has_data():
@@ -1536,7 +1514,7 @@ class ObjectGroup(object):
                             """
                             Range of host addresses
                             
-                            .. attribute:: end_address  <key>
+                            .. attribute:: start_address  <key>
                             
                             	IPv6 address
                             	**type**\: one of the below types:
@@ -1553,7 +1531,7 @@ class ObjectGroup(object):
                             
                             
                             ----
-                            .. attribute:: start_address  <key>
+                            .. attribute:: end_address  <key>
                             
                             	IPv6 address
                             	**type**\: one of the below types:
@@ -1579,31 +1557,29 @@ class ObjectGroup(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.end_address = None
                                 self.start_address = None
+                                self.end_address = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.end_address is None:
-                                    raise YPYModelError('Key property end_address is None')
                                 if self.start_address is None:
                                     raise YPYModelError('Key property start_address is None')
+                                if self.end_address is None:
+                                    raise YPYModelError('Key property end_address is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address-range[Cisco-IOS-XR-infra-objmgr-cfg:end-address = ' + str(self.end_address) + '][Cisco-IOS-XR-infra-objmgr-cfg:start-address = ' + str(self.start_address) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address-range[Cisco-IOS-XR-infra-objmgr-cfg:start-address = ' + str(self.start_address) + '][Cisco-IOS-XR-infra-objmgr-cfg:end-address = ' + str(self.end_address) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.end_address is not None:
+                                if self.start_address is not None:
                                     return True
 
-                                if self.start_address is not None:
+                                if self.end_address is not None:
                                     return True
 
                                 return False
@@ -1625,8 +1601,6 @@ class ObjectGroup(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address_range is not None:
                                 for child_ref in self.address_range:
                                     if child_ref._has_data():
@@ -1719,8 +1693,6 @@ class ObjectGroup(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -1746,8 +1718,6 @@ class ObjectGroup(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 for child_ref in self.address:
                                     if child_ref._has_data():
@@ -1830,8 +1800,6 @@ class ObjectGroup(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.host_address is not None:
                                     return True
 
@@ -1854,8 +1822,6 @@ class ObjectGroup(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.host is not None:
                                 for child_ref in self.host:
                                     if child_ref._has_data():
@@ -1880,8 +1846,6 @@ class ObjectGroup(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.object_name is not None:
                             return True
 
@@ -1917,8 +1881,6 @@ class ObjectGroup(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.udf_object is not None:
                         for child_ref in self.udf_object:
                             if child_ref._has_data():
@@ -1941,8 +1903,6 @@ class ObjectGroup(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.udf_objects is not None and self.udf_objects._has_data():
                     return True
 
@@ -2117,8 +2077,6 @@ class ObjectGroup(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nested_group_name is not None:
                                     return True
 
@@ -2141,8 +2099,6 @@ class ObjectGroup(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nested_group is not None:
                                 for child_ref in self.nested_group:
                                     if child_ref._has_data():
@@ -2183,7 +2139,7 @@ class ObjectGroup(object):
                             """
                             Range of host addresses
                             
-                            .. attribute:: end_address  <key>
+                            .. attribute:: start_address  <key>
                             
                             	IPv4 address
                             	**type**\: one of the below types:
@@ -2200,7 +2156,7 @@ class ObjectGroup(object):
                             
                             
                             ----
-                            .. attribute:: start_address  <key>
+                            .. attribute:: end_address  <key>
                             
                             	IPv4 address
                             	**type**\: one of the below types:
@@ -2226,31 +2182,29 @@ class ObjectGroup(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.end_address = None
                                 self.start_address = None
+                                self.end_address = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.end_address is None:
-                                    raise YPYModelError('Key property end_address is None')
                                 if self.start_address is None:
                                     raise YPYModelError('Key property start_address is None')
+                                if self.end_address is None:
+                                    raise YPYModelError('Key property end_address is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address-range[Cisco-IOS-XR-infra-objmgr-cfg:end-address = ' + str(self.end_address) + '][Cisco-IOS-XR-infra-objmgr-cfg:start-address = ' + str(self.start_address) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-infra-objmgr-cfg:address-range[Cisco-IOS-XR-infra-objmgr-cfg:start-address = ' + str(self.start_address) + '][Cisco-IOS-XR-infra-objmgr-cfg:end-address = ' + str(self.end_address) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.end_address is not None:
+                                if self.start_address is not None:
                                     return True
 
-                                if self.start_address is not None:
+                                if self.end_address is not None:
                                     return True
 
                                 return False
@@ -2272,8 +2226,6 @@ class ObjectGroup(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address_range is not None:
                                 for child_ref in self.address_range:
                                     if child_ref._has_data():
@@ -2366,8 +2318,6 @@ class ObjectGroup(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -2393,8 +2343,6 @@ class ObjectGroup(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 for child_ref in self.address:
                                     if child_ref._has_data():
@@ -2477,8 +2425,6 @@ class ObjectGroup(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.host_address is not None:
                                     return True
 
@@ -2501,8 +2447,6 @@ class ObjectGroup(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.host is not None:
                                 for child_ref in self.host:
                                     if child_ref._has_data():
@@ -2527,8 +2471,6 @@ class ObjectGroup(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.object_name is not None:
                             return True
 
@@ -2564,8 +2506,6 @@ class ObjectGroup(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.udf_object is not None:
                         for child_ref in self.udf_object:
                             if child_ref._has_data():
@@ -2588,8 +2528,6 @@ class ObjectGroup(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.udf_objects is not None and self.udf_objects._has_data():
                     return True
 
@@ -2610,8 +2548,6 @@ class ObjectGroup(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4 is not None and self.ipv4._has_data():
                 return True
 
@@ -2635,8 +2571,6 @@ class ObjectGroup(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.network is not None and self.network._has_data():
             return True
 

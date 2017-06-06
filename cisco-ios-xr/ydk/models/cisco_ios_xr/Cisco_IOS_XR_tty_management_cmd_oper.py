@@ -139,8 +139,6 @@ class ShowUsers(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.session_id is not None:
                     return True
 
@@ -179,8 +177,6 @@ class ShowUsers(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session is not None:
                 for child_ref in self.session:
                     if child_ref._has_data():
@@ -203,8 +199,6 @@ class ShowUsers(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.sessions is not None and self.sessions._has_data():
             return True
 

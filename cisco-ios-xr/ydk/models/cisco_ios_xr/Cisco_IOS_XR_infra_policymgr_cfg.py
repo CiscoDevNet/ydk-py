@@ -394,17 +394,17 @@ class PolicyManager(object):
             """
             Class\-map configuration.
             
+            .. attribute:: type  <key>
+            
+            	Type of class\-map
+            	**type**\:   :py:class:`ClassMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.ClassMapTypeEnum>`
+            
             .. attribute:: name  <key>
             
             	Name of class\-map
             	**type**\:  str
             
             	**pattern:** [a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@$%+#\:=<>\\\-]{0,62}
-            
-            .. attribute:: type  <key>
-            
-            	Type of class\-map
-            	**type**\:   :py:class:`ClassMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.ClassMapTypeEnum>`
             
             .. attribute:: class_map_mode_match_all
             
@@ -440,8 +440,8 @@ class PolicyManager(object):
 
             def __init__(self):
                 self.parent = None
-                self.name = None
                 self.type = None
+                self.name = None
                 self.class_map_mode_match_all = None
                 self.class_map_mode_match_any = None
                 self.description = None
@@ -1159,8 +1159,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -1221,8 +1219,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -1283,8 +1279,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -1345,8 +1339,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -1365,16 +1357,16 @@ class PolicyManager(object):
                     """
                     Match domain name.
                     
-                    .. attribute:: format  <key>
+                    .. attribute:: name  <key>
                     
-                    	Domain\-format name
+                    	Domain name or regular expression
                     	**type**\:  str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: format  <key>
                     
-                    	Domain name or regular expression
+                    	Domain\-format name
                     	**type**\:  str
                     
                     	**length:** 1..32
@@ -1388,31 +1380,29 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.format = None
                         self.name = None
+                        self.format = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.format is None:
-                            raise YPYModelError('Key property format is None')
                         if self.name is None:
                             raise YPYModelError('Key property name is None')
+                        if self.format is None:
+                            raise YPYModelError('Key property format is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-policymgr-cfg:domain-name[Cisco-IOS-XR-infra-policymgr-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-infra-policymgr-cfg:name = ' + str(self.name) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-policymgr-cfg:domain-name[Cisco-IOS-XR-infra-policymgr-cfg:name = ' + str(self.name) + '][Cisco-IOS-XR-infra-policymgr-cfg:format = ' + str(self.format) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.format is not None:
+                        if self.name is not None:
                             return True
 
-                        if self.name is not None:
+                        if self.format is not None:
                             return True
 
                         return False
@@ -1427,16 +1417,16 @@ class PolicyManager(object):
                     """
                     Match domain name.
                     
-                    .. attribute:: format  <key>
+                    .. attribute:: regex  <key>
                     
-                    	Domain\-format name
+                    	Domain name or regular expression
                     	**type**\:  str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: regex  <key>
+                    .. attribute:: format  <key>
                     
-                    	Domain name or regular expression
+                    	Domain\-format name
                     	**type**\:  str
                     
                     	**length:** 1..32
@@ -1450,31 +1440,29 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.format = None
                         self.regex = None
+                        self.format = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.format is None:
-                            raise YPYModelError('Key property format is None')
                         if self.regex is None:
                             raise YPYModelError('Key property regex is None')
+                        if self.format is None:
+                            raise YPYModelError('Key property format is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-policymgr-cfg:domain-name-regex[Cisco-IOS-XR-infra-policymgr-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-infra-policymgr-cfg:regex = ' + str(self.regex) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-policymgr-cfg:domain-name-regex[Cisco-IOS-XR-infra-policymgr-cfg:regex = ' + str(self.regex) + '][Cisco-IOS-XR-infra-policymgr-cfg:format = ' + str(self.format) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.format is not None:
+                        if self.regex is not None:
                             return True
 
-                        if self.regex is not None:
+                        if self.format is not None:
                             return True
 
                         return False
@@ -1561,8 +1549,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.idle_timeout is not None:
                                 return True
 
@@ -1585,8 +1571,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_cache is not None and self.flow_cache._has_data():
                             return True
 
@@ -1614,8 +1598,6 @@ class PolicyManager(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.atm_clp is not None:
                         return True
 
@@ -2611,8 +2593,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -2673,8 +2653,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -2735,8 +2713,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -2797,8 +2773,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -2817,16 +2791,16 @@ class PolicyManager(object):
                     """
                     Match domain name.
                     
-                    .. attribute:: format  <key>
+                    .. attribute:: name  <key>
                     
-                    	Domain\-format name
+                    	Domain name or regular expression
                     	**type**\:  str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: name  <key>
+                    .. attribute:: format  <key>
                     
-                    	Domain name or regular expression
+                    	Domain\-format name
                     	**type**\:  str
                     
                     	**length:** 1..32
@@ -2840,31 +2814,29 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.format = None
                         self.name = None
+                        self.format = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.format is None:
-                            raise YPYModelError('Key property format is None')
                         if self.name is None:
                             raise YPYModelError('Key property name is None')
+                        if self.format is None:
+                            raise YPYModelError('Key property format is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-policymgr-cfg:domain-name[Cisco-IOS-XR-infra-policymgr-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-infra-policymgr-cfg:name = ' + str(self.name) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-policymgr-cfg:domain-name[Cisco-IOS-XR-infra-policymgr-cfg:name = ' + str(self.name) + '][Cisco-IOS-XR-infra-policymgr-cfg:format = ' + str(self.format) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.format is not None:
+                        if self.name is not None:
                             return True
 
-                        if self.name is not None:
+                        if self.format is not None:
                             return True
 
                         return False
@@ -2879,16 +2851,16 @@ class PolicyManager(object):
                     """
                     Match domain name.
                     
-                    .. attribute:: format  <key>
+                    .. attribute:: regex  <key>
                     
-                    	Domain\-format name
+                    	Domain name or regular expression
                     	**type**\:  str
                     
                     	**length:** 1..32
                     
-                    .. attribute:: regex  <key>
+                    .. attribute:: format  <key>
                     
-                    	Domain name or regular expression
+                    	Domain\-format name
                     	**type**\:  str
                     
                     	**length:** 1..32
@@ -2902,31 +2874,29 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.format = None
                         self.regex = None
+                        self.format = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.format is None:
-                            raise YPYModelError('Key property format is None')
                         if self.regex is None:
                             raise YPYModelError('Key property regex is None')
+                        if self.format is None:
+                            raise YPYModelError('Key property format is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-policymgr-cfg:domain-name-regex[Cisco-IOS-XR-infra-policymgr-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-infra-policymgr-cfg:regex = ' + str(self.regex) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-policymgr-cfg:domain-name-regex[Cisco-IOS-XR-infra-policymgr-cfg:regex = ' + str(self.regex) + '][Cisco-IOS-XR-infra-policymgr-cfg:format = ' + str(self.format) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.format is not None:
+                        if self.regex is not None:
                             return True
 
-                        if self.regex is not None:
+                        if self.format is not None:
                             return True
 
                         return False
@@ -2973,8 +2943,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_tag is not None:
                             for child in self.flow_tag:
                                 if child is not None:
@@ -2999,8 +2967,6 @@ class PolicyManager(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.authen_status is not None:
                         return True
 
@@ -3303,24 +3269,22 @@ class PolicyManager(object):
 
             @property
             def _common_path(self):
-                if self.name is None:
-                    raise YPYModelError('Key property name is None')
                 if self.type is None:
                     raise YPYModelError('Key property type is None')
+                if self.name is None:
+                    raise YPYModelError('Key property name is None')
 
-                return '/Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/Cisco-IOS-XR-infra-policymgr-cfg:class-maps/Cisco-IOS-XR-infra-policymgr-cfg:class-map[Cisco-IOS-XR-infra-policymgr-cfg:name = ' + str(self.name) + '][Cisco-IOS-XR-infra-policymgr-cfg:type = ' + str(self.type) + ']'
+                return '/Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/Cisco-IOS-XR-infra-policymgr-cfg:class-maps/Cisco-IOS-XR-infra-policymgr-cfg:class-map[Cisco-IOS-XR-infra-policymgr-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-infra-policymgr-cfg:name = ' + str(self.name) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.name is not None:
+                if self.type is not None:
                     return True
 
-                if self.type is not None:
+                if self.name is not None:
                     return True
 
                 if self.class_map_mode_match_all is not None:
@@ -3355,8 +3319,6 @@ class PolicyManager(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.class_map is not None:
                 for child_ref in self.class_map:
                     if child_ref._has_data():
@@ -3397,17 +3359,17 @@ class PolicyManager(object):
             """
             Policy\-map configuration.
             
+            .. attribute:: type  <key>
+            
+            	Type of policy\-map
+            	**type**\:   :py:class:`PolicyMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyMapTypeEnum>`
+            
             .. attribute:: name  <key>
             
             	Name of policy\-map
             	**type**\:  str
             
             	**pattern:** [a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@$%+#\:=<>\\\-]{0,62}
-            
-            .. attribute:: type  <key>
-            
-            	Type of policy\-map
-            	**type**\:   :py:class:`PolicyMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyMapTypeEnum>`
             
             .. attribute:: description
             
@@ -3433,8 +3395,8 @@ class PolicyManager(object):
 
             def __init__(self):
                 self.parent = None
-                self.name = None
                 self.type = None
+                self.name = None
                 self.description = None
                 self.event = YList()
                 self.event.parent = self
@@ -3657,8 +3619,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.aaa_list is not None:
@@ -3707,8 +3667,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.aaa_list is not None:
                                     return True
 
@@ -3782,8 +3740,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.aaa_list is not None:
@@ -3854,8 +3810,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.aaa_list is not None:
@@ -3927,8 +3881,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.timer_name is not None:
@@ -3977,8 +3929,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.timer_name is not None:
                                     return True
 
@@ -4003,8 +3953,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.action_sequence_number is not None:
                                 return True
 
@@ -4055,8 +4003,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.class_name is not None:
                             return True
 
@@ -4092,8 +4038,6 @@ class PolicyManager(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.event_type is not None:
                         return True
 
@@ -4378,8 +4322,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.unit is not None:
                                 return True
 
@@ -4436,8 +4378,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.units is not None:
                                 return True
 
@@ -4463,8 +4403,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.burst is not None and self.burst._has_data():
                             return True
 
@@ -4521,8 +4459,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.unit is not None:
                             return True
 
@@ -4579,8 +4515,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.unit is not None:
                             return True
 
@@ -4637,8 +4571,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.unit is not None:
                             return True
 
@@ -4737,8 +4669,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.unit is not None:
                                 return True
 
@@ -4795,8 +4725,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.unit is not None:
                                 return True
 
@@ -4853,8 +4781,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.unit is not None:
                                 return True
 
@@ -4880,8 +4806,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pfc_buffer_size is not None and self.pfc_buffer_size._has_data():
                             return True
 
@@ -4908,16 +4832,9 @@ class PolicyManager(object):
                     All RED profiles in a class must be based
                     on the same field.
                     
-                    .. attribute:: threshold_max_units  <key>
+                    .. attribute:: threshold_min_value  <key>
                     
-                    	Maximum RED threshold units
-                    	**type**\:  str
-                    
-                    	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
-                    
-                    .. attribute:: threshold_max_value  <key>
-                    
-                    	Maximum RED threshold value
+                    	Minimum RED threshold value
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -4929,12 +4846,19 @@ class PolicyManager(object):
                     
                     	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
                     
-                    .. attribute:: threshold_min_value  <key>
+                    .. attribute:: threshold_max_value  <key>
                     
-                    	Minimum RED threshold value
+                    	Maximum RED threshold value
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: threshold_max_units  <key>
+                    
+                    	Maximum RED threshold units
+                    	**type**\:  str
+                    
+                    	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
                     
                     .. attribute:: cos
                     
@@ -5002,10 +4926,10 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.threshold_max_units = None
-                        self.threshold_max_value = None
-                        self.threshold_min_units = None
                         self.threshold_min_value = None
+                        self.threshold_min_units = None
+                        self.threshold_max_value = None
+                        self.threshold_max_units = None
                         self.cos = YLeafList()
                         self.cos.parent = self
                         self.cos.name = 'cos'
@@ -5028,34 +4952,32 @@ class PolicyManager(object):
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.threshold_max_units is None:
-                            raise YPYModelError('Key property threshold_max_units is None')
-                        if self.threshold_max_value is None:
-                            raise YPYModelError('Key property threshold_max_value is None')
-                        if self.threshold_min_units is None:
-                            raise YPYModelError('Key property threshold_min_units is None')
                         if self.threshold_min_value is None:
                             raise YPYModelError('Key property threshold_min_value is None')
+                        if self.threshold_min_units is None:
+                            raise YPYModelError('Key property threshold_min_units is None')
+                        if self.threshold_max_value is None:
+                            raise YPYModelError('Key property threshold_max_value is None')
+                        if self.threshold_max_units is None:
+                            raise YPYModelError('Key property threshold_max_units is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-policymgr-cfg:random-detect[Cisco-IOS-XR-infra-policymgr-cfg:threshold-max-units = ' + str(self.threshold_max_units) + '][Cisco-IOS-XR-infra-policymgr-cfg:threshold-max-value = ' + str(self.threshold_max_value) + '][Cisco-IOS-XR-infra-policymgr-cfg:threshold-min-units = ' + str(self.threshold_min_units) + '][Cisco-IOS-XR-infra-policymgr-cfg:threshold-min-value = ' + str(self.threshold_min_value) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-policymgr-cfg:random-detect[Cisco-IOS-XR-infra-policymgr-cfg:threshold-min-value = ' + str(self.threshold_min_value) + '][Cisco-IOS-XR-infra-policymgr-cfg:threshold-min-units = ' + str(self.threshold_min_units) + '][Cisco-IOS-XR-infra-policymgr-cfg:threshold-max-value = ' + str(self.threshold_max_value) + '][Cisco-IOS-XR-infra-policymgr-cfg:threshold-max-units = ' + str(self.threshold_max_units) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.threshold_max_units is not None:
-                            return True
-
-                        if self.threshold_max_value is not None:
+                        if self.threshold_min_value is not None:
                             return True
 
                         if self.threshold_min_units is not None:
                             return True
 
-                        if self.threshold_min_value is not None:
+                        if self.threshold_max_value is not None:
+                            return True
+
+                        if self.threshold_max_units is not None:
                             return True
 
                         if self.cos is not None:
@@ -5287,8 +5209,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.cos is not None:
                             return True
 
@@ -5457,8 +5377,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.units is not None:
                                 return True
 
@@ -5515,8 +5433,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.units is not None:
                                 return True
 
@@ -5573,8 +5489,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.units is not None:
                                 return True
 
@@ -5631,8 +5545,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.units is not None:
                                 return True
 
@@ -5872,8 +5784,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cos is not None:
                                     return True
 
@@ -5947,8 +5857,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.drop is not None:
                                 return True
 
@@ -6191,8 +6099,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cos is not None:
                                     return True
 
@@ -6266,8 +6172,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.drop is not None:
                                 return True
 
@@ -6510,8 +6414,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cos is not None:
                                     return True
 
@@ -6585,8 +6487,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.drop is not None:
                                 return True
 
@@ -6615,8 +6515,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.burst is not None and self.burst._has_data():
                             return True
 
@@ -6688,8 +6586,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.policy_name is not None:
                             return True
 
@@ -6793,8 +6689,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.units is not None:
                                 return True
 
@@ -6851,8 +6745,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.units is not None:
                                 return True
 
@@ -6878,8 +6770,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_idle_timeout is not None:
                             return True
 
@@ -6959,8 +6849,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.history is not None:
                             return True
 
@@ -7066,8 +6954,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.layer3 is not None:
                                 return True
 
@@ -7131,8 +7017,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.count_in_layer3 is not None:
                                 return True
 
@@ -7158,8 +7042,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.media_packet is not None and self.media_packet._has_data():
                             return True
 
@@ -7284,8 +7166,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.snmp is not None:
                                 return True
 
@@ -7382,8 +7262,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.discrete is not None:
                                     return True
 
@@ -7412,8 +7290,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.severity is not None:
                                 return True
 
@@ -7513,8 +7389,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.greater_than is not None:
                                     return True
 
@@ -7578,8 +7452,6 @@ class PolicyManager(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.average is not None:
                                     return True
 
@@ -7605,8 +7477,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.trigger_type is not None and self.trigger_type._has_data():
                                 return True
 
@@ -7632,8 +7502,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.action is not None and self.action._has_data():
                             return True
 
@@ -7752,8 +7620,6 @@ class PolicyManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4_address is not None:
                                 return True
 
@@ -7782,8 +7648,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.default is not None:
                             return True
 
@@ -7846,8 +7710,6 @@ class PolicyManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.index is not None:
                             return True
 
@@ -7880,8 +7742,6 @@ class PolicyManager(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.class_name is not None:
                         return True
 
@@ -7971,24 +7831,22 @@ class PolicyManager(object):
 
             @property
             def _common_path(self):
-                if self.name is None:
-                    raise YPYModelError('Key property name is None')
                 if self.type is None:
                     raise YPYModelError('Key property type is None')
+                if self.name is None:
+                    raise YPYModelError('Key property name is None')
 
-                return '/Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/Cisco-IOS-XR-infra-policymgr-cfg:policy-maps/Cisco-IOS-XR-infra-policymgr-cfg:policy-map[Cisco-IOS-XR-infra-policymgr-cfg:name = ' + str(self.name) + '][Cisco-IOS-XR-infra-policymgr-cfg:type = ' + str(self.type) + ']'
+                return '/Cisco-IOS-XR-infra-policymgr-cfg:policy-manager/Cisco-IOS-XR-infra-policymgr-cfg:policy-maps/Cisco-IOS-XR-infra-policymgr-cfg:policy-map[Cisco-IOS-XR-infra-policymgr-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-infra-policymgr-cfg:name = ' + str(self.name) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.name is not None:
+                if self.type is not None:
                     return True
 
-                if self.type is not None:
+                if self.name is not None:
                     return True
 
                 if self.description is not None:
@@ -8021,8 +7879,6 @@ class PolicyManager(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.policy_map is not None:
                 for child_ref in self.policy_map:
                     if child_ref._has_data():
@@ -8045,8 +7901,6 @@ class PolicyManager(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.class_maps is not None and self.class_maps._has_data():
             return True
 

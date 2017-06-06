@@ -230,8 +230,6 @@ class TelemetryModelDriven(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.telemetry_sensor_path is not None:
                             return True
 
@@ -254,8 +252,6 @@ class TelemetryModelDriven(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sensor_path is not None:
                         for child_ref in self.sensor_path:
                             if child_ref._has_data():
@@ -280,8 +276,6 @@ class TelemetryModelDriven(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sensor_group_identifier is not None:
                     return True
 
@@ -305,8 +299,6 @@ class TelemetryModelDriven(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sensor_group is not None:
                 for child_ref in self.sensor_group:
                     if child_ref._has_data():
@@ -449,8 +441,6 @@ class TelemetryModelDriven(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sensorgroupid is not None:
                             return True
 
@@ -476,8 +466,6 @@ class TelemetryModelDriven(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sensor_profile is not None:
                         for child_ref in self.sensor_profile:
                             if child_ref._has_data():
@@ -550,8 +538,6 @@ class TelemetryModelDriven(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination_id is not None:
                             return True
 
@@ -574,8 +560,6 @@ class TelemetryModelDriven(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_profile is not None:
                         for child_ref in self.destination_profile:
                             if child_ref._has_data():
@@ -600,8 +584,6 @@ class TelemetryModelDriven(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.subscription_identifier is not None:
                     return True
 
@@ -628,8 +610,6 @@ class TelemetryModelDriven(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.subscription is not None:
                 for child_ref in self.subscription:
                     if child_ref._has_data():
@@ -730,19 +710,19 @@ class TelemetryModelDriven(object):
                     """
                     destination IP address
                     
-                    .. attribute:: destination_port  <key>
-                    
-                    	destination port
-                    	**type**\:  int
-                    
-                    	**range:** 1..65535
-                    
                     .. attribute:: ipv6_address  <key>
                     
                     	Destination IPv6 address
                     	**type**\:  str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: destination_port  <key>
+                    
+                    	destination port
+                    	**type**\:  int
+                    
+                    	**range:** 1..65535
                     
                     .. attribute:: encoding
                     
@@ -765,8 +745,8 @@ class TelemetryModelDriven(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.destination_port = None
                         self.ipv6_address = None
+                        self.destination_port = None
                         self.encoding = None
                         self.protocol = None
 
@@ -830,8 +810,6 @@ class TelemetryModelDriven(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.no_tls is not None:
@@ -854,24 +832,22 @@ class TelemetryModelDriven(object):
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.destination_port is None:
-                            raise YPYModelError('Key property destination_port is None')
                         if self.ipv6_address is None:
                             raise YPYModelError('Key property ipv6_address is None')
+                        if self.destination_port is None:
+                            raise YPYModelError('Key property destination_port is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6-destination[Cisco-IOS-XR-telemetry-model-driven-cfg:destination-port = ' + str(self.destination_port) + '][Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6-address = ' + str(self.ipv6_address) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6-destination[Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6-address = ' + str(self.ipv6_address) + '][Cisco-IOS-XR-telemetry-model-driven-cfg:destination-port = ' + str(self.destination_port) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.destination_port is not None:
+                        if self.ipv6_address is not None:
                             return True
 
-                        if self.ipv6_address is not None:
+                        if self.destination_port is not None:
                             return True
 
                         if self.encoding is not None:
@@ -899,8 +875,6 @@ class TelemetryModelDriven(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipv6_destination is not None:
                         for child_ref in self.ipv6_destination:
                             if child_ref._has_data():
@@ -941,19 +915,19 @@ class TelemetryModelDriven(object):
                     """
                     destination IP address
                     
-                    .. attribute:: destination_port  <key>
-                    
-                    	destination port
-                    	**type**\:  int
-                    
-                    	**range:** 1..65535
-                    
                     .. attribute:: ipv4_address  <key>
                     
                     	Destination IPv4 address
                     	**type**\:  str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: destination_port  <key>
+                    
+                    	destination port
+                    	**type**\:  int
+                    
+                    	**range:** 1..65535
                     
                     .. attribute:: encoding
                     
@@ -976,8 +950,8 @@ class TelemetryModelDriven(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.destination_port = None
                         self.ipv4_address = None
+                        self.destination_port = None
                         self.encoding = None
                         self.protocol = None
 
@@ -1041,8 +1015,6 @@ class TelemetryModelDriven(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.no_tls is not None:
@@ -1065,24 +1037,22 @@ class TelemetryModelDriven(object):
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.destination_port is None:
-                            raise YPYModelError('Key property destination_port is None')
                         if self.ipv4_address is None:
                             raise YPYModelError('Key property ipv4_address is None')
+                        if self.destination_port is None:
+                            raise YPYModelError('Key property destination_port is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4-destination[Cisco-IOS-XR-telemetry-model-driven-cfg:destination-port = ' + str(self.destination_port) + '][Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4-address = ' + str(self.ipv4_address) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4-destination[Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4-address = ' + str(self.ipv4_address) + '][Cisco-IOS-XR-telemetry-model-driven-cfg:destination-port = ' + str(self.destination_port) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.destination_port is not None:
+                        if self.ipv4_address is not None:
                             return True
 
-                        if self.ipv4_address is not None:
+                        if self.destination_port is not None:
                             return True
 
                         if self.encoding is not None:
@@ -1110,8 +1080,6 @@ class TelemetryModelDriven(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipv4_destination is not None:
                         for child_ref in self.ipv4_destination:
                             if child_ref._has_data():
@@ -1136,8 +1104,6 @@ class TelemetryModelDriven(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_id is not None:
                     return True
 
@@ -1164,8 +1130,6 @@ class TelemetryModelDriven(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.destination_group is not None:
                 for child_ref in self.destination_group:
                     if child_ref._has_data():
@@ -1188,8 +1152,6 @@ class TelemetryModelDriven(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.destination_groups is not None and self.destination_groups._has_data():
             return True
 

@@ -13,82 +13,117 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'BmdMlacpSwitchoverEnum' : _MetaInfoEnum('BmdMlacpSwitchoverEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmMuxstateEnum' : _MetaInfoEnum('BmMuxstateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-mlacp-switchover-nonrevertive':'bmd_mlacp_switchover_nonrevertive',
-            'bmd-mlacp-switchover-brute-force':'bmd_mlacp_switchover_brute_force',
-            'bmd-mlacp-switchover-revertive':'bmd_mlacp_switchover_revertive',
-            'bmd-mlacp-switchover-count':'bmd_mlacp_switchover_count',
+            'detached':'detached',
+            'waiting':'waiting',
+            'attached':'attached',
+            'collecting':'collecting',
+            'distributing':'distributing',
+            'collecting-distributing':'collecting_distributing',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'LoadBalanceEnum' : _MetaInfoEnum('LoadBalanceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdBagEventRgItemEnum' : _MetaInfoEnum('BmdBagEventRgItemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'default':'default',
-            'auto':'auto',
-            'value':'value',
-            'source-ip':'source_ip',
-            'destination-ip':'destination_ip',
-            'unknown':'unknown',
+            'bmd-event-rg-idb-create':'bmd_event_rg_idb_create',
+            'bmd-event-rg-configured':'bmd_event_rg_configured',
+            'bmd-event-rg-user-config':'bmd_event_rg_user_config',
+            'bmd-event-rg-connect-ion':'bmd_event_rg_connect_ion',
+            'bmd-event-rg-data':'bmd_event_rg_data',
+            'bmd-event-rg-sync':'bmd_event_rg_sync',
+            'bmd-event-rg-first-retry':'bmd_event_rg_first_retry',
+            'bmd-event-rg-error':'bmd_event_rg_error',
+            'bmd-event-rg-mlacp-tlv':'bmd_event_rg_mlacp_tlv',
+            'bmd-event-rg-iccp-event':'bmd_event_rg_iccp_event',
+            'bmd-event-rg-count':'bmd_event_rg_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmBdlStateEnum' : _MetaInfoEnum('BmBdlStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdSwitchReasonEnum' : _MetaInfoEnum('BmdSwitchReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-bdl-state-admin-down':'bm_bdl_state_admin_down',
-            'bm-bdl-state-down':'bm_bdl_state_down',
-            'bm-bdl-state-client-down':'bm_bdl_state_client_down',
-            'bm-bdl-state-ptnr-down':'bm_bdl_state_ptnr_down',
-            'bm-bdl-state-bundle-shutdown':'bm_bdl_state_bundle_shutdown',
-            'bm-bdl-state-pe-isolated':'bm_bdl_state_pe_isolated',
-            'bm-bdl-state-nak':'bm_bdl_state_nak',
-            'bm-bdl-state-up-active':'bm_bdl_state_up_active',
-            'bm-bdl-state-mlacp-hot-standby':'bm_bdl_state_mlacp_hot_standby',
-            'bm-bdl-state-mlacp-cold-standby':'bm_bdl_state_mlacp_cold_standby',
-            'bm-bdl-state-unknown':'bm_bdl_state_unknown',
-            'bm-bdl-state-cold-standby':'bm_bdl_state_cold_standby',
-            'bm-bdl-state-error-disabled':'bm_bdl_state_error_disabled',
-            'bm-bdl-state-efd-disabled':'bm_bdl_state_efd_disabled',
+            'bm-switch-reason-none':'bm_switch_reason_none',
+            'bm-switch-reason-noop':'bm_switch_reason_noop',
+            'bm-switch-reason-not-mlacp':'bm_switch_reason_not_mlacp',
+            'bm-switch-reason-revertive':'bm_switch_reason_revertive',
+            'bm-switch-reason-bdl-down':'bm_switch_reason_bdl_down',
+            'bm-switch-reason-recovery':'bm_switch_reason_recovery',
+            'bm-switch-reason-preceding-error':'bm_switch_reason_preceding_error',
+            'bm-switch-reason-wrong-order':'bm_switch_reason_wrong_order',
+            'bm-switch-reason-singleton':'bm_switch_reason_singleton',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'LacpPeriodStateEnum' : _MetaInfoEnum('LacpPeriodStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdBagEventBdlItemEnum' : _MetaInfoEnum('BmdBagEventBdlItemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'period-s-low':'period_s_low',
-            'period-fast':'period_fast',
-            'period-none':'period_none',
-        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BundleMediaEnum' : _MetaInfoEnum('BundleMediaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
-        {
-            'bundle-media-ethernet':'bundle_media_ethernet',
-            'bundle-media-pos':'bundle_media_pos',
-            'bundle-media-count':'bundle_media_count',
-        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdMlacpBdlStateEnumEnum' : _MetaInfoEnum('BmdMlacpBdlStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
-        {
-            'bdl-state-nak':'bdl_state_nak',
-            'bdl-state-unknown':'bdl_state_unknown',
-            'bdl-state-no-sync':'bdl_state_no_sync',
-            'bdl-state-rec-delay':'bdl_state_rec_delay',
-            'bdl-state-up':'bdl_state_up',
-            'bdl-state-down':'bdl_state_down',
-            'bdl-state-admin-down':'bdl_state_admin_down',
-            'bdl-state-test':'bdl_state_test',
-            'bdl-state-error':'bdl_state_error',
+            'bmd-event-bdl-idb-create':'bmd_event_bdl_idb_create',
+            'bmd-event-bdl-configured':'bmd_event_bdl_configured',
+            'bmd-event-bdl-im-state':'bmd_event_bdl_im_state',
+            'bmd-event-bdl-mbr-added':'bmd_event_bdl_mbr_added',
+            'bmd-event-bdl-mbr-deleted':'bmd_event_bdl_mbr_deleted',
+            'bmd-event-bdl-mac-addr':'bmd_event_bdl_mac_addr',
+            'bmd-event-bdl-first-retry':'bmd_event_bdl_first_retry',
+            'bmd-event-bdl-user-config':'bmd_event_bdl_user_config',
+            'bmd-event-bdl-error':'bmd_event_bdl_error',
+            'bmd-event-bdl-mlacp-tlv':'bmd_event_bdl_mlacp_tlv',
+            'bmd-event-bdl-redundancy-role':'bmd_event_bdl_redundancy_role',
+            'bdl-bfd-state-change':'bdl_bfd_state_change',
+            'bmd-event-bdl-icl':'bmd_event_bdl_icl',
+            'bmd-event-bdl-count':'bmd_event_bdl_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BundleMedia1Enum' : _MetaInfoEnum('BundleMedia1Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'ethernet':'ethernet',
             'pos':'pos',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'RxstatesEnum' : _MetaInfoEnum('RxstatesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdBfdBdlStateEnum' : _MetaInfoEnum('BmdBfdBdlStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'current-rx':'current_rx',
-            'expired':'expired',
-            'defaulted':'defaulted',
-            'initialize':'initialize',
-            'lacp-disabled':'lacp_disabled',
-            'port-disabled':'port_disabled',
+            'bmd-bfd-bdl-down':'bmd_bfd_bdl_down',
+            'bmd-bfd-bdl-unknown':'bmd_bfd_bdl_unknown',
+            'bmd-bfd-bdl-up':'bmd_bfd_bdl_up',
+            'bmd-bfd-bdl-count':'bmd_bfd_bdl_count',
+        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
+    'BmWhichSystemEnum' : _MetaInfoEnum('BmWhichSystemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+        {
+            'bm-which-system-actr':'bm_which_system_actr',
+            'bm-which-system-ptnr':'bm_which_system_ptnr',
+        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
+    'BmStateReasonTargetEnum' : _MetaInfoEnum('BmStateReasonTargetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+        {
+            'member-reason':'member_reason',
+            'bundle-reason':'bundle_reason',
+        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
+    'BmdMlacpMbrStateEnumEnum' : _MetaInfoEnum('BmdMlacpMbrStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+        {
+            'mbr-state-nak':'mbr_state_nak',
+            'mbr-state-unknown':'mbr_state_unknown',
+            'mbr-state-up':'mbr_state_up',
+            'mbr-state-down':'mbr_state_down',
+            'mbr-state-admin-down':'mbr_state_admin_down',
+            'mbr-state-test':'mbr_state_test',
+            'mbr-state-error':'mbr_state_error',
+        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
+    'BmBdlMacSourceEnum' : _MetaInfoEnum('BmBdlMacSourceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+        {
+            'bm-bdl-mac-source-unknown':'bm_bdl_mac_source_unknown',
+            'bm-bdl-mac-source-chassis':'bm_bdl_mac_source_chassis',
+            'bm-bdl-mac-source-configured':'bm_bdl_mac_source_configured',
+            'bm-bdl-mac-source-member':'bm_bdl_mac_source_member',
+            'bm-bdl-mac-source-peer':'bm_bdl_mac_source_peer',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'LacpChurnstatesEnum' : _MetaInfoEnum('LacpChurnstatesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'no-churn':'no_churn',
             'churn':'churn',
             'churn-monitor':'churn_monitor',
+        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
+    'BmdBagEventDataEnum' : _MetaInfoEnum('BmdBagEventDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+        {
+            'bmd-bag-evt-data-none':'bmd_bag_evt_data_none',
+            'bmd-bag-evt-data-error':'bmd_bag_evt_data_error',
+            'bmd-bag-evt-data-string':'bmd_bag_evt_data_string',
+        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
+    'BmdMlacpNodeSyncEnumEnum' : _MetaInfoEnum('BmdMlacpNodeSyncEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+        {
+            'node-sync-req':'node_sync_req',
+            'node-sync-done':'node_sync_done',
+            'node-sync-start':'node_sync_start',
+            'node-sync-init':'node_sync_init',
+            'node-sync-singleton':'node_sync_singleton',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdBagEventMbrItemEnum' : _MetaInfoEnum('BmdBagEventMbrItemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
@@ -107,34 +142,57 @@ _meta_table = {
             'bmd-event-mbr-redundancy-role':'bmd_event_mbr_redundancy_role',
             'bmd-event-mbr-count':'bmd_event_mbr_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBagEventDataEnum' : _MetaInfoEnum('BmdBagEventDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmSeverityEnum' : _MetaInfoEnum('BmSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-bag-evt-data-none':'bmd_bag_evt_data_none',
-            'bmd-bag-evt-data-error':'bmd_bag_evt_data_error',
-            'bmd-bag-evt-data-string':'bmd_bag_evt_data_string',
+            'ok':'ok',
+            'information':'information',
+            'misconfiguration':'misconfiguration',
+            'warning':'warning',
+            'error':'error',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdSwitchReasonEnum' : _MetaInfoEnum('BmdSwitchReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'LacpSelStateEnum' : _MetaInfoEnum('LacpSelStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-switch-reason-none':'bm_switch_reason_none',
-            'bm-switch-reason-noop':'bm_switch_reason_noop',
-            'bm-switch-reason-not-mlacp':'bm_switch_reason_not_mlacp',
-            'bm-switch-reason-revertive':'bm_switch_reason_revertive',
-            'bm-switch-reason-bdl-down':'bm_switch_reason_bdl_down',
-            'bm-switch-reason-recovery':'bm_switch_reason_recovery',
-            'bm-switch-reason-preceding-error':'bm_switch_reason_preceding_error',
-            'bm-switch-reason-wrong-order':'bm_switch_reason_wrong_order',
-            'bm-switch-reason-singleton':'bm_switch_reason_singleton',
+            'unselected':'unselected',
+            'standby':'standby',
+            'selected':'selected',
+        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
+    'BundleMlacpModeEnum' : _MetaInfoEnum('BundleMlacpModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+        {
+            'bundle-mlacp-mode-standby':'bundle_mlacp_mode_standby',
+            'bundle-mlacp-mode-active':'bundle_mlacp_mode_active',
+            'bundle-mlacp-mode-count':'bundle_mlacp_mode_count',
+        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
+    'BmdMlacpNodeStateEnumEnum' : _MetaInfoEnum('BmdMlacpNodeStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+        {
+            'node-state-incomplete':'node_state_incomplete',
+            'node-state-conn-rejected':'node_state_conn_rejected',
+            'node-state-connect-sent':'node_state_connect_sent',
+            'node-state-unconfigured':'node_state_unconfigured',
+            'node-state-unreachable':'node_state_unreachable',
+            'node-state-iccp-down':'node_state_iccp_down',
+            'node-state-nak':'node_state_nak',
+            'node-state-unknown':'node_state_unknown',
+            'node-state-mlacp-down':'node_state_mlacp_down',
+            'node-state-admin-down':'node_state_admin_down',
+            'node-state-pe-isolated':'node_state_pe_isolated',
+            'node-state-error':'node_state_error',
+            'node-state-test':'node_state_test',
+            'node-state-up':'node_state_up',
+        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
+    'BmdMemberStateEnum' : _MetaInfoEnum('BmdMemberStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+        {
+            'bmd-mbr-state-configured':'bmd_mbr_state_configured',
+            'bmd-mbr-state-standby':'bmd_mbr_state_standby',
+            'bmd-mbr-state-hot-standby':'bmd_mbr_state_hot_standby',
+            'bmd-mbr-state-negotiating':'bmd_mbr_state_negotiating',
+            'bmd-mbr-state-bfd-running':'bmd_mbr_state_bfd_running',
+            'bmd-mbr-state-active':'bmd_mbr_state_active',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdMemberTypeEnumEnum' : _MetaInfoEnum('BmdMemberTypeEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
             'bmd-mbr-local':'bmd_mbr_local',
             'bmd-mbr-foreign':'bmd_mbr_foreign',
             'bmd-mbr-unknown':'bmd_mbr_unknown',
-        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmAfIdEnum' : _MetaInfoEnum('BmAfIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
-        {
-            'bm-af-id-ipv4':'bm_af_id_ipv4',
-            'bm-af-id-ipv6':'bm_af_id_ipv6',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmMbrStateReasonEnum' : _MetaInfoEnum('BmMbrStateReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
@@ -215,75 +273,61 @@ _meta_table = {
             'bm-mbr-state-reason-client-bundle-ctrl':'bm_mbr_state_reason_client_bundle_ctrl',
             'bm-mbr-state-reason-count':'bm_mbr_state_reason_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBagEventBdlItemEnum' : _MetaInfoEnum('BmdBagEventBdlItemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BundleMediaEnum' : _MetaInfoEnum('BundleMediaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-event-bdl-idb-create':'bmd_event_bdl_idb_create',
-            'bmd-event-bdl-configured':'bmd_event_bdl_configured',
-            'bmd-event-bdl-im-state':'bmd_event_bdl_im_state',
-            'bmd-event-bdl-mbr-added':'bmd_event_bdl_mbr_added',
-            'bmd-event-bdl-mbr-deleted':'bmd_event_bdl_mbr_deleted',
-            'bmd-event-bdl-mac-addr':'bmd_event_bdl_mac_addr',
-            'bmd-event-bdl-first-retry':'bmd_event_bdl_first_retry',
-            'bmd-event-bdl-user-config':'bmd_event_bdl_user_config',
-            'bmd-event-bdl-error':'bmd_event_bdl_error',
-            'bmd-event-bdl-mlacp-tlv':'bmd_event_bdl_mlacp_tlv',
-            'bmd-event-bdl-redundancy-role':'bmd_event_bdl_redundancy_role',
-            'bdl-bfd-state-change':'bdl_bfd_state_change',
-            'bmd-event-bdl-icl':'bmd_event_bdl_icl',
-            'bmd-event-bdl-count':'bmd_event_bdl_count',
+            'bundle-media-ethernet':'bundle_media_ethernet',
+            'bundle-media-pos':'bundle_media_pos',
+            'bundle-media-count':'bundle_media_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdMlacpNodeStateEnumEnum' : _MetaInfoEnum('BmdMlacpNodeStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdMlacpBdlStateEnumEnum' : _MetaInfoEnum('BmdMlacpBdlStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'node-state-incomplete':'node_state_incomplete',
-            'node-state-conn-rejected':'node_state_conn_rejected',
-            'node-state-connect-sent':'node_state_connect_sent',
-            'node-state-unconfigured':'node_state_unconfigured',
-            'node-state-unreachable':'node_state_unreachable',
-            'node-state-iccp-down':'node_state_iccp_down',
-            'node-state-nak':'node_state_nak',
-            'node-state-unknown':'node_state_unknown',
-            'node-state-mlacp-down':'node_state_mlacp_down',
-            'node-state-admin-down':'node_state_admin_down',
-            'node-state-pe-isolated':'node_state_pe_isolated',
-            'node-state-error':'node_state_error',
-            'node-state-test':'node_state_test',
-            'node-state-up':'node_state_up',
+            'bdl-state-nak':'bdl_state_nak',
+            'bdl-state-unknown':'bdl_state_unknown',
+            'bdl-state-no-sync':'bdl_state_no_sync',
+            'bdl-state-rec-delay':'bdl_state_rec_delay',
+            'bdl-state-up':'bdl_state_up',
+            'bdl-state-down':'bdl_state_down',
+            'bdl-state-admin-down':'bdl_state_admin_down',
+            'bdl-state-test':'bdl_state_test',
+            'bdl-state-error':'bdl_state_error',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBagEventRgItemEnum' : _MetaInfoEnum('BmdBagEventRgItemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmAfIdEnum' : _MetaInfoEnum('BmAfIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-event-rg-idb-create':'bmd_event_rg_idb_create',
-            'bmd-event-rg-configured':'bmd_event_rg_configured',
-            'bmd-event-rg-user-config':'bmd_event_rg_user_config',
-            'bmd-event-rg-connect-ion':'bmd_event_rg_connect_ion',
-            'bmd-event-rg-data':'bmd_event_rg_data',
-            'bmd-event-rg-sync':'bmd_event_rg_sync',
-            'bmd-event-rg-first-retry':'bmd_event_rg_first_retry',
-            'bmd-event-rg-error':'bmd_event_rg_error',
-            'bmd-event-rg-mlacp-tlv':'bmd_event_rg_mlacp_tlv',
-            'bmd-event-rg-iccp-event':'bmd_event_rg_iccp_event',
-            'bmd-event-rg-count':'bmd_event_rg_count',
+            'bm-af-id-ipv4':'bm_af_id_ipv4',
+            'bm-af-id-ipv6':'bm_af_id_ipv6',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmWhichSystemEnum' : _MetaInfoEnum('BmWhichSystemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdMlacpSwitchoverEnum' : _MetaInfoEnum('BmdMlacpSwitchoverEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-which-system-actr':'bm_which_system_actr',
-            'bm-which-system-ptnr':'bm_which_system_ptnr',
+            'bmd-mlacp-switchover-nonrevertive':'bmd_mlacp_switchover_nonrevertive',
+            'bmd-mlacp-switchover-brute-force':'bmd_mlacp_switchover_brute_force',
+            'bmd-mlacp-switchover-revertive':'bmd_mlacp_switchover_revertive',
+            'bmd-mlacp-switchover-count':'bmd_mlacp_switchover_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBfdBdlStateEnum' : _MetaInfoEnum('BmdBfdBdlStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmBdlStateEnum' : _MetaInfoEnum('BmBdlStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-bfd-bdl-down':'bmd_bfd_bdl_down',
-            'bmd-bfd-bdl-unknown':'bmd_bfd_bdl_unknown',
-            'bmd-bfd-bdl-up':'bmd_bfd_bdl_up',
-            'bmd-bfd-bdl-count':'bmd_bfd_bdl_count',
+            'bm-bdl-state-admin-down':'bm_bdl_state_admin_down',
+            'bm-bdl-state-down':'bm_bdl_state_down',
+            'bm-bdl-state-client-down':'bm_bdl_state_client_down',
+            'bm-bdl-state-ptnr-down':'bm_bdl_state_ptnr_down',
+            'bm-bdl-state-bundle-shutdown':'bm_bdl_state_bundle_shutdown',
+            'bm-bdl-state-pe-isolated':'bm_bdl_state_pe_isolated',
+            'bm-bdl-state-nak':'bm_bdl_state_nak',
+            'bm-bdl-state-up-active':'bm_bdl_state_up_active',
+            'bm-bdl-state-mlacp-hot-standby':'bm_bdl_state_mlacp_hot_standby',
+            'bm-bdl-state-mlacp-cold-standby':'bm_bdl_state_mlacp_cold_standby',
+            'bm-bdl-state-unknown':'bm_bdl_state_unknown',
+            'bm-bdl-state-cold-standby':'bm_bdl_state_cold_standby',
+            'bm-bdl-state-error-disabled':'bm_bdl_state_error_disabled',
+            'bm-bdl-state-efd-disabled':'bm_bdl_state_efd_disabled',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdMlacpMbrStateEnumEnum' : _MetaInfoEnum('BmdMlacpMbrStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'LoadBalanceEnum' : _MetaInfoEnum('LoadBalanceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'mbr-state-nak':'mbr_state_nak',
-            'mbr-state-unknown':'mbr_state_unknown',
-            'mbr-state-up':'mbr_state_up',
-            'mbr-state-down':'mbr_state_down',
-            'mbr-state-admin-down':'mbr_state_admin_down',
-            'mbr-state-test':'mbr_state_test',
-            'mbr-state-error':'mbr_state_error',
+            'default':'default',
+            'auto':'auto',
+            'value':'value',
+            'source-ip':'source_ip',
+            'destination-ip':'destination_ip',
+            'unknown':'unknown',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdBagTargetEnum' : _MetaInfoEnum('BmdBagTargetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
@@ -292,29 +336,22 @@ _meta_table = {
             'bm-bag-target-node':'bm_bag_target_node',
             'bm-bag-target-rg':'bm_bag_target_rg',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmMuxstateEnum' : _MetaInfoEnum('BmMuxstateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmFeatureStatusEnum' : _MetaInfoEnum('BmFeatureStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'detached':'detached',
-            'waiting':'waiting',
-            'attached':'attached',
-            'collecting':'collecting',
-            'distributing':'distributing',
-            'collecting-distributing':'collecting_distributing',
+            'bm-feature-not-configured':'bm_feature_not_configured',
+            'bm-feature-not-operational':'bm_feature_not_operational',
+            'bm-feature-operational':'bm_feature_operational',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'LacpSelStateEnum' : _MetaInfoEnum('LacpSelStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'BmdBagMlacpSchActionItemEnum' : _MetaInfoEnum('BmdBagMlacpSchActionItemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'unselected':'unselected',
-            'standby':'standby',
-            'selected':'selected',
+            'switchover':'switchover',
+            'switchback':'switchback',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdMemberStateEnum' : _MetaInfoEnum('BmdMemberStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'LacpPeriodStateEnum' : _MetaInfoEnum('LacpPeriodStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-mbr-state-configured':'bmd_mbr_state_configured',
-            'bmd-mbr-state-standby':'bmd_mbr_state_standby',
-            'bmd-mbr-state-hot-standby':'bmd_mbr_state_hot_standby',
-            'bmd-mbr-state-negotiating':'bmd_mbr_state_negotiating',
-            'bmd-mbr-state-bfd-running':'bmd_mbr_state_bfd_running',
-            'bmd-mbr-state-active':'bmd_mbr_state_active',
+            'period-s-low':'period_s_low',
+            'period-fast':'period_fast',
+            'period-none':'period_none',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmMuxreasonEnum' : _MetaInfoEnum('BmMuxreasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
@@ -339,58 +376,21 @@ _meta_table = {
             'bm-mux-reason-distributing':'bm_mux_reason_distributing',
             'bm-mux-reason-count':'bm_mux_reason_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmFeatureStatusEnum' : _MetaInfoEnum('BmFeatureStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
+    'RxstatesEnum' : _MetaInfoEnum('RxstatesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-feature-not-configured':'bm_feature_not_configured',
-            'bm-feature-not-operational':'bm_feature_not_operational',
-            'bm-feature-operational':'bm_feature_operational',
-        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmSeverityEnum' : _MetaInfoEnum('BmSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
-        {
-            'ok':'ok',
-            'information':'information',
-            'misconfiguration':'misconfiguration',
-            'warning':'warning',
-            'error':'error',
-        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BundleMlacpModeEnum' : _MetaInfoEnum('BundleMlacpModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
-        {
-            'bundle-mlacp-mode-standby':'bundle_mlacp_mode_standby',
-            'bundle-mlacp-mode-active':'bundle_mlacp_mode_active',
-            'bundle-mlacp-mode-count':'bundle_mlacp_mode_count',
-        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdBagMlacpSchActionItemEnum' : _MetaInfoEnum('BmdBagMlacpSchActionItemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
-        {
-            'switchover':'switchover',
-            'switchback':'switchback',
-        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmStateReasonTargetEnum' : _MetaInfoEnum('BmStateReasonTargetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
-        {
-            'member-reason':'member_reason',
-            'bundle-reason':'bundle_reason',
-        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmdMlacpNodeSyncEnumEnum' : _MetaInfoEnum('BmdMlacpNodeSyncEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
-        {
-            'node-sync-req':'node_sync_req',
-            'node-sync-done':'node_sync_done',
-            'node-sync-start':'node_sync_start',
-            'node-sync-init':'node_sync_init',
-            'node-sync-singleton':'node_sync_singleton',
-        }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
-    'BmBdlMacSourceEnum' : _MetaInfoEnum('BmBdlMacSourceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
-        {
-            'bm-bdl-mac-source-unknown':'bm_bdl_mac_source_unknown',
-            'bm-bdl-mac-source-chassis':'bm_bdl_mac_source_chassis',
-            'bm-bdl-mac-source-configured':'bm_bdl_mac_source_configured',
-            'bm-bdl-mac-source-member':'bm_bdl_mac_source_member',
-            'bm-bdl-mac-source-peer':'bm_bdl_mac_source_peer',
+            'current-rx':'current_rx',
+            'expired':'expired',
+            'defaulted':'defaulted',
+            'initialize':'initialize',
+            'lacp-disabled':'lacp_disabled',
+            'port-disabled':'port_disabled',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'LacpBundles.Bundles.Bundle.Data.ActorBundleData.MacAddress' : {
         'meta_info' : _MetaInfoClass('LacpBundles.Bundles.Bundle.Data.ActorBundleData.MacAddress',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -413,13 +413,13 @@ _meta_table = {
                 'af',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address type
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address type
                 ''',
                 'ipv6',
@@ -532,7 +532,7 @@ _meta_table = {
                 'bfd_config',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'bundle_interface_name',
@@ -664,7 +664,7 @@ _meta_table = {
                 'mac_source',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the member that supplied the MAC
                 address
                 ''',
@@ -723,7 +723,7 @@ _meta_table = {
                 'mlacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Primary bundle member (no longer applicable)
                 ''',
                 'primary_member',
@@ -780,7 +780,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -844,7 +844,7 @@ _meta_table = {
                 'partner_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the partner system
                 ''',
                 'partner_system_mac_address',
@@ -969,7 +969,7 @@ _meta_table = {
                 'actor_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address of the actor system
                 ''',
                 'actor_system_mac_address',
@@ -987,7 +987,7 @@ _meta_table = {
                 'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -1017,7 +1017,7 @@ _meta_table = {
                 'partner_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the partner system
                 ''',
                 'partner_system_mac_address',
@@ -1118,7 +1118,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -1135,7 +1135,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member interface
                 ''',
                 'member_interface',
@@ -1159,7 +1159,7 @@ _meta_table = {
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface name
                 ''',
                 'interface_name',
@@ -1247,7 +1247,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                LACP Bundle interface
                 ''',
                 'bundle_interface',
@@ -1529,7 +1529,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -1766,7 +1766,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -1823,7 +1823,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -1846,13 +1846,13 @@ _meta_table = {
                 'af',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address type
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address type
                 ''',
                 'ipv6',
@@ -1965,7 +1965,7 @@ _meta_table = {
                 'bfd_config',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'bundle_interface_name',
@@ -2097,7 +2097,7 @@ _meta_table = {
                 'mac_source',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the member that supplied the MAC
                 address
                 ''',
@@ -2156,7 +2156,7 @@ _meta_table = {
                 'mlacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Primary bundle member (no longer applicable)
                 ''',
                 'primary_member',
@@ -2315,7 +2315,7 @@ _meta_table = {
                 'actor_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address of the actor system
                 ''',
                 'actor_system_mac_address',
@@ -2333,7 +2333,7 @@ _meta_table = {
                 'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -2363,7 +2363,7 @@ _meta_table = {
                 'partner_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the partner system
                 ''',
                 'partner_system_mac_address',
@@ -2464,7 +2464,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -2499,7 +2499,7 @@ _meta_table = {
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface name
                 ''',
                 'interface_name',
@@ -2695,7 +2695,7 @@ _meta_table = {
                 'actor_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address of the actor system
                 ''',
                 'actor_system_mac_address',
@@ -2713,7 +2713,7 @@ _meta_table = {
                 'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -2743,7 +2743,7 @@ _meta_table = {
                 'partner_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the partner system
                 ''',
                 'partner_system_mac_address',
@@ -2844,7 +2844,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -2885,7 +2885,7 @@ _meta_table = {
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface name
                 ''',
                 'interface_name',
@@ -2974,7 +2974,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -2997,13 +2997,13 @@ _meta_table = {
                 'af',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address type
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address type
                 ''',
                 'ipv6',
@@ -3116,7 +3116,7 @@ _meta_table = {
                 'bfd_config',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'bundle_interface_name',
@@ -3248,7 +3248,7 @@ _meta_table = {
                 'mac_source',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the member that supplied the MAC
                 address
                 ''',
@@ -3307,7 +3307,7 @@ _meta_table = {
                 'mlacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Primary bundle member (no longer applicable)
                 ''',
                 'primary_member',
@@ -3364,7 +3364,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -3417,7 +3417,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -3440,13 +3440,13 @@ _meta_table = {
                 'af',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address type
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address type
                 ''',
                 'ipv6',
@@ -3559,7 +3559,7 @@ _meta_table = {
                 'bfd_config',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'bundle_interface_name',
@@ -3691,7 +3691,7 @@ _meta_table = {
                 'mac_source',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the member that supplied the MAC
                 address
                 ''',
@@ -3750,7 +3750,7 @@ _meta_table = {
                 'mlacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Primary bundle member (no longer applicable)
                 ''',
                 'primary_member',
@@ -3909,7 +3909,7 @@ _meta_table = {
                 'actor_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address of the actor system
                 ''',
                 'actor_system_mac_address',
@@ -3927,7 +3927,7 @@ _meta_table = {
                 'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -3957,7 +3957,7 @@ _meta_table = {
                 'partner_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the partner system
                 ''',
                 'partner_system_mac_address',
@@ -4058,7 +4058,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -4093,7 +4093,7 @@ _meta_table = {
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface name
                 ''',
                 'interface_name',
@@ -4289,7 +4289,7 @@ _meta_table = {
                 'actor_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address of the actor system
                 ''',
                 'actor_system_mac_address',
@@ -4307,7 +4307,7 @@ _meta_table = {
                 'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -4337,7 +4337,7 @@ _meta_table = {
                 'partner_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the partner system
                 ''',
                 'partner_system_mac_address',
@@ -4438,7 +4438,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -4473,7 +4473,7 @@ _meta_table = {
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface name
                 ''',
                 'interface_name',
@@ -5445,7 +5445,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -5515,7 +5515,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -5538,13 +5538,13 @@ _meta_table = {
                 'af',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address type
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address type
                 ''',
                 'ipv6',
@@ -5657,7 +5657,7 @@ _meta_table = {
                 'bfd_config',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'bundle_interface_name',
@@ -5789,7 +5789,7 @@ _meta_table = {
                 'mac_source',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the member that supplied the MAC
                 address
                 ''',
@@ -5848,7 +5848,7 @@ _meta_table = {
                 'mlacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Primary bundle member (no longer applicable)
                 ''',
                 'primary_member',
@@ -5905,7 +5905,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -5969,7 +5969,7 @@ _meta_table = {
                 'partner_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the partner system
                 ''',
                 'partner_system_mac_address',
@@ -5992,7 +5992,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -6015,13 +6015,13 @@ _meta_table = {
                 'af',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address type
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address type
                 ''',
                 'ipv6',
@@ -6134,7 +6134,7 @@ _meta_table = {
                 'bfd_config',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'bundle_interface_name',
@@ -6266,7 +6266,7 @@ _meta_table = {
                 'mac_source',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the member that supplied the MAC
                 address
                 ''',
@@ -6325,7 +6325,7 @@ _meta_table = {
                 'mlacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Primary bundle member (no longer applicable)
                 ''',
                 'primary_member',
@@ -6382,7 +6382,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -6446,7 +6446,7 @@ _meta_table = {
                 'partner_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the partner system
                 ''',
                 'partner_system_mac_address',
@@ -6469,7 +6469,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -6590,7 +6590,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -6711,7 +6711,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -6734,7 +6734,7 @@ _meta_table = {
                 'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The LDP address of the device that the link is
                 configured on
                 ''',
@@ -6888,7 +6888,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -7009,7 +7009,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -7130,7 +7130,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -7153,7 +7153,7 @@ _meta_table = {
                 'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The LDP address of the device that the link is
                 configured on
                 ''',
@@ -7307,7 +7307,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -7359,7 +7359,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -7382,13 +7382,13 @@ _meta_table = {
                 'af',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address type
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address type
                 ''',
                 'ipv6',
@@ -7501,7 +7501,7 @@ _meta_table = {
                 'bfd_config',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'bundle_interface_name',
@@ -7633,7 +7633,7 @@ _meta_table = {
                 'mac_source',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the member that supplied the MAC
                 address
                 ''',
@@ -7692,7 +7692,7 @@ _meta_table = {
                 'mlacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Primary bundle member (no longer applicable)
                 ''',
                 'primary_member',
@@ -7749,7 +7749,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -7813,7 +7813,7 @@ _meta_table = {
                 'partner_operational_key',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the partner system
                 ''',
                 'partner_system_mac_address',
@@ -7836,7 +7836,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -7957,7 +7957,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -8078,7 +8078,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -8101,7 +8101,7 @@ _meta_table = {
                 'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The LDP address of the device that the link is
                 configured on
                 ''',
@@ -8255,7 +8255,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -8376,7 +8376,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -8497,7 +8497,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -8520,7 +8520,7 @@ _meta_table = {
                 'member_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The LDP address of the device that the link is
                 configured on
                 ''',
@@ -9957,7 +9957,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -10673,7 +10673,7 @@ _meta_table = {
                 'bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -10685,7 +10685,7 @@ _meta_table = {
                 'link_order_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('node', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Member's node ID
                 ''',
                 'node',
@@ -10726,7 +10726,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle's interface handle
                 ''',
                 'bundle_interface_handle',
@@ -10799,7 +10799,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -10857,7 +10857,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -10903,7 +10903,7 @@ _meta_table = {
                 'iccp_group_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ldp-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LDP ID of the device
                 ''',
                 'ldp_id',
@@ -10981,7 +10981,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -11051,7 +11051,7 @@ _meta_table = {
                 'configured_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle (local device's
                 members only)
                 ''',
@@ -11180,7 +11180,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -11220,7 +11220,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -11266,7 +11266,7 @@ _meta_table = {
                 'iccp_group_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ldp-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LDP ID of the device
                 ''',
                 'ldp_id',
@@ -11344,7 +11344,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -11414,7 +11414,7 @@ _meta_table = {
                 'configured_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle (local device's
                 members only)
                 ''',
@@ -11589,7 +11589,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -11635,7 +11635,7 @@ _meta_table = {
                 'iccp_group_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ldp-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LDP ID of the device
                 ''',
                 'ldp_id',
@@ -11713,7 +11713,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -11783,7 +11783,7 @@ _meta_table = {
                 'configured_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle (local device's
                 members only)
                 ''',
@@ -11912,7 +11912,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -11952,7 +11952,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -11998,7 +11998,7 @@ _meta_table = {
                 'iccp_group_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ldp-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LDP ID of the device
                 ''',
                 'ldp_id',
@@ -12076,7 +12076,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -12146,7 +12146,7 @@ _meta_table = {
                 'configured_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle (local device's
                 members only)
                 ''',
@@ -12321,7 +12321,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -13976,7 +13976,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -14597,7 +14597,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -14975,7 +14975,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -14998,13 +14998,13 @@ _meta_table = {
                 'af',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address type
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address type
                 ''',
                 'ipv6',
@@ -15117,7 +15117,7 @@ _meta_table = {
                 'bfd_config',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'bundle_interface_name',
@@ -15249,7 +15249,7 @@ _meta_table = {
                 'mac_source',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the member that supplied the MAC
                 address
                 ''',
@@ -15308,7 +15308,7 @@ _meta_table = {
                 'mlacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Primary bundle member (no longer applicable)
                 ''',
                 'primary_member',
@@ -15365,7 +15365,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -15946,7 +15946,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -18665,7 +18665,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -18717,7 +18717,7 @@ _meta_table = {
                 'system_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the system
                 (deprecated)
                 ''',
@@ -18758,7 +18758,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -18810,7 +18810,7 @@ _meta_table = {
                 'system_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the system
                 (deprecated)
                 ''',
@@ -20421,7 +20421,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -21150,7 +21150,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                macaddr
                 ''',
                 'macaddr',
@@ -21202,7 +21202,7 @@ _meta_table = {
                 'system_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the system
                 (deprecated)
                 ''',
@@ -21260,7 +21260,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -21283,13 +21283,13 @@ _meta_table = {
                 'af',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address type
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address type
                 ''',
                 'ipv6',
@@ -21402,7 +21402,7 @@ _meta_table = {
                 'bfd_config',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('bundle-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'bundle_interface_name',
@@ -21534,7 +21534,7 @@ _meta_table = {
                 'mac_source',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('mac-source-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the member that supplied the MAC
                 address
                 ''',
@@ -21593,7 +21593,7 @@ _meta_table = {
                 'mlacp_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('primary-member', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Primary bundle member (no longer applicable)
                 ''',
                 'primary_member',
@@ -21752,7 +21752,7 @@ _meta_table = {
                 'actor_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address of the actor system
                 ''',
                 'actor_system_mac_address',
@@ -21770,7 +21770,7 @@ _meta_table = {
                 'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -21800,7 +21800,7 @@ _meta_table = {
                 'partner_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the partner system
                 ''',
                 'partner_system_mac_address',
@@ -21901,7 +21901,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'address',
@@ -21918,7 +21918,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member interface
                 ''',
                 'member_interface',
@@ -21942,7 +21942,7 @@ _meta_table = {
                 'iccp_node',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface name
                 ''',
                 'interface_name',
@@ -22030,7 +22030,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_interface',
@@ -22218,7 +22218,7 @@ _meta_table = {
                 'actor_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address of the actor system
                 ''',
                 'actor_system_mac_address',
@@ -22236,7 +22236,7 @@ _meta_table = {
                 'attached_aggregator_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface handle
                 ''',
                 'interface_handle',
@@ -22266,7 +22266,7 @@ _meta_table = {
                 'partner_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address used to identify the partner system
                 ''',
                 'partner_system_mac_address',
@@ -22391,7 +22391,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member interface
                 ''',
                 'member_interface',
@@ -22491,7 +22491,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Sub interface
                 ''',
                 'interface_name',
@@ -22514,7 +22514,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'interface_name',
@@ -22602,7 +22602,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Sub interface
                 ''',
                 'interface_name',
@@ -22625,7 +22625,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'interface_name',
@@ -22702,7 +22702,7 @@ _meta_table = {
                 'bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member interface
                 ''',
                 'interface_name',
@@ -22761,7 +22761,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Sub interface
                 ''',
                 'interface_name',
@@ -22837,7 +22837,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface
                 ''',
                 'bundle_name',
@@ -22877,7 +22877,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_name',

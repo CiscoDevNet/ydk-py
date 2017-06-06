@@ -1608,8 +1608,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.algorithm is not None:
                                     return True
 
@@ -1680,8 +1678,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.detection_multiplier is not None:
                                     return True
 
@@ -1785,8 +1781,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -1818,8 +1812,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.range is not None:
                                     for child_ref in self.range:
                                         if child_ref._has_data():
@@ -1901,8 +1893,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.authentication_algorithm is not None:
                                     return True
 
@@ -1992,8 +1982,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.default_info_originate is not None:
                                     return True
 
@@ -2071,8 +2059,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.out is not None:
                                         return True
 
@@ -2095,8 +2081,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.all is not None and self.all._has_data():
                                     return True
 
@@ -2162,8 +2146,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix_list is not None:
                                         return True
 
@@ -2186,8 +2168,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.in_ is not None and self.in_._has_data():
                                     return True
 
@@ -2468,8 +2448,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.algorithm is not None:
                                             return True
 
@@ -2587,8 +2565,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor_address is not None:
                                                 return True
 
@@ -2626,8 +2602,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.neighbor is not None:
                                             for child_ref in self.neighbor:
                                                 if child_ref._has_data():
@@ -2709,8 +2683,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.authentication_algorithm is not None:
                                             return True
 
@@ -2787,8 +2759,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.detection_multiplier is not None:
                                             return True
 
@@ -2860,8 +2830,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.out is not None:
                                                 return True
 
@@ -2884,8 +2852,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all is not None and self.all._has_data():
                                             return True
 
@@ -2951,8 +2917,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix_list is not None:
                                                 return True
 
@@ -2975,8 +2939,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.in_ is not None and self.in_._has_data():
                                             return True
 
@@ -3120,8 +3082,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -3144,8 +3104,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -3219,8 +3177,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -3243,8 +3199,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -3269,8 +3223,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -3385,8 +3337,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -3409,8 +3359,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -3484,8 +3432,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -3508,8 +3454,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -3534,8 +3478,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -3564,8 +3506,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fast_reroute_enable is not None:
                                             return True
 
@@ -3596,8 +3536,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -3689,8 +3627,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface is not None:
                                     for child_ref in self.interface:
                                         if child_ref._has_data():
@@ -3858,8 +3794,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -3882,8 +3816,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
@@ -3957,8 +3889,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -3981,8 +3911,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
@@ -4007,8 +3935,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                             return True
 
@@ -4123,8 +4049,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -4147,8 +4071,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
@@ -4222,8 +4144,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -4246,8 +4166,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
@@ -4272,8 +4190,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                             return True
 
@@ -4302,8 +4218,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fast_reroute_enable is not None:
                                         return True
 
@@ -4332,8 +4246,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fast_reroute is not None and self.fast_reroute._has_data():
                                     return True
 
@@ -4372,16 +4284,16 @@ class Ospfv3(object):
                                 """
                                 ShamLink local and remote endpoints
                                 
-                                .. attribute:: destination_address  <key>
+                                .. attribute:: source_address  <key>
                                 
-                                	Remote sham\-link endpoint
+                                	Local sham\-link endpoint
                                 	**type**\:  str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: source_address  <key>
+                                .. attribute:: destination_address  <key>
                                 
-                                	Local sham\-link endpoint
+                                	Remote sham\-link endpoint
                                 	**type**\:  str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -4446,8 +4358,8 @@ class Ospfv3(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.destination_address = None
                                     self.source_address = None
+                                    self.destination_address = None
                                     self.authentication = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication()
                                     self.authentication.parent = self
                                     self.dead_interval = None
@@ -4513,8 +4425,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.algorithm is not None:
                                             return True
 
@@ -4603,8 +4513,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.authentication_algorithm is not None:
                                             return True
 
@@ -4634,24 +4542,22 @@ class Ospfv3(object):
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.destination_address is None:
-                                        raise YPYModelError('Key property destination_address is None')
                                     if self.source_address is None:
                                         raise YPYModelError('Key property source_address is None')
+                                    if self.destination_address is None:
+                                        raise YPYModelError('Key property destination_address is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:sham-link[Cisco-IOS-XR-ipv6-ospfv3-cfg:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:source-address = ' + str(self.source_address) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:sham-link[Cisco-IOS-XR-ipv6-ospfv3-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:destination-address = ' + str(self.destination_address) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.destination_address is not None:
+                                    if self.source_address is not None:
                                         return True
 
-                                    if self.source_address is not None:
+                                    if self.destination_address is not None:
                                         return True
 
                                     if self.authentication is not None and self.authentication._has_data():
@@ -4694,8 +4600,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sham_link is not None:
                                     for child_ref in self.sham_link:
                                         if child_ref._has_data():
@@ -4869,8 +4773,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.algorithm is not None:
                                             return True
 
@@ -4959,8 +4861,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.authentication_algorithm is not None:
                                             return True
 
@@ -5000,8 +4900,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.virtual_link_address is not None:
                                         return True
 
@@ -5045,8 +4943,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.virtual_link is not None:
                                     for child_ref in self.virtual_link:
                                         if child_ref._has_data():
@@ -5073,8 +4969,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -5461,8 +5355,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.algorithm is not None:
                                     return True
 
@@ -5533,8 +5425,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.detection_multiplier is not None:
                                     return True
 
@@ -5638,8 +5528,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -5671,8 +5559,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.range is not None:
                                     for child_ref in self.range:
                                         if child_ref._has_data():
@@ -5754,8 +5640,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.authentication_algorithm is not None:
                                     return True
 
@@ -5845,8 +5729,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.default_info_originate is not None:
                                     return True
 
@@ -5924,8 +5806,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.out is not None:
                                         return True
 
@@ -5948,8 +5828,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.all is not None and self.all._has_data():
                                     return True
 
@@ -6015,8 +5893,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix_list is not None:
                                         return True
 
@@ -6039,8 +5915,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.in_ is not None and self.in_._has_data():
                                     return True
 
@@ -6321,8 +6195,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.algorithm is not None:
                                             return True
 
@@ -6440,8 +6312,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor_address is not None:
                                                 return True
 
@@ -6479,8 +6349,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.neighbor is not None:
                                             for child_ref in self.neighbor:
                                                 if child_ref._has_data():
@@ -6562,8 +6430,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.authentication_algorithm is not None:
                                             return True
 
@@ -6640,8 +6506,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.detection_multiplier is not None:
                                             return True
 
@@ -6713,8 +6577,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.out is not None:
                                                 return True
 
@@ -6737,8 +6599,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all is not None and self.all._has_data():
                                             return True
 
@@ -6804,8 +6664,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix_list is not None:
                                                 return True
 
@@ -6828,8 +6686,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.in_ is not None and self.in_._has_data():
                                             return True
 
@@ -6973,8 +6829,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -6997,8 +6851,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -7072,8 +6924,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -7096,8 +6946,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -7122,8 +6970,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -7238,8 +7084,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -7262,8 +7106,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -7337,8 +7179,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -7361,8 +7201,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -7387,8 +7225,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -7417,8 +7253,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fast_reroute_enable is not None:
                                             return True
 
@@ -7449,8 +7283,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -7542,8 +7374,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface is not None:
                                     for child_ref in self.interface:
                                         if child_ref._has_data():
@@ -7711,8 +7541,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -7735,8 +7563,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
@@ -7810,8 +7636,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -7834,8 +7658,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
@@ -7860,8 +7682,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                             return True
 
@@ -7976,8 +7796,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -8000,8 +7818,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
@@ -8075,8 +7891,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -8099,8 +7913,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
@@ -8125,8 +7937,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                             return True
 
@@ -8155,8 +7965,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fast_reroute_enable is not None:
                                         return True
 
@@ -8185,8 +7993,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fast_reroute is not None and self.fast_reroute._has_data():
                                     return True
 
@@ -8225,16 +8031,16 @@ class Ospfv3(object):
                                 """
                                 ShamLink local and remote endpoints
                                 
-                                .. attribute:: destination_address  <key>
+                                .. attribute:: source_address  <key>
                                 
-                                	Remote sham\-link endpoint
+                                	Local sham\-link endpoint
                                 	**type**\:  str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: source_address  <key>
+                                .. attribute:: destination_address  <key>
                                 
-                                	Local sham\-link endpoint
+                                	Remote sham\-link endpoint
                                 	**type**\:  str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -8299,8 +8105,8 @@ class Ospfv3(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.destination_address = None
                                     self.source_address = None
+                                    self.destination_address = None
                                     self.authentication = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication()
                                     self.authentication.parent = self
                                     self.dead_interval = None
@@ -8366,8 +8172,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.algorithm is not None:
                                             return True
 
@@ -8456,8 +8260,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.authentication_algorithm is not None:
                                             return True
 
@@ -8487,24 +8289,22 @@ class Ospfv3(object):
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.destination_address is None:
-                                        raise YPYModelError('Key property destination_address is None')
                                     if self.source_address is None:
                                         raise YPYModelError('Key property source_address is None')
+                                    if self.destination_address is None:
+                                        raise YPYModelError('Key property destination_address is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:sham-link[Cisco-IOS-XR-ipv6-ospfv3-cfg:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:source-address = ' + str(self.source_address) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:sham-link[Cisco-IOS-XR-ipv6-ospfv3-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:destination-address = ' + str(self.destination_address) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.destination_address is not None:
+                                    if self.source_address is not None:
                                         return True
 
-                                    if self.source_address is not None:
+                                    if self.destination_address is not None:
                                         return True
 
                                     if self.authentication is not None and self.authentication._has_data():
@@ -8547,8 +8347,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sham_link is not None:
                                     for child_ref in self.sham_link:
                                         if child_ref._has_data():
@@ -8722,8 +8520,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.algorithm is not None:
                                             return True
 
@@ -8812,8 +8608,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.authentication_algorithm is not None:
                                             return True
 
@@ -8853,8 +8647,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.virtual_link_address is not None:
                                         return True
 
@@ -8898,8 +8690,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.virtual_link is not None:
                                     for child_ref in self.virtual_link:
                                         if child_ref._has_data():
@@ -8926,8 +8716,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.area_id is not None:
                                 return True
 
@@ -9037,8 +8825,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.area_address is not None:
                             for child_ref in self.area_address:
                                 if child_ref._has_data():
@@ -9147,8 +8933,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.flood is not None:
                                 return True
 
@@ -9202,8 +8986,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.arrival is not None:
                                 return True
 
@@ -9300,8 +9082,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.first_delay is not None:
                                     return True
 
@@ -9369,8 +9149,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.first_delay is not None:
                                     return True
 
@@ -9399,8 +9177,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lsa is not None and self.lsa._has_data():
                                 return True
 
@@ -9426,8 +9202,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lsa_timers is not None and self.lsa_timers._has_data():
                             return True
 
@@ -9529,8 +9303,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix is not None:
                                 return True
 
@@ -9562,8 +9334,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.summary_prefix is not None:
                             for child_ref in self.summary_prefix:
                                 if child_ref._has_data():
@@ -9647,8 +9417,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.max_window_traps is not None:
                                 return True
 
@@ -9674,8 +9442,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.context is not None:
                             return True
 
@@ -9751,8 +9517,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.priority is not None:
                                 return True
 
@@ -9865,8 +9629,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tiebreaker_type is not None:
                                         return True
 
@@ -9892,8 +9654,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.tiebreaker is not None:
                                     for child_ref in self.tiebreaker:
                                         if child_ref._has_data():
@@ -9918,8 +9678,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.load_sharing_disable is not None:
                                 return True
 
@@ -9948,8 +9706,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.per_link is not None and self.per_link._has_data():
                             return True
 
@@ -10044,8 +9800,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.external is not None:
                                 return True
 
@@ -10074,8 +9828,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.administrative is not None:
                             return True
 
@@ -10176,8 +9928,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefixes is not None:
                                 return True
 
@@ -10206,8 +9956,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interfaces is not None:
                             return True
 
@@ -10413,8 +10161,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.default_metric is not None:
@@ -10583,8 +10329,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.as_xx is not None:
                                     return True
 
@@ -10747,8 +10491,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.process_name is not None:
                                     return True
 
@@ -10908,8 +10650,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.as_xx is not None:
                                     return True
 
@@ -10970,8 +10710,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.protocol_name is not None:
                                 return True
 
@@ -11012,8 +10750,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.redistribute is not None:
                             for child_ref in self.redistribute:
                                 if child_ref._has_data():
@@ -11082,8 +10818,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mospf is not None:
                                 return True
 
@@ -11106,8 +10840,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lsa is not None and self.lsa._has_data():
                             return True
 
@@ -11197,19 +10929,19 @@ class Ospfv3(object):
                                 """
                                 keys\: as\-yy, as\-xx, process\-name
                                 
-                                .. attribute:: as_xx  <key>
-                                
-                                	4\-byte AS number in asdot (X.Y) format \- first half (X)
-                                	**type**\:  int
-                                
-                                	**range:** 1..65535
-                                
                                 .. attribute:: as_yy  <key>
                                 
                                 	4\-byte AS number in asdot (X.Y) format \- second half (Y), or 2\-byte AS number, or 4\-byte AS number in asplain format
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: as_xx  <key>
+                                
+                                	4\-byte AS number in asdot (X.Y) format \- first half (X)
+                                	**type**\:  int
+                                
+                                	**range:** 1..65535
                                 
                                 .. attribute:: process_name  <key>
                                 
@@ -11234,8 +10966,8 @@ class Ospfv3(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.as_xx = None
                                     self.as_yy = None
+                                    self.as_xx = None
                                     self.process_name = None
                                     self.prefix_list = None
 
@@ -11243,26 +10975,24 @@ class Ospfv3(object):
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.as_xx is None:
-                                        raise YPYModelError('Key property as_xx is None')
                                     if self.as_yy is None:
                                         raise YPYModelError('Key property as_yy is None')
+                                    if self.as_xx is None:
+                                        raise YPYModelError('Key property as_xx is None')
                                     if self.process_name is None:
                                         raise YPYModelError('Key property process_name is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:as-yy-and-as-xx-and-process-name[Cisco-IOS-XR-ipv6-ospfv3-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:as-yy = ' + str(self.as_yy) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:process-name = ' + str(self.process_name) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:as-yy-and-as-xx-and-process-name[Cisco-IOS-XR-ipv6-ospfv3-cfg:as-yy = ' + str(self.as_yy) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:process-name = ' + str(self.process_name) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.as_xx is not None:
+                                    if self.as_yy is not None:
                                         return True
 
-                                    if self.as_yy is not None:
+                                    if self.as_xx is not None:
                                         return True
 
                                     if self.process_name is not None:
@@ -11292,8 +11022,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.protocol_name is not None:
                                     return True
 
@@ -11321,8 +11049,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.distribute_out is not None:
                                 for child_ref in self.distribute_out:
                                     if child_ref._has_data():
@@ -11347,8 +11073,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.distribute_outs is not None and self.distribute_outs._has_data():
                             return True
 
@@ -11414,8 +11138,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_list is not None:
                                 return True
 
@@ -11438,8 +11160,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.in_ is not None and self.in_._has_data():
                             return True
 
@@ -11621,8 +11341,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.wait_for_bgp is not None:
                                     return True
 
@@ -11648,8 +11366,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.always is not None:
                                 return True
 
@@ -11819,8 +11535,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.wait_for_bgp is not None:
                                     return True
 
@@ -11846,8 +11560,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.always is not None:
                                 return True
 
@@ -12017,8 +11729,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.wait_for_bgp is not None:
                                     return True
 
@@ -12044,8 +11754,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.always is not None:
                                 return True
 
@@ -12092,8 +11800,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.max_metric is not None and self.max_metric._has_data():
                             return True
 
@@ -12161,8 +11867,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -12234,8 +11938,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.out is not None:
                                 return True
 
@@ -12258,8 +11960,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.all is not None and self.all._has_data():
                             return True
 
@@ -12325,8 +12025,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.algorithm is not None:
                             return True
 
@@ -12411,8 +12109,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enable is not None:
                             return True
 
@@ -12531,8 +12227,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.always is not None:
@@ -12569,8 +12263,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.originate is not None and self.originate._has_data():
                             return True
 
@@ -12736,8 +12428,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -12760,8 +12450,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.candidate_interface is not None:
                                         for child_ref in self.candidate_interface:
                                             if child_ref._has_data():
@@ -12835,8 +12523,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -12859,8 +12545,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.exclude_interface is not None:
                                         for child_ref in self.exclude_interface:
                                             if child_ref._has_data():
@@ -12885,8 +12569,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                     return True
 
@@ -13001,8 +12683,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -13025,8 +12705,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.candidate_interface is not None:
                                         for child_ref in self.candidate_interface:
                                             if child_ref._has_data():
@@ -13100,8 +12778,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -13124,8 +12800,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.exclude_interface is not None:
                                         for child_ref in self.exclude_interface:
                                             if child_ref._has_data():
@@ -13150,8 +12824,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                     return True
 
@@ -13180,8 +12852,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.fast_reroute_enable is not None:
                                 return True
 
@@ -13210,8 +12880,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.fast_reroute is not None and self.fast_reroute._has_data():
                             return True
 
@@ -13291,8 +12959,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_algorithm is not None:
                             return True
 
@@ -13369,8 +13035,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.disable is not None:
@@ -13398,8 +13062,6 @@ class Ospfv3(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.area_addresses is not None and self.area_addresses._has_data():
                         return True
 
@@ -13909,8 +13571,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_lite is not None:
                                 return True
 
@@ -13978,17 +13638,17 @@ class Ospfv3(object):
                                 """
                                 OSPF Secondary domain ID
                                 
+                                .. attribute:: domain_id_type  <key>
+                                
+                                	Secondary domain ID type
+                                	**type**\:   :py:class:`Ospfv3DomainIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3DomainIdEnum>`
+                                
                                 .. attribute:: domain_id_name  <key>
                                 
                                 	Secondary domain ID value
                                 	**type**\:  str
                                 
                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                
-                                .. attribute:: domain_id_type  <key>
-                                
-                                	Secondary domain ID type
-                                	**type**\:   :py:class:`Ospfv3DomainIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3DomainIdEnum>`
                                 
                                 
 
@@ -13999,31 +13659,29 @@ class Ospfv3(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.domain_id_name = None
                                     self.domain_id_type = None
+                                    self.domain_id_name = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.domain_id_name is None:
-                                        raise YPYModelError('Key property domain_id_name is None')
                                     if self.domain_id_type is None:
                                         raise YPYModelError('Key property domain_id_type is None')
+                                    if self.domain_id_name is None:
+                                        raise YPYModelError('Key property domain_id_name is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:secondary-domain-id[Cisco-IOS-XR-ipv6-ospfv3-cfg:domain-id-name = ' + str(self.domain_id_name) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:domain-id-type = ' + str(self.domain_id_type) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:secondary-domain-id[Cisco-IOS-XR-ipv6-ospfv3-cfg:domain-id-type = ' + str(self.domain_id_type) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:domain-id-name = ' + str(self.domain_id_name) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.domain_id_name is not None:
+                                    if self.domain_id_type is not None:
                                         return True
 
-                                    if self.domain_id_type is not None:
+                                    if self.domain_id_name is not None:
                                         return True
 
                                     return False
@@ -14045,8 +13703,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.secondary_domain_id is not None:
                                     for child_ref in self.secondary_domain_id:
                                         if child_ref._has_data():
@@ -14098,8 +13754,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.domain_id_name is not None:
                                     return True
 
@@ -14125,8 +13779,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.primary_domain_id is not None and self.primary_domain_id._has_data():
                                 return True
 
@@ -14460,8 +14112,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.algorithm is not None:
                                         return True
 
@@ -14532,8 +14182,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.detection_multiplier is not None:
                                         return True
 
@@ -14637,8 +14285,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -14670,8 +14316,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.range is not None:
                                         for child_ref in self.range:
                                             if child_ref._has_data():
@@ -14753,8 +14397,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.authentication_algorithm is not None:
                                         return True
 
@@ -14844,8 +14486,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.default_info_originate is not None:
                                         return True
 
@@ -14923,8 +14563,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.out is not None:
                                             return True
 
@@ -14947,8 +14585,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.all is not None and self.all._has_data():
                                         return True
 
@@ -15014,8 +14650,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix_list is not None:
                                             return True
 
@@ -15038,8 +14672,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.in_ is not None and self.in_._has_data():
                                         return True
 
@@ -15320,8 +14952,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.algorithm is not None:
                                                 return True
 
@@ -15439,8 +15069,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.neighbor_address is not None:
                                                     return True
 
@@ -15478,8 +15106,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor is not None:
                                                 for child_ref in self.neighbor:
                                                     if child_ref._has_data():
@@ -15561,8 +15187,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authentication_algorithm is not None:
                                                 return True
 
@@ -15639,8 +15263,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.detection_multiplier is not None:
                                                 return True
 
@@ -15712,8 +15334,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.out is not None:
                                                     return True
 
@@ -15736,8 +15356,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.all is not None and self.all._has_data():
                                                 return True
 
@@ -15803,8 +15421,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.prefix_list is not None:
                                                     return True
 
@@ -15827,8 +15443,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.in_ is not None and self.in_._has_data():
                                                 return True
 
@@ -15972,8 +15586,6 @@ class Ospfv3(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -15996,8 +15608,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -16071,8 +15681,6 @@ class Ospfv3(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -16095,8 +15703,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -16121,8 +15727,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -16237,8 +15841,6 @@ class Ospfv3(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -16261,8 +15863,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -16336,8 +15936,6 @@ class Ospfv3(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -16360,8 +15958,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -16386,8 +15982,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -16416,8 +16010,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fast_reroute_enable is not None:
                                                 return True
 
@@ -16448,8 +16040,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -16541,8 +16131,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface is not None:
                                         for child_ref in self.interface:
                                             if child_ref._has_data():
@@ -16710,8 +16298,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -16734,8 +16320,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -16809,8 +16393,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -16833,8 +16415,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -16859,8 +16439,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -16975,8 +16553,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -16999,8 +16575,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -17074,8 +16648,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -17098,8 +16670,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -17124,8 +16694,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -17154,8 +16722,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fast_reroute_enable is not None:
                                             return True
 
@@ -17184,8 +16750,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fast_reroute is not None and self.fast_reroute._has_data():
                                         return True
 
@@ -17224,16 +16788,16 @@ class Ospfv3(object):
                                     """
                                     ShamLink local and remote endpoints
                                     
-                                    .. attribute:: destination_address  <key>
+                                    .. attribute:: source_address  <key>
                                     
-                                    	Remote sham\-link endpoint
+                                    	Local sham\-link endpoint
                                     	**type**\:  str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: source_address  <key>
+                                    .. attribute:: destination_address  <key>
                                     
-                                    	Local sham\-link endpoint
+                                    	Remote sham\-link endpoint
                                     	**type**\:  str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -17298,8 +16862,8 @@ class Ospfv3(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.destination_address = None
                                         self.source_address = None
+                                        self.destination_address = None
                                         self.authentication = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication()
                                         self.authentication.parent = self
                                         self.dead_interval = None
@@ -17365,8 +16929,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.algorithm is not None:
                                                 return True
 
@@ -17455,8 +17017,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authentication_algorithm is not None:
                                                 return True
 
@@ -17486,24 +17046,22 @@ class Ospfv3(object):
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.destination_address is None:
-                                            raise YPYModelError('Key property destination_address is None')
                                         if self.source_address is None:
                                             raise YPYModelError('Key property source_address is None')
+                                        if self.destination_address is None:
+                                            raise YPYModelError('Key property destination_address is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:sham-link[Cisco-IOS-XR-ipv6-ospfv3-cfg:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:source-address = ' + str(self.source_address) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:sham-link[Cisco-IOS-XR-ipv6-ospfv3-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:destination-address = ' + str(self.destination_address) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.destination_address is not None:
+                                        if self.source_address is not None:
                                             return True
 
-                                        if self.source_address is not None:
+                                        if self.destination_address is not None:
                                             return True
 
                                         if self.authentication is not None and self.authentication._has_data():
@@ -17546,8 +17104,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sham_link is not None:
                                         for child_ref in self.sham_link:
                                             if child_ref._has_data():
@@ -17721,8 +17277,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.algorithm is not None:
                                                 return True
 
@@ -17811,8 +17365,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authentication_algorithm is not None:
                                                 return True
 
@@ -17852,8 +17404,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.virtual_link_address is not None:
                                             return True
 
@@ -17897,8 +17447,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.virtual_link is not None:
                                         for child_ref in self.virtual_link:
                                             if child_ref._has_data():
@@ -17925,8 +17473,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -18313,8 +17859,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.algorithm is not None:
                                         return True
 
@@ -18385,8 +17929,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.detection_multiplier is not None:
                                         return True
 
@@ -18490,8 +18032,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -18523,8 +18063,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.range is not None:
                                         for child_ref in self.range:
                                             if child_ref._has_data():
@@ -18606,8 +18144,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.authentication_algorithm is not None:
                                         return True
 
@@ -18697,8 +18233,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.default_info_originate is not None:
                                         return True
 
@@ -18776,8 +18310,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.out is not None:
                                             return True
 
@@ -18800,8 +18332,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.all is not None and self.all._has_data():
                                         return True
 
@@ -18867,8 +18397,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix_list is not None:
                                             return True
 
@@ -18891,8 +18419,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.in_ is not None and self.in_._has_data():
                                         return True
 
@@ -19173,8 +18699,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.algorithm is not None:
                                                 return True
 
@@ -19292,8 +18816,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.neighbor_address is not None:
                                                     return True
 
@@ -19331,8 +18853,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor is not None:
                                                 for child_ref in self.neighbor:
                                                     if child_ref._has_data():
@@ -19414,8 +18934,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authentication_algorithm is not None:
                                                 return True
 
@@ -19492,8 +19010,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.detection_multiplier is not None:
                                                 return True
 
@@ -19565,8 +19081,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.out is not None:
                                                     return True
 
@@ -19589,8 +19103,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.all is not None and self.all._has_data():
                                                 return True
 
@@ -19656,8 +19168,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.prefix_list is not None:
                                                     return True
 
@@ -19680,8 +19190,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.in_ is not None and self.in_._has_data():
                                                 return True
 
@@ -19825,8 +19333,6 @@ class Ospfv3(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -19849,8 +19355,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -19924,8 +19428,6 @@ class Ospfv3(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -19948,8 +19450,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -19974,8 +19474,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -20090,8 +19588,6 @@ class Ospfv3(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -20114,8 +19610,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -20189,8 +19683,6 @@ class Ospfv3(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -20213,8 +19705,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -20239,8 +19729,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -20269,8 +19757,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fast_reroute_enable is not None:
                                                 return True
 
@@ -20301,8 +19787,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -20394,8 +19878,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface is not None:
                                         for child_ref in self.interface:
                                             if child_ref._has_data():
@@ -20563,8 +20045,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -20587,8 +20067,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -20662,8 +20140,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -20686,8 +20162,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -20712,8 +20186,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -20828,8 +20300,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -20852,8 +20322,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -20927,8 +20395,6 @@ class Ospfv3(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -20951,8 +20417,6 @@ class Ospfv3(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -20977,8 +20441,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -21007,8 +20469,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fast_reroute_enable is not None:
                                             return True
 
@@ -21037,8 +20497,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fast_reroute is not None and self.fast_reroute._has_data():
                                         return True
 
@@ -21077,16 +20535,16 @@ class Ospfv3(object):
                                     """
                                     ShamLink local and remote endpoints
                                     
-                                    .. attribute:: destination_address  <key>
+                                    .. attribute:: source_address  <key>
                                     
-                                    	Remote sham\-link endpoint
+                                    	Local sham\-link endpoint
                                     	**type**\:  str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: source_address  <key>
+                                    .. attribute:: destination_address  <key>
                                     
-                                    	Local sham\-link endpoint
+                                    	Remote sham\-link endpoint
                                     	**type**\:  str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
@@ -21151,8 +20609,8 @@ class Ospfv3(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.destination_address = None
                                         self.source_address = None
+                                        self.destination_address = None
                                         self.authentication = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication()
                                         self.authentication.parent = self
                                         self.dead_interval = None
@@ -21218,8 +20676,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.algorithm is not None:
                                                 return True
 
@@ -21308,8 +20764,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authentication_algorithm is not None:
                                                 return True
 
@@ -21339,24 +20793,22 @@ class Ospfv3(object):
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.destination_address is None:
-                                            raise YPYModelError('Key property destination_address is None')
                                         if self.source_address is None:
                                             raise YPYModelError('Key property source_address is None')
+                                        if self.destination_address is None:
+                                            raise YPYModelError('Key property destination_address is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:sham-link[Cisco-IOS-XR-ipv6-ospfv3-cfg:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:source-address = ' + str(self.source_address) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:sham-link[Cisco-IOS-XR-ipv6-ospfv3-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:destination-address = ' + str(self.destination_address) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.destination_address is not None:
+                                        if self.source_address is not None:
                                             return True
 
-                                        if self.source_address is not None:
+                                        if self.destination_address is not None:
                                             return True
 
                                         if self.authentication is not None and self.authentication._has_data():
@@ -21399,8 +20851,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sham_link is not None:
                                         for child_ref in self.sham_link:
                                             if child_ref._has_data():
@@ -21574,8 +21024,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.algorithm is not None:
                                                 return True
 
@@ -21664,8 +21112,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authentication_algorithm is not None:
                                                 return True
 
@@ -21705,8 +21151,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.virtual_link_address is not None:
                                             return True
 
@@ -21750,8 +21194,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.virtual_link is not None:
                                         for child_ref in self.virtual_link:
                                             if child_ref._has_data():
@@ -21778,8 +21220,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area_id is not None:
                                     return True
 
@@ -21889,8 +21329,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.area_address is not None:
                                 for child_ref in self.area_address:
                                     if child_ref._has_data():
@@ -21999,8 +21437,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flood is not None:
                                     return True
 
@@ -22054,8 +21490,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.arrival is not None:
                                     return True
 
@@ -22152,8 +21586,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.first_delay is not None:
                                         return True
 
@@ -22221,8 +21653,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.first_delay is not None:
                                         return True
 
@@ -22251,8 +21681,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lsa is not None and self.lsa._has_data():
                                     return True
 
@@ -22278,8 +21706,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lsa_timers is not None and self.lsa_timers._has_data():
                                 return True
 
@@ -22381,8 +21807,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -22414,8 +21838,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.summary_prefix is not None:
                                 for child_ref in self.summary_prefix:
                                     if child_ref._has_data():
@@ -22499,8 +21921,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_window_traps is not None:
                                     return True
 
@@ -22526,8 +21946,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.context is not None:
                                 return True
 
@@ -22603,8 +22021,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.priority is not None:
                                     return True
 
@@ -22717,8 +22133,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.tiebreaker_type is not None:
                                             return True
 
@@ -22744,8 +22158,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tiebreaker is not None:
                                         for child_ref in self.tiebreaker:
                                             if child_ref._has_data():
@@ -22770,8 +22182,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.load_sharing_disable is not None:
                                     return True
 
@@ -22800,8 +22210,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.per_link is not None and self.per_link._has_data():
                                 return True
 
@@ -22896,8 +22304,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.external is not None:
                                     return True
 
@@ -22926,8 +22332,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.administrative is not None:
                                 return True
 
@@ -23028,8 +22432,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefixes is not None:
                                     return True
 
@@ -23058,8 +22460,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interfaces is not None:
                                 return True
 
@@ -23265,8 +22665,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.default_metric is not None:
@@ -23435,8 +22833,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.as_xx is not None:
                                         return True
 
@@ -23599,8 +22995,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.process_name is not None:
                                         return True
 
@@ -23760,8 +23154,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.as_xx is not None:
                                         return True
 
@@ -23822,8 +23214,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.protocol_name is not None:
                                     return True
 
@@ -23864,8 +23254,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.redistribute is not None:
                                 for child_ref in self.redistribute:
                                     if child_ref._has_data():
@@ -23934,8 +23322,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mospf is not None:
                                     return True
 
@@ -23958,8 +23344,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lsa is not None and self.lsa._has_data():
                                 return True
 
@@ -24049,19 +23433,19 @@ class Ospfv3(object):
                                     """
                                     keys\: as\-yy, as\-xx, process\-name
                                     
-                                    .. attribute:: as_xx  <key>
-                                    
-                                    	4\-byte AS number in asdot (X.Y) format \- first half (X)
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..65535
-                                    
                                     .. attribute:: as_yy  <key>
                                     
                                     	4\-byte AS number in asdot (X.Y) format \- second half (Y), or 2\-byte AS number, or 4\-byte AS number in asplain format
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    .. attribute:: as_xx  <key>
+                                    
+                                    	4\-byte AS number in asdot (X.Y) format \- first half (X)
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..65535
                                     
                                     .. attribute:: process_name  <key>
                                     
@@ -24086,8 +23470,8 @@ class Ospfv3(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.as_xx = None
                                         self.as_yy = None
+                                        self.as_xx = None
                                         self.process_name = None
                                         self.prefix_list = None
 
@@ -24095,26 +23479,24 @@ class Ospfv3(object):
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.as_xx is None:
-                                            raise YPYModelError('Key property as_xx is None')
                                         if self.as_yy is None:
                                             raise YPYModelError('Key property as_yy is None')
+                                        if self.as_xx is None:
+                                            raise YPYModelError('Key property as_xx is None')
                                         if self.process_name is None:
                                             raise YPYModelError('Key property process_name is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:as-yy-and-as-xx-and-process-name[Cisco-IOS-XR-ipv6-ospfv3-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:as-yy = ' + str(self.as_yy) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:process-name = ' + str(self.process_name) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ospfv3-cfg:as-yy-and-as-xx-and-process-name[Cisco-IOS-XR-ipv6-ospfv3-cfg:as-yy = ' + str(self.as_yy) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv6-ospfv3-cfg:process-name = ' + str(self.process_name) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.as_xx is not None:
+                                        if self.as_yy is not None:
                                             return True
 
-                                        if self.as_yy is not None:
+                                        if self.as_xx is not None:
                                             return True
 
                                         if self.process_name is not None:
@@ -24144,8 +23526,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.protocol_name is not None:
                                         return True
 
@@ -24173,8 +23553,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.distribute_out is not None:
                                     for child_ref in self.distribute_out:
                                         if child_ref._has_data():
@@ -24199,8 +23577,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.distribute_outs is not None and self.distribute_outs._has_data():
                                 return True
 
@@ -24266,8 +23642,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix_list is not None:
                                     return True
 
@@ -24290,8 +23664,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.in_ is not None and self.in_._has_data():
                                 return True
 
@@ -24473,8 +23845,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.wait_for_bgp is not None:
                                         return True
 
@@ -24500,8 +23870,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.always is not None:
                                     return True
 
@@ -24671,8 +24039,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.wait_for_bgp is not None:
                                         return True
 
@@ -24698,8 +24064,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.always is not None:
                                     return True
 
@@ -24869,8 +24233,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.wait_for_bgp is not None:
                                         return True
 
@@ -24896,8 +24258,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.always is not None:
                                     return True
 
@@ -24944,8 +24304,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.max_metric is not None and self.max_metric._has_data():
                                 return True
 
@@ -25013,8 +24371,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -25086,8 +24442,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.out is not None:
                                     return True
 
@@ -25110,8 +24464,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.all is not None and self.all._has_data():
                                 return True
 
@@ -25177,8 +24529,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.algorithm is not None:
                                 return True
 
@@ -25263,8 +24613,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -25383,8 +24731,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.always is not None:
@@ -25421,8 +24767,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.originate is not None and self.originate._has_data():
                                 return True
 
@@ -25588,8 +24932,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_name is not None:
                                                 return True
 
@@ -25612,8 +24954,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interface is not None:
                                             for child_ref in self.candidate_interface:
                                                 if child_ref._has_data():
@@ -25687,8 +25027,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_name is not None:
                                                 return True
 
@@ -25711,8 +25049,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.exclude_interface is not None:
                                             for child_ref in self.exclude_interface:
                                                 if child_ref._has_data():
@@ -25737,8 +25073,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                         return True
 
@@ -25853,8 +25187,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_name is not None:
                                                 return True
 
@@ -25877,8 +25209,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interface is not None:
                                             for child_ref in self.candidate_interface:
                                                 if child_ref._has_data():
@@ -25952,8 +25282,6 @@ class Ospfv3(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_name is not None:
                                                 return True
 
@@ -25976,8 +25304,6 @@ class Ospfv3(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.exclude_interface is not None:
                                             for child_ref in self.exclude_interface:
                                                 if child_ref._has_data():
@@ -26002,8 +25328,6 @@ class Ospfv3(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                         return True
 
@@ -26032,8 +25356,6 @@ class Ospfv3(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fast_reroute_enable is not None:
                                     return True
 
@@ -26062,8 +25384,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.fast_reroute is not None and self.fast_reroute._has_data():
                                 return True
 
@@ -26143,8 +25463,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.authentication_algorithm is not None:
                                 return True
 
@@ -26221,8 +25539,6 @@ class Ospfv3(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.disable is not None:
@@ -26252,8 +25568,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf_name is not None:
                             return True
 
@@ -26402,8 +25716,6 @@ class Ospfv3(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
@@ -26465,8 +25777,6 @@ class Ospfv3(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.af_name is not None:
@@ -26551,8 +25861,6 @@ class Ospfv3(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.trace_buf_name is not None:
                             return True
 
@@ -26578,8 +25886,6 @@ class Ospfv3(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.trace_buf is not None:
                         for child_ref in self.trace_buf:
                             if child_ref._has_data():
@@ -26604,8 +25910,6 @@ class Ospfv3(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.process_name is not None:
                     return True
 
@@ -26647,8 +25951,6 @@ class Ospfv3(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.process is not None:
                 for child_ref in self.process:
                     if child_ref._has_data():
@@ -26671,8 +25973,6 @@ class Ospfv3(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.dns_name_lookup is not None:
             return True
 

@@ -445,8 +445,6 @@ class Pbr(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.match_data_rate is not None:
                                                 return True
 
@@ -562,8 +560,6 @@ class Pbr(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.drop_bytes is not None:
                                                 return True
 
@@ -601,8 +597,6 @@ class Pbr(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.class_id is not None:
                                             return True
 
@@ -637,8 +631,6 @@ class Pbr(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.class_stat is not None:
                                         for child_ref in self.class_stat:
                                             if child_ref._has_data():
@@ -675,8 +667,6 @@ class Pbr(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.input is not None and self.input._has_data():
                                     return True
 
@@ -701,8 +691,6 @@ class Pbr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -728,8 +716,6 @@ class Pbr(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -754,8 +740,6 @@ class Pbr(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
@@ -778,8 +762,6 @@ class Pbr(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -803,8 +785,6 @@ class Pbr(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -827,8 +807,6 @@ class Pbr(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

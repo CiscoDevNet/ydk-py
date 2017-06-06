@@ -144,8 +144,6 @@ class Arp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.inner_cos is not None:
             return True
 
@@ -303,8 +301,6 @@ class Arpgmp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -339,8 +335,6 @@ class Arpgmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.entry is not None:
                     for child_ref in self.entry:
                         if child_ref._has_data():
@@ -365,8 +359,6 @@ class Arpgmp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_name is not None:
                 return True
 
@@ -390,8 +382,6 @@ class Arpgmp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.vrf is not None:
             for child_ref in self.vrf:
                 if child_ref._has_data():
@@ -603,8 +593,6 @@ class ArpRedundancy(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_string is not None:
                                 return True
 
@@ -627,8 +615,6 @@ class ArpRedundancy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.peer is not None:
                             for child_ref in self.peer:
                                 if child_ref._has_data():
@@ -749,8 +735,6 @@ class ArpRedundancy(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -776,8 +760,6 @@ class ArpRedundancy(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
@@ -802,8 +784,6 @@ class ArpRedundancy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.enable is not None:
@@ -831,8 +811,6 @@ class ArpRedundancy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_id is not None:
                         return True
 
@@ -862,8 +840,6 @@ class ArpRedundancy(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.group is not None:
                     for child_ref in self.group:
                         if child_ref._has_data():
@@ -886,8 +862,6 @@ class ArpRedundancy(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.enable is not None:
@@ -913,8 +887,6 @@ class ArpRedundancy(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.redundancy is not None and self.redundancy._has_data():
             return True
 

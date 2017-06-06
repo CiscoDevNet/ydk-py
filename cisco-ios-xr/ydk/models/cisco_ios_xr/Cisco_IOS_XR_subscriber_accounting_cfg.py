@@ -169,8 +169,6 @@ class SubscriberAccounting(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.prepaid_config_name is not None:
                     return True
 
@@ -215,8 +213,6 @@ class SubscriberAccounting(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.prepaid_configuration is not None:
                 for child_ref in self.prepaid_configuration:
                     if child_ref._has_data():
@@ -239,8 +235,6 @@ class SubscriberAccounting(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.prepaid_configurations is not None and self.prepaid_configurations._has_data():
             return True
 

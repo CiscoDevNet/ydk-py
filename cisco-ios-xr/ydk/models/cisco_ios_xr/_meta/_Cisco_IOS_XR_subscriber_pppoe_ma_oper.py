@@ -327,7 +327,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                PPPoE Access Interface
                 ''',
                 'interface_name',
@@ -1005,7 +1005,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                PPPoE Access Interface
                 ''',
                 'interface_name',
@@ -1023,7 +1023,7 @@ _meta_table = {
                 'incomplete_sessions',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('interface-name-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name_xr',
@@ -1041,7 +1041,7 @@ _meta_table = {
                 'is_ready',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Mac Address
                 ''',
                 'mac_address',
@@ -1224,7 +1224,7 @@ _meta_table = {
                 'dsl_min_up_low',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('host-uniq', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Host Uniq
                 ''',
                 'host_uniq',
@@ -1242,7 +1242,7 @@ _meta_table = {
                 'max_payload',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('relay-session-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Relay Session ID
                 ''',
                 'relay_session_id',
@@ -1271,13 +1271,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                PPPoE Interface
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', True),
             _MetaInfoClassMember('access-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Access Interface
                 ''',
                 'access_interface_name',
@@ -1289,7 +1289,7 @@ _meta_table = {
                 'bba_group_name',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('interface-name-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name_xr',
@@ -1301,13 +1301,13 @@ _meta_table = {
                 'is_complete',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('local-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Local Mac-Address
                 ''',
                 'local_mac_address',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('peer-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Peer Mac-Address
                 ''',
                 'peer_mac_address',
@@ -1802,7 +1802,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('circuit-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Circuit ID
                 ''',
                 'circuit_id',
@@ -1814,7 +1814,7 @@ _meta_table = {
                 'inner_vlan_id',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Access Interface
                 ''',
                 'interface_name',
@@ -1826,7 +1826,7 @@ _meta_table = {
                 'iwf',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'mac_address',
@@ -1850,7 +1850,7 @@ _meta_table = {
                 'radius_override_set',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('remote-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Remote ID
                 ''',
                 'remote_id',
@@ -1896,7 +1896,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('circuit-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Circuit ID
                 ''',
                 'circuit_id',
@@ -1908,7 +1908,7 @@ _meta_table = {
                 'inner_vlan_id',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Access Interface
                 ''',
                 'interface_name',
@@ -1920,7 +1920,7 @@ _meta_table = {
                 'iwf',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'mac_address',
@@ -1944,7 +1944,7 @@ _meta_table = {
                 'padr_count',
                 'Cisco-IOS-XR-subscriber-pppoe-ma-oper', False),
             _MetaInfoClassMember('remote-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Remote ID
                 ''',
                 'remote_id',
@@ -2322,7 +2322,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bba-group-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                BBA Group
                 ''',
                 'bba_group_name',
@@ -2452,7 +2452,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node
                 ''',
                 'node_name',

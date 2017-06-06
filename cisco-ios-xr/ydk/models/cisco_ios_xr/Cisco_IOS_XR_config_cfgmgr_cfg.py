@@ -56,8 +56,6 @@ class Cfgmgr(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.mode_exclusive is not None:
             return True
 

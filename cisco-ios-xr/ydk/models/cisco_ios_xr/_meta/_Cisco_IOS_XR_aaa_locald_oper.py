@@ -715,447 +715,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
         ),
     },
-    'Aaa.Tacacs.Requests.Request.TacacsRequestbag' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Requests.Request.TacacsRequestbag',
-            False, 
-            [
-            _MetaInfoClassMember('bytes-in', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                bytes read from socket
-                ''',
-                'bytes_in',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('bytes-out', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                bytes written
-                ''',
-                'bytes_out',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('in-pak-size', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                size of the packet to be received
-                ''',
-                'in_pak_size',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('out-pak-size', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                size of the packet to be sent
-                ''',
-                'out_pak_size',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('pak-type', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                the type of packet
-                ''',
-                'pak_type',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                same as in pkt hdr
-                ''',
-                'session_id',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('sock', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                socket number
-                ''',
-                'sock',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('time-remaining', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                time remaining for this request
-                ''',
-                'time_remaining',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-oper',
-            'tacacs-requestbag',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
-        ),
-    },
-    'Aaa.Tacacs.Requests.Request' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Requests.Request',
-            False, 
-            [
-            _MetaInfoClassMember('tacacs-requestbag', REFERENCE_LIST, 'TacacsRequestbag' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.Requests.Request.TacacsRequestbag', 
-                [], [], 
-                '''                tacacs requestbag
-                ''',
-                'tacacs_requestbag',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-oper',
-            'request',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
-        ),
-    },
-    'Aaa.Tacacs.Requests' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Requests',
-            False, 
-            [
-            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.Requests.Request', 
-                [], [], 
-                '''                request
-                ''',
-                'request',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-oper',
-            'requests',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
-        ),
-    },
-    'Aaa.Tacacs.Servers.Server' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Servers.Server',
-            False, 
-            [
-            _MetaInfoClassMember('aborts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                abort count
-                ''',
-                'aborts',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                internet address of T+ server
-                ''',
-                'addr',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('addr-buf', ATTRIBUTE, 'str' , None, None, 
-                [(0, 46)], [], 
-                '''                IP address buffer
-                ''',
-                'addr_buf',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('bytes-in', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                # of bytes read
-                ''',
-                'bytes_in',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('bytes-out', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                # of bytes out
-                ''',
-                'bytes_out',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('closes', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                socket closes
-                ''',
-                'closes',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('conn-up', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is the server connected ?
-                ''',
-                'conn_up',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('errors', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                error count
-                ''',
-                'errors',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('family', ATTRIBUTE, 'str' , None, None, 
-                [(0, 5)], [], 
-                '''                IP address Family
-                ''',
-                'family',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('is-private', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is this a private server ?
-                ''',
-                'is_private',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('opens', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                socket opens
-                ''',
-                'opens',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('paks-in', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                # of incoming packets read
-                ''',
-                'paks_in',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('paks-out', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                # of outgoing packets sent
-                ''',
-                'paks_out',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                per server port to use
-                ''',
-                'port',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('replies-expected', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                # of replies expected to arrive
-                ''',
-                'replies_expected',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('single-connect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is this a single connect server ?
-                ''',
-                'single_connect',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                per-server timeout
-                ''',
-                'timeout',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('up', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is the server UP or down ?
-                ''',
-                'up',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 33)], [], 
-                '''                VRF in which server is reachable
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-oper',
-            'server',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
-        ),
-    },
-    'Aaa.Tacacs.Servers' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Servers',
-            False, 
-            [
-            _MetaInfoClassMember('server', REFERENCE_LIST, 'Server' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.Servers.Server', 
-                [], [], 
-                '''                server
-                ''',
-                'server',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-oper',
-            'servers',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
-        ),
-    },
-    'Aaa.Tacacs.ServerGroups.ServerGroup.Server' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.ServerGroups.ServerGroup.Server',
-            False, 
-            [
-            _MetaInfoClassMember('aborts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                abort count
-                ''',
-                'aborts',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                internet address of T+ server
-                ''',
-                'addr',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('addr-buf', ATTRIBUTE, 'str' , None, None, 
-                [(0, 46)], [], 
-                '''                IP address buffer
-                ''',
-                'addr_buf',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('bytes-in', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                # of bytes read
-                ''',
-                'bytes_in',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('bytes-out', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                # of bytes out
-                ''',
-                'bytes_out',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('closes', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                socket closes
-                ''',
-                'closes',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('conn-up', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is the server connected ?
-                ''',
-                'conn_up',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('errors', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                error count
-                ''',
-                'errors',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('family', ATTRIBUTE, 'str' , None, None, 
-                [(0, 5)], [], 
-                '''                IP address Family
-                ''',
-                'family',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('is-private', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is this a private server ?
-                ''',
-                'is_private',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('opens', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                socket opens
-                ''',
-                'opens',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('paks-in', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                # of incoming packets read
-                ''',
-                'paks_in',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('paks-out', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                # of outgoing packets sent
-                ''',
-                'paks_out',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                per server port to use
-                ''',
-                'port',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('replies-expected', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                # of replies expected to arrive
-                ''',
-                'replies_expected',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('single-connect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is this a single connect server ?
-                ''',
-                'single_connect',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                per-server timeout
-                ''',
-                'timeout',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('up', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is the server UP or down ?
-                ''',
-                'up',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 33)], [], 
-                '''                VRF in which server is reachable
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-oper',
-            'server',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
-        ),
-    },
-    'Aaa.Tacacs.ServerGroups.ServerGroup' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.ServerGroups.ServerGroup',
-            False, 
-            [
-            _MetaInfoClassMember('group-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                name of the server group
-                ''',
-                'group_name',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('server', REFERENCE_LIST, 'Server' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.ServerGroups.ServerGroup.Server', 
-                [], [], 
-                '''                list of servers in this group
-                ''',
-                'server',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('sg-map-num', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                server group mapped number
-                ''',
-                'sg_map_num',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 33)], [], 
-                '''                vrf of the group
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-oper',
-            'server-group',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
-        ),
-    },
-    'Aaa.Tacacs.ServerGroups' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.ServerGroups',
-            False, 
-            [
-            _MetaInfoClassMember('server-group', REFERENCE_LIST, 'ServerGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.ServerGroups.ServerGroup', 
-                [], [], 
-                '''                server group
-                ''',
-                'server_group',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-oper',
-            'server-groups',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
-        ),
-    },
-    'Aaa.Tacacs' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs',
-            False, 
-            [
-            _MetaInfoClassMember('requests', REFERENCE_CLASS, 'Requests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.Requests', 
-                [], [], 
-                '''                TACACS Active Request List
-                ''',
-                'requests',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('server-groups', REFERENCE_CLASS, 'ServerGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.ServerGroups', 
-                [], [], 
-                '''                TACACS sg Information
-                ''',
-                'server_groups',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            _MetaInfoClassMember('servers', REFERENCE_CLASS, 'Servers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.Servers', 
-                [], [], 
-                '''                TACACS server Information
-                ''',
-                'servers',
-                'Cisco-IOS-XR-aaa-tacacs-oper', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-oper',
-            'tacacs',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
-        ),
-    },
     'Aaa.Diameter.Gy' : {
         'meta_info' : _MetaInfoClass('Aaa.Diameter.Gy',
             False, 
@@ -3106,13 +2665,13 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-aaa-protocol-radius-oper', False, [
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of RADIUS server
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-aaa-protocol-radius-oper', False),
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of RADIUS server
                         ''',
                         'ip_address',
@@ -3125,7 +2684,7 @@ _meta_table = {
                 'ip_address_xr',
                 'Cisco-IOS-XR-aaa-protocol-radius-oper', False),
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address of RADIUS server
                 ''',
                 'ipv4_address',
@@ -3491,6 +3050,447 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
         ),
     },
+    'Aaa.Tacacs.Requests.Request.TacacsRequestbag' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Requests.Request.TacacsRequestbag',
+            False, 
+            [
+            _MetaInfoClassMember('bytes-in', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                bytes read from socket
+                ''',
+                'bytes_in',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('bytes-out', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                bytes written
+                ''',
+                'bytes_out',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('in-pak-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                size of the packet to be received
+                ''',
+                'in_pak_size',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('out-pak-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                size of the packet to be sent
+                ''',
+                'out_pak_size',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('pak-type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                the type of packet
+                ''',
+                'pak_type',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                same as in pkt hdr
+                ''',
+                'session_id',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('sock', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                socket number
+                ''',
+                'sock',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('time-remaining', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                time remaining for this request
+                ''',
+                'time_remaining',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-oper',
+            'tacacs-requestbag',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
+        ),
+    },
+    'Aaa.Tacacs.Requests.Request' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Requests.Request',
+            False, 
+            [
+            _MetaInfoClassMember('tacacs-requestbag', REFERENCE_LIST, 'TacacsRequestbag' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.Requests.Request.TacacsRequestbag', 
+                [], [], 
+                '''                tacacs requestbag
+                ''',
+                'tacacs_requestbag',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-oper',
+            'request',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
+        ),
+    },
+    'Aaa.Tacacs.Requests' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Requests',
+            False, 
+            [
+            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.Requests.Request', 
+                [], [], 
+                '''                request
+                ''',
+                'request',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-oper',
+            'requests',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
+        ),
+    },
+    'Aaa.Tacacs.Servers.Server' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Servers.Server',
+            False, 
+            [
+            _MetaInfoClassMember('aborts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                abort count
+                ''',
+                'aborts',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                internet address of T+ server
+                ''',
+                'addr',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('addr-buf', ATTRIBUTE, 'str' , None, None, 
+                [(0, 46)], [], 
+                '''                IP address buffer
+                ''',
+                'addr_buf',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('bytes-in', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                # of bytes read
+                ''',
+                'bytes_in',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('bytes-out', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                # of bytes out
+                ''',
+                'bytes_out',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('closes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                socket closes
+                ''',
+                'closes',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('conn-up', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is the server connected ?
+                ''',
+                'conn_up',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('errors', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                error count
+                ''',
+                'errors',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('family', ATTRIBUTE, 'str' , None, None, 
+                [(0, 5)], [], 
+                '''                IP address Family
+                ''',
+                'family',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('is-private', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is this a private server ?
+                ''',
+                'is_private',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('opens', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                socket opens
+                ''',
+                'opens',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('paks-in', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                # of incoming packets read
+                ''',
+                'paks_in',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('paks-out', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                # of outgoing packets sent
+                ''',
+                'paks_out',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                per server port to use
+                ''',
+                'port',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('replies-expected', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                # of replies expected to arrive
+                ''',
+                'replies_expected',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('single-connect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is this a single connect server ?
+                ''',
+                'single_connect',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                per-server timeout
+                ''',
+                'timeout',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('up', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is the server UP or down ?
+                ''',
+                'up',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 33)], [], 
+                '''                VRF in which server is reachable
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-oper',
+            'server',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
+        ),
+    },
+    'Aaa.Tacacs.Servers' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Servers',
+            False, 
+            [
+            _MetaInfoClassMember('server', REFERENCE_LIST, 'Server' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.Servers.Server', 
+                [], [], 
+                '''                server
+                ''',
+                'server',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-oper',
+            'servers',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
+        ),
+    },
+    'Aaa.Tacacs.ServerGroups.ServerGroup.Server' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.ServerGroups.ServerGroup.Server',
+            False, 
+            [
+            _MetaInfoClassMember('aborts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                abort count
+                ''',
+                'aborts',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                internet address of T+ server
+                ''',
+                'addr',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('addr-buf', ATTRIBUTE, 'str' , None, None, 
+                [(0, 46)], [], 
+                '''                IP address buffer
+                ''',
+                'addr_buf',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('bytes-in', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                # of bytes read
+                ''',
+                'bytes_in',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('bytes-out', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                # of bytes out
+                ''',
+                'bytes_out',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('closes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                socket closes
+                ''',
+                'closes',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('conn-up', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is the server connected ?
+                ''',
+                'conn_up',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('errors', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                error count
+                ''',
+                'errors',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('family', ATTRIBUTE, 'str' , None, None, 
+                [(0, 5)], [], 
+                '''                IP address Family
+                ''',
+                'family',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('is-private', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is this a private server ?
+                ''',
+                'is_private',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('opens', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                socket opens
+                ''',
+                'opens',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('paks-in', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                # of incoming packets read
+                ''',
+                'paks_in',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('paks-out', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                # of outgoing packets sent
+                ''',
+                'paks_out',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                per server port to use
+                ''',
+                'port',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('replies-expected', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                # of replies expected to arrive
+                ''',
+                'replies_expected',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('single-connect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is this a single connect server ?
+                ''',
+                'single_connect',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                per-server timeout
+                ''',
+                'timeout',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('up', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is the server UP or down ?
+                ''',
+                'up',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 33)], [], 
+                '''                VRF in which server is reachable
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-oper',
+            'server',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
+        ),
+    },
+    'Aaa.Tacacs.ServerGroups.ServerGroup' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.ServerGroups.ServerGroup',
+            False, 
+            [
+            _MetaInfoClassMember('group-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                name of the server group
+                ''',
+                'group_name',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('server', REFERENCE_LIST, 'Server' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.ServerGroups.ServerGroup.Server', 
+                [], [], 
+                '''                list of servers in this group
+                ''',
+                'server',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('sg-map-num', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                server group mapped number
+                ''',
+                'sg_map_num',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 33)], [], 
+                '''                vrf of the group
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-oper',
+            'server-group',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
+        ),
+    },
+    'Aaa.Tacacs.ServerGroups' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.ServerGroups',
+            False, 
+            [
+            _MetaInfoClassMember('server-group', REFERENCE_LIST, 'ServerGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.ServerGroups.ServerGroup', 
+                [], [], 
+                '''                server group
+                ''',
+                'server_group',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-oper',
+            'server-groups',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
+        ),
+    },
+    'Aaa.Tacacs' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs',
+            False, 
+            [
+            _MetaInfoClassMember('requests', REFERENCE_CLASS, 'Requests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.Requests', 
+                [], [], 
+                '''                TACACS Active Request List
+                ''',
+                'requests',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('server-groups', REFERENCE_CLASS, 'ServerGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.ServerGroups', 
+                [], [], 
+                '''                TACACS sg Information
+                ''',
+                'server_groups',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            _MetaInfoClassMember('servers', REFERENCE_CLASS, 'Servers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Tacacs.Servers', 
+                [], [], 
+                '''                TACACS server Information
+                ''',
+                'servers',
+                'Cisco-IOS-XR-aaa-tacacs-oper', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-oper',
+            'tacacs',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
+        ),
+    },
     'Aaa' : {
         'meta_info' : _MetaInfoClass('Aaa',
             False, 
@@ -3585,14 +3585,6 @@ _meta_table['Aaa.Usergroups.Usergroup.Taskgroup.TaskMap']['meta_info'].parent =_
 _meta_table['Aaa.Usergroups.Usergroup.TaskMap']['meta_info'].parent =_meta_table['Aaa.Usergroups.Usergroup']['meta_info']
 _meta_table['Aaa.Usergroups.Usergroup.Taskgroup']['meta_info'].parent =_meta_table['Aaa.Usergroups.Usergroup']['meta_info']
 _meta_table['Aaa.Usergroups.Usergroup']['meta_info'].parent =_meta_table['Aaa.Usergroups']['meta_info']
-_meta_table['Aaa.Tacacs.Requests.Request.TacacsRequestbag']['meta_info'].parent =_meta_table['Aaa.Tacacs.Requests.Request']['meta_info']
-_meta_table['Aaa.Tacacs.Requests.Request']['meta_info'].parent =_meta_table['Aaa.Tacacs.Requests']['meta_info']
-_meta_table['Aaa.Tacacs.Servers.Server']['meta_info'].parent =_meta_table['Aaa.Tacacs.Servers']['meta_info']
-_meta_table['Aaa.Tacacs.ServerGroups.ServerGroup.Server']['meta_info'].parent =_meta_table['Aaa.Tacacs.ServerGroups.ServerGroup']['meta_info']
-_meta_table['Aaa.Tacacs.ServerGroups.ServerGroup']['meta_info'].parent =_meta_table['Aaa.Tacacs.ServerGroups']['meta_info']
-_meta_table['Aaa.Tacacs.Requests']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
-_meta_table['Aaa.Tacacs.Servers']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
-_meta_table['Aaa.Tacacs.ServerGroups']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
 _meta_table['Aaa.Diameter.Peers.Peer']['meta_info'].parent =_meta_table['Aaa.Diameter.Peers']['meta_info']
 _meta_table['Aaa.Diameter.Nas.ListOfNas']['meta_info'].parent =_meta_table['Aaa.Diameter.Nas']['meta_info']
 _meta_table['Aaa.Diameter.GySessionIds.GySessionId']['meta_info'].parent =_meta_table['Aaa.Diameter.GySessionIds']['meta_info']
@@ -3613,6 +3605,14 @@ _meta_table['Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface']['meta_info
 _meta_table['Aaa.Radius.Servers']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Radius.RadiusSourceInterface']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Radius.Global_']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
+_meta_table['Aaa.Tacacs.Requests.Request.TacacsRequestbag']['meta_info'].parent =_meta_table['Aaa.Tacacs.Requests.Request']['meta_info']
+_meta_table['Aaa.Tacacs.Requests.Request']['meta_info'].parent =_meta_table['Aaa.Tacacs.Requests']['meta_info']
+_meta_table['Aaa.Tacacs.Servers.Server']['meta_info'].parent =_meta_table['Aaa.Tacacs.Servers']['meta_info']
+_meta_table['Aaa.Tacacs.ServerGroups.ServerGroup.Server']['meta_info'].parent =_meta_table['Aaa.Tacacs.ServerGroups.ServerGroup']['meta_info']
+_meta_table['Aaa.Tacacs.ServerGroups.ServerGroup']['meta_info'].parent =_meta_table['Aaa.Tacacs.ServerGroups']['meta_info']
+_meta_table['Aaa.Tacacs.Requests']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
+_meta_table['Aaa.Tacacs.Servers']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
+_meta_table['Aaa.Tacacs.ServerGroups']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
 _meta_table['Aaa.AllTasks']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.CurrentuserDetail']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.TaskMap']['meta_info'].parent =_meta_table['Aaa']['meta_info']
@@ -3621,6 +3621,6 @@ _meta_table['Aaa.Users']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.Usergroups']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.AuthenMethod']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.CurrentUsergroup']['meta_info'].parent =_meta_table['Aaa']['meta_info']
-_meta_table['Aaa.Tacacs']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.Diameter']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.Radius']['meta_info'].parent =_meta_table['Aaa']['meta_info']
+_meta_table['Aaa.Tacacs']['meta_info'].parent =_meta_table['Aaa']['meta_info']

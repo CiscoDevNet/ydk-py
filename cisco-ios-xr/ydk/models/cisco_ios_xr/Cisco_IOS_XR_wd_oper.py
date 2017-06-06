@@ -299,8 +299,6 @@ class Watchdog(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.critical is not None:
                                 return True
 
@@ -370,8 +368,6 @@ class Watchdog(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.free_memory is not None:
                                 return True
 
@@ -400,8 +396,6 @@ class Watchdog(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.configured_memory is not None and self.configured_memory._has_data():
                             return True
 
@@ -472,8 +466,6 @@ class Watchdog(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.critical is not None:
                             return True
 
@@ -502,8 +494,6 @@ class Watchdog(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.configured is not None and self.configured._has_data():
                         return True
 
@@ -570,8 +560,6 @@ class Watchdog(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.free_memory is not None:
                         return True
 
@@ -685,8 +673,6 @@ class Watchdog(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.start_time is not None:
                             return True
 
@@ -753,8 +739,6 @@ class Watchdog(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.start_time is not None:
                             return True
 
@@ -783,8 +767,6 @@ class Watchdog(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.configured_wdsysmon_throttle is not None:
                         return True
 
@@ -821,8 +803,6 @@ class Watchdog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -852,8 +832,6 @@ class Watchdog(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -876,8 +854,6 @@ class Watchdog(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

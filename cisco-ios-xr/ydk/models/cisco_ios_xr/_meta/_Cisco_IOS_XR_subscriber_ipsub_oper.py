@@ -13,6 +13,12 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'IpsubMaParentIntfStateDataEnum' : _MetaInfoEnum('IpsubMaParentIntfStateDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper',
+        {
+            'deleted':'deleted',
+            'down':'down',
+            'up':'up',
+        }, 'Cisco-IOS-XR-subscriber-ipsub-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-ipsub-oper']),
     'IpsubMaIntfStateDataEnum' : _MetaInfoEnum('IpsubMaIntfStateDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper',
         {
             'invalid':'invalid',
@@ -36,12 +42,6 @@ _meta_table = {
         {
             'plain':'plain',
             'ambiguous':'ambiguous',
-        }, 'Cisco-IOS-XR-subscriber-ipsub-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-ipsub-oper']),
-    'IpsubMaParentIntfStateDataEnum' : _MetaInfoEnum('IpsubMaParentIntfStateDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper',
-        {
-            'deleted':'deleted',
-            'down':'down',
-            'up':'up',
         }, 'Cisco-IOS-XR-subscriber-ipsub-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-ipsub-oper']),
     'IpsubMaIntfInitiatorDataEnum' : _MetaInfoEnum('IpsubMaIntfInitiatorDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper',
         {
@@ -815,13 +815,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-subscriber-ipsub-oper', True),
             _MetaInfoClassMember('access-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Access interface through which this subscriber
                 is accessible
                 ''',
@@ -923,7 +923,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-subscriber-ipsub-oper', False),
             _MetaInfoClassMember('subscriber-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address of the subscriber
                 ''',
                 'subscriber_ipv4_address',
@@ -941,7 +941,7 @@ _meta_table = {
                 'subscriber_label',
                 'Cisco-IOS-XR-subscriber-ipsub-oper', False),
             _MetaInfoClassMember('subscriber-mac-addres', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address of the subscriber
                 ''',
                 'subscriber_mac_addres',
@@ -1428,7 +1428,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -1522,7 +1522,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The node ID to filter on. For eg., 0/1/CPU0
                 ''',
                 'node_name',

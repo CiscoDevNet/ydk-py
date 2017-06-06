@@ -201,8 +201,6 @@ class Lldp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.disable is not None:
                     return True
 
@@ -246,8 +244,6 @@ class Lldp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.disable is not None:
                     return True
 
@@ -291,8 +287,6 @@ class Lldp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.disable is not None:
                     return True
 
@@ -336,8 +330,6 @@ class Lldp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.disable is not None:
                     return True
 
@@ -381,8 +373,6 @@ class Lldp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.disable is not None:
                     return True
 
@@ -403,8 +393,6 @@ class Lldp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.management_address is not None and self.management_address._has_data():
@@ -442,8 +430,6 @@ class Lldp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.enable is not None:
             return True
 

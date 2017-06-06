@@ -95,8 +95,6 @@ class Clock(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.area_name is not None:
@@ -122,8 +120,6 @@ class Clock(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.time_zone is not None and self.time_zone._has_data():
             return True
 

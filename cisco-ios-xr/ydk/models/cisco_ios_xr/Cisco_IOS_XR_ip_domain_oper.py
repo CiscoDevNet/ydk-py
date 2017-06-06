@@ -248,8 +248,6 @@ class IpDomain(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af_name is not None:
                             return True
 
@@ -278,8 +276,6 @@ class IpDomain(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain is not None:
                         for child in self.domain:
                             if child is not None:
@@ -416,8 +412,6 @@ class IpDomain(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.host_alias is not None:
                                 for child in self.host_alias:
                                     if child is not None:
@@ -479,8 +473,6 @@ class IpDomain(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -511,8 +503,6 @@ class IpDomain(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.host_name is not None:
                             return True
 
@@ -549,8 +539,6 @@ class IpDomain(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.host is not None:
                         for child_ref in self.host:
                             if child_ref._has_data():
@@ -575,8 +563,6 @@ class IpDomain(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -603,8 +589,6 @@ class IpDomain(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -627,8 +611,6 @@ class IpDomain(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 

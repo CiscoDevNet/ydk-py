@@ -372,8 +372,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -441,8 +439,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.next_hop is not None:
                             return True
 
@@ -511,8 +507,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipsla_op_id is not None:
                             return True
 
@@ -586,8 +580,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.debounce_count is not None:
                             return True
 
@@ -617,8 +609,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bfd_tracks is not None and self.bfd_tracks._has_data():
                         return True
 
@@ -709,8 +699,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.object_name is not None:
                             return True
 
@@ -737,8 +725,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bool_track_info is not None:
                         for child_ref in self.bool_track_info:
                             if child_ref._has_data():
@@ -823,8 +809,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.object_name is not None:
                             return True
 
@@ -851,8 +835,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.threshold_track_info is not None:
                         for child_ref in self.threshold_track_info:
                             if child_ref._has_data():
@@ -921,8 +903,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -943,8 +923,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_tracking_info is not None:
                         for child_ref in self.interface_tracking_info:
                             if child_ref._has_data():
@@ -998,8 +976,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.time_remaining is not None:
                         return True
 
@@ -1023,8 +999,6 @@ class ObjectTracking(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bool_tracks is not None and self.bool_tracks._has_data():
                     return True
 
@@ -1078,8 +1052,6 @@ class ObjectTracking(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.track_info is not None:
                 for child_ref in self.track_info:
                     if child_ref._has_data():
@@ -1272,8 +1244,6 @@ class ObjectTracking(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -1343,8 +1313,6 @@ class ObjectTracking(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.next_hop is not None:
                                 return True
 
@@ -1415,8 +1383,6 @@ class ObjectTracking(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipsla_op_id is not None:
                                 return True
 
@@ -1492,8 +1458,6 @@ class ObjectTracking(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.debounce_count is not None:
                                 return True
 
@@ -1525,8 +1489,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfd_tracks is not None and self.bfd_tracks._has_data():
                             return True
 
@@ -1561,8 +1523,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.track_state is not None:
                         return True
 
@@ -1594,8 +1554,6 @@ class ObjectTracking(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.track_name is not None:
                     return True
 
@@ -1621,8 +1579,6 @@ class ObjectTracking(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.track_brief is not None:
                 for child_ref in self.track_brief:
                     if child_ref._has_data():
@@ -1844,8 +1800,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -1913,8 +1867,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.next_hop is not None:
                             return True
 
@@ -1983,8 +1935,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipsla_op_id is not None:
                             return True
 
@@ -2058,8 +2008,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.debounce_count is not None:
                             return True
 
@@ -2089,8 +2037,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bfd_tracks is not None and self.bfd_tracks._has_data():
                         return True
 
@@ -2181,8 +2127,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.object_name is not None:
                             return True
 
@@ -2209,8 +2153,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bool_track_info is not None:
                         for child_ref in self.bool_track_info:
                             if child_ref._has_data():
@@ -2295,8 +2237,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.object_name is not None:
                             return True
 
@@ -2323,8 +2263,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.threshold_track_info is not None:
                         for child_ref in self.threshold_track_info:
                             if child_ref._has_data():
@@ -2393,8 +2331,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -2415,8 +2351,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_tracking_info is not None:
                         for child_ref in self.interface_tracking_info:
                             if child_ref._has_data():
@@ -2470,8 +2404,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.time_remaining is not None:
                         return True
 
@@ -2495,8 +2427,6 @@ class ObjectTracking(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bool_tracks is not None and self.bool_tracks._has_data():
                     return True
 
@@ -2550,8 +2480,6 @@ class ObjectTracking(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.track_info is not None:
                 for child_ref in self.track_info:
                     if child_ref._has_data():
@@ -2711,8 +2639,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -2780,8 +2706,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.next_hop is not None:
                             return True
 
@@ -2850,8 +2774,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipsla_op_id is not None:
                             return True
 
@@ -2925,8 +2847,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.debounce_count is not None:
                             return True
 
@@ -2956,8 +2876,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bfd_tracks is not None and self.bfd_tracks._has_data():
                         return True
 
@@ -2990,8 +2908,6 @@ class ObjectTracking(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.track_state is not None:
                     return True
 
@@ -3021,8 +2937,6 @@ class ObjectTracking(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.track_info_brief is not None:
                 for child_ref in self.track_info_brief:
                     if child_ref._has_data():
@@ -3277,8 +3191,6 @@ class ObjectTracking(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -3348,8 +3260,6 @@ class ObjectTracking(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.next_hop is not None:
                                 return True
 
@@ -3420,8 +3330,6 @@ class ObjectTracking(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipsla_op_id is not None:
                                 return True
 
@@ -3497,8 +3405,6 @@ class ObjectTracking(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.debounce_count is not None:
                                 return True
 
@@ -3530,8 +3436,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfd_tracks is not None and self.bfd_tracks._has_data():
                             return True
 
@@ -3624,8 +3528,6 @@ class ObjectTracking(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.object_name is not None:
                                 return True
 
@@ -3654,8 +3556,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bool_track_info is not None:
                             for child_ref in self.bool_track_info:
                                 if child_ref._has_data():
@@ -3742,8 +3642,6 @@ class ObjectTracking(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.object_name is not None:
                                 return True
 
@@ -3772,8 +3670,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.threshold_track_info is not None:
                             for child_ref in self.threshold_track_info:
                                 if child_ref._has_data():
@@ -3844,8 +3740,6 @@ class ObjectTracking(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -3868,8 +3762,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_tracking_info is not None:
                             for child_ref in self.interface_tracking_info:
                                 if child_ref._has_data():
@@ -3925,8 +3817,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.time_remaining is not None:
                             return True
 
@@ -3952,8 +3842,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bool_tracks is not None and self.bool_tracks._has_data():
                         return True
 
@@ -4009,8 +3897,6 @@ class ObjectTracking(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.track_name is not None:
                     return True
 
@@ -4036,8 +3922,6 @@ class ObjectTracking(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.track is not None:
                 for child_ref in self.track:
                     if child_ref._has_data():
@@ -4197,8 +4081,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -4266,8 +4148,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.next_hop is not None:
                             return True
 
@@ -4336,8 +4216,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipsla_op_id is not None:
                             return True
 
@@ -4411,8 +4289,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.debounce_count is not None:
                             return True
 
@@ -4442,8 +4318,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bfd_tracks is not None and self.bfd_tracks._has_data():
                         return True
 
@@ -4476,8 +4350,6 @@ class ObjectTracking(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.track_state is not None:
                     return True
 
@@ -4507,8 +4379,6 @@ class ObjectTracking(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.track_info_brief is not None:
                 for child_ref in self.track_info_brief:
                     if child_ref._has_data():
@@ -4730,8 +4600,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -4799,8 +4667,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.next_hop is not None:
                             return True
 
@@ -4869,8 +4735,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipsla_op_id is not None:
                             return True
 
@@ -4944,8 +4808,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.debounce_count is not None:
                             return True
 
@@ -4975,8 +4837,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bfd_tracks is not None and self.bfd_tracks._has_data():
                         return True
 
@@ -5067,8 +4927,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.object_name is not None:
                             return True
 
@@ -5095,8 +4953,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bool_track_info is not None:
                         for child_ref in self.bool_track_info:
                             if child_ref._has_data():
@@ -5181,8 +5037,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.object_name is not None:
                             return True
 
@@ -5209,8 +5063,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.threshold_track_info is not None:
                         for child_ref in self.threshold_track_info:
                             if child_ref._has_data():
@@ -5279,8 +5131,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -5301,8 +5151,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_tracking_info is not None:
                         for child_ref in self.interface_tracking_info:
                             if child_ref._has_data():
@@ -5356,8 +5204,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.time_remaining is not None:
                         return True
 
@@ -5381,8 +5227,6 @@ class ObjectTracking(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bool_tracks is not None and self.bool_tracks._has_data():
                     return True
 
@@ -5436,8 +5280,6 @@ class ObjectTracking(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.track_info is not None:
                 for child_ref in self.track_info:
                     if child_ref._has_data():
@@ -5597,8 +5439,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -5666,8 +5506,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.next_hop is not None:
                             return True
 
@@ -5736,8 +5574,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipsla_op_id is not None:
                             return True
 
@@ -5811,8 +5647,6 @@ class ObjectTracking(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.debounce_count is not None:
                             return True
 
@@ -5842,8 +5676,6 @@ class ObjectTracking(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bfd_tracks is not None and self.bfd_tracks._has_data():
                         return True
 
@@ -5876,8 +5708,6 @@ class ObjectTracking(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.track_state is not None:
                     return True
 
@@ -5907,8 +5737,6 @@ class ObjectTracking(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.track_info_brief is not None:
                 for child_ref in self.track_info_brief:
                     if child_ref._has_data():
@@ -5931,8 +5759,6 @@ class ObjectTracking(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.track_briefs is not None and self.track_briefs._has_data():
             return True
 

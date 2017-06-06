@@ -219,8 +219,6 @@ class Lpts(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -246,8 +244,6 @@ class Lpts(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4vrf_name is not None:
                             for child_ref in self.ipv4vrf_name:
                                 if child_ref._has_data():
@@ -272,8 +268,6 @@ class Lpts(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.acl_name is not None:
                         return True
 
@@ -297,8 +291,6 @@ class Lpts(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4acl is not None:
                     for child_ref in self.ipv4acl:
                         if child_ref._has_data():
@@ -415,8 +407,6 @@ class Lpts(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.precedence is not None:
                             for child in self.precedence:
                                 if child is not None:
@@ -441,8 +431,6 @@ class Lpts(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_type is not None:
                         return True
 
@@ -469,8 +457,6 @@ class Lpts(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.flow is not None:
                     for child_ref in self.flow:
                         if child_ref._has_data():
@@ -493,8 +479,6 @@ class Lpts(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.enable is not None:
@@ -719,8 +703,6 @@ class Lpts(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.protocol_name is not None:
                             return True
 
@@ -744,8 +726,6 @@ class Lpts(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.penalty_rate is not None:
                         for child_ref in self.penalty_rate:
                             if child_ref._has_data():
@@ -824,8 +804,6 @@ class Lpts(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.protocol_name is not None:
                             return True
 
@@ -849,8 +827,6 @@ class Lpts(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.penalty_timeout is not None:
                         for child_ref in self.penalty_timeout:
                             if child_ref._has_data():
@@ -951,8 +927,6 @@ class Lpts(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ifname is not None:
                                 return True
 
@@ -976,8 +950,6 @@ class Lpts(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             for child_ref in self.interface_name:
                                 if child_ref._has_data():
@@ -1000,8 +972,6 @@ class Lpts(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_names is not None and self.interface_names._has_data():
                         return True
 
@@ -1022,8 +992,6 @@ class Lpts(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.dampening is not None:
                     return True
 
@@ -1083,8 +1051,6 @@ class Lpts(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.flowtrap is not None and self.flowtrap._has_data():
                 return True
 
@@ -1105,8 +1071,6 @@ class Lpts(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.ipolicer is not None and self.ipolicer._has_data():
             return True
 

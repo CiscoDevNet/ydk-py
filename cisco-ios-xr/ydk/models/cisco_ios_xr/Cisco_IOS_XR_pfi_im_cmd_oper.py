@@ -5178,8 +5178,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.half_life is not None:
                         return True
 
@@ -5246,8 +5244,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -5293,8 +5289,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -5348,8 +5342,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.carrier_delay_down is not None:
                         return True
 
@@ -5412,8 +5404,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.arp_is_learning_disabled is not None:
                         return True
 
@@ -5473,8 +5463,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ip_address is not None:
                         return True
 
@@ -5655,8 +5643,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enquiries_received is not None:
                             return True
 
@@ -5861,8 +5847,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.outer_tag is not None:
                                     return True
 
@@ -6032,8 +6016,6 @@ class Interfaces(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ethertype is not None:
                                             return True
 
@@ -6059,8 +6041,6 @@ class Interfaces(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_traffic_tag is not None:
                                         for child_ref in self.local_traffic_tag:
                                             if child_ref._has_data():
@@ -6151,8 +6131,6 @@ class Interfaces(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.vlan_id_high is not None:
                                             return True
 
@@ -6178,8 +6156,6 @@ class Interfaces(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ethertype is not None:
                                         return True
 
@@ -6239,8 +6215,6 @@ class Interfaces(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ethertype is not None:
                                         return True
 
@@ -6266,8 +6240,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_mac_match is not None:
                                     return True
 
@@ -6352,8 +6324,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.outer_tag is not None:
                                     return True
 
@@ -6379,8 +6349,6 @@ class Interfaces(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack._has_data():
                                 return True
 
@@ -6430,8 +6398,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.encapsulation_details is not None and self.encapsulation_details._has_data():
                             return True
 
@@ -6542,8 +6508,6 @@ class Interfaces(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ncp_identifier is not None:
                                 return True
 
@@ -6569,8 +6533,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.is_loopback_detected is not None:
                             return True
 
@@ -6610,8 +6572,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dot1q_information is not None and self.dot1q_information._has_data():
                         return True
 
@@ -7093,8 +7053,6 @@ class Interfaces(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.current_state is not None:
                                                 return True
 
@@ -7132,8 +7090,6 @@ class Interfaces(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.asserted_failure is not None:
                                             for child_ref in self.asserted_failure:
                                                 if child_ref._has_data():
@@ -7422,8 +7378,6 @@ class Interfaces(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.current_state is not None:
                                                 return True
 
@@ -7461,8 +7415,6 @@ class Interfaces(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.asserted_failure is not None:
                                             for child_ref in self.asserted_failure:
                                                 if child_ref._has_data():
@@ -7541,8 +7493,6 @@ class Interfaces(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_inter_card_bus_enabled is not None:
                                         return True
 
@@ -7577,8 +7527,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.is_admin_down is not None:
                                     return True
 
@@ -7759,8 +7707,6 @@ class Interfaces(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.hop_count is not None:
                                             return True
 
@@ -7798,8 +7744,6 @@ class Interfaces(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.next_topology_packet_delay is not None:
                                         return True
 
@@ -7839,8 +7783,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.is_admin_down is not None:
                                     return True
 
@@ -8133,8 +8075,6 @@ class Interfaces(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.inner_failure is not None:
                                             return True
 
@@ -8238,8 +8178,6 @@ class Interfaces(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.inner_failure is not None:
                                             return True
 
@@ -8280,8 +8218,6 @@ class Interfaces(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.inner_fail_type is not None:
                                         return True
 
@@ -8359,8 +8295,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.is_admin_down is not None:
                                     return True
 
@@ -8445,8 +8379,6 @@ class Interfaces(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.min_priority_value is not None:
                                         return True
 
@@ -8469,8 +8401,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.is_admin_down is not None:
                                     return True
 
@@ -8498,8 +8428,6 @@ class Interfaces(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ips_info is not None and self.ips_info._has_data():
                                 return True
 
@@ -8631,8 +8559,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bit_rate_received is not None:
                                     return True
 
@@ -8711,8 +8637,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bit_rate_received is not None:
                                     return True
 
@@ -8831,8 +8755,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.crc_errors is not None:
                                     return True
 
@@ -8966,8 +8888,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.crc_errors is not None:
                                     return True
 
@@ -9014,8 +8934,6 @@ class Interfaces(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.data_rate_interval is not None:
                                 return True
 
@@ -9050,8 +8968,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srp_information is not None and self.srp_information._has_data():
                             return True
 
@@ -9136,8 +9052,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination_ipv4_address is not None:
                             return True
 
@@ -9414,8 +9328,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.defaulted is not None:
                                     return True
 
@@ -9603,8 +9515,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.actor_operational_key is not None:
                                     return True
 
@@ -9751,8 +9661,6 @@ class Interfaces(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.reason_type is not None:
                                         return True
 
@@ -9778,8 +9686,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.error is not None:
                                     return True
 
@@ -9840,8 +9746,6 @@ class Interfaces(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -9864,8 +9768,6 @@ class Interfaces(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bandwidth is not None:
                                 return True
 
@@ -9924,8 +9826,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.member is not None:
                             for child_ref in self.member:
                                 if child_ref._has_data():
@@ -9971,8 +9871,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.timeslots is not None:
                             return True
 
@@ -10016,8 +9914,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.aps_state is not None:
                             return True
 
@@ -10194,8 +10090,6 @@ class Interfaces(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -10261,8 +10155,6 @@ class Interfaces(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -10291,8 +10183,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination_ip_address is not None and self.destination_ip_address._has_data():
                             return True
 
@@ -10391,8 +10281,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_list_name is not None:
                             return True
 
@@ -10470,8 +10358,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dejitter_buffer is not None:
                             return True
 
@@ -10530,8 +10416,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.derived_mode is not None:
                             return True
 
@@ -10557,8 +10441,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_information is not None and self.bundle_information._has_data():
                         return True
 
@@ -10737,8 +10619,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bandwidth is not None:
                         return True
 
@@ -11149,8 +11029,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.applique is not None:
                             return True
 
@@ -11435,8 +11313,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bytes_received is not None:
                             return True
 
@@ -11504,8 +11380,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.basic_interface_stats is not None and self.basic_interface_stats._has_data():
                         return True
 
@@ -11647,8 +11521,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.feature_id is not None:
                             return True
 
@@ -11723,8 +11595,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.count is not None:
                             return True
 
@@ -11821,8 +11691,6 @@ class Interfaces(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.count is not None:
                                 return True
 
@@ -11851,8 +11719,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.block_array is not None:
                             for child_ref in self.block_array:
                                 if child_ref._has_data():
@@ -11880,8 +11746,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.block_array is not None:
                         for child_ref in self.block_array:
                             if child_ref._has_data():
@@ -11941,8 +11805,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.controller is not None:
                         return True
 
@@ -11965,8 +11827,6 @@ class Interfaces(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -12116,8 +11976,6 @@ class Interfaces(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -12278,8 +12136,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_down_interface_count is not None:
                             return True
 
@@ -12390,8 +12246,6 @@ class Interfaces(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.admin_down_interface_count is not None:
                                 return True
 
@@ -12421,8 +12275,6 @@ class Interfaces(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_counts is not None and self.interface_counts._has_data():
                             return True
 
@@ -12449,8 +12301,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_counts is not None and self.interface_counts._has_data():
                         return True
 
@@ -12476,8 +12326,6 @@ class Interfaces(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_summary is not None and self.interface_summary._has_data():
                     return True
 
@@ -12504,8 +12352,6 @@ class Interfaces(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node_type_set is not None:
                 for child_ref in self.node_type_set:
                     if child_ref._has_data():
@@ -12669,8 +12515,6 @@ class Interfaces(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -12730,8 +12574,6 @@ class Interfaces(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_brief is not None:
                 for child_ref in self.interface_brief:
                     if child_ref._has_data():
@@ -12831,8 +12673,6 @@ class Interfaces(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.admin_down_interface_count is not None:
                     return True
 
@@ -12943,8 +12783,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_down_interface_count is not None:
                         return True
 
@@ -12974,8 +12812,6 @@ class Interfaces(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_counts is not None and self.interface_counts._has_data():
                     return True
 
@@ -13002,8 +12838,6 @@ class Interfaces(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_counts is not None and self.interface_counts._has_data():
                 return True
 
@@ -13103,8 +12937,6 @@ class Interfaces(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -13137,8 +12969,6 @@ class Interfaces(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -13238,8 +13068,6 @@ class Interfaces(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.admin_down_interface_count is not None:
                     return True
 
@@ -13350,8 +13178,6 @@ class Interfaces(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_down_interface_count is not None:
                         return True
 
@@ -13381,8 +13207,6 @@ class Interfaces(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_counts is not None and self.interface_counts._has_data():
                     return True
 
@@ -13409,8 +13233,6 @@ class Interfaces(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_counts is not None and self.interface_counts._has_data():
                 return True
 
@@ -13436,8 +13258,6 @@ class Interfaces(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.interface_briefs is not None and self.interface_briefs._has_data():
             return True
 

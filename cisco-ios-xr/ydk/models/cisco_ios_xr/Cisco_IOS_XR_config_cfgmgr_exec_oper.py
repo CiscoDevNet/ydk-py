@@ -315,8 +315,6 @@ class CfgHistGl(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.state is not None:
                             return True
 
@@ -369,8 +367,6 @@ class CfgHistGl(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.line is not None:
                             return True
 
@@ -447,8 +443,6 @@ class CfgHistGl(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.client_name is not None:
                             return True
 
@@ -519,8 +513,6 @@ class CfgHistGl(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config_name is not None:
                             return True
 
@@ -570,8 +562,6 @@ class CfgHistGl(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.comment is not None:
                             return True
 
@@ -621,8 +611,6 @@ class CfgHistGl(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.boot_path is not None:
                             return True
 
@@ -669,8 +657,6 @@ class CfgHistGl(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.comment is not None:
                             return True
 
@@ -693,8 +679,6 @@ class CfgHistGl(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.a is not None:
                         return True
 
@@ -743,8 +727,6 @@ class CfgHistGl(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.record is not None:
                     return True
 
@@ -776,8 +758,6 @@ class CfgHistGl(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.record_type is not None:
                 return True
 
@@ -803,8 +783,6 @@ class CfgHistGl(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.record_type is not None:
             for child_ref in self.record_type:
                 if child_ref._has_data():

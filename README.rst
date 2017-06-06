@@ -35,7 +35,7 @@ It is required to install Xcode command line tools, `homebrew <http://brew.sh>`_
 
 Windows
 ~~~~~~~
-You must install the following requirements:
+You must install the following requirements::
   * `Python Releases for Windows <https://www.python.org/downloads/windows/>`_
   * `Visual C++ Build Tools <http://landinghub.visualstudio.com/visual-cpp-build-tools>`_
 
@@ -67,26 +67,26 @@ If you prefer not to use the YDK packages in the Python package index, you need 
   core$ python setup.py sdist
   core$ pip install dist/ydk*.gz
 
-Once you have installed the ``ydk`` core package, you can install one more model bundles.  Note that some bundles have dependencies on other bundles.  Those dependencies are already captured in the bundle package.  Make sure you install the desired bundles in the order below.  To install the IETF bundle, execute::
+Once you have installed the ``ydk`` core package, you can install one more model bundles.  Note that some bundles have dependencies on other bundles.  Those dependencies are already captured in the bundle package.  Make sure you install the desired bundles in the order below.  To install the ``ietf`` bundle, execute::
 
   core$ cd ../ietf
   ietf$ python setup.py sdist
   ietf$ pip install dist/ydk*.gz
 
-To install the OpenConfig bundle, execute::
+To install the ``openconfig`` bundle, execute::
 
   ietf$ cd ../openconfig
   openconfig$ python setup.py sdist
   openconfig$ pip install dist/ydk*.gz
 
-To install the cisco-ios-xr bundle, execute::
+To install the ``cisco-ios-xr`` bundle, execute::
 
   openconfig$ cd ../cisco-ios-xr
   cisco-ios-xr$ python setup.py sdist
   cisco-ios-xr$ pip install dist/ydk*.gz
   cisco-ios-xr$ cd ..
 
-Using a Virtual environment
+Using a Virtual Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You may want to perform the installation under a Python virtual environment (`virtualenv <https://pypi.python.org/pypi/virtualenv/>`_/`virtualenvwrapper  <https://pypi.python.org/pypi/virtualenvwrapper>`_).  A virtual environment allows you to install multiple versions of YDK if needed.  In addition, it prevents any potential conflicts between package dependencies in your system.
 
@@ -108,12 +108,11 @@ At this point, you can perform the quick install or the installation from source
 
 Documentation and Support
 --------------------------
-- Samples can be found under the ``core/samples`` directory
-- API documentation can be found at http://ydk.cisco.com/py/docs
-- Hundreds of samples can be found at https://github.com/CiscoDevNet/ydk-py-samples
-- For queries related to usage of the API, please join the YDK community at https://communities.cisco.com/community/developer/ydk
-
+- Read the `API documentation <http://ydk.cisco.com/py/docs>`_ for details on how to use the API and specific models
+- Samples can be found under the `samples directory <https://github.com/CiscoDevNet/ydk-py/tree/master/core/samples>`_
+- Hundreds of additional samples can be found in the `YDK-PY samples repository <https://github.com/CiscoDevNet/ydk-py-samples>`_
+- Join the `YDK community <https://communities.cisco.com/community/developer/ydk>`_ to connect with other users and with the makers of YDK
 
 Release Notes
 --------------
-The current YDK release version is 0.5.4 (beta). YDK-Py is licensed under the Apache 2.0 License.
+The current YDK release version is 0.5.5 (beta). YDK-Py is licensed under the Apache 2.0 License.

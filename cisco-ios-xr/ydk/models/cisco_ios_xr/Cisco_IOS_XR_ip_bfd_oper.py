@@ -1028,8 +1028,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -1102,8 +1100,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -1130,8 +1126,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                         return True
 
@@ -1155,8 +1149,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.incoming_label is not None:
                     return True
 
@@ -1201,8 +1193,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.label_session_brief is not None:
                 for child_ref in self.label_session_brief:
                     if child_ref._has_data():
@@ -1295,8 +1285,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.down_count is not None:
                     return True
 
@@ -1326,8 +1314,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_state is not None and self.session_state._has_data():
                 return True
 
@@ -1456,8 +1442,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -1493,8 +1477,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv6_single_hop_packet_counter is not None:
                     for child_ref in self.ipv6_single_hop_packet_counter:
                         if child_ref._has_data():
@@ -1517,8 +1499,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv6_single_hop_packet_counters is not None and self.ipv6_single_hop_packet_counters._has_data():
                 return True
 
@@ -1647,8 +1627,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -1684,8 +1662,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.packet_counter is not None:
                     for child_ref in self.packet_counter:
                         if child_ref._has_data():
@@ -1708,8 +1684,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.packet_counters is not None and self.packet_counters._has_data():
                 return True
 
@@ -1841,8 +1815,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name_xr is not None:
                         return True
 
@@ -1902,8 +1874,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_recreate_state is not None:
                         return True
 
@@ -1929,8 +1899,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.client_name is not None:
                     return True
 
@@ -1960,8 +1928,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.client_detail is not None:
                 for child_ref in self.client_detail:
                     if child_ref._has_data():
@@ -2054,8 +2020,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.down_count is not None:
                     return True
 
@@ -2085,8 +2049,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_state is not None and self.session_state._has_data():
                 return True
 
@@ -2177,8 +2139,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.down_count is not None:
                     return True
 
@@ -2208,8 +2168,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_state is not None and self.session_state._has_data():
                 return True
 
@@ -2336,8 +2294,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.incoming_label is not None:
                     return True
 
@@ -2382,8 +2338,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.label_multi_path is not None:
                 for child_ref in self.label_multi_path:
                     if child_ref._has_data():
@@ -2774,8 +2728,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi is not None:
                             return True
 
@@ -2860,8 +2812,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.days is not None:
                             return True
 
@@ -3036,8 +2986,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -3248,8 +3196,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -3397,8 +3343,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -3471,8 +3415,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -3499,8 +3441,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                             return True
 
@@ -3588,8 +3528,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -3686,8 +3624,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -3784,8 +3720,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -3882,8 +3816,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -3916,8 +3848,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_receive_statistics is not None and self.async_receive_statistics._has_data():
                         return True
 
@@ -4067,8 +3997,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -4092,8 +4020,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.change_time is not None and self.change_time._has_data():
                         return True
 
@@ -4254,8 +4180,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -4314,8 +4238,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -4374,8 +4296,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -4399,8 +4319,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_ping_rx_count is not None:
                         return True
 
@@ -4513,8 +4431,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjusted_detection_multiplier is not None:
                         return True
 
@@ -4727,8 +4643,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -4803,8 +4717,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -4892,8 +4804,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dummy is not None:
                                     return True
 
@@ -5005,8 +4915,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.s2l_fec_ctype is not None:
                                     return True
 
@@ -5054,8 +4962,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfdfe_ctype is not None:
                                 return True
 
@@ -5127,8 +5033,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -5158,8 +5062,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfdfec is not None and self.bfdfec._has_data():
                             return True
 
@@ -5266,8 +5168,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.adjusted_detection_multiplier is not None:
                             return True
 
@@ -5300,8 +5200,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.local_discriminator is not None:
                         return True
 
@@ -5333,8 +5231,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.association_information is not None:
                     for child_ref in self.association_information:
                         if child_ref._has_data():
@@ -5383,8 +5279,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_multi_hop_session_detail is not None:
                 for child_ref in self.ipv4_multi_hop_session_detail:
                     if child_ref._has_data():
@@ -5747,8 +5641,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi is not None:
                             return True
 
@@ -5833,8 +5725,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.days is not None:
                             return True
 
@@ -6009,8 +5899,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -6221,8 +6109,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -6370,8 +6256,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -6444,8 +6328,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -6472,8 +6354,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                             return True
 
@@ -6561,8 +6441,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -6659,8 +6537,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -6757,8 +6633,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -6855,8 +6729,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -6889,8 +6761,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_receive_statistics is not None and self.async_receive_statistics._has_data():
                         return True
 
@@ -7040,8 +6910,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -7065,8 +6933,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.change_time is not None and self.change_time._has_data():
                         return True
 
@@ -7227,8 +7093,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -7287,8 +7151,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -7347,8 +7209,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -7372,8 +7232,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_ping_rx_count is not None:
                         return True
 
@@ -7486,8 +7344,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjusted_detection_multiplier is not None:
                         return True
 
@@ -7700,8 +7556,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -7776,8 +7630,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -7865,8 +7717,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dummy is not None:
                                     return True
 
@@ -7978,8 +7828,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.s2l_fec_ctype is not None:
                                     return True
 
@@ -8027,8 +7875,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfdfe_ctype is not None:
                                 return True
 
@@ -8100,8 +7946,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -8131,8 +7975,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfdfec is not None and self.bfdfec._has_data():
                             return True
 
@@ -8239,8 +8081,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.adjusted_detection_multiplier is not None:
                             return True
 
@@ -8273,8 +8113,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.local_discriminator is not None:
                         return True
 
@@ -8306,8 +8144,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.association_information is not None:
                     for child_ref in self.association_information:
                         if child_ref._has_data():
@@ -8353,8 +8189,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_single_hop_session_detail is not None:
                 for child_ref in self.ipv4_single_hop_session_detail:
                     if child_ref._has_data():
@@ -8572,8 +8406,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -8646,8 +8478,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -8674,8 +8504,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                         return True
 
@@ -8699,8 +8527,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -8748,8 +8574,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_multi_hop_session_brief is not None:
                 for child_ref in self.ipv4_multi_hop_session_brief:
                     if child_ref._has_data():
@@ -8885,8 +8709,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location is not None:
                     return True
 
@@ -8931,8 +8753,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.generic_summary is not None:
                 for child_ref in self.generic_summary:
                     if child_ref._has_data():
@@ -9071,8 +8891,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -9117,8 +8935,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv6_single_hop_multi_path is not None:
                 for child_ref in self.ipv6_single_hop_multi_path:
                     if child_ref._has_data():
@@ -9261,8 +9077,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.down_count is not None:
                         return True
 
@@ -9300,8 +9114,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location is not None:
                     return True
 
@@ -9325,8 +9137,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_single_hop_node_location_summary is not None:
                 for child_ref in self.ipv4_single_hop_node_location_summary:
                     if child_ref._has_data():
@@ -9418,8 +9228,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.down_count is not None:
                     return True
 
@@ -9449,8 +9257,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_state is not None and self.session_state._has_data():
                 return True
 
@@ -9746,8 +9552,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -9820,8 +9624,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -9848,8 +9650,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                         return True
 
@@ -9873,8 +9673,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.fe_ctype is not None:
                     return True
 
@@ -9952,8 +9750,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4bf_do_mplste_head_session_brief is not None:
                 for child_ref in self.ipv4bf_do_mplste_head_session_brief:
                     if child_ref._has_data():
@@ -10396,8 +10192,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi is not None:
                             return True
 
@@ -10482,8 +10276,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.days is not None:
                             return True
 
@@ -10658,8 +10450,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -10870,8 +10660,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -11019,8 +10807,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -11093,8 +10879,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -11121,8 +10905,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                             return True
 
@@ -11210,8 +10992,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -11308,8 +11088,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -11406,8 +11184,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -11504,8 +11280,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -11538,8 +11312,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_receive_statistics is not None and self.async_receive_statistics._has_data():
                         return True
 
@@ -11689,8 +11461,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -11714,8 +11484,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.change_time is not None and self.change_time._has_data():
                         return True
 
@@ -11876,8 +11644,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -11936,8 +11702,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -11996,8 +11760,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -12021,8 +11783,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_ping_rx_count is not None:
                         return True
 
@@ -12135,8 +11895,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjusted_detection_multiplier is not None:
                         return True
 
@@ -12349,8 +12107,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -12425,8 +12181,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -12514,8 +12268,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dummy is not None:
                                     return True
 
@@ -12627,8 +12379,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.s2l_fec_ctype is not None:
                                     return True
 
@@ -12676,8 +12426,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfdfe_ctype is not None:
                                 return True
 
@@ -12749,8 +12497,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -12780,8 +12526,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfdfec is not None and self.bfdfec._has_data():
                             return True
 
@@ -12888,8 +12632,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.adjusted_detection_multiplier is not None:
                             return True
 
@@ -12922,8 +12664,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.local_discriminator is not None:
                         return True
 
@@ -12955,8 +12695,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.association_information is not None:
                     for child_ref in self.association_information:
                         if child_ref._has_data():
@@ -13032,8 +12770,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4bf_do_mplste_tail_session_detail is not None:
                 for child_ref in self.ipv4bf_do_mplste_tail_session_detail:
                     if child_ref._has_data():
@@ -13176,8 +12912,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.down_count is not None:
                         return True
 
@@ -13215,8 +12949,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location is not None:
                     return True
 
@@ -13240,8 +12972,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_multi_hop_node_location_summary is not None:
                 for child_ref in self.ipv4_multi_hop_node_location_summary:
                     if child_ref._has_data():
@@ -13531,8 +13261,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -13605,8 +13333,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -13633,8 +13359,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                         return True
 
@@ -13658,8 +13382,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.fe_ctype is not None:
                     return True
 
@@ -13734,8 +13456,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4bf_do_mplste_tail_session_brief is not None:
                 for child_ref in self.ipv4bf_do_mplste_tail_session_brief:
                     if child_ref._has_data():
@@ -13878,8 +13598,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.down_count is not None:
                         return True
 
@@ -13917,8 +13635,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location is not None:
                     return True
 
@@ -13942,8 +13658,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv6_multi_hop_node_location_summary is not None:
                 for child_ref in self.ipv6_multi_hop_node_location_summary:
                     if child_ref._has_data():
@@ -14036,8 +13750,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.down_count is not None:
                     return True
 
@@ -14067,8 +13779,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_state is not None and self.session_state._has_data():
                 return True
 
@@ -14197,8 +13907,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -14234,8 +13942,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4_single_hop_packet_counter is not None:
                     for child_ref in self.ipv4_single_hop_packet_counter:
                         if child_ref._has_data():
@@ -14258,8 +13964,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_single_hop_packet_counters is not None and self.ipv4_single_hop_packet_counters._has_data():
                 return True
 
@@ -14648,8 +14352,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi is not None:
                             return True
 
@@ -14734,8 +14436,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.days is not None:
                             return True
 
@@ -14910,8 +14610,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -15122,8 +14820,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -15271,8 +14967,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -15345,8 +15039,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -15373,8 +15065,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                             return True
 
@@ -15462,8 +15152,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -15560,8 +15248,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -15658,8 +15344,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -15756,8 +15440,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -15790,8 +15472,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_receive_statistics is not None and self.async_receive_statistics._has_data():
                         return True
 
@@ -15941,8 +15621,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -15966,8 +15644,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.change_time is not None and self.change_time._has_data():
                         return True
 
@@ -16128,8 +15804,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -16188,8 +15862,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -16248,8 +15920,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -16273,8 +15943,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_ping_rx_count is not None:
                         return True
 
@@ -16387,8 +16055,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjusted_detection_multiplier is not None:
                         return True
 
@@ -16601,8 +16267,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -16677,8 +16341,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -16766,8 +16428,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dummy is not None:
                                     return True
 
@@ -16879,8 +16539,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.s2l_fec_ctype is not None:
                                     return True
 
@@ -16928,8 +16586,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfdfe_ctype is not None:
                                 return True
 
@@ -17001,8 +16657,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -17032,8 +16686,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfdfec is not None and self.bfdfec._has_data():
                             return True
 
@@ -17140,8 +16792,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.adjusted_detection_multiplier is not None:
                             return True
 
@@ -17174,8 +16824,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.local_discriminator is not None:
                         return True
 
@@ -17207,8 +16855,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.association_information is not None:
                     for child_ref in self.association_information:
                         if child_ref._has_data():
@@ -17257,8 +16903,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv6_multi_hop_session_detail is not None:
                 for child_ref in self.ipv6_multi_hop_session_detail:
                     if child_ref._has_data():
@@ -17415,8 +17059,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -17464,8 +17106,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv6_multi_hop_multi_path is not None:
                 for child_ref in self.ipv6_multi_hop_multi_path:
                     if child_ref._has_data():
@@ -17603,8 +17243,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.display_type is not None:
                         return True
 
@@ -17643,8 +17281,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4bf_do_mplste_head_packet_counter is not None:
                     for child_ref in self.ipv4bf_do_mplste_head_packet_counter:
                         if child_ref._has_data():
@@ -17667,8 +17303,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4bf_do_mplste_head_packet_counters is not None and self.ipv4bf_do_mplste_head_packet_counters._has_data():
                 return True
 
@@ -17955,8 +17589,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.afi is not None:
                         return True
 
@@ -17988,8 +17620,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.discriminator is not None:
                     return True
 
@@ -18073,8 +17703,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_mib is not None:
                 for child_ref in self.session_mib:
                     if child_ref._has_data():
@@ -18167,8 +17795,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.down_count is not None:
                     return True
 
@@ -18198,8 +17824,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_state is not None and self.session_state._has_data():
                 return True
 
@@ -18339,8 +17963,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.down_count is not None:
                         return True
 
@@ -18378,8 +18000,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location_name is not None:
                     return True
 
@@ -18403,8 +18023,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.label_summary_node is not None:
                 for child_ref in self.label_summary_node:
                     if child_ref._has_data():
@@ -18642,8 +18260,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -18716,8 +18332,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -18744,8 +18358,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                         return True
 
@@ -18769,8 +18381,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -18818,8 +18428,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv6_multi_hop_session_brief is not None:
                 for child_ref in self.ipv6_multi_hop_session_brief:
                     if child_ref._has_data():
@@ -19029,8 +18637,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -19103,8 +18709,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -19131,8 +18735,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                         return True
 
@@ -19156,8 +18758,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -19202,8 +18802,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_brief is not None:
                 for child_ref in self.session_brief:
                     if child_ref._has_data():
@@ -19346,8 +18944,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.down_count is not None:
                         return True
 
@@ -19385,8 +18981,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location is not None:
                     return True
 
@@ -19410,8 +19004,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv6_single_hop_node_location_summary is not None:
                 for child_ref in self.ipv6_single_hop_node_location_summary:
                     if child_ref._has_data():
@@ -19504,8 +19096,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.down_count is not None:
                     return True
 
@@ -19535,8 +19125,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_state is not None and self.session_state._has_data():
                 return True
 
@@ -19676,8 +19264,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.down_count is not None:
                         return True
 
@@ -19715,8 +19301,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location_name is not None:
                     return True
 
@@ -19740,8 +19324,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4bfd_mplste_tail_node_summary is not None:
                 for child_ref in self.ipv4bfd_mplste_tail_node_summary:
                     if child_ref._has_data():
@@ -19884,8 +19466,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.down_count is not None:
                         return True
 
@@ -19923,8 +19503,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location_name is not None:
                     return True
 
@@ -19948,8 +19526,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_single_hop_location_summary is not None:
                 for child_ref in self.ipv4_single_hop_location_summary:
                     if child_ref._has_data():
@@ -20091,8 +19667,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.down_count is not None:
                         return True
 
@@ -20130,8 +19704,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location_name is not None:
                     return True
 
@@ -20155,8 +19727,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4bfd_mplste_head_summary_node is not None:
                 for child_ref in self.ipv4bfd_mplste_head_summary_node:
                     if child_ref._has_data():
@@ -20518,8 +20088,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi is not None:
                             return True
 
@@ -20604,8 +20172,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.days is not None:
                             return True
 
@@ -20780,8 +20346,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -20992,8 +20556,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -21141,8 +20703,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -21215,8 +20775,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -21243,8 +20801,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                             return True
 
@@ -21332,8 +20888,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -21430,8 +20984,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -21528,8 +21080,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -21626,8 +21176,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -21660,8 +21208,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_receive_statistics is not None and self.async_receive_statistics._has_data():
                         return True
 
@@ -21811,8 +21357,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -21836,8 +21380,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.change_time is not None and self.change_time._has_data():
                         return True
 
@@ -21998,8 +21540,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -22058,8 +21598,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -22118,8 +21656,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -22143,8 +21679,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_ping_rx_count is not None:
                         return True
 
@@ -22257,8 +21791,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjusted_detection_multiplier is not None:
                         return True
 
@@ -22471,8 +22003,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -22547,8 +22077,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -22636,8 +22164,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dummy is not None:
                                     return True
 
@@ -22749,8 +22275,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.s2l_fec_ctype is not None:
                                     return True
 
@@ -22798,8 +22322,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfdfe_ctype is not None:
                                 return True
 
@@ -22871,8 +22393,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -22902,8 +22422,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfdfec is not None and self.bfdfec._has_data():
                             return True
 
@@ -23010,8 +22528,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.adjusted_detection_multiplier is not None:
                             return True
 
@@ -23044,8 +22560,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.local_discriminator is not None:
                         return True
 
@@ -23077,8 +22591,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.association_information is not None:
                     for child_ref in self.association_information:
                         if child_ref._has_data():
@@ -23124,8 +22636,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.label_session_detail is not None:
                 for child_ref in self.label_session_detail:
                     if child_ref._has_data():
@@ -23498,8 +23008,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi is not None:
                             return True
 
@@ -23584,8 +23092,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.days is not None:
                             return True
 
@@ -23760,8 +23266,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -23972,8 +23476,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -24121,8 +23623,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -24195,8 +23695,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -24223,8 +23721,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                             return True
 
@@ -24312,8 +23808,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -24410,8 +23904,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -24508,8 +24000,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -24606,8 +24096,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -24640,8 +24128,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_receive_statistics is not None and self.async_receive_statistics._has_data():
                         return True
 
@@ -24791,8 +24277,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -24816,8 +24300,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.change_time is not None and self.change_time._has_data():
                         return True
 
@@ -24978,8 +24460,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -25038,8 +24518,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -25098,8 +24576,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -25123,8 +24599,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_ping_rx_count is not None:
                         return True
 
@@ -25237,8 +24711,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjusted_detection_multiplier is not None:
                         return True
 
@@ -25451,8 +24923,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -25527,8 +24997,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -25616,8 +25084,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dummy is not None:
                                     return True
 
@@ -25729,8 +25195,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.s2l_fec_ctype is not None:
                                     return True
 
@@ -25778,8 +25242,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfdfe_ctype is not None:
                                 return True
 
@@ -25851,8 +25313,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -25882,8 +25342,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfdfec is not None and self.bfdfec._has_data():
                             return True
 
@@ -25990,8 +25448,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.adjusted_detection_multiplier is not None:
                             return True
 
@@ -26024,8 +25480,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.local_discriminator is not None:
                         return True
 
@@ -26057,8 +25511,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.association_information is not None:
                     for child_ref in self.association_information:
                         if child_ref._has_data():
@@ -26104,8 +25556,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv6_single_hop_session_detail is not None:
                 for child_ref in self.ipv6_single_hop_session_detail:
                     if child_ref._has_data():
@@ -26278,8 +25728,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_address is not None:
                         return True
 
@@ -26324,8 +25772,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4_multi_hop_packet_counter is not None:
                     for child_ref in self.ipv4_multi_hop_packet_counter:
                         if child_ref._has_data():
@@ -26348,8 +25794,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_multi_hop_packet_counters is not None and self.ipv4_multi_hop_packet_counters._has_data():
                 return True
 
@@ -26710,8 +26154,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi is not None:
                             return True
 
@@ -26796,8 +26238,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.days is not None:
                             return True
 
@@ -26972,8 +26412,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -27184,8 +26622,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -27333,8 +26769,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -27407,8 +26841,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -27435,8 +26867,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                             return True
 
@@ -27524,8 +26954,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -27622,8 +27050,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -27720,8 +27146,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -27818,8 +27242,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -27852,8 +27274,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_receive_statistics is not None and self.async_receive_statistics._has_data():
                         return True
 
@@ -28003,8 +27423,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -28028,8 +27446,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.change_time is not None and self.change_time._has_data():
                         return True
 
@@ -28190,8 +27606,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -28250,8 +27664,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -28310,8 +27722,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -28335,8 +27745,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_ping_rx_count is not None:
                         return True
 
@@ -28449,8 +27857,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjusted_detection_multiplier is not None:
                         return True
 
@@ -28663,8 +28069,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -28739,8 +28143,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -28828,8 +28230,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dummy is not None:
                                     return True
 
@@ -28941,8 +28341,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.s2l_fec_ctype is not None:
                                     return True
 
@@ -28990,8 +28388,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfdfe_ctype is not None:
                                 return True
 
@@ -29063,8 +28459,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -29094,8 +28488,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfdfec is not None and self.bfdfec._has_data():
                             return True
 
@@ -29202,8 +28594,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.adjusted_detection_multiplier is not None:
                             return True
 
@@ -29236,8 +28626,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.local_discriminator is not None:
                         return True
 
@@ -29269,8 +28657,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.association_information is not None:
                     for child_ref in self.association_information:
                         if child_ref._has_data():
@@ -29316,8 +28702,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_detail is not None:
                 for child_ref in self.session_detail:
                     if child_ref._has_data():
@@ -29446,8 +28830,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -29492,8 +28874,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_single_hop_multi_path is not None:
                 for child_ref in self.ipv4_single_hop_multi_path:
                     if child_ref._has_data():
@@ -29703,8 +29083,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -29777,8 +29155,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -29805,8 +29181,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                         return True
 
@@ -29830,8 +29204,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -29876,8 +29248,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_single_hop_session_brief is not None:
                 for child_ref in self.ipv4_single_hop_session_brief:
                     if child_ref._has_data():
@@ -30050,8 +29420,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_address is not None:
                         return True
 
@@ -30096,8 +29464,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv6_multi_hop_packet_counter is not None:
                     for child_ref in self.ipv6_multi_hop_packet_counter:
                         if child_ref._has_data():
@@ -30120,8 +29486,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv6_multi_hop_packet_counters is not None and self.ipv6_multi_hop_packet_counters._has_data():
                 return True
 
@@ -30262,8 +29626,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.down_count is not None:
                         return True
 
@@ -30301,8 +29663,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location_name is not None:
                     return True
 
@@ -30326,8 +29686,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv6_single_hop_location_summary is not None:
                 for child_ref in self.ipv6_single_hop_location_summary:
                     if child_ref._has_data():
@@ -30464,8 +29822,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.display_type is not None:
                         return True
 
@@ -30504,8 +29860,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.label_packet_counter is not None:
                     for child_ref in self.label_packet_counter:
                         if child_ref._has_data():
@@ -30528,8 +29882,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.label_packet_counters is not None and self.label_packet_counters._has_data():
                 return True
 
@@ -30978,8 +30330,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi is not None:
                             return True
 
@@ -31064,8 +30414,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.days is not None:
                             return True
 
@@ -31240,8 +30588,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -31452,8 +30798,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_present is not None:
                             return True
 
@@ -31601,8 +30945,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -31675,8 +31017,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -31703,8 +31043,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                             return True
 
@@ -31792,8 +31130,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -31890,8 +31226,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -31988,8 +31322,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -32086,8 +31418,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.average is not None:
                             return True
 
@@ -32120,8 +31450,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_receive_statistics is not None and self.async_receive_statistics._has_data():
                         return True
 
@@ -32271,8 +31599,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -32296,8 +31622,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.change_time is not None and self.change_time._has_data():
                         return True
 
@@ -32458,8 +31782,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -32518,8 +31840,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -32578,8 +31898,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -32603,8 +31921,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_ping_rx_count is not None:
                         return True
 
@@ -32717,8 +32033,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjusted_detection_multiplier is not None:
                         return True
 
@@ -32931,8 +32245,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -33007,8 +32319,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -33096,8 +32406,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dummy is not None:
                                     return True
 
@@ -33209,8 +32517,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.s2l_fec_ctype is not None:
                                     return True
 
@@ -33258,8 +32564,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfdfe_ctype is not None:
                                 return True
 
@@ -33331,8 +32635,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -33362,8 +32664,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfdfec is not None and self.bfdfec._has_data():
                             return True
 
@@ -33470,8 +32770,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.adjusted_detection_multiplier is not None:
                             return True
 
@@ -33504,8 +32802,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.local_discriminator is not None:
                         return True
 
@@ -33537,8 +32833,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.association_information is not None:
                     for child_ref in self.association_information:
                         if child_ref._has_data():
@@ -33617,8 +32911,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4bf_do_mplste_head_session_detail is not None:
                 for child_ref in self.ipv4bf_do_mplste_head_session_detail:
                     if child_ref._has_data():
@@ -33750,8 +33042,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -33775,8 +33065,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -33808,8 +33096,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.relation_brief is not None:
                 for child_ref in self.relation_brief:
                     if child_ref._has_data():
@@ -33904,8 +33190,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -33935,8 +33219,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.client_brief is not None:
                 for child_ref in self.client_brief:
                     if child_ref._has_data():
@@ -34153,8 +33435,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.fe_ctype is not None:
                     return True
 
@@ -34232,8 +33512,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4bf_do_mplste_head_multi_path is not None:
                 for child_ref in self.ipv4bf_do_mplste_head_multi_path:
                     if child_ref._has_data():
@@ -34389,8 +33667,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -34597,8 +33873,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -34673,8 +33947,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -34762,8 +34034,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dummy is not None:
                                     return True
 
@@ -34875,8 +34145,6 @@ class Bfd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.s2l_fec_ctype is not None:
                                     return True
 
@@ -34924,8 +34192,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfdfe_ctype is not None:
                                 return True
 
@@ -34997,8 +34263,6 @@ class Bfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -35028,8 +34292,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfdfec is not None and self.bfdfec._has_data():
                             return True
 
@@ -35136,8 +34398,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.adjusted_detection_multiplier is not None:
                             return True
 
@@ -35170,8 +34430,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.local_discriminator is not None:
                         return True
 
@@ -35203,8 +34461,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.association_information is not None:
                     for child_ref in self.association_information:
                         if child_ref._has_data():
@@ -35244,8 +34500,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.relation_detail is not None:
                 for child_ref in self.relation_detail:
                     if child_ref._has_data():
@@ -35471,8 +34725,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.display_type is not None:
                         return True
 
@@ -35544,8 +34796,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4bf_do_mplste_tail_packet_counter is not None:
                     for child_ref in self.ipv4bf_do_mplste_tail_packet_counter:
                         if child_ref._has_data():
@@ -35568,8 +34818,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4bf_do_mplste_tail_packet_counters is not None and self.ipv4bf_do_mplste_tail_packet_counters._has_data():
                 return True
 
@@ -35787,8 +35035,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -35861,8 +35107,6 @@ class Bfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detection_multiplier is not None:
                             return True
 
@@ -35889,8 +35133,6 @@ class Bfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.async_interval_multiplier is not None and self.async_interval_multiplier._has_data():
                         return True
 
@@ -35914,8 +35156,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -35960,8 +35200,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv6_single_hop_session_brief is not None:
                 for child_ref in self.ipv6_single_hop_session_brief:
                     if child_ref._has_data():
@@ -36170,8 +35408,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.fe_ctype is not None:
                     return True
 
@@ -36246,8 +35482,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4bf_do_mplste_tail_multi_path is not None:
                 for child_ref in self.ipv4bf_do_mplste_tail_multi_path:
                     if child_ref._has_data():
@@ -36404,8 +35638,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -36453,8 +35685,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_multi_hop_multi_path is not None:
                 for child_ref in self.ipv4_multi_hop_multi_path:
                     if child_ref._has_data():
@@ -36547,8 +35777,6 @@ class Bfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.down_count is not None:
                     return True
 
@@ -36578,8 +35806,6 @@ class Bfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_state is not None and self.session_state._has_data():
                 return True
 
@@ -36600,8 +35826,6 @@ class Bfd(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.client_briefs is not None and self.client_briefs._has_data():
             return True
 

@@ -357,8 +357,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.null_label is not None:
                     return True
 
@@ -402,8 +400,6 @@ class Mpls(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.null_label is not None:
                     return True
 
@@ -517,8 +513,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mpls_enabled is not None:
                             return True
 
@@ -575,8 +569,6 @@ class Mpls(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mpls_enabled is not None:
                             return True
 
@@ -602,8 +594,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -630,8 +620,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -654,8 +642,6 @@ class Mpls(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.config is not None and self.config._has_data():
                 return True
 
@@ -839,8 +825,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.cost is not None:
                             return True
 
@@ -917,8 +901,6 @@ class Mpls(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.cost is not None:
                             return True
 
@@ -1074,8 +1056,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.from_address is not None:
                                     return True
 
@@ -1153,8 +1133,6 @@ class Mpls(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.from_address is not None:
                                     return True
 
@@ -1182,8 +1160,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.from_address is not None:
                                 return True
 
@@ -1212,8 +1188,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.members_list is not None:
                             for child_ref in self.members_list:
                                 if child_ref._has_data():
@@ -1238,8 +1212,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -1269,8 +1241,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.srlg is not None:
                     for child_ref in self.srlg:
                         if child_ref._has_data():
@@ -1504,8 +1474,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.delta_percentage is not None:
                         return True
 
@@ -1726,8 +1694,6 @@ class Mpls(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.delta_percentage is not None:
                         return True
 
@@ -1769,8 +1735,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.config is not None and self.config._has_data():
                     return True
 
@@ -1887,8 +1851,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_group_name is not None:
                             return True
 
@@ -1943,8 +1905,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_group_name is not None:
                             return True
 
@@ -1970,8 +1930,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_group_name is not None:
                         return True
 
@@ -1998,8 +1956,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.admin_group is not None:
                     for child_ref in self.admin_group:
                         if child_ref._has_data():
@@ -2098,8 +2054,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cleanup_delay is not None:
                         return True
 
@@ -2171,8 +2125,6 @@ class Mpls(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cleanup_delay is not None:
                         return True
 
@@ -2199,8 +2151,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.config is not None and self.config._has_data():
                     return True
 
@@ -2224,8 +2174,6 @@ class Mpls(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.igp_flooding_bandwidth is not None and self.igp_flooding_bandwidth._has_data():
                 return True
 
@@ -2374,8 +2322,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_group is not None:
                         for child in self.admin_group:
                             if child is not None:
@@ -2460,8 +2406,6 @@ class Mpls(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_group is not None:
                         for child in self.admin_group:
                             if child is not None:
@@ -2708,8 +2652,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.delta_percentage is not None:
                             return True
 
@@ -2932,8 +2874,6 @@ class Mpls(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.delta_percentage is not None:
                             return True
 
@@ -2977,8 +2917,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -3004,8 +2942,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -3035,8 +2971,6 @@ class Mpls(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -3182,8 +3116,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         return False
 
                     @staticmethod
@@ -3220,23 +3152,13 @@ class Mpls(object):
                         """
                         List of RSVP sessions
                         
-                        .. attribute:: destination_address  <key>
+                        .. attribute:: source_port  <key>
                         
-                        	Destination address of RSVP session
-                        	**type**\: one of the below types:
+                        	RSVP source port
+                        	**type**\:  int
                         
-                        	**type**\:  str
+                        	**range:** 0..65535
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
                         .. attribute:: destination_port  <key>
                         
                         	RSVP source port
@@ -3261,13 +3183,23 @@ class Mpls(object):
                         
                         
                         ----
-                        .. attribute:: source_port  <key>
+                        .. attribute:: destination_address  <key>
                         
-                        	RSVP source port
-                        	**type**\:  int
+                        	Destination address of RSVP session
+                        	**type**\: one of the below types:
                         
-                        	**range:** 0..65535
+                        	**type**\:  str
                         
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+                        ----
                         .. attribute:: associated_lsps
                         
                         	List of label switched paths associated with this RSVP session
@@ -3331,10 +3263,10 @@ class Mpls(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.destination_address = None
+                            self.source_port = None
                             self.destination_port = None
                             self.source_address = None
-                            self.source_port = None
+                            self.destination_address = None
                             self.associated_lsps = YLeafList()
                             self.associated_lsps.parent = self
                             self.associated_lsps.name = 'associated_lsps'
@@ -3406,25 +3338,23 @@ class Mpls(object):
 
                         @property
                         def _common_path(self):
-                            if self.destination_address is None:
-                                raise YPYModelError('Key property destination_address is None')
+                            if self.source_port is None:
+                                raise YPYModelError('Key property source_port is None')
                             if self.destination_port is None:
                                 raise YPYModelError('Key property destination_port is None')
                             if self.source_address is None:
                                 raise YPYModelError('Key property source_address is None')
-                            if self.source_port is None:
-                                raise YPYModelError('Key property source_port is None')
+                            if self.destination_address is None:
+                                raise YPYModelError('Key property destination_address is None')
 
-                            return '/openconfig-mpls:mpls/openconfig-mpls:signaling-protocols/openconfig-mpls:rsvp-te/openconfig-mpls:sessions/openconfig-mpls:state/openconfig-mpls:session[openconfig-mpls:destination-address = ' + str(self.destination_address) + '][openconfig-mpls:destination-port = ' + str(self.destination_port) + '][openconfig-mpls:source-address = ' + str(self.source_address) + '][openconfig-mpls:source-port = ' + str(self.source_port) + ']'
+                            return '/openconfig-mpls:mpls/openconfig-mpls:signaling-protocols/openconfig-mpls:rsvp-te/openconfig-mpls:sessions/openconfig-mpls:state/openconfig-mpls:session[openconfig-mpls:source-port = ' + str(self.source_port) + '][openconfig-mpls:destination-port = ' + str(self.destination_port) + '][openconfig-mpls:source-address = ' + str(self.source_address) + '][openconfig-mpls:destination-address = ' + str(self.destination_address) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.destination_address is not None:
+                            if self.source_port is not None:
                                 return True
 
                             if self.destination_port is not None:
@@ -3433,7 +3363,7 @@ class Mpls(object):
                             if self.source_address is not None:
                                 return True
 
-                            if self.source_port is not None:
+                            if self.destination_address is not None:
                                 return True
 
                             if self.associated_lsps is not None:
@@ -3473,8 +3403,6 @@ class Mpls(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.session is not None:
                             for child_ref in self.session:
                                 if child_ref._has_data():
@@ -3497,8 +3425,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -3567,8 +3493,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         return False
 
                     @staticmethod
@@ -3694,8 +3618,6 @@ class Mpls(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -3725,8 +3647,6 @@ class Mpls(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.neighbor is not None:
                             for child_ref in self.neighbor:
                                 if child_ref._has_data():
@@ -3749,8 +3669,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -3887,8 +3805,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -3955,8 +3871,6 @@ class Mpls(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -3983,8 +3897,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -4072,8 +3984,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -4131,8 +4041,6 @@ class Mpls(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -4156,8 +4064,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -4246,8 +4152,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hello_interval is not None:
                                 return True
 
@@ -4306,8 +4210,6 @@ class Mpls(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hello_interval is not None:
                                 return True
 
@@ -4331,8 +4233,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -4561,8 +4461,6 @@ class Mpls(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.in_ack_messages is not None:
                                 return True
 
@@ -4643,8 +4541,6 @@ class Mpls(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.counters is not None and self.counters._has_data():
                             return True
 
@@ -4665,8 +4561,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.graceful_restart is not None and self.graceful_restart._has_data():
                         return True
 
@@ -4809,8 +4703,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -4921,8 +4813,6 @@ class Mpls(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.priority is not None:
                                     return True
 
@@ -5110,8 +5000,6 @@ class Mpls(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.in_ack_messages is not None:
                                     return True
 
@@ -5185,8 +5073,6 @@ class Mpls(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_reservation_count is not None:
                                 return True
 
@@ -5285,8 +5171,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.hello_interval is not None:
                                     return True
 
@@ -5347,8 +5231,6 @@ class Mpls(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.hello_interval is not None:
                                     return True
 
@@ -5374,8 +5256,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -5463,8 +5343,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.authentication_key is not None:
                                     return True
 
@@ -5522,8 +5400,6 @@ class Mpls(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.authentication_key is not None:
                                     return True
 
@@ -5549,8 +5425,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -5630,8 +5504,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.subscription is not None:
                                     return True
 
@@ -5678,8 +5550,6 @@ class Mpls(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.subscription is not None:
                                     return True
 
@@ -5702,8 +5572,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -5791,8 +5659,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bypass_optimize_interval is not None:
                                     return True
 
@@ -5851,8 +5717,6 @@ class Mpls(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bypass_optimize_interval is not None:
                                     return True
 
@@ -5878,8 +5742,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -5905,8 +5767,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -5945,8 +5805,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -5969,8 +5827,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.global_ is not None and self.global_._has_data():
                     return True
 
@@ -6112,8 +5968,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lower_bound is not None:
                             return True
 
@@ -6195,8 +6049,6 @@ class Mpls(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.free is not None:
                             return True
 
@@ -6233,8 +6085,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lower_bound is not None:
                         return True
 
@@ -6335,8 +6185,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -6383,8 +6231,6 @@ class Mpls(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -6512,8 +6358,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.advertise is not None:
                                 for child in self.advertise:
                                     if child is not None:
@@ -6618,8 +6462,6 @@ class Mpls(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.advertise is not None:
                                 for child in self.advertise:
                                     if child is not None:
@@ -6649,8 +6491,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -6676,8 +6516,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         return True
 
@@ -6707,8 +6545,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interfaces is not None:
                     for child_ref in self.interfaces:
                         if child_ref._has_data():
@@ -6773,8 +6609,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     return False
 
                 @staticmethod
@@ -6792,8 +6626,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.timers is not None and self.timers._has_data():
                     return True
 
@@ -6814,8 +6646,6 @@ class Mpls(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ldp is not None and self.ldp._has_data():
                 return True
 
@@ -6979,8 +6809,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -7025,8 +6853,6 @@ class Mpls(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -7136,8 +6962,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -7213,8 +7037,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -7245,8 +7067,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.index is not None:
                             return True
 
@@ -7275,8 +7095,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -7518,8 +7336,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_status is not None:
                             return True
 
@@ -7823,8 +7639,6 @@ class Mpls(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bytes is not None:
                                 return True
 
@@ -7865,8 +7679,6 @@ class Mpls(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_status is not None:
                             return True
 
@@ -8005,8 +7817,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.set_bandwidth is not None:
                                 return True
 
@@ -8064,8 +7874,6 @@ class Mpls(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.set_bandwidth is not None:
                                 return True
 
@@ -8190,8 +7998,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adjust_interval is not None:
                                     return True
 
@@ -8282,8 +8088,6 @@ class Mpls(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adjust_interval is not None:
                                     return True
 
@@ -8388,8 +8192,6 @@ class Mpls(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.enabled is not None:
                                         return True
 
@@ -8458,8 +8260,6 @@ class Mpls(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.enabled is not None:
                                         return True
 
@@ -8488,8 +8288,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -8585,8 +8383,6 @@ class Mpls(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.enabled is not None:
                                         return True
 
@@ -8655,8 +8451,6 @@ class Mpls(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.enabled is not None:
                                         return True
 
@@ -8685,8 +8479,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -8712,8 +8504,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -8745,8 +8535,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.auto_bandwidth is not None and self.auto_bandwidth._has_data():
                             return True
 
@@ -8853,8 +8641,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination is not None:
                                 return True
 
@@ -8910,8 +8696,6 @@ class Mpls(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination is not None:
                                 return True
 
@@ -9090,8 +8874,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cspf_tiebreaker is not None:
                                     return True
 
@@ -9246,8 +9028,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cspf_tiebreaker is not None:
                                     return True
 
@@ -9399,8 +9179,6 @@ class Mpls(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.priority is not None:
                                             return True
 
@@ -9464,8 +9242,6 @@ class Mpls(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.active is not None:
                                             return True
 
@@ -9496,8 +9272,6 @@ class Mpls(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.secondary_path is not None:
                                         return True
 
@@ -9526,8 +9300,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.candidate_secondary_path is not None:
                                     for child_ref in self.candidate_secondary_path:
                                         if child_ref._has_data():
@@ -9627,8 +9399,6 @@ class Mpls(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.exclude_group is not None:
                                         for child in self.exclude_group:
                                             if child is not None:
@@ -9708,8 +9478,6 @@ class Mpls(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.exclude_group is not None:
                                         for child in self.exclude_group:
                                             if child is not None:
@@ -9744,8 +9512,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -9773,8 +9539,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -9958,8 +9722,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cspf_tiebreaker is not None:
                                     return True
 
@@ -10114,8 +9876,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cspf_tiebreaker is not None:
                                     return True
 
@@ -10240,8 +10000,6 @@ class Mpls(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.exclude_group is not None:
                                         for child in self.exclude_group:
                                             if child is not None:
@@ -10321,8 +10079,6 @@ class Mpls(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.exclude_group is not None:
                                         for child in self.exclude_group:
                                             if child is not None:
@@ -10357,8 +10113,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -10386,8 +10140,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -10419,8 +10171,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -10458,8 +10208,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -10495,8 +10243,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.named_explicit_paths is not None:
                     for child_ref in self.named_explicit_paths:
                         if child_ref._has_data():
@@ -10720,8 +10466,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fec_address is not None:
                                     for child in self.fec_address:
                                         if child is not None:
@@ -10759,8 +10503,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 return False
 
                             @staticmethod
@@ -10793,8 +10535,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 return False
 
                             @staticmethod
@@ -10812,8 +10552,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ldp_type is not None:
                                 return True
 
@@ -10846,8 +10584,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.tunnel is not None and self.tunnel._has_data():
@@ -11043,8 +10779,6 @@ class Mpls(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fec_address is not None:
                                             return True
 
@@ -11100,8 +10834,6 @@ class Mpls(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fec_address is not None:
                                             return True
 
@@ -11276,8 +11008,6 @@ class Mpls(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.last_hop_behavior is not None:
                                                 return True
 
@@ -11428,8 +11158,6 @@ class Mpls(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.last_hop_behavior is not None:
                                                 return True
 
@@ -11458,8 +11186,6 @@ class Mpls(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.config is not None and self.config._has_data():
                                             return True
 
@@ -11485,8 +11211,6 @@ class Mpls(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fec_address is not None:
                                         return True
 
@@ -11516,8 +11240,6 @@ class Mpls(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fec is not None:
                                     for child_ref in self.fec:
                                         if child_ref._has_data():
@@ -11540,8 +11262,6 @@ class Mpls(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2p_lsp is not None and self.p2p_lsp._has_data():
                                 return True
 
@@ -11565,8 +11285,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.tunnel is not None and self.tunnel._has_data():
@@ -11589,8 +11307,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ldp is not None and self.ldp._has_data():
                         return True
 
@@ -11614,8 +11330,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.path_setup_protocol is not None and self.path_setup_protocol._has_data():
                     return True
 
@@ -11770,8 +11484,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.incoming_label is not None:
                             return True
 
@@ -11866,8 +11578,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.incoming_label is not None:
                             return True
 
@@ -11962,8 +11672,6 @@ class Mpls(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.incoming_label is not None:
                             return True
 
@@ -11992,8 +11700,6 @@ class Mpls(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -12023,8 +11729,6 @@ class Mpls(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.label_switched_path is not None:
                     for child_ref in self.label_switched_path:
                         if child_ref._has_data():
@@ -12047,8 +11751,6 @@ class Mpls(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.constrained_path is not None and self.constrained_path._has_data():
                 return True
 
@@ -12075,8 +11777,6 @@ class Mpls(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self._is_presence:
             return True
         if self.global_ is not None and self.global_._has_data():
@@ -12123,6 +11823,27 @@ class LocallyComputedIdentity(PathComputationMethodIdentity):
         return meta._meta_table['LocallyComputedIdentity']['meta_info']
 
 
+class ExternallyQueriedIdentity(PathComputationMethodIdentity):
+    """
+    constrained\-path LSP in which the path is
+    obtained by querying an external source, such as a PCE server
+    
+    
+
+    """
+
+    _prefix = 'mpls'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        PathComputationMethodIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_mpls as meta
+        return meta._meta_table['ExternallyQueriedIdentity']['meta_info']
+
+
 class ExplicitlyDefinedIdentity(PathComputationMethodIdentity):
     """
     constrained\-path LSP in which the path is
@@ -12143,26 +11864,5 @@ class ExplicitlyDefinedIdentity(PathComputationMethodIdentity):
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls as meta
         return meta._meta_table['ExplicitlyDefinedIdentity']['meta_info']
-
-
-class ExternallyQueriedIdentity(PathComputationMethodIdentity):
-    """
-    constrained\-path LSP in which the path is
-    obtained by querying an external source, such as a PCE server
-    
-    
-
-    """
-
-    _prefix = 'mpls'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        PathComputationMethodIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_mpls as meta
-        return meta._meta_table['ExternallyQueriedIdentity']['meta_info']
 
 

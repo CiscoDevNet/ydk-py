@@ -629,8 +629,6 @@ class MplsStatic(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -659,8 +657,6 @@ class MplsStatic(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None and self.prefix._has_data():
                                     return True
 
@@ -723,8 +719,6 @@ class MplsStatic(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -790,8 +784,6 @@ class MplsStatic(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -965,8 +957,6 @@ class MplsStatic(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af_name is not None:
                                             return True
 
@@ -995,8 +985,6 @@ class MplsStatic(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None and self.address._has_data():
                                         return True
 
@@ -1028,8 +1016,6 @@ class MplsStatic(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.backup_id is not None:
                                     return True
 
@@ -1215,8 +1201,6 @@ class MplsStatic(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af_name is not None:
                                             return True
 
@@ -1245,8 +1229,6 @@ class MplsStatic(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None and self.address._has_data():
                                         return True
 
@@ -1278,8 +1260,6 @@ class MplsStatic(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.backup_id is not None:
                                     return True
 
@@ -1320,8 +1300,6 @@ class MplsStatic(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address_family is not None:
                                 return True
 
@@ -1383,8 +1361,6 @@ class MplsStatic(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lsp_name is not None:
                             return True
 
@@ -1413,8 +1389,6 @@ class MplsStatic(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp is not None:
                         for child_ref in self.lsp:
                             if child_ref._has_data():
@@ -1633,8 +1607,6 @@ class MplsStatic(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -1663,8 +1635,6 @@ class MplsStatic(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix is not None and self.prefix._has_data():
                                 return True
 
@@ -1727,8 +1697,6 @@ class MplsStatic(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -1794,8 +1762,6 @@ class MplsStatic(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -1969,8 +1935,6 @@ class MplsStatic(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -1999,8 +1963,6 @@ class MplsStatic(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -2032,8 +1994,6 @@ class MplsStatic(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.backup_id is not None:
                                 return True
 
@@ -2219,8 +2179,6 @@ class MplsStatic(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -2249,8 +2207,6 @@ class MplsStatic(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -2282,8 +2238,6 @@ class MplsStatic(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.backup_id is not None:
                                 return True
 
@@ -2326,8 +2280,6 @@ class MplsStatic(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.local_label_id is not None:
                             return True
 
@@ -2390,8 +2342,6 @@ class MplsStatic(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.local_label is not None:
                         for child_ref in self.local_label:
                             if child_ref._has_data():
@@ -2416,8 +2366,6 @@ class MplsStatic(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -2444,8 +2392,6 @@ class MplsStatic(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -2593,8 +2539,6 @@ class MplsStatic(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.active_vrf_count is not None:
                 return True
 
@@ -2853,8 +2797,6 @@ class MplsStatic(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af_name is not None:
                             return True
 
@@ -2883,8 +2825,6 @@ class MplsStatic(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.prefix is not None and self.prefix._has_data():
                         return True
 
@@ -2947,8 +2887,6 @@ class MplsStatic(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af_name is not None:
                         return True
 
@@ -3014,8 +2952,6 @@ class MplsStatic(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af_name is not None:
                         return True
 
@@ -3189,8 +3125,6 @@ class MplsStatic(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -3219,8 +3153,6 @@ class MplsStatic(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None and self.address._has_data():
                             return True
 
@@ -3252,8 +3184,6 @@ class MplsStatic(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.backup_id is not None:
                         return True
 
@@ -3439,8 +3369,6 @@ class MplsStatic(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -3469,8 +3397,6 @@ class MplsStatic(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None and self.address._has_data():
                             return True
 
@@ -3502,8 +3428,6 @@ class MplsStatic(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.backup_id is not None:
                         return True
 
@@ -3544,8 +3468,6 @@ class MplsStatic(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.local_label_id is not None:
                     return True
 
@@ -3606,8 +3528,6 @@ class MplsStatic(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.local_label is not None:
                 for child_ref in self.local_label:
                     if child_ref._has_data():
@@ -3630,8 +3550,6 @@ class MplsStatic(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.local_labels is not None and self.local_labels._has_data():
             return True
 

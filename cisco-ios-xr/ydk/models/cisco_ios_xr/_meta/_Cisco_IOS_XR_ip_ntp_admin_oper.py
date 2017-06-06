@@ -13,17 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'NtpPeerStatusEnum' : _MetaInfoEnum('NtpPeerStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper',
-        {
-            'ntp-ctl-pst-sel-reject':'ntp_ctl_pst_sel_reject',
-            'ntp-ctl-pst-sel-sane':'ntp_ctl_pst_sel_sane',
-            'ntp-ctl-pst-sel-correct':'ntp_ctl_pst_sel_correct',
-            'ntp-ctl-pst-sel-selcand':'ntp_ctl_pst_sel_selcand',
-            'ntp-ctl-pst-sel-sync-cand':'ntp_ctl_pst_sel_sync_cand',
-            'ntp-ctl-pst-sel-distsys-peer':'ntp_ctl_pst_sel_distsys_peer',
-            'ntp-ctl-pst-sel-sys-peer':'ntp_ctl_pst_sel_sys_peer',
-            'ntp-ctl-pst-sel-pps':'ntp_ctl_pst_sel_pps',
-        }, 'Cisco-IOS-XR-ip-ntp-admin-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-admin-oper']),
     'NtpModeEnum' : _MetaInfoEnum('NtpModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper',
         {
             'ntp-mode-unspec':'ntp_mode_unspec',
@@ -36,11 +25,16 @@ _meta_table = {
             'ntp-mode-private':'ntp_mode_private',
             'ntp-mode-xcast-client':'ntp_mode_xcast_client',
         }, 'Cisco-IOS-XR-ip-ntp-admin-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-admin-oper']),
-    'ClockUpdateNodeEnum' : _MetaInfoEnum('ClockUpdateNodeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper',
+    'NtpPeerStatusEnum' : _MetaInfoEnum('NtpPeerStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper',
         {
-            'clk-never-updated':'clk_never_updated',
-            'clk-updated':'clk_updated',
-            'clk-no-update-info':'clk_no_update_info',
+            'ntp-ctl-pst-sel-reject':'ntp_ctl_pst_sel_reject',
+            'ntp-ctl-pst-sel-sane':'ntp_ctl_pst_sel_sane',
+            'ntp-ctl-pst-sel-correct':'ntp_ctl_pst_sel_correct',
+            'ntp-ctl-pst-sel-selcand':'ntp_ctl_pst_sel_selcand',
+            'ntp-ctl-pst-sel-sync-cand':'ntp_ctl_pst_sel_sync_cand',
+            'ntp-ctl-pst-sel-distsys-peer':'ntp_ctl_pst_sel_distsys_peer',
+            'ntp-ctl-pst-sel-sys-peer':'ntp_ctl_pst_sel_sys_peer',
+            'ntp-ctl-pst-sel-pps':'ntp_ctl_pst_sel_pps',
         }, 'Cisco-IOS-XR-ip-ntp-admin-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-admin-oper']),
     'NtpLoopFilterStateEnum' : _MetaInfoEnum('NtpLoopFilterStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper',
         {
@@ -50,6 +44,12 @@ _meta_table = {
             'ntp-loop-flt-freq':'ntp_loop_flt_freq',
             'ntp-loop-flt-sync':'ntp_loop_flt_sync',
             'ntp-loop-flt-unkn':'ntp_loop_flt_unkn',
+        }, 'Cisco-IOS-XR-ip-ntp-admin-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-admin-oper']),
+    'ClockUpdateNodeEnum' : _MetaInfoEnum('ClockUpdateNodeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper',
+        {
+            'clk-never-updated':'clk_never_updated',
+            'clk-updated':'clk_updated',
+            'clk-no-update-info':'clk_no_update_info',
         }, 'Cisco-IOS-XR-ip-ntp-admin-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-admin-oper']),
     'NtpLeapEnum' : _MetaInfoEnum('NtpLeapEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper',
         {
@@ -243,7 +243,7 @@ _meta_table = {
                 'sys_precision',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('sys-ref-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Reference clock ID
                 ''',
                 'sys_ref_id',
@@ -338,7 +338,7 @@ _meta_table = {
                 'reachability',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('reference-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer reference ID
                 ''',
                 'reference_id',
@@ -473,7 +473,7 @@ _meta_table = {
                 'reachability',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('reference-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer reference ID
                 ''',
                 'reference_id',

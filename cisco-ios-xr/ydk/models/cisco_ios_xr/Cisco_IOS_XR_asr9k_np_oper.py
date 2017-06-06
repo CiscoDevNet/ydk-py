@@ -268,8 +268,6 @@ class HardwareModuleNp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.avg_guar_rfd_usage is not None:
                                     return True
 
@@ -307,8 +305,6 @@ class HardwareModuleNp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.np_chn_load is not None:
                                 for child_ref in self.np_chn_load:
                                     if child_ref._has_data():
@@ -518,8 +514,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -587,8 +581,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -656,8 +648,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -725,8 +715,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -794,8 +782,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -863,8 +849,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -932,8 +916,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -962,8 +944,6 @@ class HardwareModuleNp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.app_id_acl is not None and self.app_id_acl._has_data():
                                         return True
 
@@ -1129,8 +1109,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -1198,8 +1176,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -1267,8 +1243,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -1336,8 +1310,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -1405,8 +1377,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -1474,8 +1444,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -1543,8 +1511,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_vmr_ids is not None:
                                             return True
 
@@ -1573,8 +1539,6 @@ class HardwareModuleNp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.app_id_acl is not None and self.app_id_acl._has_data():
                                         return True
 
@@ -1660,8 +1624,6 @@ class HardwareModuleNp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.free_entries is not None:
                                         return True
 
@@ -1690,8 +1652,6 @@ class HardwareModuleNp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.tcam_lt_l2 is not None:
                                     for child_ref in self.tcam_lt_l2:
                                         if child_ref._has_data():
@@ -1877,8 +1837,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.allocated_entries is not None:
                                             return True
 
@@ -1943,8 +1901,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2012,8 +1968,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2081,8 +2035,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2150,8 +2102,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2219,8 +2169,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2288,8 +2236,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2357,8 +2303,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2387,8 +2331,6 @@ class HardwareModuleNp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acl_common is not None and self.acl_common._has_data():
                                         return True
 
@@ -2556,8 +2498,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.allocated_entries is not None:
                                             return True
 
@@ -2622,8 +2562,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2691,8 +2629,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2760,8 +2696,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2829,8 +2763,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2898,8 +2830,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -2967,8 +2897,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -3036,8 +2964,6 @@ class HardwareModuleNp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_active_entries is not None:
                                             return True
 
@@ -3066,8 +2992,6 @@ class HardwareModuleNp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acl_common is not None and self.acl_common._has_data():
                                         return True
 
@@ -3164,8 +3088,6 @@ class HardwareModuleNp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.free_entries is not None:
                                         return True
 
@@ -3197,8 +3119,6 @@ class HardwareModuleNp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.tcam_lt_l2 is not None:
                                     for child_ref in self.tcam_lt_l2:
                                         if child_ref._has_data():
@@ -3229,8 +3149,6 @@ class HardwareModuleNp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.internal_tcam_info is not None and self.internal_tcam_info._has_data():
                                 return True
 
@@ -3332,8 +3250,6 @@ class HardwareModuleNp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter_index is not None:
                                     return True
 
@@ -3368,8 +3284,6 @@ class HardwareModuleNp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.np_counter is not None:
                                 for child_ref in self.np_counter:
                                     if child_ref._has_data():
@@ -3446,8 +3360,6 @@ class HardwareModuleNp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter_value is not None:
                                     return True
 
@@ -3473,8 +3385,6 @@ class HardwareModuleNp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.np_fast_drop is not None:
                                 for child_ref in self.np_fast_drop:
                                     if child_ref._has_data():
@@ -3501,8 +3411,6 @@ class HardwareModuleNp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.np_name is not None:
                             return True
 
@@ -3537,8 +3445,6 @@ class HardwareModuleNp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.np is not None:
                         for child_ref in self.np:
                             if child_ref._has_data():
@@ -3563,8 +3469,6 @@ class HardwareModuleNp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -3588,8 +3492,6 @@ class HardwareModuleNp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3612,8 +3514,6 @@ class HardwareModuleNp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

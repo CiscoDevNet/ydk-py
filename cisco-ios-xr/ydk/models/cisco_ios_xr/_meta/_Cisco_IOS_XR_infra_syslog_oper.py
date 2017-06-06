@@ -193,7 +193,7 @@ _meta_table = {
                 'message_name',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Message source location
                 ''',
                 'node_name',

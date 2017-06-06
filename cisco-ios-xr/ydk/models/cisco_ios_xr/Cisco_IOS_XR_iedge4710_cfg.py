@@ -119,8 +119,6 @@ class SubscriberManager(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.setup_failure is not None:
                     return True
 
@@ -189,8 +187,6 @@ class SubscriberManager(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.maximum_percentage_variation is not None:
                         return True
 
@@ -211,8 +207,6 @@ class SubscriberManager(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.variation is not None and self.variation._has_data():
                     return True
 
@@ -233,8 +227,6 @@ class SubscriberManager(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interim is not None and self.interim._has_data():
                 return True
 
@@ -279,8 +271,6 @@ class SubscriberManager(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sync_account_session_id is not None:
                 return True
 
@@ -301,8 +291,6 @@ class SubscriberManager(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.accounting is not None and self.accounting._has_data():
             return True
 
@@ -381,8 +369,6 @@ class SubscriberFeaturette(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.identity_change is not None:
                 return True
 
@@ -406,8 +392,6 @@ class SubscriberFeaturette(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.identity_change is not None:
             for child_ref in self.identity_change:
                 if child_ref._has_data():
@@ -493,8 +477,6 @@ class IedgeLicenseManager(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node_name is not None:
                 return True
 
@@ -521,8 +503,6 @@ class IedgeLicenseManager(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.node is not None:
             for child_ref in self.node:
                 if child_ref._has_data():
@@ -628,8 +608,6 @@ class SubManager(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.trace_level is not None:
                     return True
 
@@ -652,8 +630,6 @@ class SubManager(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.location1 is not None:
                 return True
 
@@ -680,8 +656,6 @@ class SubManager(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.location is not None:
             for child_ref in self.location:
                 if child_ref._has_data():

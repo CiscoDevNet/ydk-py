@@ -13,17 +13,17 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'ClientDataRateEnum' : _MetaInfoEnum('ClientDataRateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg',
-        {
-            'ten-gig':'ten_gig',
-            'forty-gig':'forty_gig',
-            'hundred-gig':'hundred_gig',
-        }, 'Cisco-IOS-XR-ncs1k-mxp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-cfg']),
     'TrunkDataRateEnum' : _MetaInfoEnum('TrunkDataRateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg',
         {
             'hundred-gig':'hundred_gig',
             'two-hundred-gig':'two_hundred_gig',
             'two-hundred-fifty-gig':'two_hundred_fifty_gig',
+        }, 'Cisco-IOS-XR-ncs1k-mxp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-cfg']),
+    'ClientDataRateEnum' : _MetaInfoEnum('ClientDataRateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg',
+        {
+            'ten-gig':'ten_gig',
+            'forty-gig':'forty_gig',
+            'hundred-gig':'hundred_gig',
         }, 'Cisco-IOS-XR-ncs1k-mxp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-cfg']),
     'FecEnum' : _MetaInfoEnum('FecEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg',
         {
@@ -70,7 +70,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('slice-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set Slice
                 ''',
                 'slice_id',
@@ -99,7 +99,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Fully qualified line card specification
                 ''',
                 'location',

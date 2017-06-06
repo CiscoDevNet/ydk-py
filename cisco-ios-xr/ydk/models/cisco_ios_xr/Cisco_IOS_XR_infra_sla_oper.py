@@ -326,8 +326,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.profile_name is not None:
                                     return True
 
@@ -379,8 +377,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ondemand_operation_id is not None:
                                     return True
 
@@ -404,8 +400,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.configured_operation_options is not None and self.configured_operation_options._has_data():
                                 return True
 
@@ -483,8 +477,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.schedule_duration is not None:
                                 return True
 
@@ -603,8 +595,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bins_count is not None:
                                     return True
 
@@ -1013,8 +1003,6 @@ class Sla(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.count is not None:
                                                 return True
 
@@ -1050,8 +1038,6 @@ class Sla(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bins is not None:
                                             for child_ref in self.bins:
                                                 if child_ref._has_data():
@@ -1176,8 +1162,6 @@ class Sla(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.corrupt is not None:
                                                 return True
 
@@ -1222,8 +1206,6 @@ class Sla(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.sample is not None:
                                             for child_ref in self.sample:
                                                 if child_ref._has_data():
@@ -1246,8 +1228,6 @@ class Sla(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aggregated is not None and self.aggregated._has_data():
                                         return True
 
@@ -1274,8 +1254,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.average is not None:
                                     return True
 
@@ -1389,8 +1367,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bucket is not None:
                                 for child_ref in self.bucket:
                                     if child_ref._has_data():
@@ -1416,8 +1392,6 @@ class Sla(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.display_long is not None:
                             return True
 
@@ -1473,8 +1447,6 @@ class Sla(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.statistics_on_demand_current is not None:
                         for child_ref in self.statistics_on_demand_current:
                             if child_ref._has_data():
@@ -1741,8 +1713,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.packet_pad_size is not None:
                                     return True
 
@@ -1799,8 +1769,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cos is not None:
                                     return True
 
@@ -1875,8 +1843,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.schedule_duration is not None:
                                     return True
 
@@ -1996,8 +1962,6 @@ class Sla(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bins_count is not None:
                                         return True
 
@@ -2033,8 +1997,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.current_buckets_archive is not None:
                                     return True
 
@@ -2058,8 +2020,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bursts_per_probe is not None:
                                 return True
 
@@ -2165,8 +2125,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.profile_name is not None:
                                     return True
 
@@ -2218,8 +2176,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ondemand_operation_id is not None:
                                     return True
 
@@ -2243,8 +2199,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.configured_operation_options is not None and self.configured_operation_options._has_data():
                                 return True
 
@@ -2271,8 +2225,6 @@ class Sla(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.display_long is not None:
                             return True
 
@@ -2320,8 +2272,6 @@ class Sla(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.operation is not None:
                         for child_ref in self.operation:
                             if child_ref._has_data():
@@ -2528,8 +2478,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.profile_name is not None:
                                     return True
 
@@ -2581,8 +2529,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ondemand_operation_id is not None:
                                     return True
 
@@ -2606,8 +2552,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.configured_operation_options is not None and self.configured_operation_options._has_data():
                                 return True
 
@@ -2685,8 +2629,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.schedule_duration is not None:
                                 return True
 
@@ -2805,8 +2747,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bins_count is not None:
                                     return True
 
@@ -3215,8 +3155,6 @@ class Sla(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.count is not None:
                                                 return True
 
@@ -3252,8 +3190,6 @@ class Sla(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bins is not None:
                                             for child_ref in self.bins:
                                                 if child_ref._has_data():
@@ -3378,8 +3314,6 @@ class Sla(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.corrupt is not None:
                                                 return True
 
@@ -3424,8 +3358,6 @@ class Sla(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.sample is not None:
                                             for child_ref in self.sample:
                                                 if child_ref._has_data():
@@ -3448,8 +3380,6 @@ class Sla(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aggregated is not None and self.aggregated._has_data():
                                         return True
 
@@ -3476,8 +3406,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.average is not None:
                                     return True
 
@@ -3591,8 +3519,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bucket is not None:
                                 for child_ref in self.bucket:
                                     if child_ref._has_data():
@@ -3618,8 +3544,6 @@ class Sla(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.display_long is not None:
                             return True
 
@@ -3675,8 +3599,6 @@ class Sla(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.statistics_historical is not None:
                         for child_ref in self.statistics_historical:
                             if child_ref._has_data():
@@ -3883,8 +3805,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.profile_name is not None:
                                     return True
 
@@ -3936,8 +3856,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ondemand_operation_id is not None:
                                     return True
 
@@ -3961,8 +3879,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.configured_operation_options is not None and self.configured_operation_options._has_data():
                                 return True
 
@@ -4040,8 +3956,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.schedule_duration is not None:
                                 return True
 
@@ -4160,8 +4074,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bins_count is not None:
                                     return True
 
@@ -4570,8 +4482,6 @@ class Sla(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.count is not None:
                                                 return True
 
@@ -4607,8 +4517,6 @@ class Sla(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bins is not None:
                                             for child_ref in self.bins:
                                                 if child_ref._has_data():
@@ -4733,8 +4641,6 @@ class Sla(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.corrupt is not None:
                                                 return True
 
@@ -4779,8 +4685,6 @@ class Sla(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.sample is not None:
                                             for child_ref in self.sample:
                                                 if child_ref._has_data():
@@ -4803,8 +4707,6 @@ class Sla(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aggregated is not None and self.aggregated._has_data():
                                         return True
 
@@ -4831,8 +4733,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.average is not None:
                                     return True
 
@@ -4946,8 +4846,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bucket is not None:
                                 for child_ref in self.bucket:
                                     if child_ref._has_data():
@@ -4973,8 +4871,6 @@ class Sla(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.display_long is not None:
                             return True
 
@@ -5030,8 +4926,6 @@ class Sla(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.statistics_on_demand_historical is not None:
                         for child_ref in self.statistics_on_demand_historical:
                             if child_ref._has_data():
@@ -5248,8 +5142,6 @@ class Sla(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.display_short is not None:
                             return True
 
@@ -5341,8 +5233,6 @@ class Sla(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config_error is not None:
                         for child_ref in self.config_error:
                             if child_ref._has_data():
@@ -5610,8 +5500,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.packet_pad_size is not None:
                                     return True
 
@@ -5668,8 +5556,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cos is not None:
                                     return True
 
@@ -5744,8 +5630,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.schedule_duration is not None:
                                     return True
 
@@ -5865,8 +5749,6 @@ class Sla(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bins_count is not None:
                                         return True
 
@@ -5902,8 +5784,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.current_buckets_archive is not None:
                                     return True
 
@@ -5927,8 +5807,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bursts_per_probe is not None:
                                 return True
 
@@ -6034,8 +5912,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.profile_name is not None:
                                     return True
 
@@ -6087,8 +5963,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ondemand_operation_id is not None:
                                     return True
 
@@ -6112,8 +5986,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.configured_operation_options is not None and self.configured_operation_options._has_data():
                                 return True
 
@@ -6140,8 +6012,6 @@ class Sla(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.display_long is not None:
                             return True
 
@@ -6189,8 +6059,6 @@ class Sla(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.on_demand_operation is not None:
                         for child_ref in self.on_demand_operation:
                             if child_ref._has_data():
@@ -6396,8 +6264,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.profile_name is not None:
                                     return True
 
@@ -6449,8 +6315,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ondemand_operation_id is not None:
                                     return True
 
@@ -6474,8 +6338,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.configured_operation_options is not None and self.configured_operation_options._has_data():
                                 return True
 
@@ -6553,8 +6415,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.schedule_duration is not None:
                                 return True
 
@@ -6673,8 +6533,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bins_count is not None:
                                     return True
 
@@ -7083,8 +6941,6 @@ class Sla(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.count is not None:
                                                 return True
 
@@ -7120,8 +6976,6 @@ class Sla(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bins is not None:
                                             for child_ref in self.bins:
                                                 if child_ref._has_data():
@@ -7246,8 +7100,6 @@ class Sla(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.corrupt is not None:
                                                 return True
 
@@ -7292,8 +7144,6 @@ class Sla(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.sample is not None:
                                             for child_ref in self.sample:
                                                 if child_ref._has_data():
@@ -7316,8 +7166,6 @@ class Sla(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aggregated is not None and self.aggregated._has_data():
                                         return True
 
@@ -7344,8 +7192,6 @@ class Sla(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.average is not None:
                                     return True
 
@@ -7459,8 +7305,6 @@ class Sla(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bucket is not None:
                                 for child_ref in self.bucket:
                                     if child_ref._has_data():
@@ -7486,8 +7330,6 @@ class Sla(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.display_long is not None:
                             return True
 
@@ -7543,8 +7385,6 @@ class Sla(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.statistics_current is not None:
                         for child_ref in self.statistics_current:
                             if child_ref._has_data():
@@ -7567,8 +7407,6 @@ class Sla(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.config_errors is not None and self.config_errors._has_data():
                     return True
 
@@ -7607,8 +7445,6 @@ class Sla(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ethernet is not None and self.ethernet._has_data():
                 return True
 
@@ -7629,8 +7465,6 @@ class Sla(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.protocols is not None and self.protocols._has_data():
             return True
 
@@ -7666,8 +7500,6 @@ class SlaNodes(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod

@@ -228,8 +228,6 @@ class Igmp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profile is not None:
                         return True
 
@@ -395,8 +393,6 @@ class Igmp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.access_list_name is not None:
@@ -466,8 +462,6 @@ class Igmp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.access_list_name is not None:
@@ -495,8 +489,6 @@ class Igmp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access_group is not None:
                         return True
 
@@ -608,8 +600,6 @@ class Igmp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.source_address is not None:
                             return True
 
@@ -635,8 +625,6 @@ class Igmp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ssm_access_group is not None:
                         for child_ref in self.ssm_access_group:
                             if child_ref._has_data():
@@ -686,8 +674,6 @@ class Igmp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.maximum_groups is not None:
                         return True
 
@@ -930,8 +916,6 @@ class Igmp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -1021,8 +1005,6 @@ class Igmp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -1051,8 +1033,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.join_group is not None:
@@ -1211,8 +1191,6 @@ class Igmp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -1328,8 +1306,6 @@ class Igmp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -1468,8 +1444,6 @@ class Igmp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -1591,8 +1565,6 @@ class Igmp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -1731,8 +1703,6 @@ class Igmp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -1894,8 +1864,6 @@ class Igmp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -1936,8 +1904,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.static_group_group_address is not None:
                                 for child_ref in self.static_group_group_address:
                                     if child_ref._has_data():
@@ -2039,8 +2005,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.access_list_name is not None:
@@ -2110,8 +2074,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.access_list_name is not None:
@@ -2141,8 +2103,6 @@ class Igmp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -2195,8 +2155,6 @@ class Igmp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -2221,8 +2179,6 @@ class Igmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -2264,8 +2220,6 @@ class Igmp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -2410,8 +2364,6 @@ class Igmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.lifetime is not None:
                     return True
 
@@ -2484,8 +2436,6 @@ class Igmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.adjustment_delay is not None:
                     return True
 
@@ -2540,8 +2490,6 @@ class Igmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.max_history is not None:
                     return True
 
@@ -2585,8 +2533,6 @@ class Igmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.profile is not None:
                     return True
 
@@ -2750,8 +2696,6 @@ class Igmp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.access_list_name is not None:
@@ -2819,8 +2763,6 @@ class Igmp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.access_list_name is not None:
@@ -2846,8 +2788,6 @@ class Igmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.access_group is not None:
                     return True
 
@@ -2957,8 +2897,6 @@ class Igmp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.source_address is not None:
                         return True
 
@@ -2982,8 +2920,6 @@ class Igmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ssm_access_group is not None:
                     for child_ref in self.ssm_access_group:
                         if child_ref._has_data():
@@ -3031,8 +2967,6 @@ class Igmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.maximum_groups is not None:
                     return True
 
@@ -3275,8 +3209,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -3366,8 +3298,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -3396,8 +3326,6 @@ class Igmp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.join_group is not None:
@@ -3556,8 +3484,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -3673,8 +3599,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -3813,8 +3737,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -3936,8 +3858,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -4076,8 +3996,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -4239,8 +4157,6 @@ class Igmp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -4281,8 +4197,6 @@ class Igmp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.static_group_group_address is not None:
                             for child_ref in self.static_group_group_address:
                                 if child_ref._has_data():
@@ -4384,8 +4298,6 @@ class Igmp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.access_list_name is not None:
@@ -4455,8 +4367,6 @@ class Igmp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.access_list_name is not None:
@@ -4484,8 +4394,6 @@ class Igmp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -4536,8 +4444,6 @@ class Igmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -4560,8 +4466,6 @@ class Igmp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.accounting is not None and self.accounting._has_data():
@@ -4611,8 +4515,6 @@ class Igmp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self._is_presence:
             return True
         if self.default_context is not None and self.default_context._has_data():
@@ -4789,8 +4691,6 @@ class Amt(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.address is not None:
@@ -4857,8 +4757,6 @@ class Amt(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.address is not None:
@@ -4884,8 +4782,6 @@ class Amt(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.amtmtu is not None:
             return True
 
@@ -5098,8 +4994,6 @@ class Mld(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profile is not None:
                         return True
 
@@ -5265,8 +5159,6 @@ class Mld(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.access_list_name is not None:
@@ -5336,8 +5228,6 @@ class Mld(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.access_list_name is not None:
@@ -5365,8 +5255,6 @@ class Mld(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access_group is not None:
                         return True
 
@@ -5478,8 +5366,6 @@ class Mld(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.source_address is not None:
                             return True
 
@@ -5505,8 +5391,6 @@ class Mld(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ssm_access_group is not None:
                         for child_ref in self.ssm_access_group:
                             if child_ref._has_data():
@@ -5556,8 +5440,6 @@ class Mld(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.maximum_groups is not None:
                         return True
 
@@ -5800,8 +5682,6 @@ class Mld(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -5891,8 +5771,6 @@ class Mld(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -5921,8 +5799,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.join_group is not None:
@@ -6081,8 +5957,6 @@ class Mld(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -6198,8 +6072,6 @@ class Mld(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -6338,8 +6210,6 @@ class Mld(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -6461,8 +6331,6 @@ class Mld(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -6601,8 +6469,6 @@ class Mld(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -6764,8 +6630,6 @@ class Mld(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -6806,8 +6670,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.static_group_group_address is not None:
                                 for child_ref in self.static_group_group_address:
                                     if child_ref._has_data():
@@ -6909,8 +6771,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.access_list_name is not None:
@@ -6980,8 +6840,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.access_list_name is not None:
@@ -7011,8 +6869,6 @@ class Mld(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -7065,8 +6921,6 @@ class Mld(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -7091,8 +6945,6 @@ class Mld(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -7134,8 +6986,6 @@ class Mld(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -7280,8 +7130,6 @@ class Mld(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.lifetime is not None:
                     return True
 
@@ -7354,8 +7202,6 @@ class Mld(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.adjustment_delay is not None:
                     return True
 
@@ -7410,8 +7256,6 @@ class Mld(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.max_history is not None:
                     return True
 
@@ -7455,8 +7299,6 @@ class Mld(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.profile is not None:
                     return True
 
@@ -7620,8 +7462,6 @@ class Mld(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.access_list_name is not None:
@@ -7689,8 +7529,6 @@ class Mld(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.access_list_name is not None:
@@ -7716,8 +7554,6 @@ class Mld(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.access_group is not None:
                     return True
 
@@ -7827,8 +7663,6 @@ class Mld(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.source_address is not None:
                         return True
 
@@ -7852,8 +7686,6 @@ class Mld(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ssm_access_group is not None:
                     for child_ref in self.ssm_access_group:
                         if child_ref._has_data():
@@ -7901,8 +7733,6 @@ class Mld(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.maximum_groups is not None:
                     return True
 
@@ -8145,8 +7975,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -8236,8 +8064,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -8266,8 +8092,6 @@ class Mld(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.join_group is not None:
@@ -8426,8 +8250,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -8543,8 +8365,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -8683,8 +8503,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -8806,8 +8624,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -8946,8 +8762,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -9109,8 +8923,6 @@ class Mld(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -9151,8 +8963,6 @@ class Mld(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.static_group_group_address is not None:
                             for child_ref in self.static_group_group_address:
                                 if child_ref._has_data():
@@ -9254,8 +9064,6 @@ class Mld(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.access_list_name is not None:
@@ -9325,8 +9133,6 @@ class Mld(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.access_list_name is not None:
@@ -9354,8 +9160,6 @@ class Mld(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -9406,8 +9210,6 @@ class Mld(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -9430,8 +9232,6 @@ class Mld(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.accounting is not None and self.accounting._has_data():
@@ -9481,8 +9281,6 @@ class Mld(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self._is_presence:
             return True
         if self.default_context is not None and self.default_context._has_data():

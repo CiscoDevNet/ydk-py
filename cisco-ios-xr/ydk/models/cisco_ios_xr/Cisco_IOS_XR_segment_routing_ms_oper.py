@@ -354,8 +354,6 @@ class Srms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af is not None:
                             return True
 
@@ -382,8 +380,6 @@ class Srms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.addr is not None and self.addr._has_data():
                         return True
 
@@ -437,8 +433,6 @@ class Srms(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mapping_mi is not None:
                     for child_ref in self.mapping_mi:
                         if child_ref._has_data():
@@ -631,8 +625,6 @@ class Srms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af is not None:
                             return True
 
@@ -659,8 +651,6 @@ class Srms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.addr is not None and self.addr._has_data():
                         return True
 
@@ -714,8 +704,6 @@ class Srms(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mapping_mi is not None:
                     for child_ref in self.mapping_mi:
                         if child_ref._has_data():
@@ -738,8 +726,6 @@ class Srms(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mapping_ipv4 is not None and self.mapping_ipv4._has_data():
                 return True
 
@@ -981,8 +967,6 @@ class Srms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af is not None:
                                 return True
 
@@ -1011,8 +995,6 @@ class Srms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mi_id is not None:
                             return True
 
@@ -1063,8 +1045,6 @@ class Srms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.policy_mi is not None:
                         for child_ref in self.policy_mi:
                             if child_ref._has_data():
@@ -1247,8 +1227,6 @@ class Srms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af is not None:
                                 return True
 
@@ -1277,8 +1255,6 @@ class Srms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mi_id is not None:
                             return True
 
@@ -1329,8 +1305,6 @@ class Srms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.policy_mi is not None:
                         for child_ref in self.policy_mi:
                             if child_ref._has_data():
@@ -1353,8 +1327,6 @@ class Srms(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.policy_ipv4_active is not None and self.policy_ipv4_active._has_data():
                     return True
 
@@ -1567,8 +1539,6 @@ class Srms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af is not None:
                                 return True
 
@@ -1597,8 +1567,6 @@ class Srms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mi_id is not None:
                             return True
 
@@ -1649,8 +1617,6 @@ class Srms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.policy_mi is not None:
                         for child_ref in self.policy_mi:
                             if child_ref._has_data():
@@ -1833,8 +1799,6 @@ class Srms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af is not None:
                                 return True
 
@@ -1863,8 +1827,6 @@ class Srms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mi_id is not None:
                             return True
 
@@ -1915,8 +1877,6 @@ class Srms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.policy_mi is not None:
                         for child_ref in self.policy_mi:
                             if child_ref._has_data():
@@ -1939,8 +1899,6 @@ class Srms(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.policy_ipv6_active is not None and self.policy_ipv6_active._has_data():
                     return True
 
@@ -1964,8 +1922,6 @@ class Srms(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.policy_ipv4 is not None and self.policy_ipv4._has_data():
                 return True
 
@@ -1989,8 +1945,6 @@ class Srms(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.mapping is not None and self.mapping._has_data():
             return True
 

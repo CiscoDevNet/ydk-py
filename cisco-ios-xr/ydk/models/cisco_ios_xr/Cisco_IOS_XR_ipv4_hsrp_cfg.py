@@ -406,8 +406,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -492,8 +490,6 @@ class Hsrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -519,8 +515,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tracked_interface is not None:
                                         for child_ref in self.tracked_interface:
                                             if child_ref._has_data():
@@ -604,8 +598,6 @@ class Hsrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.object_name is not None:
                                             return True
 
@@ -631,8 +623,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tracked_object is not None:
                                         for child_ref in self.tracked_object:
                                             if child_ref._has_data():
@@ -732,8 +722,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.hello_msec is not None:
                                         return True
 
@@ -802,8 +790,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -878,8 +864,6 @@ class Hsrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -902,8 +886,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.global_ipv6_address is not None:
                                         for child_ref in self.global_ipv6_address:
                                             if child_ref._has_data():
@@ -930,8 +912,6 @@ class Hsrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_number is not None:
                                     return True
 
@@ -984,8 +964,6 @@ class Hsrp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group is not None:
                                 for child_ref in self.group:
                                     if child_ref._has_data():
@@ -1010,8 +988,6 @@ class Hsrp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.groups is not None and self.groups._has_data():
                             return True
 
@@ -1139,8 +1115,6 @@ class Hsrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -1215,8 +1189,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -1239,8 +1211,6 @@ class Hsrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.global_ipv6_address is not None:
                                     for child_ref in self.global_ipv6_address:
                                         if child_ref._has_data():
@@ -1267,8 +1237,6 @@ class Hsrp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.slave_group_number is not None:
                                 return True
 
@@ -1303,8 +1271,6 @@ class Hsrp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.slave_group is not None:
                             for child_ref in self.slave_group:
                                 if child_ref._has_data():
@@ -1329,8 +1295,6 @@ class Hsrp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slave_groups is not None and self.slave_groups._has_data():
                         return True
 
@@ -1389,8 +1353,6 @@ class Hsrp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.detection_multiplier is not None:
                         return True
 
@@ -1455,8 +1417,6 @@ class Hsrp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.minimum_delay is not None:
                         return True
 
@@ -1641,8 +1601,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -1665,8 +1623,6 @@ class Hsrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.secondary_ipv4_address is not None:
                                     for child_ref in self.secondary_ipv4_address:
                                         if child_ref._has_data():
@@ -1693,8 +1649,6 @@ class Hsrp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.slave_group_number is not None:
                                 return True
 
@@ -1729,8 +1683,6 @@ class Hsrp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.slave_group is not None:
                             for child_ref in self.slave_group:
                                 if child_ref._has_data():
@@ -1970,8 +1922,6 @@ class Hsrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -1997,8 +1947,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tracked_interface is not None:
                                         for child_ref in self.tracked_interface:
                                             if child_ref._has_data():
@@ -2055,8 +2003,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -2141,8 +2087,6 @@ class Hsrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.object_name is not None:
                                             return True
 
@@ -2168,8 +2112,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tracked_object is not None:
                                         for child_ref in self.tracked_object:
                                             if child_ref._has_data():
@@ -2269,8 +2211,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.hello_msec is not None:
                                         return True
 
@@ -2337,8 +2277,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -2412,8 +2350,6 @@ class Hsrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -2436,8 +2372,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.secondary_ipv4_address is not None:
                                         for child_ref in self.secondary_ipv4_address:
                                             if child_ref._has_data():
@@ -2464,8 +2398,6 @@ class Hsrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_number is not None:
                                     return True
 
@@ -2521,8 +2453,6 @@ class Hsrp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group is not None:
                                 for child_ref in self.group:
                                     if child_ref._has_data():
@@ -2547,8 +2477,6 @@ class Hsrp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.groups is not None and self.groups._has_data():
                             return True
 
@@ -2765,8 +2693,6 @@ class Hsrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -2789,8 +2715,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.secondary_ipv4_address is not None:
                                         for child_ref in self.secondary_ipv4_address:
                                             if child_ref._has_data():
@@ -2847,8 +2771,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -2903,8 +2825,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -2989,8 +2909,6 @@ class Hsrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.object_name is not None:
                                             return True
 
@@ -3016,8 +2934,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tracked_object is not None:
                                         for child_ref in self.tracked_object:
                                             if child_ref._has_data():
@@ -3101,8 +3017,6 @@ class Hsrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -3128,8 +3042,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tracked_interface is not None:
                                         for child_ref in self.tracked_interface:
                                             if child_ref._has_data():
@@ -3229,8 +3141,6 @@ class Hsrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.hello_msec is not None:
                                         return True
 
@@ -3270,8 +3180,6 @@ class Hsrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_number is not None:
                                     return True
 
@@ -3324,8 +3232,6 @@ class Hsrp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group is not None:
                                 for child_ref in self.group:
                                     if child_ref._has_data():
@@ -3350,8 +3256,6 @@ class Hsrp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.groups is not None and self.groups._has_data():
                             return True
 
@@ -3374,8 +3278,6 @@ class Hsrp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slave_groups is not None and self.slave_groups._has_data():
                         return True
 
@@ -3404,8 +3306,6 @@ class Hsrp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -3447,8 +3347,6 @@ class Hsrp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -3492,8 +3390,6 @@ class Hsrp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.state_change_disable is not None:
                 return True
 
@@ -3514,8 +3410,6 @@ class Hsrp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 

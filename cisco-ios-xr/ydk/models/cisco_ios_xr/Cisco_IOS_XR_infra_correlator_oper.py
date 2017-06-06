@@ -269,8 +269,6 @@ class Suppression(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rule_name is not None:
                     return True
 
@@ -300,8 +298,6 @@ class Suppression(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rule_summary is not None:
                 for child_ref in self.rule_summary:
                     if child_ref._has_data():
@@ -445,8 +441,6 @@ class Suppression(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rule_name_xr is not None:
                         return True
 
@@ -508,8 +502,6 @@ class Suppression(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.category is not None:
                         return True
 
@@ -538,8 +530,6 @@ class Suppression(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rule_name is not None:
                     return True
 
@@ -579,8 +569,6 @@ class Suppression(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rule_detail is not None:
                 for child_ref in self.rule_detail:
                     if child_ref._has_data():
@@ -603,8 +591,6 @@ class Suppression(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.rule_details is not None and self.rule_details._has_data():
             return True
 
@@ -821,8 +807,6 @@ class Correlator(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.category is not None:
                         return True
 
@@ -851,8 +835,6 @@ class Correlator(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rule_name is not None:
                     return True
 
@@ -897,8 +879,6 @@ class Correlator(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rule is not None:
                 for child_ref in self.rule:
                     if child_ref._has_data():
@@ -953,8 +933,6 @@ class Correlator(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.configured_size is not None:
                 return True
 
@@ -1126,8 +1104,6 @@ class Correlator(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.additional_text is not None:
                         return True
 
@@ -1177,8 +1153,6 @@ class Correlator(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.alarm_id is not None:
                     return True
 
@@ -1208,8 +1182,6 @@ class Correlator(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.alarm is not None:
                 for child_ref in self.alarm:
                     if child_ref._has_data():
@@ -1286,8 +1258,6 @@ class Correlator(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rule_set_name is not None:
                     return True
 
@@ -1311,8 +1281,6 @@ class Correlator(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rule_set_summary is not None:
                 for child_ref in self.rule_set_summary:
                     if child_ref._has_data():
@@ -1438,8 +1406,6 @@ class Correlator(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.buffered_alarms_count is not None:
                         return True
 
@@ -1471,8 +1437,6 @@ class Correlator(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rule_set_name is not None:
                     return True
 
@@ -1501,8 +1465,6 @@ class Correlator(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rule_set_detail is not None:
                 for child_ref in self.rule_set_detail:
                     if child_ref._has_data():
@@ -1690,8 +1652,6 @@ class Correlator(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.buffered_alarms_count is not None:
                         return True
 
@@ -1756,8 +1716,6 @@ class Correlator(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.category is not None:
                         return True
 
@@ -1786,8 +1744,6 @@ class Correlator(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rule_name is not None:
                     return True
 
@@ -1844,8 +1800,6 @@ class Correlator(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rule_detail is not None:
                 for child_ref in self.rule_detail:
                     if child_ref._has_data():
@@ -1943,8 +1897,6 @@ class Correlator(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rule_name is not None:
                     return True
 
@@ -1977,8 +1929,6 @@ class Correlator(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rule_summary is not None:
                 for child_ref in self.rule_summary:
                     if child_ref._has_data():
@@ -2001,8 +1951,6 @@ class Correlator(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.alarms is not None and self.alarms._has_data():
             return True
 

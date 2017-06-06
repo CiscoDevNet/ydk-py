@@ -50,12 +50,6 @@ _meta_table = {
             'fc-fsbl':'fc_fsbl',
             'fc-lnx':'fc_lnx',
         }, 'Cisco-IOS-XR-upgrade-fpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-upgrade-fpd-oper']),
-    'FpdEnum' : _MetaInfoEnum('FpdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper',
-        {
-            'spa':'spa',
-            'lc':'lc',
-            'sam':'sam',
-        }, 'Cisco-IOS-XR-upgrade-fpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-upgrade-fpd-oper']),
     'Fpd1Enum' : _MetaInfoEnum('Fpd1Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper',
         {
             'spa':'spa',
@@ -98,6 +92,12 @@ _meta_table = {
             'fpga16':'fpga16',
             'fc-fsbl':'fc_fsbl',
             'fc-lnx':'fc_lnx',
+        }, 'Cisco-IOS-XR-upgrade-fpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-upgrade-fpd-oper']),
+    'FpdEnum' : _MetaInfoEnum('FpdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper',
+        {
+            'spa':'spa',
+            'lc':'lc',
+            'sam':'sam',
         }, 'Cisco-IOS-XR-upgrade-fpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-upgrade-fpd-oper']),
     'Fpd.Nodes.Node.Devices.Device' : {
         'meta_info' : _MetaInfoClass('Fpd.Nodes.Node.Devices.Device',
@@ -178,7 +178,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',

@@ -13,12 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'EgressFilteringEnum' : _MetaInfoEnum('EgressFilteringEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg',
-        {
-            'egress-filtering-type-strict':'egress_filtering_type_strict',
-            'egress-filtering-type-disable':'egress_filtering_type_disable',
-            'egress-filtering-type-default':'egress_filtering_type_default',
-        }, 'Cisco-IOS-XR-l2-eth-infra-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-cfg']),
     'L2ProtocolNameEnum' : _MetaInfoEnum('L2ProtocolNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg',
         {
             'cdp':'cdp',
@@ -27,10 +21,11 @@ _meta_table = {
             'pvst':'pvst',
             'cpsv':'cpsv',
         }, 'Cisco-IOS-XR-l2-eth-infra-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-cfg']),
-    'FilteringEnum' : _MetaInfoEnum('FilteringEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg',
+    'EgressFilteringEnum' : _MetaInfoEnum('EgressFilteringEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg',
         {
-            'filtering-type-dot1q':'filtering_type_dot1q',
-            'filtering-type-dot1ad':'filtering_type_dot1ad',
+            'egress-filtering-type-strict':'egress_filtering_type_strict',
+            'egress-filtering-type-disable':'egress_filtering_type_disable',
+            'egress-filtering-type-default':'egress_filtering_type_default',
         }, 'Cisco-IOS-XR-l2-eth-infra-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-cfg']),
     'L2ProtocolModeEnum' : _MetaInfoEnum('L2ProtocolModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg',
         {
@@ -38,6 +33,11 @@ _meta_table = {
             'drop':'drop',
             'tunnel':'tunnel',
             'reverse-tunnel':'reverse_tunnel',
+        }, 'Cisco-IOS-XR-l2-eth-infra-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-cfg']),
+    'FilteringEnum' : _MetaInfoEnum('FilteringEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg',
+        {
+            'filtering-type-dot1q':'filtering_type_dot1q',
+            'filtering-type-dot1ad':'filtering_type_dot1ad',
         }, 'Cisco-IOS-XR-l2-eth-infra-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-cfg']),
     'EthernetFeatures.EgressFiltering' : {
         'meta_info' : _MetaInfoClass('EthernetFeatures.EgressFiltering',
@@ -206,7 +206,7 @@ _meta_table = {
                 'enable_mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address
                 ''',
                 'mac_address',
@@ -500,7 +500,7 @@ _meta_table = {
                 'mdid_format',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('mdid-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC Address, if MDID Format is MACAddress
                 ''',
                 'mdid_mac_address',
@@ -1074,7 +1074,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('profile', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                none
                 ''',
                 'profile',

@@ -13,63 +13,40 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'RcmdBagEnblDsblEnum' : _MetaInfoEnum('RcmdBagEnblDsblEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowIntfEventEnum' : _MetaInfoEnum('RcmdShowIntfEventEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'dsbl':'dsbl',
-            'enbl':'enbl',
+            'create':'create',
+            'delete':'delete',
+            'link-up':'link_up',
+            'link-down':'link_down',
+            'primary-address':'primary_address',
+            'secondary-address':'secondary_address',
+            'ipv6-link-local-address':'ipv6_link_local_address',
+            'ipv6-global-address':'ipv6_global_address',
+            'mtu':'mtu',
+            'band-width':'band_width',
+            'ldp-sync':'ldp_sync',
+            'forward-reference':'forward_reference',
+            'ldp-no-sync':'ldp_no_sync',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdBoolYesNoEnum' : _MetaInfoEnum('RcmdBoolYesNoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowInstStateEnum' : _MetaInfoEnum('RcmdShowInstStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'no':'no',
-            'yes':'yes',
-        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdPriorityLevelEnum' : _MetaInfoEnum('RcmdPriorityLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
-        {
-            'critical':'critical',
-            'high':'high',
-            'medium':'medium',
-            'low':'low',
-        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdSpfStateEnum' : _MetaInfoEnum('RcmdSpfStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
-        {
-            'complete':'complete',
-            'in-complete':'in_complete',
-            'collecting':'collecting',
-            'no-route-change':'no_route_change',
-        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowIpfrrLfaEnum' : _MetaInfoEnum('RcmdShowIpfrrLfaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
-        {
-            'none':'none',
-            'local':'local',
-            'remote':'remote',
-        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowPrcsStateEnum' : _MetaInfoEnum('RcmdShowPrcsStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
-        {
-            'success':'success',
-            'cpu':'cpu',
-            'memory':'memory',
-        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowCompIdEnum' : _MetaInfoEnum('RcmdShowCompIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
-        {
-            'ospf':'ospf',
-            'isis':'isis',
-            'un-known':'un_known',
-        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowLdpSessionStateEnum' : _MetaInfoEnum('RcmdShowLdpSessionStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
-        {
-            'gr-down':'gr_down',
-            'gr-converging':'gr_converging',
-            'establishing':'establishing',
-            'converging':'converging',
-            'converged':'converged',
-            'retrying':'retrying',
-            'total':'total',
-        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdProtocolIdEnum' : _MetaInfoEnum('RcmdProtocolIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
-        {
-            'ospf':'ospf',
-            'isis':'isis',
+            'unknown':'unknown',
+            'active':'active',
+            'in-active':'in_active',
             'na':'na',
+        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
+    'RcmdLsChangeEnum' : _MetaInfoEnum('RcmdLsChangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+        {
+            'new':'new',
+            'delete':'delete',
+            'modify':'modify',
+            'noop':'noop',
+        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
+    'RcmdShowRoutePathChangeEnum' : _MetaInfoEnum('RcmdShowRoutePathChangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+        {
+            'primary':'primary',
+            'backup':'backup',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowLdpConvStateEnum' : _MetaInfoEnum('RcmdShowLdpConvStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
@@ -79,11 +56,45 @@ _meta_table = {
             'coverage-below-threshold':'coverage_below_threshold',
             'coverage-flapping':'coverage_flapping',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdLinecardSpeedEnum' : _MetaInfoEnum('RcmdLinecardSpeedEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowLdpNeighbourStatusEnum' : _MetaInfoEnum('RcmdShowLdpNeighbourStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'other':'other',
-            'fastest':'fastest',
-            'slowest':'slowest',
+            'down':'down',
+            'up':'up',
+        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
+    'RcmdBagEnableDisableEnum' : _MetaInfoEnum('RcmdBagEnableDisableEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+        {
+            'disable':'disable',
+            'enable':'enable',
+        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
+    'RcmdSpfStateEnum' : _MetaInfoEnum('RcmdSpfStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+        {
+            'complete':'complete',
+            'in-complete':'in_complete',
+            'collecting':'collecting',
+            'no-route-change':'no_route_change',
+        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
+    'RcmdIsisLvlEnum' : _MetaInfoEnum('RcmdIsisLvlEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+        {
+            'l1':'l1',
+            'l2':'l2',
+        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
+    'RcmdLdpEventEnum' : _MetaInfoEnum('RcmdLdpEventEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+        {
+            'neighbor':'neighbor',
+            'adjacency':'adjacency',
+        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
+    'RcmdShowCompIdEnum' : _MetaInfoEnum('RcmdShowCompIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+        {
+            'ospf':'ospf',
+            'isis':'isis',
+            'un-known':'un_known',
+        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
+    'RcmdPriorityLevelEnum' : _MetaInfoEnum('RcmdPriorityLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+        {
+            'critical':'critical',
+            'high':'high',
+            'medium':'medium',
+            'low':'low',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowNodeEnum' : _MetaInfoEnum('RcmdShowNodeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
@@ -91,10 +102,11 @@ _meta_table = {
             'lc':'lc',
             'rp':'rp',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowLdpNeighbourStatusEnum' : _MetaInfoEnum('RcmdShowLdpNeighbourStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdProtocolIdEnum' : _MetaInfoEnum('RcmdProtocolIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'down':'down',
-            'up':'up',
+            'ospf':'ospf',
+            'isis':'isis',
+            'na':'na',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdIsisSpfEnum' : _MetaInfoEnum('RcmdIsisSpfEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
@@ -103,23 +115,20 @@ _meta_table = {
             'next-hop':'next_hop',
             'partial-route':'partial_route',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowRoutePathChangeEnum' : _MetaInfoEnum('RcmdShowRoutePathChangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
-        {
-            'primary':'primary',
-            'backup':'backup',
-        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdIsisLvlEnum' : _MetaInfoEnum('RcmdIsisLvlEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
-        {
-            'l1':'l1',
-            'l2':'l2',
-        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdChangeEnum' : _MetaInfoEnum('RcmdChangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowIpfrrLfaEnum' : _MetaInfoEnum('RcmdShowIpfrrLfaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'none':'none',
-            'add':'add',
-            'delete':'delete',
-            'modify':'modify',
-            'no-change':'no_change',
+            'local':'local',
+            'remote':'remote',
+        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
+    'RcmdShowMemEnum' : _MetaInfoEnum('RcmdShowMemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+        {
+            'standard':'standard',
+            'chunk':'chunk',
+            'edm':'edm',
+            'string':'string',
+            'static':'static',
+            'unknown':'unknown',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowRouteEnum' : _MetaInfoEnum('RcmdShowRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
@@ -139,11 +148,6 @@ _meta_table = {
             'inter-area':'inter_area',
             'default-attached':'default_attached',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdLdpEventEnum' : _MetaInfoEnum('RcmdLdpEventEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
-        {
-            'neighbor':'neighbor',
-            'adjacency':'adjacency',
-        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdLsaEnum' : _MetaInfoEnum('RcmdLsaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
             'unknown':'unknown',
@@ -155,49 +159,45 @@ _meta_table = {
             'multicast':'multicast',
             'nssa':'nssa',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowMemEnum' : _MetaInfoEnum('RcmdShowMemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdShowPrcsStateEnum' : _MetaInfoEnum('RcmdShowPrcsStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'standard':'standard',
-            'chunk':'chunk',
-            'edm':'edm',
-            'string':'string',
-            'static':'static',
-            'unknown':'unknown',
+            'success':'success',
+            'cpu':'cpu',
+            'memory':'memory',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdBagEnableDisableEnum' : _MetaInfoEnum('RcmdBagEnableDisableEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdBoolYesNoEnum' : _MetaInfoEnum('RcmdBoolYesNoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'disable':'disable',
-            'enable':'enable',
+            'no':'no',
+            'yes':'yes',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowInstStateEnum' : _MetaInfoEnum('RcmdShowInstStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdBagEnblDsblEnum' : _MetaInfoEnum('RcmdBagEnblDsblEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'unknown':'unknown',
-            'active':'active',
-            'in-active':'in_active',
-            'na':'na',
+            'dsbl':'dsbl',
+            'enbl':'enbl',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdLsChangeEnum' : _MetaInfoEnum('RcmdLsChangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+    'RcmdLinecardSpeedEnum' : _MetaInfoEnum('RcmdLinecardSpeedEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'new':'new',
+            'other':'other',
+            'fastest':'fastest',
+            'slowest':'slowest',
+        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
+    'RcmdShowLdpSessionStateEnum' : _MetaInfoEnum('RcmdShowLdpSessionStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+        {
+            'gr-down':'gr_down',
+            'gr-converging':'gr_converging',
+            'establishing':'establishing',
+            'converging':'converging',
+            'converged':'converged',
+            'retrying':'retrying',
+            'total':'total',
+        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
+    'RcmdChangeEnum' : _MetaInfoEnum('RcmdChangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
+        {
+            'none':'none',
+            'add':'add',
             'delete':'delete',
             'modify':'modify',
-            'noop':'noop',
-        }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
-    'RcmdShowIntfEventEnum' : _MetaInfoEnum('RcmdShowIntfEventEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
-        {
-            'create':'create',
-            'delete':'delete',
-            'link-up':'link_up',
-            'link-down':'link_down',
-            'primary-address':'primary_address',
-            'secondary-address':'secondary_address',
-            'ipv6-link-local-address':'ipv6_link_local_address',
-            'ipv6-global-address':'ipv6_global_address',
-            'mtu':'mtu',
-            'band-width':'band_width',
-            'ldp-sync':'ldp_sync',
-            'forward-reference':'forward_reference',
-            'ldp-no-sync':'ldp_no_sync',
+            'no-change':'no_change',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic' : {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic',
@@ -269,7 +269,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -299,7 +299,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -317,7 +317,7 @@ _meta_table = {
                 'primary_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote-LFA Node ID
                 ''',
                 'remote_node_id',
@@ -453,13 +453,13 @@ _meta_table = {
                 'prefix_info',
                 'Cisco-IOS-XR-infra-rcmd-oper', True, [
                     _MetaInfoClassMember('prefix-info', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Events with Prefix
                         ''',
                         'prefix_info',
                         'Cisco-IOS-XR-infra-rcmd-oper', True),
                     _MetaInfoClassMember('prefix-info', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Events with Prefix
                         ''',
                         'prefix_info',
@@ -538,7 +538,7 @@ _meta_table = {
                 'modify_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Prefix
                 ''',
                 'prefix',
@@ -870,7 +870,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -882,7 +882,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -1551,7 +1551,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -1574,7 +1574,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -1638,7 +1638,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -1650,7 +1650,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -1679,7 +1679,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('area-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Area ID
                 ''',
                 'area_id',
@@ -2369,7 +2369,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -2392,7 +2392,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -2584,7 +2584,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -2614,7 +2614,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -2632,7 +2632,7 @@ _meta_table = {
                 'primary_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote-LFA Node ID
                 ''',
                 'remote_node_id',
@@ -3049,7 +3049,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -3061,7 +3061,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -3730,7 +3730,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -3753,7 +3753,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -3817,7 +3817,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -3829,7 +3829,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -3858,7 +3858,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('area-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Area ID
                 ''',
                 'area_id',
@@ -4548,7 +4548,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -4571,7 +4571,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -4787,7 +4787,7 @@ _meta_table = {
                 'lfa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -4799,7 +4799,7 @@ _meta_table = {
                 'path_metric',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote Node ID, in case of Remote LFA
                 ''',
                 'remote_node_id',
@@ -4834,7 +4834,7 @@ _meta_table = {
                 'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -4863,7 +4863,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -4875,7 +4875,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -5041,7 +5041,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -5053,7 +5053,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -5130,7 +5130,7 @@ _meta_table = {
                 'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Prefix
                 ''',
                 'prefix',
@@ -5306,7 +5306,7 @@ _meta_table = {
                 'lfa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -5318,7 +5318,7 @@ _meta_table = {
                 'path_metric',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote Node ID, in case of Remote LFA
                 ''',
                 'remote_node_id',
@@ -5353,7 +5353,7 @@ _meta_table = {
                 'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -5382,7 +5382,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -5394,7 +5394,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -5560,7 +5560,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -5572,7 +5572,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -5649,7 +5649,7 @@ _meta_table = {
                 'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Prefix
                 ''',
                 'prefix',
@@ -5825,7 +5825,7 @@ _meta_table = {
                 'lfa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -5837,7 +5837,7 @@ _meta_table = {
                 'path_metric',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote Node ID, in case of Remote LFA
                 ''',
                 'remote_node_id',
@@ -5872,7 +5872,7 @@ _meta_table = {
                 'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -5901,7 +5901,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -5913,7 +5913,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -6079,7 +6079,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -6091,7 +6091,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -6168,7 +6168,7 @@ _meta_table = {
                 'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Prefix
                 ''',
                 'prefix',
@@ -6345,7 +6345,7 @@ _meta_table = {
                 'lfa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -6357,7 +6357,7 @@ _meta_table = {
                 'path_metric',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote Node ID, in case of Remote LFA
                 ''',
                 'remote_node_id',
@@ -6392,7 +6392,7 @@ _meta_table = {
                 'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -6421,7 +6421,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -6433,7 +6433,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -6599,7 +6599,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -6611,7 +6611,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -6688,7 +6688,7 @@ _meta_table = {
                 'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Prefix
                 ''',
                 'prefix',
@@ -6884,7 +6884,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Operational data for a particular instance
                 ''',
                 'instance_name',
@@ -7779,7 +7779,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -7809,7 +7809,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -7827,7 +7827,7 @@ _meta_table = {
                 'primary_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote-LFA Node ID
                 ''',
                 'remote_node_id',
@@ -7963,13 +7963,13 @@ _meta_table = {
                 'prefix_info',
                 'Cisco-IOS-XR-infra-rcmd-oper', True, [
                     _MetaInfoClassMember('prefix-info', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Events with Prefix
                         ''',
                         'prefix_info',
                         'Cisco-IOS-XR-infra-rcmd-oper', True),
                     _MetaInfoClassMember('prefix-info', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Events with Prefix
                         ''',
                         'prefix_info',
@@ -8048,7 +8048,7 @@ _meta_table = {
                 'modify_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Prefix
                 ''',
                 'prefix',
@@ -9087,7 +9087,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -9110,7 +9110,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -9414,7 +9414,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -9444,7 +9444,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -9462,7 +9462,7 @@ _meta_table = {
                 'primary_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote-LFA Node ID
                 ''',
                 'remote_node_id',
@@ -10586,7 +10586,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -10609,7 +10609,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -10937,7 +10937,7 @@ _meta_table = {
                 'lfa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -10949,7 +10949,7 @@ _meta_table = {
                 'path_metric',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote Node ID, in case of Remote LFA
                 ''',
                 'remote_node_id',
@@ -10984,7 +10984,7 @@ _meta_table = {
                 'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -11013,7 +11013,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -11025,7 +11025,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -11191,7 +11191,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -11203,7 +11203,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -11280,7 +11280,7 @@ _meta_table = {
                 'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Prefix
                 ''',
                 'prefix',
@@ -11456,7 +11456,7 @@ _meta_table = {
                 'lfa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -11468,7 +11468,7 @@ _meta_table = {
                 'path_metric',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote Node ID, in case of Remote LFA
                 ''',
                 'remote_node_id',
@@ -11503,7 +11503,7 @@ _meta_table = {
                 'lfa_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('neighbour-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Nexthop Address
                 ''',
                 'neighbour_address',
@@ -11532,7 +11532,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -11544,7 +11544,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -11710,7 +11710,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSA ID
                 ''',
                 'lsa_id',
@@ -11722,7 +11722,7 @@ _meta_table = {
                 'lsa_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('origin-router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating Router ID
                 ''',
                 'origin_router_id',
@@ -11799,7 +11799,7 @@ _meta_table = {
                 'path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Prefix
                 ''',
                 'prefix',
@@ -11966,7 +11966,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Operational data for a particular instance
                 ''',
                 'instance_name',
@@ -12223,7 +12223,7 @@ _meta_table = {
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                transport address or adjacency address
                 ''',
                 'address',
@@ -12253,7 +12253,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Label Space Router ID
                 ''',
                 'lsr_id',
@@ -12352,7 +12352,7 @@ _meta_table = {
                 'in_use_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Label Space Router ID
                 ''',
                 'lsr_id',
@@ -12382,7 +12382,7 @@ _meta_table = {
                 'remote_label_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote Node ID
                 ''',
                 'remote_node_id',
@@ -12400,7 +12400,7 @@ _meta_table = {
                 'session_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('transport-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Transport Address
                 ''',
                 'transport_address',
@@ -12601,7 +12601,7 @@ _meta_table = {
                 'in_use_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Label Space Router ID
                 ''',
                 'lsr_id',
@@ -12631,7 +12631,7 @@ _meta_table = {
                 'remote_label_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote Node ID
                 ''',
                 'remote_node_id',
@@ -12649,7 +12649,7 @@ _meta_table = {
                 'session_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('transport-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Transport Address
                 ''',
                 'transport_address',
@@ -12850,7 +12850,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('primary-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Primary Address
                 ''',
                 'primary_address',

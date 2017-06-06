@@ -139,7 +139,7 @@ _meta_table = {
                 'cryptographic_algorithm',
                 'Cisco-IOS-XR-lib-keychain-macsec-cfg', False),
             _MetaInfoClassMember('string', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Key String
                 ''',
                 'string',
@@ -156,7 +156,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('key-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                48-bit Key identifier
                 ''',
                 'key_id',
@@ -203,7 +203,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('chain-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the key chain
                 ''',
                 'chain_name',

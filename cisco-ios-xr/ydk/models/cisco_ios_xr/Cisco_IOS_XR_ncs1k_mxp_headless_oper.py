@@ -188,8 +188,6 @@ class HeadlessFuncData(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.fec_ec is not None:
                         return True
 
@@ -221,8 +219,6 @@ class HeadlessFuncData(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -255,8 +251,6 @@ class HeadlessFuncData(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.otn_port_name is not None:
                 for child_ref in self.otn_port_name:
                     if child_ref._has_data():
@@ -628,8 +622,6 @@ class HeadlessFuncData(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rx8021q_pkt is not None:
                         return True
 
@@ -745,8 +737,6 @@ class HeadlessFuncData(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -779,8 +769,6 @@ class HeadlessFuncData(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ethernet_port_name is not None:
                 for child_ref in self.ethernet_port_name:
                     if child_ref._has_data():
@@ -803,8 +791,6 @@ class HeadlessFuncData(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.ethernet_port_names is not None and self.ethernet_port_names._has_data():
             return True
 

@@ -418,19 +418,19 @@ class SpanMonitorSession(object):
                 """
                 Statistics for a particular source interface
                 
-                .. attribute:: interface  <key>
-                
-                	Interface
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
                 .. attribute:: session  <key>
                 
                 	Session Name
                 	**type**\:  str
                 
                 	**length:** 1..79
+                
+                .. attribute:: interface  <key>
+                
+                	Interface
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: octets_not_mirrored
                 
@@ -483,8 +483,8 @@ class SpanMonitorSession(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.interface = None
                     self.session = None
+                    self.interface = None
                     self.octets_not_mirrored = None
                     self.packets_not_mirrored = None
                     self.rx_octets_mirrored = None
@@ -494,24 +494,22 @@ class SpanMonitorSession(object):
 
                 @property
                 def _common_path(self):
-                    if self.interface is None:
-                        raise YPYModelError('Key property interface is None')
                     if self.session is None:
                         raise YPYModelError('Key property session is None')
+                    if self.interface is None:
+                        raise YPYModelError('Key property interface is None')
 
-                    return '/Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/Cisco-IOS-XR-Ethernet-SPAN-oper:global/Cisco-IOS-XR-Ethernet-SPAN-oper:statistics/Cisco-IOS-XR-Ethernet-SPAN-oper:statistic[Cisco-IOS-XR-Ethernet-SPAN-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-Ethernet-SPAN-oper:session = ' + str(self.session) + ']'
+                    return '/Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/Cisco-IOS-XR-Ethernet-SPAN-oper:global/Cisco-IOS-XR-Ethernet-SPAN-oper:statistics/Cisco-IOS-XR-Ethernet-SPAN-oper:statistic[Cisco-IOS-XR-Ethernet-SPAN-oper:session = ' + str(self.session) + '][Cisco-IOS-XR-Ethernet-SPAN-oper:interface = ' + str(self.interface) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.interface is not None:
+                    if self.session is not None:
                         return True
 
-                    if self.session is not None:
+                    if self.interface is not None:
                         return True
 
                     if self.octets_not_mirrored is not None:
@@ -549,8 +547,6 @@ class SpanMonitorSession(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.statistic is not None:
                     for child_ref in self.statistic:
                         if child_ref._has_data():
@@ -770,8 +766,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -824,8 +818,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.pseudowire_is_up is not None:
                                 return True
 
@@ -886,8 +878,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address_is_reachable is not None:
                                 return True
 
@@ -951,8 +941,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address_is_reachable is not None:
                                 return True
 
@@ -981,8 +969,6 @@ class SpanMonitorSession(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination_class is not None:
                             return True
 
@@ -1108,8 +1094,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4_address is not None:
                                 return True
 
@@ -1164,8 +1148,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv6_address is not None:
                                 return True
 
@@ -1191,8 +1173,6 @@ class SpanMonitorSession(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination_class is not None:
                             return True
 
@@ -1230,8 +1210,6 @@ class SpanMonitorSession(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session is not None:
                         return True
 
@@ -1279,8 +1257,6 @@ class SpanMonitorSession(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.global_session is not None:
                     for child_ref in self.global_session:
                         if child_ref._has_data():
@@ -1303,8 +1279,6 @@ class SpanMonitorSession(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.global_sessions is not None and self.global_sessions._has_data():
                 return True
 
@@ -1416,19 +1390,19 @@ class SpanMonitorSession(object):
                     interface configured as attached to monitor
                     session
                     
-                    .. attribute:: interface  <key>
-                    
-                    	Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
                     .. attribute:: session  <key>
                     
                     	Session Name
                     	**type**\:  str
                     
                     	**length:** 1..79
+                    
+                    .. attribute:: interface  <key>
+                    
+                    	Interface
+                    	**type**\:  str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: dest_pw_type_not_supported
                     
@@ -1517,8 +1491,8 @@ class SpanMonitorSession(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.interface = None
                         self.session = None
+                        self.interface = None
                         self.dest_pw_type_not_supported = None
                         self.destination_id = SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId()
                         self.destination_id.parent = self
@@ -1597,8 +1571,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.is_acl_enabled is not None:
                                 return True
 
@@ -1721,8 +1693,6 @@ class SpanMonitorSession(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -1777,8 +1747,6 @@ class SpanMonitorSession(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv6_address is not None:
                                     return True
 
@@ -1804,8 +1772,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_class is not None:
                                 return True
 
@@ -1835,24 +1801,22 @@ class SpanMonitorSession(object):
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface is None:
-                            raise YPYModelError('Key property interface is None')
                         if self.session is None:
                             raise YPYModelError('Key property session is None')
+                        if self.interface is None:
+                            raise YPYModelError('Key property interface is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:attachment[Cisco-IOS-XR-Ethernet-SPAN-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-Ethernet-SPAN-oper:session = ' + str(self.session) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-oper:attachment[Cisco-IOS-XR-Ethernet-SPAN-oper:session = ' + str(self.session) + '][Cisco-IOS-XR-Ethernet-SPAN-oper:interface = ' + str(self.interface) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.interface is not None:
+                        if self.session is not None:
                             return True
 
-                        if self.session is not None:
+                        if self.interface is not None:
                             return True
 
                         if self.dest_pw_type_not_supported is not None:
@@ -1916,8 +1880,6 @@ class SpanMonitorSession(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.attachment is not None:
                         for child_ref in self.attachment:
                             if child_ref._has_data():
@@ -2130,8 +2092,6 @@ class SpanMonitorSession(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -2186,8 +2146,6 @@ class SpanMonitorSession(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv6_address is not None:
                                     return True
 
@@ -2213,8 +2171,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_class is not None:
                                 return True
 
@@ -2252,8 +2208,6 @@ class SpanMonitorSession(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination_id is not None and self.destination_id._has_data():
                             return True
 
@@ -2297,8 +2251,6 @@ class SpanMonitorSession(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.hardware_session is not None:
                         for child_ref in self.hardware_session:
                             if child_ref._has_data():
@@ -2513,8 +2465,6 @@ class SpanMonitorSession(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -2569,8 +2519,6 @@ class SpanMonitorSession(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv6_address is not None:
                                     return True
 
@@ -2596,8 +2544,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_class is not None:
                                 return True
 
@@ -2685,8 +2631,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.is_acl_enabled is not None:
                                 return True
 
@@ -2844,8 +2788,6 @@ class SpanMonitorSession(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_address is not None:
                                         return True
 
@@ -2900,8 +2842,6 @@ class SpanMonitorSession(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv6_address is not None:
                                         return True
 
@@ -2927,8 +2867,6 @@ class SpanMonitorSession(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_class is not None:
                                     return True
 
@@ -3015,8 +2953,6 @@ class SpanMonitorSession(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.is_acl_enabled is not None:
                                     return True
 
@@ -3051,8 +2987,6 @@ class SpanMonitorSession(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.class_ is not None:
                                 return True
 
@@ -3083,8 +3017,6 @@ class SpanMonitorSession(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -3130,8 +3062,6 @@ class SpanMonitorSession(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -3156,8 +3086,6 @@ class SpanMonitorSession(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     return True
 
@@ -3187,8 +3115,6 @@ class SpanMonitorSession(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3211,8 +3137,6 @@ class SpanMonitorSession(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.global_ is not None and self.global_._has_data():
             return True
 

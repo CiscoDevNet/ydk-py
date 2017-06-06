@@ -369,8 +369,6 @@ class Oor(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.in_use is not None:
                                     return True
 
@@ -399,8 +397,6 @@ class Oor(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dpa_table is not None:
                                 for child_ref in self.dpa_table:
                                     if child_ref._has_data():
@@ -445,8 +441,6 @@ class Oor(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -501,8 +495,6 @@ class Oor(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_npu_resource is not None:
                         for child_ref in self.interface_npu_resource:
                             if child_ref._has_data():
@@ -638,8 +630,6 @@ class Oor(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hardware_resource is not None:
                                 return True
 
@@ -676,8 +666,6 @@ class Oor(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -711,8 +699,6 @@ class Oor(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface_detail is not None:
                         for child_ref in self.bundle_interface_detail:
                             if child_ref._has_data():
@@ -815,8 +801,6 @@ class Oor(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -854,8 +838,6 @@ class Oor(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_detail is not None:
                         for child_ref in self.interface_detail:
                             if child_ref._has_data():
@@ -946,8 +928,6 @@ class Oor(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -979,8 +959,6 @@ class Oor(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_summary_data is not None:
                         for child_ref in self.interface_summary_data:
                             if child_ref._has_data():
@@ -1044,8 +1022,6 @@ class Oor(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.green is not None:
                         return True
 
@@ -1074,8 +1050,6 @@ class Oor(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -1111,8 +1085,6 @@ class Oor(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -1135,8 +1107,6 @@ class Oor(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

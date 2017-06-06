@@ -327,8 +327,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dropped is not None:
                             return True
 
@@ -396,8 +394,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dropped is not None:
                             return True
 
@@ -465,8 +461,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dropped is not None:
                             return True
 
@@ -534,8 +528,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dropped is not None:
                             return True
 
@@ -603,8 +595,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dropped is not None:
                             return True
 
@@ -672,8 +662,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dropped is not None:
                             return True
 
@@ -741,8 +729,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dropped is not None:
                             return True
 
@@ -810,8 +796,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dropped is not None:
                             return True
 
@@ -840,8 +824,6 @@ class Pppoe(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.other is not None and self.other._has_data():
                         return True
 
@@ -885,8 +867,6 @@ class Pppoe(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -910,8 +890,6 @@ class Pppoe(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.access_interface_statistic is not None:
                 for child_ref in self.access_interface_statistic:
                     if child_ref._has_data():
@@ -1156,8 +1134,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dropped is not None:
                                 return True
 
@@ -1225,8 +1201,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dropped is not None:
                                 return True
 
@@ -1294,8 +1268,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dropped is not None:
                                 return True
 
@@ -1363,8 +1335,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dropped is not None:
                                 return True
 
@@ -1432,8 +1402,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dropped is not None:
                                 return True
 
@@ -1501,8 +1469,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dropped is not None:
                                 return True
 
@@ -1570,8 +1536,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dropped is not None:
                                 return True
 
@@ -1639,8 +1603,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dropped is not None:
                                 return True
 
@@ -1669,8 +1631,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.other is not None and self.other._has_data():
                             return True
 
@@ -2145,8 +2105,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bad_packet_length is not None:
                             return True
 
@@ -2322,8 +2280,6 @@ class Pppoe(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.packet_counts is not None and self.packet_counts._has_data():
                         return True
 
@@ -2474,8 +2430,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -2519,8 +2473,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.summary is not None:
                             for child_ref in self.summary:
                                 if child_ref._has_data():
@@ -2545,8 +2497,6 @@ class Pppoe(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.summaries is not None and self.summaries._has_data():
                         return True
 
@@ -2921,8 +2871,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data_link is not None:
                                     return True
 
@@ -2951,8 +2899,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.access_loop_encapsulation is not None and self.access_loop_encapsulation._has_data():
                                 return True
 
@@ -3040,8 +2986,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -3097,8 +3041,6 @@ class Pppoe(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -3335,8 +3277,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -3404,8 +3344,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -3473,8 +3411,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -3542,8 +3478,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -3611,8 +3545,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -3680,8 +3612,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -3749,8 +3679,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -3818,8 +3746,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -3887,8 +3813,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -3956,8 +3880,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -4025,8 +3947,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -4094,8 +4014,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_limit is not None:
                                     return True
 
@@ -4124,8 +4042,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.access_intf is not None and self.access_intf._has_data():
                                 return True
 
@@ -4303,8 +4219,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.circuit_id is not None:
                                     return True
 
@@ -4357,8 +4271,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.limit is not None:
                                 for child_ref in self.limit:
                                     if child_ref._has_data():
@@ -4517,8 +4429,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.circuit_id is not None:
                                     return True
 
@@ -4574,8 +4484,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.throttle is not None:
                                 for child_ref in self.throttle:
                                     if child_ref._has_data():
@@ -4717,8 +4625,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.blocking_period is not None:
                                     return True
 
@@ -4786,8 +4692,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.blocking_period is not None:
                                     return True
 
@@ -4855,8 +4759,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.blocking_period is not None:
                                     return True
 
@@ -4924,8 +4826,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.blocking_period is not None:
                                     return True
 
@@ -4993,8 +4893,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.blocking_period is not None:
                                     return True
 
@@ -5062,8 +4960,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.blocking_period is not None:
                                     return True
 
@@ -5131,8 +5027,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.blocking_period is not None:
                                     return True
 
@@ -5200,8 +5094,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.blocking_period is not None:
                                     return True
 
@@ -5269,8 +5161,6 @@ class Pppoe(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.blocking_period is not None:
                                     return True
 
@@ -5299,8 +5189,6 @@ class Pppoe(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.circuit_id is not None and self.circuit_id._has_data():
                                 return True
 
@@ -5349,8 +5237,6 @@ class Pppoe(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bba_group_name is not None:
                             return True
 
@@ -5385,8 +5271,6 @@ class Pppoe(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bba_group is not None:
                         for child_ref in self.bba_group:
                             if child_ref._has_data():
@@ -5506,8 +5390,6 @@ class Pppoe(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.complete_sessions is not None:
                         return True
 
@@ -5557,8 +5439,6 @@ class Pppoe(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -5594,8 +5474,6 @@ class Pppoe(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -5618,8 +5496,6 @@ class Pppoe(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.access_interface_statistics is not None and self.access_interface_statistics._has_data():
             return True
 

@@ -224,8 +224,6 @@ class AlarmLogger(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.capacity_threshold is not None:
                 return True
 
@@ -373,8 +371,6 @@ class AlarmLogger(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.event_id is not None:
                     return True
 
@@ -425,8 +421,6 @@ class AlarmLogger(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.alarm is not None:
                 for child_ref in self.alarm:
                     if child_ref._has_data():
@@ -449,8 +443,6 @@ class AlarmLogger(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.alarms is not None and self.alarms._has_data():
             return True
 

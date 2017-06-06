@@ -494,8 +494,6 @@ class Cdp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_type is not None:
                                                     return True
 
@@ -524,8 +522,6 @@ class Cdp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
@@ -548,8 +544,6 @@ class Cdp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cdp_addr_entry is not None:
                                             for child_ref in self.cdp_addr_entry:
                                                 if child_ref._has_data():
@@ -620,8 +614,6 @@ class Cdp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.hello_message is not None:
                                                 return True
 
@@ -644,8 +636,6 @@ class Cdp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cdp_prot_hello_entry is not None:
                                             for child_ref in self.cdp_prot_hello_entry:
                                                 if child_ref._has_data():
@@ -670,8 +660,6 @@ class Cdp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.duplex is not None:
                                         return True
 
@@ -712,8 +700,6 @@ class Cdp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.capabilities is not None:
                                     return True
 
@@ -757,8 +743,6 @@ class Cdp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.cdp_neighbor is not None:
                                 for child_ref in self.cdp_neighbor:
                                     if child_ref._has_data():
@@ -789,8 +773,6 @@ class Cdp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detail is not None:
                             for child_ref in self.detail:
                                 if child_ref._has_data():
@@ -1081,8 +1063,6 @@ class Cdp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_type is not None:
                                                     return True
 
@@ -1111,8 +1091,6 @@ class Cdp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
@@ -1135,8 +1113,6 @@ class Cdp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cdp_addr_entry is not None:
                                             for child_ref in self.cdp_addr_entry:
                                                 if child_ref._has_data():
@@ -1207,8 +1183,6 @@ class Cdp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.hello_message is not None:
                                                 return True
 
@@ -1231,8 +1205,6 @@ class Cdp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cdp_prot_hello_entry is not None:
                                             for child_ref in self.cdp_prot_hello_entry:
                                                 if child_ref._has_data():
@@ -1257,8 +1229,6 @@ class Cdp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.duplex is not None:
                                         return True
 
@@ -1299,8 +1269,6 @@ class Cdp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.capabilities is not None:
                                     return True
 
@@ -1346,8 +1314,6 @@ class Cdp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.device_id is not None:
                                 return True
 
@@ -1375,8 +1341,6 @@ class Cdp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.device is not None:
                             for child_ref in self.device:
                                 if child_ref._has_data():
@@ -1674,8 +1638,6 @@ class Cdp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_type is not None:
                                                     return True
 
@@ -1704,8 +1666,6 @@ class Cdp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
@@ -1728,8 +1688,6 @@ class Cdp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cdp_addr_entry is not None:
                                             for child_ref in self.cdp_addr_entry:
                                                 if child_ref._has_data():
@@ -1800,8 +1758,6 @@ class Cdp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.hello_message is not None:
                                                 return True
 
@@ -1824,8 +1780,6 @@ class Cdp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cdp_prot_hello_entry is not None:
                                             for child_ref in self.cdp_prot_hello_entry:
                                                 if child_ref._has_data():
@@ -1850,8 +1804,6 @@ class Cdp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.duplex is not None:
                                         return True
 
@@ -1892,8 +1844,6 @@ class Cdp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.capabilities is not None:
                                     return True
 
@@ -1937,8 +1887,6 @@ class Cdp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.cdp_neighbor is not None:
                                 for child_ref in self.cdp_neighbor:
                                     if child_ref._has_data():
@@ -1969,8 +1917,6 @@ class Cdp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.summary is not None:
                             for child_ref in self.summary:
                                 if child_ref._has_data():
@@ -1995,8 +1941,6 @@ class Cdp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.details is not None and self.details._has_data():
                         return True
 
@@ -2152,8 +2096,6 @@ class Cdp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bad_packet_errors is not None:
                         return True
 
@@ -2295,8 +2237,6 @@ class Cdp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -2331,8 +2271,6 @@ class Cdp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -2357,8 +2295,6 @@ class Cdp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -2388,8 +2324,6 @@ class Cdp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -2412,8 +2346,6 @@ class Cdp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

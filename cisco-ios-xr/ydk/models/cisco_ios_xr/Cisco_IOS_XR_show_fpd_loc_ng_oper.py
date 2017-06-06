@@ -240,8 +240,6 @@ class ShowFpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.card_name is not None:
                             return True
 
@@ -287,8 +285,6 @@ class ShowFpd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.fpd_name is not None:
                         return True
 
@@ -316,8 +312,6 @@ class ShowFpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location_name is not None:
                     return True
 
@@ -343,8 +337,6 @@ class ShowFpd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.location is not None:
                 for child_ref in self.location:
                     if child_ref._has_data():
@@ -454,8 +446,6 @@ class ShowFpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.card_name is not None:
                     return True
 
@@ -497,8 +487,6 @@ class ShowFpd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.fpd_info_detaile is not None:
                 for child_ref in self.fpd_info_detaile:
                     if child_ref._has_data():
@@ -626,8 +614,6 @@ class ShowFpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.fpd_name is not None:
                             return True
 
@@ -653,8 +639,6 @@ class ShowFpd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.fpd_name is not None:
                         for child_ref in self.fpd_name:
                             if child_ref._has_data():
@@ -679,8 +663,6 @@ class ShowFpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location_name is not None:
                     return True
 
@@ -704,8 +686,6 @@ class ShowFpd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.help_location is not None:
                 for child_ref in self.help_location:
                     if child_ref._has_data():
@@ -778,8 +758,6 @@ class ShowFpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.fpd_name is not None:
                     return True
 
@@ -803,8 +781,6 @@ class ShowFpd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.fpd_name is not None:
                 for child_ref in self.fpd_name:
                     if child_ref._has_data():
@@ -901,8 +877,6 @@ class ShowFpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.card_type is not None:
                     return True
 
@@ -938,8 +912,6 @@ class ShowFpd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.fpd_pkg_data is not None:
                 for child_ref in self.fpd_pkg_data:
                     if child_ref._has_data():
@@ -1006,8 +978,6 @@ class ShowFpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location_name is not None:
                     return True
 
@@ -1028,8 +998,6 @@ class ShowFpd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.location_name is not None:
                 for child_ref in self.location_name:
                     if child_ref._has_data():
@@ -1052,8 +1020,6 @@ class ShowFpd(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.help_locations is not None and self.help_locations._has_data():
             return True
 

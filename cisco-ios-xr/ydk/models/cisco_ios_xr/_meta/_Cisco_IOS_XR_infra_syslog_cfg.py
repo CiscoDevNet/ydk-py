@@ -13,7 +13,35 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'LogSeverityEnum' : _MetaInfoEnum('LogSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
+    'LoggingDscpValueEnum' : _MetaInfoEnum('LoggingDscpValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
+        {
+            'default':'default',
+            'af11':'af11',
+            'af12':'af12',
+            'af13':'af13',
+            'af21':'af21',
+            'af22':'af22',
+            'af23':'af23',
+            'af31':'af31',
+            'af32':'af32',
+            'af33':'af33',
+            'af41':'af41',
+            'af42':'af42',
+            'af43':'af43',
+            'ef':'ef',
+            'cs1':'cs1',
+            'cs2':'cs2',
+            'cs3':'cs3',
+            'cs4':'cs4',
+            'cs5':'cs5',
+            'cs6':'cs6',
+            'cs7':'cs7',
+        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
+    'LoggingDscpEnum' : _MetaInfoEnum('LoggingDscpEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
+        {
+            'dscp':'dscp',
+        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
+    'LogMessageSeverityEnum' : _MetaInfoEnum('LogMessageSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'emergency':'emergency',
             'alert':'alert',
@@ -23,6 +51,43 @@ _meta_table = {
             'notice':'notice',
             'informational':'informational',
             'debug':'debug',
+        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
+    'TimeInfoEnum' : _MetaInfoEnum('TimeInfoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
+        {
+            'disable':'disable',
+            'enable':'enable',
+        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
+    'LoggingPrecedenceValueEnum' : _MetaInfoEnum('LoggingPrecedenceValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
+        {
+            'routine':'routine',
+            'priority':'priority',
+            'immediate':'immediate',
+            'flash':'flash',
+            'flash-override':'flash_override',
+            'critical':'critical',
+            'internet':'internet',
+            'network':'network',
+        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
+    'LoggingPrecedenceEnum' : _MetaInfoEnum('LoggingPrecedenceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
+        {
+            'precedence':'precedence',
+        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
+    'LoggingLevelsEnum' : _MetaInfoEnum('LoggingLevelsEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
+        {
+            'emergency':'emergency',
+            'alert':'alert',
+            'critical':'critical',
+            'error':'error',
+            'warning':'warning',
+            'notice':'notice',
+            'info':'info',
+            'debug':'debug',
+            'disable':'disable',
+        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
+    'LoggingTosEnum' : _MetaInfoEnum('LoggingTosEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
+        {
+            'precedence':'precedence',
+            'dscp':'dscp',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
     'FacilityEnum' : _MetaInfoEnum('FacilityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
         {
@@ -58,63 +123,7 @@ _meta_table = {
             'weekly':'weekly',
             'daily':'daily',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingPrecedenceValueEnum' : _MetaInfoEnum('LoggingPrecedenceValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
-        {
-            'routine':'routine',
-            'priority':'priority',
-            'immediate':'immediate',
-            'flash':'flash',
-            'flash-override':'flash_override',
-            'critical':'critical',
-            'internet':'internet',
-            'network':'network',
-        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingTosEnum' : _MetaInfoEnum('LoggingTosEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
-        {
-            'precedence':'precedence',
-            'dscp':'dscp',
-        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingLevelsEnum' : _MetaInfoEnum('LoggingLevelsEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
-        {
-            'emergency':'emergency',
-            'alert':'alert',
-            'critical':'critical',
-            'error':'error',
-            'warning':'warning',
-            'notice':'notice',
-            'info':'info',
-            'debug':'debug',
-            'disable':'disable',
-        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingPrecedenceEnum' : _MetaInfoEnum('LoggingPrecedenceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
-        {
-            'precedence':'precedence',
-        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingDscpValueEnum' : _MetaInfoEnum('LoggingDscpValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
-        {
-            'default':'default',
-            'af11':'af11',
-            'af12':'af12',
-            'af13':'af13',
-            'af21':'af21',
-            'af22':'af22',
-            'af23':'af23',
-            'af31':'af31',
-            'af32':'af32',
-            'af33':'af33',
-            'af41':'af41',
-            'af42':'af42',
-            'af43':'af43',
-            'ef':'ef',
-            'cs1':'cs1',
-            'cs2':'cs2',
-            'cs3':'cs3',
-            'cs4':'cs4',
-            'cs5':'cs5',
-            'cs6':'cs6',
-            'cs7':'cs7',
-        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LogMessageSeverityEnum' : _MetaInfoEnum('LogMessageSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
+    'LogSeverityEnum' : _MetaInfoEnum('LogSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
         {
             'emergency':'emergency',
             'alert':'alert',
@@ -124,15 +133,6 @@ _meta_table = {
             'notice':'notice',
             'informational':'informational',
             'debug':'debug',
-        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'TimeInfoEnum' : _MetaInfoEnum('TimeInfoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
-        {
-            'disable':'disable',
-            'enable':'enable',
-        }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
-    'LoggingDscpEnum' : _MetaInfoEnum('LoggingDscpEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
-        {
-            'dscp':'dscp',
         }, 'Cisco-IOS-XR-infra-syslog-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-cfg']),
     'SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue' : {
         'meta_info' : _MetaInfoClass('SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue',
@@ -654,7 +654,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address of the logging host
                 ''',
                 'address',
@@ -969,7 +969,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address of the logging host
                 ''',
                 'address',
@@ -1021,7 +1021,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the VRF instance
                 ''',
                 'vrf_name',
@@ -1259,7 +1259,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('file-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the file
                 ''',
                 'file_name',
@@ -1753,7 +1753,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the VRF instance
                 ''',
                 'vrf_name',
@@ -1787,7 +1787,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('src-interface-name-value', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Which Interface
                 ''',
                 'src_interface_name_value',
@@ -1845,7 +1845,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('filter-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Filter String
                 ''',
                 'filter_string',
@@ -2386,7 +2386,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('location', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                One or more Locations
                 ''',
                 'location',
@@ -2467,7 +2467,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Location
                 ''',
                 'location',
@@ -2662,7 +2662,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Location
                 ''',
                 'location',
@@ -2800,7 +2800,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Source
                 ''',
                 'source',
@@ -2862,17 +2862,17 @@ _meta_table = {
                 ''',
                 'category',
                 'Cisco-IOS-XR-infra-correlator-cfg', True),
-            _MetaInfoClassMember('code', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Code
-                ''',
-                'code',
-                'Cisco-IOS-XR-infra-correlator-cfg', True),
             _MetaInfoClassMember('group', ATTRIBUTE, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                Group
                 ''',
                 'group',
+                'Cisco-IOS-XR-infra-correlator-cfg', True),
+            _MetaInfoClassMember('code', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Code
+                ''',
+                'code',
                 'Cisco-IOS-XR-infra-correlator-cfg', True),
             ],
             'Cisco-IOS-XR-infra-correlator-cfg',

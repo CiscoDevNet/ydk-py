@@ -1512,8 +1512,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.below_threshold is not None:
                                     return True
 
@@ -1645,8 +1643,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -1672,8 +1668,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.in_use_time is not None:
                                     return True
 
@@ -1715,8 +1709,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.event_id is not None:
                                 return True
 
@@ -1782,8 +1774,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipfrr_event_summary is not None:
                             for child_ref in self.ipfrr_event_summary:
                                 if child_ref._has_data():
@@ -1978,8 +1968,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_info is not None:
                                 return True
 
@@ -2047,8 +2035,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_event_statistic is not None:
                             for child_ref in self.prefix_event_statistic:
                                 if child_ref._has_data():
@@ -2353,8 +2339,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.adds is not None:
                                             return True
 
@@ -2435,8 +2419,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -2511,8 +2493,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -2591,8 +2571,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.coverage is not None:
                                             return True
 
@@ -2624,8 +2602,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -2665,8 +2641,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.duration is not None:
                                     return True
 
@@ -2863,8 +2837,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.change_type is not None:
                                         return True
 
@@ -3067,8 +3039,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.adds is not None:
                                                 return True
 
@@ -3149,8 +3119,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -3225,8 +3193,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -3305,8 +3271,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.coverage is not None:
                                                 return True
 
@@ -3338,8 +3302,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.frr_statistic is not None:
                                             for child_ref in self.frr_statistic:
                                                 if child_ref._has_data():
@@ -3499,8 +3461,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -3562,8 +3522,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -3625,8 +3583,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -3688,8 +3644,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -3751,8 +3705,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -3814,8 +3766,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -3877,8 +3827,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -3940,8 +3888,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -4038,8 +3984,6 @@ class Rcmd(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.duration is not None:
                                                     return True
 
@@ -4068,8 +4012,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fib_complete is not None and self.fib_complete._has_data():
                                                 return True
 
@@ -4166,8 +4108,6 @@ class Rcmd(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.duration is not None:
                                                     return True
 
@@ -4196,8 +4136,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fib_complete is not None and self.fib_complete._has_data():
                                                 return True
 
@@ -4226,8 +4164,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lc_ip is not None:
                                             for child_ref in self.lc_ip:
                                                 if child_ref._has_data():
@@ -4312,8 +4248,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -4370,8 +4304,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -4397,8 +4329,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.convergence_timeline is not None:
                                         for child_ref in self.convergence_timeline:
                                             if child_ref._has_data():
@@ -4491,8 +4421,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.change_type is not None:
                                         return True
 
@@ -4530,8 +4458,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area_id is not None:
                                     return True
 
@@ -4791,8 +4717,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.adds is not None:
                                                 return True
 
@@ -4873,8 +4797,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -4949,8 +4871,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -4982,8 +4902,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                             return True
 
@@ -5147,8 +5065,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -5210,8 +5126,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -5273,8 +5187,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -5336,8 +5248,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -5399,8 +5309,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -5462,8 +5370,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -5525,8 +5431,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -5588,8 +5492,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -5686,8 +5588,6 @@ class Rcmd(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.duration is not None:
                                                     return True
 
@@ -5716,8 +5616,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fib_complete is not None and self.fib_complete._has_data():
                                                 return True
 
@@ -5814,8 +5712,6 @@ class Rcmd(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.duration is not None:
                                                     return True
 
@@ -5844,8 +5740,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fib_complete is not None and self.fib_complete._has_data():
                                                 return True
 
@@ -5874,8 +5768,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lc_ip is not None:
                                             for child_ref in self.lc_ip:
                                                 if child_ref._has_data():
@@ -5960,8 +5852,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -6018,8 +5908,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -6045,8 +5933,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.convergence_timeline is not None:
                                         for child_ref in self.convergence_timeline:
                                             if child_ref._has_data():
@@ -6084,8 +5970,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.priority is not None:
                                     for child_ref in self.priority:
                                         if child_ref._has_data():
@@ -6112,8 +5996,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.spf_run_number is not None:
                                 return True
 
@@ -6149,8 +6031,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.spf_run_summary is not None:
                             for child_ref in self.spf_run_summary:
                                 if child_ref._has_data():
@@ -6401,8 +6281,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.below_threshold is not None:
                                     return True
 
@@ -6534,8 +6412,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -6561,8 +6437,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.in_use_time is not None:
                                     return True
 
@@ -6604,8 +6478,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.event_id is not None:
                                 return True
 
@@ -6671,8 +6543,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipfrr_event_offline is not None:
                             for child_ref in self.ipfrr_event_offline:
                                 if child_ref._has_data():
@@ -6978,8 +6848,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.adds is not None:
                                             return True
 
@@ -7060,8 +6928,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -7136,8 +7002,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -7216,8 +7080,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.coverage is not None:
                                             return True
 
@@ -7249,8 +7111,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -7290,8 +7150,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.duration is not None:
                                     return True
 
@@ -7488,8 +7346,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.change_type is not None:
                                         return True
 
@@ -7692,8 +7548,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.adds is not None:
                                                 return True
 
@@ -7774,8 +7628,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -7850,8 +7702,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -7930,8 +7780,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.coverage is not None:
                                                 return True
 
@@ -7963,8 +7811,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.frr_statistic is not None:
                                             for child_ref in self.frr_statistic:
                                                 if child_ref._has_data():
@@ -8124,8 +7970,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -8187,8 +8031,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -8250,8 +8092,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -8313,8 +8153,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -8376,8 +8214,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -8439,8 +8275,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -8502,8 +8336,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -8565,8 +8397,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -8663,8 +8493,6 @@ class Rcmd(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.duration is not None:
                                                     return True
 
@@ -8693,8 +8521,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fib_complete is not None and self.fib_complete._has_data():
                                                 return True
 
@@ -8791,8 +8617,6 @@ class Rcmd(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.duration is not None:
                                                     return True
 
@@ -8821,8 +8645,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fib_complete is not None and self.fib_complete._has_data():
                                                 return True
 
@@ -8851,8 +8673,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lc_ip is not None:
                                             for child_ref in self.lc_ip:
                                                 if child_ref._has_data():
@@ -8937,8 +8757,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -8995,8 +8813,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -9022,8 +8838,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.convergence_timeline is not None:
                                         for child_ref in self.convergence_timeline:
                                             if child_ref._has_data():
@@ -9116,8 +8930,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.change_type is not None:
                                         return True
 
@@ -9155,8 +8967,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area_id is not None:
                                     return True
 
@@ -9416,8 +9226,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.adds is not None:
                                                 return True
 
@@ -9498,8 +9306,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -9574,8 +9380,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fastest_node_name is not None:
                                                 return True
 
@@ -9607,8 +9411,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ip_convergence_time is not None and self.ip_convergence_time._has_data():
                                             return True
 
@@ -9772,8 +9574,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -9835,8 +9635,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -9898,8 +9696,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -9961,8 +9757,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -10024,8 +9818,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -10087,8 +9879,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -10150,8 +9940,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -10213,8 +10001,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -10311,8 +10097,6 @@ class Rcmd(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.duration is not None:
                                                     return True
 
@@ -10341,8 +10125,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fib_complete is not None and self.fib_complete._has_data():
                                                 return True
 
@@ -10439,8 +10221,6 @@ class Rcmd(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.duration is not None:
                                                     return True
 
@@ -10469,8 +10249,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fib_complete is not None and self.fib_complete._has_data():
                                                 return True
 
@@ -10499,8 +10277,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lc_ip is not None:
                                             for child_ref in self.lc_ip:
                                                 if child_ref._has_data():
@@ -10585,8 +10361,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -10643,8 +10417,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -10670,8 +10442,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.convergence_timeline is not None:
                                         for child_ref in self.convergence_timeline:
                                             if child_ref._has_data():
@@ -10709,8 +10479,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.priority is not None:
                                     for child_ref in self.priority:
                                         if child_ref._has_data():
@@ -10737,8 +10505,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.spf_run_number is not None:
                                 return True
 
@@ -10774,8 +10540,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.spf_run_offline is not None:
                             for child_ref in self.spf_run_offline:
                                 if child_ref._has_data():
@@ -11012,8 +10776,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -11088,8 +10850,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -11229,8 +10989,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.change_type is not None:
                                         return True
 
@@ -11268,8 +11026,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -11361,8 +11117,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -11513,8 +11267,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -11577,8 +11329,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -11607,8 +11357,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -11717,8 +11465,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -11758,8 +11504,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.event_id is not None:
                                 return True
 
@@ -11841,8 +11585,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.summary_external_event_summary is not None:
                             for child_ref in self.summary_external_event_summary:
                                 if child_ref._has_data():
@@ -12078,8 +11820,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -12154,8 +11894,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -12295,8 +12033,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.change_type is not None:
                                         return True
 
@@ -12334,8 +12070,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -12427,8 +12161,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -12579,8 +12311,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -12643,8 +12373,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -12673,8 +12401,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -12783,8 +12509,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -12824,8 +12548,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.event_id is not None:
                                 return True
 
@@ -12907,8 +12629,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_event_summary is not None:
                             for child_ref in self.prefix_event_summary:
                                 if child_ref._has_data():
@@ -13146,8 +12866,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -13222,8 +12940,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -13363,8 +13079,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.change_type is not None:
                                         return True
 
@@ -13402,8 +13116,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -13495,8 +13207,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -13647,8 +13357,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -13711,8 +13419,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -13741,8 +13447,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -13851,8 +13555,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -13892,8 +13594,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.event_id is not None:
                                 return True
 
@@ -13975,8 +13675,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.summary_external_event_offline is not None:
                             for child_ref in self.summary_external_event_offline:
                                 if child_ref._has_data():
@@ -14213,8 +13911,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -14289,8 +13985,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -14430,8 +14124,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.change_type is not None:
                                         return True
 
@@ -14469,8 +14161,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -14562,8 +14252,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -14714,8 +14402,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -14778,8 +14464,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -14808,8 +14492,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -14918,8 +14600,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -14959,8 +14639,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.event_id is not None:
                                 return True
 
@@ -15042,8 +14720,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_event_offline is not None:
                             for child_ref in self.prefix_event_offline:
                                 if child_ref._has_data():
@@ -15211,8 +14887,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.external_added is not None:
                             return True
 
@@ -15280,8 +14954,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.instance_name is not None:
                         return True
 
@@ -15332,8 +15004,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance is not None:
                     for child_ref in self.instance:
                         if child_ref._has_data():
@@ -15356,8 +15026,6 @@ class Rcmd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instances is not None and self.instances._has_data():
                 return True
 
@@ -15686,8 +15354,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disable is not None:
                             return True
 
@@ -15714,8 +15380,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.priority is not None:
                         for child_ref in self.priority:
                             if child_ref._has_data():
@@ -15825,8 +15489,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.error_stats is not None:
                             return True
 
@@ -15856,8 +15518,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.memory_suspend is not None:
                         return True
 
@@ -15886,8 +15546,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.archive_count is not None:
                     return True
 
@@ -16272,8 +15930,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disable is not None:
                             return True
 
@@ -16300,8 +15956,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.priority is not None:
                         for child_ref in self.priority:
                             if child_ref._has_data():
@@ -16411,8 +16065,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.error_stats is not None:
                             return True
 
@@ -16442,8 +16094,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.memory_suspend is not None:
                         return True
 
@@ -16472,8 +16122,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.archive_count is not None:
                     return True
 
@@ -16579,8 +16227,6 @@ class Rcmd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.detail is not None and self.detail._has_data():
                 return True
 
@@ -16726,8 +16372,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.card_state is not None:
                     return True
 
@@ -16781,8 +16425,6 @@ class Rcmd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node_information is not None:
                 for child_ref in self.node_information:
                     if child_ref._has_data():
@@ -17156,8 +16798,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.below_threshold is not None:
                                     return True
 
@@ -17289,8 +16929,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -17316,8 +16954,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.in_use_time is not None:
                                     return True
 
@@ -17359,8 +16995,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.event_id is not None:
                                 return True
 
@@ -17426,8 +17060,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipfrr_event_summary is not None:
                             for child_ref in self.ipfrr_event_summary:
                                 if child_ref._has_data():
@@ -17622,8 +17254,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_info is not None:
                                 return True
 
@@ -17691,8 +17321,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_event_statistic is not None:
                             for child_ref in self.prefix_event_statistic:
                                 if child_ref._has_data():
@@ -18030,8 +17658,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.adds is not None:
                                             return True
 
@@ -18112,8 +17738,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -18188,8 +17812,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -18268,8 +17890,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.coverage is not None:
                                             return True
 
@@ -18301,8 +17921,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -18342,8 +17960,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.duration is not None:
                                     return True
 
@@ -18458,8 +18074,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adds is not None:
                                     return True
 
@@ -18538,8 +18152,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -18736,8 +18348,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.adds is not None:
                                             return True
 
@@ -18818,8 +18428,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -18894,8 +18502,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -18974,8 +18580,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.coverage is not None:
                                             return True
 
@@ -19007,8 +18611,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -19168,8 +18770,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -19231,8 +18831,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -19294,8 +18892,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -19357,8 +18953,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -19420,8 +19014,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -19483,8 +19075,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -19546,8 +19136,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -19609,8 +19197,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -19707,8 +19293,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -19737,8 +19321,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fib_complete is not None and self.fib_complete._has_data():
                                             return True
 
@@ -19835,8 +19417,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -19865,8 +19445,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fib_complete is not None and self.fib_complete._has_data():
                                             return True
 
@@ -19895,8 +19473,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.lc_ip is not None:
                                         for child_ref in self.lc_ip:
                                             if child_ref._has_data():
@@ -19981,8 +19557,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -20039,8 +19613,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -20066,8 +19638,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.convergence_timeline is not None:
                                     for child_ref in self.convergence_timeline:
                                         if child_ref._has_data():
@@ -20146,8 +19716,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -20242,8 +19810,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.isis_level is not None:
                                     return True
 
@@ -20286,8 +19852,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.spf_run_number is not None:
                                 return True
 
@@ -20345,8 +19909,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.spf_run_summary is not None:
                             for child_ref in self.spf_run_summary:
                                 if child_ref._has_data():
@@ -20597,8 +20159,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.below_threshold is not None:
                                     return True
 
@@ -20730,8 +20290,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -20757,8 +20315,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.in_use_time is not None:
                                     return True
 
@@ -20800,8 +20356,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.event_id is not None:
                                 return True
 
@@ -20867,8 +20421,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipfrr_event_offline is not None:
                             for child_ref in self.ipfrr_event_offline:
                                 if child_ref._has_data():
@@ -21207,8 +20759,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.adds is not None:
                                             return True
 
@@ -21289,8 +20839,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -21365,8 +20913,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -21445,8 +20991,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.coverage is not None:
                                             return True
 
@@ -21478,8 +21022,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -21519,8 +21061,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.duration is not None:
                                     return True
 
@@ -21635,8 +21175,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adds is not None:
                                     return True
 
@@ -21715,8 +21253,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -21913,8 +21449,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.adds is not None:
                                             return True
 
@@ -21995,8 +21529,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -22071,8 +21603,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fastest_node_name is not None:
                                             return True
 
@@ -22151,8 +21681,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.coverage is not None:
                                             return True
 
@@ -22184,8 +21712,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_statistic is not None:
                                         for child_ref in self.frr_statistic:
                                             if child_ref._has_data():
@@ -22345,8 +21871,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -22408,8 +21932,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -22471,8 +21993,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -22534,8 +22054,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -22597,8 +22115,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -22660,8 +22176,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -22723,8 +22237,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -22786,8 +22298,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.duration is not None:
                                             return True
 
@@ -22884,8 +22394,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -22914,8 +22422,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fib_complete is not None and self.fib_complete._has_data():
                                             return True
 
@@ -23012,8 +22518,6 @@ class Rcmd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None:
                                                 return True
 
@@ -23042,8 +22546,6 @@ class Rcmd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fib_complete is not None and self.fib_complete._has_data():
                                             return True
 
@@ -23072,8 +22574,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.lc_ip is not None:
                                         for child_ref in self.lc_ip:
                                             if child_ref._has_data():
@@ -23158,8 +22658,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -23216,8 +22714,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -23243,8 +22739,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.convergence_timeline is not None:
                                     for child_ref in self.convergence_timeline:
                                         if child_ref._has_data():
@@ -23323,8 +22817,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -23419,8 +22911,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.isis_level is not None:
                                     return True
 
@@ -23463,8 +22953,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.spf_run_number is not None:
                                 return True
 
@@ -23522,8 +23010,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.spf_run_offline is not None:
                             for child_ref in self.spf_run_offline:
                                 if child_ref._has_data():
@@ -23759,8 +23245,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -23835,8 +23319,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -23976,8 +23458,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.change_type is not None:
                                         return True
 
@@ -24015,8 +23495,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -24108,8 +23586,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -24260,8 +23736,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -24324,8 +23798,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -24354,8 +23826,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -24464,8 +23934,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -24505,8 +23973,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.event_id is not None:
                                 return True
 
@@ -24588,8 +24054,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_event_summary is not None:
                             for child_ref in self.prefix_event_summary:
                                 if child_ref._has_data():
@@ -24826,8 +24290,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -24902,8 +24364,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fastest_node_name is not None:
                                     return True
 
@@ -25043,8 +24503,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.change_type is not None:
                                         return True
 
@@ -25082,8 +24540,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -25175,8 +24631,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -25327,8 +24781,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -25391,8 +24843,6 @@ class Rcmd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fib_complete is not None:
                                         return True
 
@@ -25421,8 +24871,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lc_ip is not None:
                                     for child_ref in self.lc_ip:
                                         if child_ref._has_data():
@@ -25531,8 +24979,6 @@ class Rcmd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.change_type is not None:
                                     return True
 
@@ -25572,8 +25018,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.event_id is not None:
                                 return True
 
@@ -25655,8 +25099,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_event_offline is not None:
                             for child_ref in self.prefix_event_offline:
                                 if child_ref._has_data():
@@ -25777,8 +25219,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.serial_number is not None:
                                 return True
 
@@ -25822,8 +25262,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lsp_regenerated is not None:
                             for child_ref in self.lsp_regenerated:
                                 if child_ref._has_data():
@@ -25848,8 +25286,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.instance_name is not None:
                         return True
 
@@ -25894,8 +25330,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance is not None:
                     for child_ref in self.instance:
                         if child_ref._has_data():
@@ -25918,8 +25352,6 @@ class Rcmd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instances is not None and self.instances._has_data():
                 return True
 
@@ -26046,8 +25478,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.alloc_count is not None:
                     return True
 
@@ -26133,8 +25563,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.failure is not None:
                     return True
 
@@ -26211,8 +25639,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.failure is not None:
                     return True
 
@@ -26242,8 +25668,6 @@ class Rcmd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.edm_memory_info is not None:
                 for child_ref in self.edm_memory_info:
                     if child_ref._has_data():
@@ -26408,8 +25832,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.event_id is not None:
                         return True
 
@@ -26451,8 +25873,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.session is not None:
                     for child_ref in self.session:
                         if child_ref._has_data():
@@ -26656,8 +26076,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.path_count is not None:
                             return True
 
@@ -26789,8 +26207,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.in_use_time is not None:
                             return True
 
@@ -26883,8 +26299,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.label_coverage_state is not None:
                             return True
 
@@ -26916,8 +26330,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.event_id is not None:
                         return True
 
@@ -26971,8 +26383,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.remote_lfa is not None:
                     for child_ref in self.remote_lfa:
                         if child_ref._has_data():
@@ -27176,8 +26586,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.path_count is not None:
                             return True
 
@@ -27309,8 +26717,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.in_use_time is not None:
                             return True
 
@@ -27403,8 +26809,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.label_coverage_state is not None:
                             return True
 
@@ -27436,8 +26840,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.event_id is not None:
                         return True
 
@@ -27491,8 +26893,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.remote_lfa_summary is not None:
                     for child_ref in self.remote_lfa_summary:
                         if child_ref._has_data():
@@ -27515,8 +26915,6 @@ class Rcmd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.remote_lfa_s is not None and self.remote_lfa_s._has_data():
                 return True
 
@@ -27653,8 +27051,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.event_no is not None:
                         return True
 
@@ -27693,8 +27089,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.event is not None:
                     for child_ref in self.event:
                         if child_ref._has_data():
@@ -27717,8 +27111,6 @@ class Rcmd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.events is not None and self.events._has_data():
                 return True
 
@@ -28043,8 +27435,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.arch_spf_run is not None:
                                 return True
 
@@ -28101,8 +27491,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.arch_lsp_regeneration is not None:
                             return True
 
@@ -28155,8 +27543,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.instance_name is not None:
                         for child_ref in self.instance_name:
                             if child_ref._has_data():
@@ -28185,8 +27571,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.process is not None:
                     for child_ref in self.process:
                         if child_ref._has_data():
@@ -28477,8 +27861,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.arch_spf_run is not None:
                                 return True
 
@@ -28535,8 +27917,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.arch_lsp_regeneration is not None:
                             return True
 
@@ -28589,8 +27969,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.instance_name is not None:
                         for child_ref in self.instance_name:
                             if child_ref._has_data():
@@ -28619,8 +27997,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.process is not None:
                     for child_ref in self.process:
                         if child_ref._has_data():
@@ -28911,8 +28287,6 @@ class Rcmd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.arch_spf_run is not None:
                                 return True
 
@@ -28969,8 +28343,6 @@ class Rcmd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.arch_lsp_regeneration is not None:
                             return True
 
@@ -29023,8 +28395,6 @@ class Rcmd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.instance_name is not None:
                         for child_ref in self.instance_name:
                             if child_ref._has_data():
@@ -29053,8 +28423,6 @@ class Rcmd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.process is not None:
                     for child_ref in self.process:
                         if child_ref._has_data():
@@ -29077,8 +28445,6 @@ class Rcmd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.isis is not None and self.isis._has_data():
                 return True
 
@@ -29105,8 +28471,6 @@ class Rcmd(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.intf is not None and self.intf._has_data():
             return True
 

@@ -825,8 +825,6 @@ class Ipv4Dhcpd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.mode is not None:
@@ -854,8 +852,6 @@ class Ipv4Dhcpd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -879,8 +875,6 @@ class Ipv4Dhcpd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -1140,8 +1134,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.format_type is not None:
                                         return True
 
@@ -1167,8 +1159,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.allow_untrusted is not None:
                                     return True
 
@@ -1200,8 +1190,6 @@ class Ipv4Dhcpd(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.relay_information_option is not None and self.relay_information_option._has_data():
                                 return True
 
@@ -1307,8 +1295,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.profile_mode is not None:
                                     return True
 
@@ -1379,13 +1365,6 @@ class Ipv4Dhcpd(object):
                                     """
                                     Specify match option
                                     
-                                    .. attribute:: format  <key>
-                                    
-                                    	Set constant integer
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
                                     .. attribute:: matchoption  <key>
                                     
                                     	Match option 60
@@ -1399,6 +1378,13 @@ class Ipv4Dhcpd(object):
                                     	**type**\:  str
                                     
                                     	**length:** 1..64
+                                    
+                                    .. attribute:: format  <key>
+                                    
+                                    	Set constant integer
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: option_action
                                     
@@ -1414,38 +1400,36 @@ class Ipv4Dhcpd(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.format = None
                                         self.matchoption = None
                                         self.pattern = None
+                                        self.format = None
                                         self.option_action = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.format is None:
-                                            raise YPYModelError('Key property format is None')
                                         if self.matchoption is None:
                                             raise YPYModelError('Key property matchoption is None')
                                         if self.pattern is None:
                                             raise YPYModelError('Key property pattern is None')
+                                        if self.format is None:
+                                            raise YPYModelError('Key property format is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-cfg:option-filter[Cisco-IOS-XR-ipv4-dhcpd-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:matchoption = ' + str(self.matchoption) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:pattern = ' + str(self.pattern) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-cfg:option-filter[Cisco-IOS-XR-ipv4-dhcpd-cfg:matchoption = ' + str(self.matchoption) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:pattern = ' + str(self.pattern) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:format = ' + str(self.format) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.format is not None:
-                                            return True
-
                                         if self.matchoption is not None:
                                             return True
 
                                         if self.pattern is not None:
+                                            return True
+
+                                        if self.format is not None:
                                             return True
 
                                         if self.option_action is not None:
@@ -1470,8 +1454,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.option_filter is not None:
                                         for child_ref in self.option_filter:
                                             if child_ref._has_data():
@@ -1552,8 +1534,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.def_matchoption is not None:
                                             return True
 
@@ -1579,8 +1559,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.def_option is not None:
                                         for child_ref in self.def_option:
                                             if child_ref._has_data():
@@ -1605,8 +1583,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.def_options is not None and self.def_options._has_data():
                                     return True
 
@@ -1664,8 +1640,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.authenticate is not None:
                                     return True
 
@@ -1729,13 +1703,6 @@ class Ipv4Dhcpd(object):
                                     """
                                     none
                                     
-                                    .. attribute:: format  <key>
-                                    
-                                    	Set constant integer
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
                                     .. attribute:: opt60  <key>
                                     
                                     	none
@@ -1749,6 +1716,13 @@ class Ipv4Dhcpd(object):
                                     	**type**\:  str
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                    
+                                    .. attribute:: format  <key>
+                                    
+                                    	Set constant integer
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: option_profile
                                     
@@ -1764,9 +1738,9 @@ class Ipv4Dhcpd(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.format = None
                                         self.opt60 = None
                                         self.opt60_hex_str = None
+                                        self.format = None
                                         self.option_profile = Ipv4Dhcpd.Profiles.Profile.Modes.Mode.Base.BaseMatch.Options.Option.OptionProfile()
                                         self.option_profile.parent = self
 
@@ -1813,8 +1787,6 @@ class Ipv4Dhcpd(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.profile_mode is not None:
                                                 return True
 
@@ -1832,29 +1804,27 @@ class Ipv4Dhcpd(object):
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.format is None:
-                                            raise YPYModelError('Key property format is None')
                                         if self.opt60 is None:
                                             raise YPYModelError('Key property opt60 is None')
                                         if self.opt60_hex_str is None:
                                             raise YPYModelError('Key property opt60_hex_str is None')
+                                        if self.format is None:
+                                            raise YPYModelError('Key property format is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-cfg:option[Cisco-IOS-XR-ipv4-dhcpd-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:opt60 = ' + str(self.opt60) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:opt60-hex-str = ' + str(self.opt60_hex_str) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-cfg:option[Cisco-IOS-XR-ipv4-dhcpd-cfg:opt60 = ' + str(self.opt60) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:opt60-hex-str = ' + str(self.opt60_hex_str) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:format = ' + str(self.format) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.format is not None:
-                                            return True
-
                                         if self.opt60 is not None:
                                             return True
 
                                         if self.opt60_hex_str is not None:
+                                            return True
+
+                                        if self.format is not None:
                                             return True
 
                                         if self.option_profile is not None and self.option_profile._has_data():
@@ -1879,8 +1849,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.option is not None:
                                         for child_ref in self.option:
                                             if child_ref._has_data():
@@ -1905,8 +1873,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.options is not None and self.options._has_data():
                                     return True
 
@@ -1929,8 +1895,6 @@ class Ipv4Dhcpd(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.base_match is not None and self.base_match._has_data():
                                 return True
 
@@ -2164,8 +2128,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.check is not None:
                                     return True
 
@@ -2217,8 +2179,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lease_limit_value is not None:
                                     return True
 
@@ -2265,8 +2225,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.check is not None:
                                     return True
 
@@ -2314,8 +2272,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.default_router is not None:
                                     for child in self.default_router:
                                         if child is not None:
@@ -2365,8 +2321,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.net_bios_name_server is not None:
                                     for child in self.net_bios_name_server:
                                         if child is not None:
@@ -2474,8 +2428,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.matchoption is not None:
                                             return True
 
@@ -2501,8 +2453,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.option_default is not None:
                                         for child_ref in self.option_default:
                                             if child_ref._has_data():
@@ -2543,13 +2493,6 @@ class Ipv4Dhcpd(object):
                                     """
                                     Specify match option
                                     
-                                    .. attribute:: format  <key>
-                                    
-                                    	Set constant integer
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
                                     .. attribute:: matchoption  <key>
                                     
                                     	Match option 60
@@ -2561,6 +2504,13 @@ class Ipv4Dhcpd(object):
                                     	**type**\:  str
                                     
                                     	**length:** 1..64
+                                    
+                                    .. attribute:: format  <key>
+                                    
+                                    	Set constant integer
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: matchaction
                                     
@@ -2578,38 +2528,36 @@ class Ipv4Dhcpd(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.format = None
                                         self.matchoption = None
                                         self.pattern = None
+                                        self.format = None
                                         self.matchaction = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.format is None:
-                                            raise YPYModelError('Key property format is None')
                                         if self.matchoption is None:
                                             raise YPYModelError('Key property matchoption is None')
                                         if self.pattern is None:
                                             raise YPYModelError('Key property pattern is None')
+                                        if self.format is None:
+                                            raise YPYModelError('Key property format is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-cfg:option[Cisco-IOS-XR-ipv4-dhcpd-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:matchoption = ' + str(self.matchoption) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:pattern = ' + str(self.pattern) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-cfg:option[Cisco-IOS-XR-ipv4-dhcpd-cfg:matchoption = ' + str(self.matchoption) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:pattern = ' + str(self.pattern) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:format = ' + str(self.format) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.format is not None:
-                                            return True
-
                                         if self.matchoption is not None:
                                             return True
 
                                         if self.pattern is not None:
+                                            return True
+
+                                        if self.format is not None:
                                             return True
 
                                         if self.matchaction is not None:
@@ -2634,8 +2582,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.option is not None:
                                         for child_ref in self.option:
                                             if child_ref._has_data():
@@ -2660,8 +2606,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.option_defaults is not None and self.option_defaults._has_data():
                                     return True
 
@@ -2708,8 +2652,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.policy is not None:
                                     return True
 
@@ -2821,8 +2763,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_block is not None:
                                             return True
 
@@ -2851,8 +2791,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mac_throttle is not None and self.mac_throttle._has_data():
                                         return True
 
@@ -2875,8 +2813,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.throttle_type is not None and self.throttle_type._has_data():
                                     return True
 
@@ -3069,8 +3005,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.default_router is not None:
                                             for child in self.default_router:
                                                 if child is not None:
@@ -3120,8 +3054,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.net_bios_name_server is not None:
                                             for child in self.net_bios_name_server:
                                                 if child is not None:
@@ -3246,8 +3178,6 @@ class Ipv4Dhcpd(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.matchoption is not None:
                                                     return True
 
@@ -3276,8 +3206,6 @@ class Ipv4Dhcpd(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.class_option is not None:
                                                 for child_ref in self.class_option:
                                                     if child_ref._has_data():
@@ -3302,8 +3230,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.class_options is not None and self.class_options._has_data():
                                             return True
 
@@ -3383,8 +3309,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.days is not None:
                                             return True
 
@@ -3463,8 +3387,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.broadcast_node is not None:
                                             return True
 
@@ -3524,8 +3446,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dns_server is not None:
                                             for child in self.dns_server:
                                                 if child is not None:
@@ -3628,8 +3548,6 @@ class Ipv4Dhcpd(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.option_code is not None:
                                                 return True
 
@@ -3666,8 +3584,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.option_code is not None:
                                             for child_ref in self.option_code:
                                                 if child_ref._has_data():
@@ -3694,8 +3610,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.class_name is not None:
                                         return True
 
@@ -3760,8 +3674,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.class_ is not None:
                                     for child_ref in self.class_:
                                         if child_ref._has_data():
@@ -3810,8 +3722,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.authenticate is not None:
                                     return True
 
@@ -3885,8 +3795,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.days is not None:
                                     return True
 
@@ -3965,8 +3873,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.broadcast_node is not None:
                                     return True
 
@@ -4044,8 +3950,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.force_insert is not None:
                                         return True
 
@@ -4068,8 +3972,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dhcp_option is not None and self.dhcp_option._has_data():
                                     return True
 
@@ -4117,8 +4019,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dns_server is not None:
                                     for child in self.dns_server:
                                         if child is not None:
@@ -4221,8 +4121,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.option_code is not None:
                                         return True
 
@@ -4259,8 +4157,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.option_code is not None:
                                     for child_ref in self.option_code:
                                         if child_ref._has_data():
@@ -4285,8 +4181,6 @@ class Ipv4Dhcpd(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.aaa is not None and self.aaa._has_data():
                                 return True
 
@@ -4439,8 +4333,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.policy is not None:
                                     return True
 
@@ -4578,8 +4470,6 @@ class Ipv4Dhcpd(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.ip_address is not None:
                                                 return True
 
@@ -4608,8 +4498,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.helper_address is not None:
                                             for child_ref in self.helper_address:
                                                 if child_ref._has_data():
@@ -4636,8 +4524,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.vrf_name is not None:
                                         return True
 
@@ -4663,8 +4549,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.vrf is not None:
                                     for child_ref in self.vrf:
                                         if child_ref._has_data():
@@ -4746,8 +4630,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.allow_untrusted is not None:
                                     return True
 
@@ -4809,8 +4691,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.policy is not None:
                                     return True
 
@@ -4833,8 +4713,6 @@ class Ipv4Dhcpd(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.broadcast_policy is not None and self.broadcast_policy._has_data():
                                 return True
 
@@ -5083,8 +4961,6 @@ class Ipv4Dhcpd(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.bit_mask is not None:
                                                 return True
 
@@ -5113,8 +4989,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.option is not None and self.option._has_data():
                                             return True
 
@@ -5251,8 +5125,6 @@ class Ipv4Dhcpd(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.server_address is not None:
                                                         return True
 
@@ -5278,8 +5150,6 @@ class Ipv4Dhcpd(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.helper_address is not None:
                                                     for child_ref in self.helper_address:
                                                         if child_ref._has_data():
@@ -5306,8 +5176,6 @@ class Ipv4Dhcpd(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.vrf_name is not None:
                                                 return True
 
@@ -5333,8 +5201,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.vrf is not None:
                                             for child_ref in self.vrf:
                                                 if child_ref._has_data():
@@ -5361,8 +5227,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.class_name is not None:
                                         return True
 
@@ -5394,8 +5258,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.class_ is not None:
                                     for child_ref in self.class_:
                                         if child_ref._has_data():
@@ -5501,8 +5363,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.allow_untrusted is not None:
                                     return True
 
@@ -5666,8 +5526,6 @@ class Ipv4Dhcpd(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.server_address is not None:
                                                 return True
 
@@ -5693,8 +5551,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.helper_address is not None:
                                             for child_ref in self.helper_address:
                                                 if child_ref._has_data():
@@ -5721,8 +5577,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.vrf_name is not None:
                                         return True
 
@@ -5748,8 +5602,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.vrf is not None:
                                     for child_ref in self.vrf:
                                         if child_ref._has_data():
@@ -5863,8 +5715,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.num_block is not None:
                                             return True
 
@@ -5893,8 +5743,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.proxy_mac_throttle is not None and self.proxy_mac_throttle._has_data():
                                         return True
 
@@ -5917,8 +5765,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.proxy_throttle_type is not None and self.proxy_throttle_type._has_data():
                                     return True
 
@@ -5982,8 +5828,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.limit_lease_count is not None:
@@ -6040,8 +5884,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.client_lease_time is not None:
                                     return True
 
@@ -6088,8 +5930,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.policy is not None:
                                     return True
 
@@ -6197,8 +6037,6 @@ class Ipv4Dhcpd(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.def_matchoption is not None:
                                             return True
 
@@ -6224,8 +6062,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.def_option is not None:
                                         for child_ref in self.def_option:
                                             if child_ref._has_data():
@@ -6266,13 +6102,6 @@ class Ipv4Dhcpd(object):
                                     """
                                     Specify match option
                                     
-                                    .. attribute:: format  <key>
-                                    
-                                    	Set constant integer
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
                                     .. attribute:: matchoption  <key>
                                     
                                     	Match option 60
@@ -6286,6 +6115,13 @@ class Ipv4Dhcpd(object):
                                     	**type**\:  str
                                     
                                     	**length:** 1..64
+                                    
+                                    .. attribute:: format  <key>
+                                    
+                                    	Set constant integer
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: matchaction
                                     
@@ -6303,38 +6139,36 @@ class Ipv4Dhcpd(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.format = None
                                         self.matchoption = None
                                         self.pattern = None
+                                        self.format = None
                                         self.matchaction = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.format is None:
-                                            raise YPYModelError('Key property format is None')
                                         if self.matchoption is None:
                                             raise YPYModelError('Key property matchoption is None')
                                         if self.pattern is None:
                                             raise YPYModelError('Key property pattern is None')
+                                        if self.format is None:
+                                            raise YPYModelError('Key property format is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-cfg:option-filter[Cisco-IOS-XR-ipv4-dhcpd-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:matchoption = ' + str(self.matchoption) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:pattern = ' + str(self.pattern) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-cfg:option-filter[Cisco-IOS-XR-ipv4-dhcpd-cfg:matchoption = ' + str(self.matchoption) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:pattern = ' + str(self.pattern) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:format = ' + str(self.format) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.format is not None:
-                                            return True
-
                                         if self.matchoption is not None:
                                             return True
 
                                         if self.pattern is not None:
+                                            return True
+
+                                        if self.format is not None:
                                             return True
 
                                         if self.matchaction is not None:
@@ -6359,8 +6193,6 @@ class Ipv4Dhcpd(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.option_filter is not None:
                                         for child_ref in self.option_filter:
                                             if child_ref._has_data():
@@ -6385,8 +6217,6 @@ class Ipv4Dhcpd(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.def_options is not None and self.def_options._has_data():
                                     return True
 
@@ -6412,8 +6242,6 @@ class Ipv4Dhcpd(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.broadcast_flag is not None and self.broadcast_flag._has_data():
                                 return True
 
@@ -6468,8 +6296,6 @@ class Ipv4Dhcpd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mode is not None:
                             return True
 
@@ -6510,8 +6336,6 @@ class Ipv4Dhcpd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.mode is not None:
                         for child_ref in self.mode:
                             if child_ref._has_data():
@@ -6536,8 +6360,6 @@ class Ipv4Dhcpd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.profile_name is not None:
                     return True
 
@@ -6561,8 +6383,6 @@ class Ipv4Dhcpd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.profile is not None:
                 for child_ref in self.profile:
                     if child_ref._has_data():
@@ -6639,8 +6459,6 @@ class Ipv4Dhcpd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.full_write_interval is not None:
                 return True
 
@@ -6941,8 +6759,6 @@ class Ipv4Dhcpd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.argument1 is not None:
@@ -7018,8 +6834,6 @@ class Ipv4Dhcpd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dhcp_circuit_id is not None and self.dhcp_circuit_id._has_data():
                         return True
 
@@ -7209,8 +7023,6 @@ class Ipv4Dhcpd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.argument1 is not None:
@@ -7286,8 +7098,6 @@ class Ipv4Dhcpd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.base_dhcp_circuit_id is not None and self.base_dhcp_circuit_id._has_data():
                         return True
 
@@ -7471,8 +7281,6 @@ class Ipv4Dhcpd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.argument1 is not None:
@@ -7548,8 +7356,6 @@ class Ipv4Dhcpd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.relay_dhcp_circuit_id is not None and self.relay_dhcp_circuit_id._has_data():
                         return True
 
@@ -7613,6 +7419,13 @@ class Ipv4Dhcpd(object):
                         DHCP static binding of Mac address to IP
                         address
                         
+                        .. attribute:: mac_address  <key>
+                        
+                        	MACAddress
+                        	**type**\:  str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
                         .. attribute:: client_id  <key>
                         
                         	Client Id
@@ -7624,13 +7437,6 @@ class Ipv4Dhcpd(object):
                         
                         	DHCP IPV4 Static layer
                         	**type**\:   :py:class:`Ipv4DhcpdLayerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg.Ipv4DhcpdLayerEnum>`
-                        
-                        .. attribute:: mac_address  <key>
-                        
-                        	MACAddress
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
                         .. attribute:: static_address
                         
@@ -7650,38 +7456,36 @@ class Ipv4Dhcpd(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.mac_address = None
                             self.client_id = None
                             self.layer = None
-                            self.mac_address = None
                             self.static_address = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.mac_address is None:
+                                raise YPYModelError('Key property mac_address is None')
                             if self.client_id is None:
                                 raise YPYModelError('Key property client_id is None')
                             if self.layer is None:
                                 raise YPYModelError('Key property layer is None')
-                            if self.mac_address is None:
-                                raise YPYModelError('Key property mac_address is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-cfg:static[Cisco-IOS-XR-ipv4-dhcpd-cfg:client-id = ' + str(self.client_id) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:layer = ' + str(self.layer) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:mac-address = ' + str(self.mac_address) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-cfg:static[Cisco-IOS-XR-ipv4-dhcpd-cfg:mac-address = ' + str(self.mac_address) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:client-id = ' + str(self.client_id) + '][Cisco-IOS-XR-ipv4-dhcpd-cfg:layer = ' + str(self.layer) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
+                            if self.mac_address is not None:
+                                return True
+
                             if self.client_id is not None:
                                 return True
 
                             if self.layer is not None:
-                                return True
-
-                            if self.mac_address is not None:
                                 return True
 
                             if self.static_address is not None:
@@ -7706,8 +7510,6 @@ class Ipv4Dhcpd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.static is not None:
                             for child_ref in self.static:
                                 if child_ref._has_data():
@@ -7732,8 +7534,6 @@ class Ipv4Dhcpd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.statics is not None and self.statics._has_data():
                         return True
 
@@ -7795,8 +7595,6 @@ class Ipv4Dhcpd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.mode is not None:
@@ -7988,8 +7786,6 @@ class Ipv4Dhcpd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.argument1 is not None:
@@ -8065,8 +7861,6 @@ class Ipv4Dhcpd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profile is not None:
                         return True
 
@@ -8144,8 +7938,6 @@ class Ipv4Dhcpd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.circuit_id_value is not None:
                             return True
 
@@ -8171,8 +7963,6 @@ class Ipv4Dhcpd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.snoop_circuit_id is not None and self.snoop_circuit_id._has_data():
                         return True
 
@@ -8195,8 +7985,6 @@ class Ipv4Dhcpd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -8241,8 +8029,6 @@ class Ipv4Dhcpd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -8302,8 +8088,6 @@ class Ipv4Dhcpd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.duplicate_mac is not None:
@@ -8364,8 +8148,6 @@ class Ipv4Dhcpd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.num_discover is not None:
                 return True
 
@@ -8389,8 +8171,6 @@ class Ipv4Dhcpd(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.allow_client_id_change is not None:
             return True
 

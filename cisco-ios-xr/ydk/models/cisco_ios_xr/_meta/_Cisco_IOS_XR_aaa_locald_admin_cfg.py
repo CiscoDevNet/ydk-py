@@ -18,7 +18,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the usergroup
                 ''',
                 'name',
@@ -58,7 +58,7 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-aaa-locald-admin-cfg', True),
             _MetaInfoClassMember('secret', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify the secret for the admin user
                 ''',
                 'secret',

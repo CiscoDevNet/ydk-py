@@ -263,8 +263,6 @@ class L3Vpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -373,8 +371,6 @@ class L3Vpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af_name is not None:
                             return True
 
@@ -406,8 +402,6 @@ class L3Vpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af_name is not None:
                         return True
 
@@ -444,8 +438,6 @@ class L3Vpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -488,8 +480,6 @@ class L3Vpn(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.invalid_vrf is not None:
                 for child_ref in self.invalid_vrf:
                     if child_ref._has_data():
@@ -619,8 +609,6 @@ class L3Vpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -729,8 +717,6 @@ class L3Vpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af_name is not None:
                             return True
 
@@ -762,8 +748,6 @@ class L3Vpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af_name is not None:
                         return True
 
@@ -800,8 +784,6 @@ class L3Vpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -844,8 +826,6 @@ class L3Vpn(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -868,8 +848,6 @@ class L3Vpn(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.invalid_vrfs is not None and self.invalid_vrfs._has_data():
             return True
 

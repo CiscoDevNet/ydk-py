@@ -87,7 +87,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('port-type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Port type
                 ''',
                 'port_type',
@@ -140,7 +140,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encrypted password for the user
                 ''',
                 'password',
@@ -236,13 +236,13 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-icpe-infra-cfg', False, [
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Satellite IP Address
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-icpe-infra-cfg', False),
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Satellite IP Address
                         ''',
                         'ip_address',
@@ -255,7 +255,7 @@ _meta_table = {
                 'redundancy',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('secret', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encrypted password for the Satellite
                 ''',
                 'secret',

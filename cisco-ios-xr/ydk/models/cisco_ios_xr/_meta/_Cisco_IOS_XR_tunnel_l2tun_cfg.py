@@ -13,16 +13,16 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'L2TpDigestHashMethodEnum' : _MetaInfoEnum('L2TpDigestHashMethodEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg',
-        {
-            'md5':'md5',
-            'sha1':'sha1',
-        }, 'Cisco-IOS-XR-tunnel-l2tun-cfg', _yang_ns._namespaces['Cisco-IOS-XR-tunnel-l2tun-cfg']),
     'L2TpHashMethodEnum' : _MetaInfoEnum('L2TpHashMethodEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg',
         {
             'md5':'md5',
             'sha1':'sha1',
             'none':'none',
+        }, 'Cisco-IOS-XR-tunnel-l2tun-cfg', _yang_ns._namespaces['Cisco-IOS-XR-tunnel-l2tun-cfg']),
+    'L2TpDigestHashMethodEnum' : _MetaInfoEnum('L2TpDigestHashMethodEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg',
+        {
+            'md5':'md5',
+            'sha1':'sha1',
         }, 'Cisco-IOS-XR-tunnel-l2tun-cfg', _yang_ns._namespaces['Cisco-IOS-XR-tunnel-l2tun-cfg']),
     'L2Tp.Classes.Class_.Security.Ip' : {
         'meta_info' : _MetaInfoClass('L2Tp.Classes.Class_.Security.Ip',
@@ -178,7 +178,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('secret-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Specify the encrypted user secret
                 ''',
                 'secret_name',
@@ -322,7 +322,7 @@ _meta_table = {
                 'ip',
                 'Cisco-IOS-XR-tunnel-l2tun-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify the password for control channel
                 authentication
                 ''',

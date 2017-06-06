@@ -13,15 +13,15 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'XrXmlSessionAlarmRegisterEnum' : _MetaInfoEnum('XrXmlSessionAlarmRegisterEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper',
-        {
-            'registered':'registered',
-            'not-registered':'not_registered',
-        }, 'Cisco-IOS-XR-man-xml-ttyagent-oper', _yang_ns._namespaces['Cisco-IOS-XR-man-xml-ttyagent-oper']),
     'XrXmlSessionStateEnum' : _MetaInfoEnum('XrXmlSessionStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper',
         {
             'idle':'idle',
             'busy':'busy',
+        }, 'Cisco-IOS-XR-man-xml-ttyagent-oper', _yang_ns._namespaces['Cisco-IOS-XR-man-xml-ttyagent-oper']),
+    'XrXmlSessionAlarmRegisterEnum' : _MetaInfoEnum('XrXmlSessionAlarmRegisterEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper',
+        {
+            'registered':'registered',
+            'not-registered':'not_registered',
         }, 'Cisco-IOS-XR-man-xml-ttyagent-oper', _yang_ns._namespaces['Cisco-IOS-XR-man-xml-ttyagent-oper']),
     'Netconf.Agent.Tty.Sessions.Session' : {
         'meta_info' : _MetaInfoClass('Netconf.Agent.Tty.Sessions.Session',

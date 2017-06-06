@@ -13,12 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'AlAlarmBistateEnum' : _MetaInfoEnum('AlAlarmBistateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper',
-        {
-            'not-available':'not_available',
-            'active':'active',
-            'clear':'clear',
-        }, 'Cisco-IOS-XR-infra-alarm-logger-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-alarm-logger-oper']),
     'AlAlarmSeverityEnum' : _MetaInfoEnum('AlAlarmSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper',
         {
             'unknown':'unknown',
@@ -30,6 +24,12 @@ _meta_table = {
             'notice':'notice',
             'informational':'informational',
             'debugging':'debugging',
+        }, 'Cisco-IOS-XR-infra-alarm-logger-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-alarm-logger-oper']),
+    'AlAlarmBistateEnum' : _MetaInfoEnum('AlAlarmBistateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper',
+        {
+            'not-available':'not_available',
+            'active':'active',
+            'clear':'clear',
         }, 'Cisco-IOS-XR-infra-alarm-logger-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-alarm-logger-oper']),
     'AlarmLogger.BufferStatus' : {
         'meta_info' : _MetaInfoClass('AlarmLogger.BufferStatus',

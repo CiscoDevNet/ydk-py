@@ -278,8 +278,6 @@ class SdrInventoryVm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -347,8 +345,6 @@ class SdrInventoryVm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_entry is not None:
                         for child_ref in self.node_entry:
                             if child_ref._has_data():
@@ -373,8 +369,6 @@ class SdrInventoryVm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -398,8 +392,6 @@ class SdrInventoryVm(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -422,8 +414,6 @@ class SdrInventoryVm(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

@@ -495,7 +495,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the VRF instance
                 ''',
                 'vrf_name',

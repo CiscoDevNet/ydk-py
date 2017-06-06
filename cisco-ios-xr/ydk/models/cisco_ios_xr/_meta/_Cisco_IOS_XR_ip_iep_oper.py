@@ -13,10 +13,10 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'IepStatusEnum' : _MetaInfoEnum('IepStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper',
+    'IepHopEnum' : _MetaInfoEnum('IepHopEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper',
         {
-            'enabled':'enabled',
-            'disabled':'disabled',
+            'strict':'strict',
+            'loose':'loose',
         }, 'Cisco-IOS-XR-ip-iep-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-oper']),
     'IepAddressEnum' : _MetaInfoEnum('IepAddressEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper',
         {
@@ -24,17 +24,17 @@ _meta_table = {
             'exclude':'exclude',
             'exclude-srlg':'exclude_srlg',
         }, 'Cisco-IOS-XR-ip-iep-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-oper']),
-    'IepHopEnum' : _MetaInfoEnum('IepHopEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper',
+    'IepStatusEnum' : _MetaInfoEnum('IepStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper',
         {
-            'strict':'strict',
-            'loose':'loose',
+            'enabled':'enabled',
+            'disabled':'disabled',
         }, 'Cisco-IOS-XR-ip-iep-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-oper']),
     'ExplicitPaths.Identifiers.Identifier.Address' : {
         'meta_info' : _MetaInfoClass('ExplicitPaths.Identifiers.Identifier.Address',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 unicast address
                 ''',
                 'address',
@@ -131,7 +131,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 unicast address
                 ''',
                 'address',
@@ -180,7 +180,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Path name
                 ''',
                 'path_name',

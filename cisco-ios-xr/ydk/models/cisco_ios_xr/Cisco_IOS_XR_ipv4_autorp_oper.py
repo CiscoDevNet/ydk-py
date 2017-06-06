@@ -178,8 +178,6 @@ class AutoRp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active_sent_packets is not None:
                         return True
 
@@ -291,8 +289,6 @@ class AutoRp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.access_list_name is not None:
                             return True
 
@@ -331,8 +327,6 @@ class AutoRp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rp is not None:
                         for child_ref in self.rp:
                             if child_ref._has_data():
@@ -355,8 +349,6 @@ class AutoRp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rps is not None and self.rps._has_data():
                     return True
 
@@ -463,8 +455,6 @@ class AutoRp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active_received_packets is not None:
                         return True
 
@@ -645,8 +635,6 @@ class AutoRp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.check_point_object_id is not None:
                                 return True
 
@@ -687,8 +675,6 @@ class AutoRp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rp_address is not None:
                             return True
 
@@ -723,8 +709,6 @@ class AutoRp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rp_address is not None:
                         for child_ref in self.rp_address:
                             if child_ref._has_data():
@@ -784,8 +768,6 @@ class AutoRp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cache_count is not None:
                         return True
 
@@ -812,8 +794,6 @@ class AutoRp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rp_addresses is not None and self.rp_addresses._has_data():
                     return True
 
@@ -840,8 +820,6 @@ class AutoRp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.candidate_rp is not None and self.candidate_rp._has_data():
                 return True
 
@@ -954,8 +932,6 @@ class AutoRp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active_sent_packets is not None:
                         return True
 
@@ -1067,8 +1043,6 @@ class AutoRp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.access_list_name is not None:
                             return True
 
@@ -1107,8 +1081,6 @@ class AutoRp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rp is not None:
                         for child_ref in self.rp:
                             if child_ref._has_data():
@@ -1131,8 +1103,6 @@ class AutoRp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rps is not None and self.rps._has_data():
                     return True
 
@@ -1239,8 +1209,6 @@ class AutoRp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active_received_packets is not None:
                         return True
 
@@ -1421,8 +1389,6 @@ class AutoRp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.check_point_object_id is not None:
                                 return True
 
@@ -1463,8 +1429,6 @@ class AutoRp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rp_address is not None:
                             return True
 
@@ -1499,8 +1463,6 @@ class AutoRp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rp_address is not None:
                         for child_ref in self.rp_address:
                             if child_ref._has_data():
@@ -1560,8 +1522,6 @@ class AutoRp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cache_count is not None:
                         return True
 
@@ -1588,8 +1548,6 @@ class AutoRp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rp_addresses is not None and self.rp_addresses._has_data():
                     return True
 
@@ -1616,8 +1574,6 @@ class AutoRp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.candidate_rp is not None and self.candidate_rp._has_data():
                 return True
 
@@ -1641,8 +1597,6 @@ class AutoRp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.active is not None and self.active._has_data():
             return True
 

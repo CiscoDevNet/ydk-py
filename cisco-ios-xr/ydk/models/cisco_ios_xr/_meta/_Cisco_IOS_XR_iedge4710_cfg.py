@@ -134,7 +134,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('identity-change', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                identity change
                 ''',
                 'identity_change',
@@ -174,7 +174,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                The node id to filter on. For eg., 0/1/CPU0
                 ''',
                 'node_name',
@@ -237,7 +237,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('location1', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Specify location
                 ''',
                 'location1',

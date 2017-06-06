@@ -579,8 +579,6 @@ class MplsStatic(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path_id is not None:
                                     return True
 
@@ -633,8 +631,6 @@ class MplsStatic(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 for child_ref in self.path:
                                     if child_ref._has_data():
@@ -720,8 +716,6 @@ class MplsStatic(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.in_label_value is not None:
                                 return True
 
@@ -904,8 +898,6 @@ class MplsStatic(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path_id is not None:
                                     return True
 
@@ -958,8 +950,6 @@ class MplsStatic(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 for child_ref in self.path:
                                     if child_ref._has_data():
@@ -986,8 +976,6 @@ class MplsStatic(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lsp_name is not None:
                             return True
 
@@ -1022,8 +1010,6 @@ class MplsStatic(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.label_switched_path is not None:
                         for child_ref in self.label_switched_path:
                             if child_ref._has_data():
@@ -1241,8 +1227,6 @@ class MplsStatic(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.label_mode is not None:
                                             return True
 
@@ -1419,8 +1403,6 @@ class MplsStatic(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.path_id is not None:
                                                 return True
 
@@ -1473,8 +1455,6 @@ class MplsStatic(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.path is not None:
                                             for child_ref in self.path:
                                                 if child_ref._has_data():
@@ -1501,8 +1481,6 @@ class MplsStatic(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_label_id is not None:
                                         return True
 
@@ -1531,8 +1509,6 @@ class MplsStatic(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_label is not None:
                                     for child_ref in self.local_label:
                                         if child_ref._has_data():
@@ -1557,8 +1533,6 @@ class MplsStatic(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_labels is not None and self.local_labels._has_data():
                                 return True
 
@@ -1688,8 +1662,6 @@ class MplsStatic(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.label_mode is not None:
                                         return True
 
@@ -1866,8 +1838,6 @@ class MplsStatic(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.path_id is not None:
                                             return True
 
@@ -1920,8 +1890,6 @@ class MplsStatic(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.path is not None:
                                         for child_ref in self.path:
                                             if child_ref._has_data():
@@ -1948,8 +1916,6 @@ class MplsStatic(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_label_id is not None:
                                     return True
 
@@ -1978,8 +1944,6 @@ class MplsStatic(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_label is not None:
                                 for child_ref in self.local_label:
                                     if child_ref._has_data():
@@ -2006,8 +1970,6 @@ class MplsStatic(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi is not None:
                             return True
 
@@ -2039,8 +2001,6 @@ class MplsStatic(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af is not None:
                         for child_ref in self.af:
                             if child_ref._has_data():
@@ -2065,8 +2025,6 @@ class MplsStatic(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -2096,8 +2054,6 @@ class MplsStatic(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -2168,8 +2124,6 @@ class MplsStatic(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -2190,8 +2144,6 @@ class MplsStatic(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -2472,8 +2424,6 @@ class MplsStatic(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path_id is not None:
                                 return True
 
@@ -2526,8 +2476,6 @@ class MplsStatic(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.path is not None:
                             for child_ref in self.path:
                                 if child_ref._has_data():
@@ -2613,8 +2561,6 @@ class MplsStatic(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.in_label_value is not None:
                             return True
 
@@ -2797,8 +2743,6 @@ class MplsStatic(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path_id is not None:
                                 return True
 
@@ -2851,8 +2795,6 @@ class MplsStatic(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.path is not None:
                             for child_ref in self.path:
                                 if child_ref._has_data():
@@ -2877,8 +2819,6 @@ class MplsStatic(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_name is not None:
                         return True
 
@@ -2911,8 +2851,6 @@ class MplsStatic(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.label_switched_path is not None:
                     for child_ref in self.label_switched_path:
                         if child_ref._has_data():
@@ -3130,8 +3068,6 @@ class MplsStatic(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.label_mode is not None:
                                         return True
 
@@ -3308,8 +3244,6 @@ class MplsStatic(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.path_id is not None:
                                             return True
 
@@ -3362,8 +3296,6 @@ class MplsStatic(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.path is not None:
                                         for child_ref in self.path:
                                             if child_ref._has_data():
@@ -3390,8 +3322,6 @@ class MplsStatic(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_label_id is not None:
                                     return True
 
@@ -3420,8 +3350,6 @@ class MplsStatic(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_label is not None:
                                 for child_ref in self.local_label:
                                     if child_ref._has_data():
@@ -3446,8 +3374,6 @@ class MplsStatic(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.local_labels is not None and self.local_labels._has_data():
                             return True
 
@@ -3577,8 +3503,6 @@ class MplsStatic(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.label_mode is not None:
                                     return True
 
@@ -3755,8 +3679,6 @@ class MplsStatic(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.path_id is not None:
                                         return True
 
@@ -3809,8 +3731,6 @@ class MplsStatic(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     for child_ref in self.path:
                                         if child_ref._has_data():
@@ -3837,8 +3757,6 @@ class MplsStatic(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_label_id is not None:
                                 return True
 
@@ -3867,8 +3785,6 @@ class MplsStatic(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.local_label is not None:
                             for child_ref in self.local_label:
                                 if child_ref._has_data():
@@ -3893,8 +3809,6 @@ class MplsStatic(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.afi is not None:
                         return True
 
@@ -3924,8 +3838,6 @@ class MplsStatic(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.af is not None:
                     for child_ref in self.af:
                         if child_ref._has_data():
@@ -3948,8 +3860,6 @@ class MplsStatic(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afs is not None and self.afs._has_data():
                 return True
 
@@ -3976,8 +3886,6 @@ class MplsStatic(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.default_vrf is not None and self.default_vrf._has_data():
             return True
 

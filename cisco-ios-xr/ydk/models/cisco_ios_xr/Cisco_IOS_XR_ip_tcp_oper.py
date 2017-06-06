@@ -1707,8 +1707,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.client_id is not None:
                                 return True
 
@@ -1749,8 +1747,6 @@ class TcpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.client is not None:
                             for child_ref in self.client:
                                 if child_ref._has_data():
@@ -2016,8 +2012,6 @@ class TcpConnection(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.arm_count is not None:
                                     return True
 
@@ -2096,8 +2090,6 @@ class TcpConnection(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.arm_count is not None:
                                     return True
 
@@ -2254,8 +2246,6 @@ class TcpConnection(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.async_session is not None:
                                     return True
 
@@ -2330,8 +2320,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.id is not None:
                                 return True
 
@@ -2411,8 +2399,6 @@ class TcpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pcb is not None:
                             for child_ref in self.pcb:
                                 if child_ref._has_data():
@@ -3156,8 +3142,6 @@ class TcpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ack_only_packets_sent is not None:
                             return True
 
@@ -3435,8 +3419,6 @@ class TcpConnection(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.clients is not None and self.clients._has_data():
                         return True
 
@@ -3644,8 +3626,6 @@ class TcpConnection(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -3711,8 +3691,6 @@ class TcpConnection(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -3856,8 +3834,6 @@ class TcpConnection(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.is_ip_sla is not None:
                                                 return True
 
@@ -3916,8 +3892,6 @@ class TcpConnection(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.is_ignore_vrf_filter is not None:
                                                 return True
 
@@ -3997,8 +3971,6 @@ class TcpConnection(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.is_interface is not None:
                                                 return True
 
@@ -4183,8 +4155,6 @@ class TcpConnection(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.icm_pv6_message_type is not None:
                                                     return True
 
@@ -4256,8 +4226,6 @@ class TcpConnection(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.af_name is not None:
                                                     return True
 
@@ -4323,8 +4291,6 @@ class TcpConnection(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.af_name is not None:
                                                     return True
 
@@ -4353,8 +4319,6 @@ class TcpConnection(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.flow_types_info is not None:
                                                 return True
 
@@ -4407,8 +4371,6 @@ class TcpConnection(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.accept_mask is not None and self.accept_mask._has_data():
                                             return True
 
@@ -4448,8 +4410,6 @@ class TcpConnection(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -4477,8 +4437,6 @@ class TcpConnection(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pcb_id is not None:
                                     return True
 
@@ -4521,8 +4479,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.disp_type is not None:
                                 return True
 
@@ -4550,8 +4506,6 @@ class TcpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.display_type is not None:
                             for child_ref in self.display_type:
                                 if child_ref._has_data():
@@ -4576,8 +4530,6 @@ class TcpConnection(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.display_types is not None and self.display_types._has_data():
                         return True
 
@@ -5359,8 +5311,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -5426,8 +5376,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -5537,8 +5485,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.accept_connection is not None:
                                 return True
 
@@ -5696,8 +5642,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.async_io_notify is not None:
                                 return True
 
@@ -5831,8 +5775,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.connection_keep_alive_timer is not None:
                                 return True
 
@@ -5942,8 +5884,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ack_needed is not None:
                                 return True
 
@@ -6056,8 +5996,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.connection_keep_alive_timer is not None:
                                 return True
 
@@ -6191,8 +6129,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.async_io is not None:
                                 return True
 
@@ -6335,8 +6271,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.async_io is not None:
                                 return True
 
@@ -6437,8 +6371,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.timer_activations is not None:
                                 return True
 
@@ -6501,8 +6433,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.end is not None:
                                 return True
 
@@ -6575,8 +6505,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.duplicated_ack is not None:
                                 return True
 
@@ -6610,8 +6538,6 @@ class TcpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pcb_id is not None:
                             return True
 
@@ -6893,8 +6819,6 @@ class TcpConnection(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.detail_information is not None:
                         for child_ref in self.detail_information:
                             if child_ref._has_data():
@@ -7090,8 +7014,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -7157,8 +7079,6 @@ class TcpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -7189,8 +7109,6 @@ class TcpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pcb_id is not None:
                             return True
 
@@ -7246,8 +7164,6 @@ class TcpConnection(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.brief_information is not None:
                         for child_ref in self.brief_information:
                             if child_ref._has_data():
@@ -7272,8 +7188,6 @@ class TcpConnection(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.id is not None:
                     return True
 
@@ -7306,8 +7220,6 @@ class TcpConnection(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -7330,8 +7242,6 @@ class TcpConnection(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -7512,8 +7422,6 @@ class Tcp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.tcp_checksum_error_packets is not None:
                             return True
 
@@ -7603,8 +7511,6 @@ class Tcp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.tcp_checksum_error_packets is not None:
                             return True
 
@@ -7639,8 +7545,6 @@ class Tcp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipv4_traffic is not None and self.ipv4_traffic._has_data():
                         return True
 
@@ -7666,8 +7570,6 @@ class Tcp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -7691,8 +7593,6 @@ class Tcp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -7715,8 +7615,6 @@ class Tcp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -8002,8 +7900,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.id is not None:
                                 return True
 
@@ -8066,8 +7962,6 @@ class TcpNsr(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.brief_session is not None:
                             for child_ref in self.brief_session:
                                 if child_ref._has_data():
@@ -8660,8 +8554,6 @@ class TcpNsr(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address_family is not None:
                                     return True
 
@@ -8775,8 +8667,6 @@ class TcpNsr(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.acknoledgement_number is not None:
                                     return True
 
@@ -8845,8 +8735,6 @@ class TcpNsr(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.acknoledgement_number is not None:
                                     return True
 
@@ -8877,8 +8765,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.id is not None:
                                 return True
 
@@ -9053,8 +8939,6 @@ class TcpNsr(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detail_session is not None:
                             for child_ref in self.detail_session:
                                 if child_ref._has_data():
@@ -9079,8 +8963,6 @@ class TcpNsr(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.brief_sessions is not None and self.brief_sessions._has_data():
                         return True
 
@@ -9261,8 +9143,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.id is not None:
                                 return True
 
@@ -9315,8 +9195,6 @@ class TcpNsr(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detail_client is not None:
                             for child_ref in self.detail_client:
                                 if child_ref._has_data():
@@ -9451,8 +9329,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.id is not None:
                                 return True
 
@@ -9499,8 +9375,6 @@ class TcpNsr(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.brief_client is not None:
                             for child_ref in self.brief_client:
                                 if child_ref._has_data():
@@ -9525,8 +9399,6 @@ class TcpNsr(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.brief_clients is not None and self.brief_clients._has_data():
                         return True
 
@@ -9894,8 +9766,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.id is not None:
                                 return True
 
@@ -10017,8 +9887,6 @@ class TcpNsr(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detail_set is not None:
                             for child_ref in self.detail_set:
                                 if child_ref._has_data():
@@ -10227,8 +10095,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.id is not None:
                                 return True
 
@@ -10305,8 +10171,6 @@ class TcpNsr(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.brief_set is not None:
                             for child_ref in self.brief_set:
                                 if child_ref._has_data():
@@ -10331,8 +10195,6 @@ class TcpNsr(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.brief_sets is not None and self.brief_sets._has_data():
                         return True
 
@@ -10948,8 +10810,6 @@ class TcpNsr(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cleanup_rcv is not None:
                                     return True
 
@@ -11123,8 +10983,6 @@ class TcpNsr(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cleanup_rcv_drop_no_pcb is not None:
                                     return True
 
@@ -11168,8 +11026,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.aggr_only is not None and self.aggr_only._has_data():
                                 return True
 
@@ -11439,8 +11295,6 @@ class TcpNsr(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.abort is not None:
                                     return True
 
@@ -11598,8 +11452,6 @@ class TcpNsr(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mark_session_set_ack_rcv_drop_aggr is not None:
                                     return True
 
@@ -11637,8 +11489,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.aggr_only is not None and self.aggr_only._has_data():
                                 return True
 
@@ -11711,8 +11561,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.delivered_count is not None:
                                 return True
 
@@ -11744,8 +11592,6 @@ class TcpNsr(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.audit_counters is not None and self.audit_counters._has_data():
                             return True
 
@@ -12051,8 +11897,6 @@ class TcpNsr(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.delivered_count is not None:
                                     return True
 
@@ -12086,8 +11930,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.id is not None:
                                 return True
 
@@ -12142,8 +11984,6 @@ class TcpNsr(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.statistic_client is not None:
                             for child_ref in self.statistic_client:
                                 if child_ref._has_data():
@@ -12284,8 +12124,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.id is not None:
                                 return True
 
@@ -12332,8 +12170,6 @@ class TcpNsr(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.statistic_set is not None:
                             for child_ref in self.statistic_set:
                                 if child_ref._has_data():
@@ -12710,8 +12546,6 @@ class TcpNsr(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cleanup_rcv is not None:
                                     return True
 
@@ -12808,8 +12642,6 @@ class TcpNsr(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.id is not None:
                                 return True
 
@@ -12865,8 +12697,6 @@ class TcpNsr(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.statistic_session is not None:
                             for child_ref in self.statistic_session:
                                 if child_ref._has_data():
@@ -12891,8 +12721,6 @@ class TcpNsr(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.statistic_clients is not None and self.statistic_clients._has_data():
                         return True
 
@@ -12924,8 +12752,6 @@ class TcpNsr(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.id is not None:
                     return True
 
@@ -12958,8 +12784,6 @@ class TcpNsr(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -12982,8 +12806,6 @@ class TcpNsr(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

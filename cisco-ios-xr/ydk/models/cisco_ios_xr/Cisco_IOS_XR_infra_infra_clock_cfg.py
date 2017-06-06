@@ -303,8 +303,6 @@ class Clock(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.end_hour is not None:
@@ -418,8 +416,6 @@ class Clock(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.hour_offset is not None:
@@ -448,8 +444,6 @@ class Clock(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.summer_time is not None and self.summer_time._has_data():
             return True
 

@@ -261,8 +261,6 @@ class Grpc(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.address_family is not None:
                 return True
 
@@ -551,8 +549,6 @@ class Grpc(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.address_family is not None:
                 return True
 
@@ -642,8 +638,6 @@ class Grpc(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.statistics is not None and self.statistics._has_data():
             return True
 

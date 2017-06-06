@@ -876,8 +876,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.direction is not None:
                                 return True
 
@@ -938,8 +936,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bucket_type is not None:
                                 return True
 
@@ -966,8 +962,6 @@ class Alarms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.aid is not None:
                             return True
 
@@ -1048,8 +1042,6 @@ class Alarms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.alarm_info is not None:
                         for child_ref in self.alarm_info:
                             if child_ref._has_data():
@@ -1291,8 +1283,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.direction is not None:
                                 return True
 
@@ -1353,8 +1343,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bucket_type is not None:
                                 return True
 
@@ -1381,8 +1369,6 @@ class Alarms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.aid is not None:
                             return True
 
@@ -1463,8 +1449,6 @@ class Alarms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.alarm_info is not None:
                         for child_ref in self.alarm_info:
                             if child_ref._has_data():
@@ -1693,8 +1677,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.direction is not None:
                                 return True
 
@@ -1718,8 +1700,6 @@ class Alarms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.aid is not None:
                             return True
 
@@ -1794,8 +1774,6 @@ class Alarms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.suppressed_info is not None:
                         for child_ref in self.suppressed_info:
                             if child_ref._has_data():
@@ -1953,8 +1931,6 @@ class Alarms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active is not None:
                         return True
 
@@ -2171,8 +2147,6 @@ class Alarms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connect_count is not None:
                             return True
 
@@ -2238,8 +2212,6 @@ class Alarms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.client_info is not None:
                         for child_ref in self.client_info:
                             if child_ref._has_data():
@@ -2262,8 +2234,6 @@ class Alarms(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -2620,8 +2590,6 @@ class Alarms(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.direction is not None:
                                         return True
 
@@ -2684,8 +2652,6 @@ class Alarms(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bucket_type is not None:
                                         return True
 
@@ -2714,8 +2680,6 @@ class Alarms(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.aid is not None:
                                     return True
 
@@ -2798,8 +2762,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.alarm_info is not None:
                                 for child_ref in self.alarm_info:
                                     if child_ref._has_data():
@@ -3043,8 +3005,6 @@ class Alarms(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.direction is not None:
                                         return True
 
@@ -3107,8 +3067,6 @@ class Alarms(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bucket_type is not None:
                                         return True
 
@@ -3137,8 +3095,6 @@ class Alarms(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.aid is not None:
                                     return True
 
@@ -3221,8 +3177,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.alarm_info is not None:
                                 for child_ref in self.alarm_info:
                                     if child_ref._has_data():
@@ -3453,8 +3407,6 @@ class Alarms(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.direction is not None:
                                         return True
 
@@ -3480,8 +3432,6 @@ class Alarms(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.aid is not None:
                                     return True
 
@@ -3558,8 +3508,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.suppressed_info is not None:
                                 for child_ref in self.suppressed_info:
                                     if child_ref._has_data():
@@ -3719,8 +3667,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active is not None:
                                 return True
 
@@ -3940,8 +3886,6 @@ class Alarms(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.connect_count is not None:
                                     return True
 
@@ -4009,8 +3953,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.client_info is not None:
                                 for child_ref in self.client_info:
                                     if child_ref._has_data():
@@ -4035,8 +3977,6 @@ class Alarms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node_id is not None:
                             return True
 
@@ -4072,8 +4012,6 @@ class Alarms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.detail_location is not None:
                         for child_ref in self.detail_location:
                             if child_ref._has_data():
@@ -4096,8 +4034,6 @@ class Alarms(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.detail_locations is not None and self.detail_locations._has_data():
                     return True
 
@@ -4118,8 +4054,6 @@ class Alarms(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.detail_card is not None and self.detail_card._has_data():
                 return True
 
@@ -4361,8 +4295,6 @@ class Alarms(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.clear_time is not None:
                                     return True
 
@@ -4406,8 +4338,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.alarm_info is not None:
                                 for child_ref in self.alarm_info:
                                     if child_ref._has_data():
@@ -4530,8 +4460,6 @@ class Alarms(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.clear_time is not None:
                                     return True
 
@@ -4575,8 +4503,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.alarm_info is not None:
                                 for child_ref in self.alarm_info:
                                     if child_ref._has_data():
@@ -4699,8 +4625,6 @@ class Alarms(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.description is not None:
                                     return True
 
@@ -4744,8 +4668,6 @@ class Alarms(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.suppressed_info is not None:
                                 for child_ref in self.suppressed_info:
                                     if child_ref._has_data():
@@ -4770,8 +4692,6 @@ class Alarms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node_id is not None:
                             return True
 
@@ -4801,8 +4721,6 @@ class Alarms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.brief_location is not None:
                         for child_ref in self.brief_location:
                             if child_ref._has_data():
@@ -4825,8 +4743,6 @@ class Alarms(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.brief_locations is not None and self.brief_locations._has_data():
                     return True
 
@@ -4981,8 +4897,6 @@ class Alarms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.clear_time is not None:
                             return True
 
@@ -5024,8 +4938,6 @@ class Alarms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.alarm_info is not None:
                         for child_ref in self.alarm_info:
                             if child_ref._has_data():
@@ -5146,8 +5058,6 @@ class Alarms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.clear_time is not None:
                             return True
 
@@ -5189,8 +5099,6 @@ class Alarms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.alarm_info is not None:
                         for child_ref in self.alarm_info:
                             if child_ref._has_data():
@@ -5311,8 +5219,6 @@ class Alarms(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.description is not None:
                             return True
 
@@ -5354,8 +5260,6 @@ class Alarms(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.suppressed_info is not None:
                         for child_ref in self.suppressed_info:
                             if child_ref._has_data():
@@ -5378,8 +5282,6 @@ class Alarms(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -5406,8 +5308,6 @@ class Alarms(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.brief_card is not None and self.brief_card._has_data():
                 return True
 
@@ -5431,8 +5331,6 @@ class Alarms(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.brief is not None and self.brief._has_data():
             return True
 

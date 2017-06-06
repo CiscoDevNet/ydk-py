@@ -13,13 +13,95 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'MgmtFibMplsFrrStateEnum' : _MetaInfoEnum('MgmtFibMplsFrrStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+    'FibFrrProtocolShowEnum' : _MetaInfoEnum('FibFrrProtocolShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'partial':'partial',
-            'active':'active',
-            'ready':'ready',
-            'complete':'complete',
-            'any':'any',
+            'frr-protocol-ipv4':'frr_protocol_ipv4',
+            'frr-protocol-ipv6':'frr_protocol_ipv6',
+            'frr-protocol-mpls':'frr_protocol_mpls',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibLinkEnum' : _MetaInfoEnum('FibLinkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'link-ipv4':'link_ipv4',
+            'link-ipv6':'link_ipv6',
+            'link-mpls':'link_mpls',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibAdjacencyShowEnum' : _MetaInfoEnum('FibAdjacencyShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fib-adjacency-normal':'fib_adjacency_normal',
+            'fib-adjacency-null':'fib_adjacency_null',
+            'fib-adjacency-punt':'fib_adjacency_punt',
+            'fib-adjacency-drop':'fib_adjacency_drop',
+            'fib-adjacency-glean':'fib_adjacency_glean',
+            'fib-adjacency-discard':'fib_adjacency_discard',
+            'fib-adjacency-broadcast':'fib_adjacency_broadcast',
+            'fib-adjacency-external':'fib_adjacency_external',
+            'fib-adjacency-lisp':'fib_adjacency_lisp',
+            'fib-adjacency-unknown':'fib_adjacency_unknown',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibRpfModeEnum' : _MetaInfoEnum('FibRpfModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fib-rpf-mode-strict':'fib_rpf_mode_strict',
+            'fib-rpf-mode-loose':'fib_rpf_mode_loose',
+            'fib-rpf-mode-unknown':'fib_rpf_mode_unknown',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'SsLbaStateEnum' : _MetaInfoEnum('SsLbaStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'l3':'l3',
+            'l4':'l4',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibllcEntryEnum' : _MetaInfoEnum('FibllcEntryEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'xc':'xc',
+            'pfx':'pfx',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibShTblFibExtBagEnum' : _MetaInfoEnum('FibShTblFibExtBagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'leaf-extension':'leaf_extension',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibMplsLlcEntryBagEnum' : _MetaInfoEnum('FibMplsLlcEntryBagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fib-mpls-llc-bag-type-xc':'fib_mpls_llc_bag_type_xc',
+            'fib-mpls-llc-bag-type-pfx':'fib_mpls_llc_bag_type_pfx',
+            'fib-mpls-llc-bag-type-lsm':'fib_mpls_llc_bag_type_lsm',
+            'fib-mpls-llc-bag-type-max':'fib_mpls_llc_bag_type_max',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibidbOperEnum' : _MetaInfoEnum('FibidbOperEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fibidb-none':'fibidb_none',
+            'fibidb-create':'fibidb_create',
+            'fibidb-delete':'fibidb_delete',
+            'fibidb-modify':'fibidb_modify',
+            'fibidb-max':'fibidb_max',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibProtocolEnum' : _MetaInfoEnum('FibProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+            'mpls':'mpls',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibNehEnum' : _MetaInfoEnum('FibNehEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'nh-local':'nh_local',
+            'nh-remote':'nh_remote',
+            'nh-special':'nh_special',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'MplseosEnum' : _MetaInfoEnum('MplseosEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'eos0':'eos0',
+            'eos1':'eos1',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibUpdatePathLfaProtectionEnum' : _MetaInfoEnum('FibUpdatePathLfaProtectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'not-lfa-protected':'not_lfa_protected',
+            'local-lfa-protected':'local_lfa_protected',
+            'remote-lfa-protected':'remote_lfa_protected',
+            'ti-lfa-protected':'ti_lfa_protected',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'NextHopEnum' : _MetaInfoEnum('NextHopEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'tx':'tx',
+            'rx':'rx',
+            'special':'special',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibNehSpecialEnum' : _MetaInfoEnum('FibNehSpecialEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
@@ -35,56 +117,10 @@ _meta_table = {
             'nh-lookup':'nh_lookup',
             'nh-max-type':'nh_max_type',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'ProtoEnum' : _MetaInfoEnum('ProtoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+    'MgmtFibMplsLspRoleEnum' : _MetaInfoEnum('MgmtFibMplsLspRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'ipv4':'ipv4',
-            'ipv6':'ipv6',
-            'mpls':'mpls',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibShIpencapHdrEnum' : _MetaInfoEnum('FibShIpencapHdrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-sh-ip-encap-none':'fib_sh_ip_encap_none',
-            'fib-sh-ip-encap-ip4':'fib_sh_ip_encap_ip4',
-            'fib-sh-ip-encap-ip6':'fib_sh_ip_encap_ip6',
-            'fib-sh-ip-encap-udp':'fib_sh_ip_encap_udp',
-            'fib-sh-ip-encap-lisp':'fib_sh_ip_encap_lisp',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibAdjacencyShowEnum' : _MetaInfoEnum('FibAdjacencyShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-adjacency-normal':'fib_adjacency_normal',
-            'fib-adjacency-null':'fib_adjacency_null',
-            'fib-adjacency-punt':'fib_adjacency_punt',
-            'fib-adjacency-drop':'fib_adjacency_drop',
-            'fib-adjacency-glean':'fib_adjacency_glean',
-            'fib-adjacency-discard':'fib_adjacency_discard',
-            'fib-adjacency-broadcast':'fib_adjacency_broadcast',
-            'fib-adjacency-external':'fib_adjacency_external',
-            'fib-adjacency-lisp':'fib_adjacency_lisp',
-            'fib-adjacency-unknown':'fib_adjacency_unknown',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'SsLbaStateEnum' : _MetaInfoEnum('SsLbaStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'l3':'l3',
-            'l4':'l4',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibRouteSourceEnum' : _MetaInfoEnum('FibRouteSourceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'lsd':'lsd',
-            'rib':'rib',
-            'mrib':'mrib',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibMplsLlcEntryBagEnum' : _MetaInfoEnum('FibMplsLlcEntryBagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-mpls-llc-bag-type-xc':'fib_mpls_llc_bag_type_xc',
-            'fib-mpls-llc-bag-type-pfx':'fib_mpls_llc_bag_type_pfx',
-            'fib-mpls-llc-bag-type-lsm':'fib_mpls_llc_bag_type_lsm',
-            'fib-mpls-llc-bag-type-max':'fib_mpls_llc_bag_type_max',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibRpfModeEnum' : _MetaInfoEnum('FibRpfModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-rpf-mode-strict':'fib_rpf_mode_strict',
-            'fib-rpf-mode-loose':'fib_rpf_mode_loose',
-            'fib-rpf-mode-unknown':'fib_rpf_mode_unknown',
+            'head':'head',
+            'midpoint':'midpoint',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibafiProtoEnum' : _MetaInfoEnum('FibafiProtoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
@@ -93,29 +129,25 @@ _meta_table = {
             'ipv6':'ipv6',
             'ipv6-mpls':'ipv6_mpls',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'MplseosEnum' : _MetaInfoEnum('MplseosEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+    'MgmtFibMplsFrrStateEnum' : _MetaInfoEnum('MgmtFibMplsFrrStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'eos0':'eos0',
-            'eos1':'eos1',
+            'partial':'partial',
+            'active':'active',
+            'ready':'ready',
+            'complete':'complete',
+            'any':'any',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibFrrProtocolShowEnum' : _MetaInfoEnum('FibFrrProtocolShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+    'ProtoEnum' : _MetaInfoEnum('ProtoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'frr-protocol-ipv4':'frr_protocol_ipv4',
-            'frr-protocol-ipv6':'frr_protocol_ipv6',
-            'frr-protocol-mpls':'frr_protocol_mpls',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+            'mpls':'mpls',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibLinkEnum' : _MetaInfoEnum('FibLinkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+    'FibRouteSourceEnum' : _MetaInfoEnum('FibRouteSourceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'link-ipv4':'link_ipv4',
-            'link-ipv6':'link_ipv6',
-            'link-mpls':'link_mpls',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibUpdatePathLfaProtectionEnum' : _MetaInfoEnum('FibUpdatePathLfaProtectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'not-lfa-protected':'not_lfa_protected',
-            'local-lfa-protected':'local_lfa_protected',
-            'remote-lfa-protected':'remote_lfa_protected',
-            'ti-lfa-protected':'ti_lfa_protected',
+            'lsd':'lsd',
+            'rib':'rib',
+            'mrib':'mrib',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibLoadshareShowEnum' : _MetaInfoEnum('FibLoadshareShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
@@ -123,45 +155,13 @@ _meta_table = {
             'fib-load-share-per-packet':'fib_load_share_per_packet',
             'fib-load-share-dest-sharing':'fib_load_share_dest_sharing',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibllcEntryEnum' : _MetaInfoEnum('FibllcEntryEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+    'FibShIpencapHdrEnum' : _MetaInfoEnum('FibShIpencapHdrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'xc':'xc',
-            'pfx':'pfx',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibNehEnum' : _MetaInfoEnum('FibNehEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'nh-local':'nh_local',
-            'nh-remote':'nh_remote',
-            'nh-special':'nh_special',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'NextHopEnum' : _MetaInfoEnum('NextHopEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'tx':'tx',
-            'rx':'rx',
-            'special':'special',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'MgmtFibMplsLspRoleEnum' : _MetaInfoEnum('MgmtFibMplsLspRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'head':'head',
-            'midpoint':'midpoint',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibProtocolEnum' : _MetaInfoEnum('FibProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'ipv4':'ipv4',
-            'ipv6':'ipv6',
-            'mpls':'mpls',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibidbOperEnum' : _MetaInfoEnum('FibidbOperEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fibidb-none':'fibidb_none',
-            'fibidb-create':'fibidb_create',
-            'fibidb-delete':'fibidb_delete',
-            'fibidb-modify':'fibidb_modify',
-            'fibidb-max':'fibidb_max',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibShTblFibExtBagEnum' : _MetaInfoEnum('FibShTblFibExtBagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'leaf-extension':'leaf_extension',
+            'fib-sh-ip-encap-none':'fib_sh_ip_encap_none',
+            'fib-sh-ip-encap-ip4':'fib_sh_ip_encap_ip4',
+            'fib-sh-ip-encap-ip6':'fib_sh_ip_encap_ip6',
+            'fib-sh-ip-encap-udp':'fib_sh_ip_encap_udp',
+            'fib-sh-ip-encap-lisp':'fib_sh_ip_encap_lisp',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibStatistics.Nodes.Node.Drops' : {
         'meta_info' : _MetaInfoClass('FibStatistics.Nodes.Node.Drops',
@@ -317,7 +317,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',
@@ -1064,7 +1064,7 @@ _meta_table = {
                 'sr_hw_oor_count',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('sr-hwrsrc-info', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Opaque hardware rsrc state info
                 ''',
                 'sr_hwrsrc_info',
@@ -1152,7 +1152,7 @@ _meta_table = {
                 'sr_hw_oor_count',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('sr-hwrsrc-info', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Opaque hardware rsrc state info
                 ''',
                 'sr_hwrsrc_info',
@@ -1240,7 +1240,7 @@ _meta_table = {
                 'sr_hw_oor_count',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('sr-hwrsrc-info', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Opaque hardware rsrc state info
                 ''',
                 'sr_hwrsrc_info',
@@ -1328,7 +1328,7 @@ _meta_table = {
                 'sr_hw_oor_count',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('sr-hwrsrc-info', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Opaque hardware rsrc state info
                 ''',
                 'sr_hwrsrc_info',
@@ -1840,7 +1840,7 @@ _meta_table = {
                 'old_unresolve_entries',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                The router-id
                 ''',
                 'prefix',
@@ -1918,7 +1918,7 @@ _meta_table = {
                 'ss_vrf_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('ss-vxlan-ltep-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                VXLAN local Interface handle
                 ''',
                 'ss_vxlan_ltep_ifh',
@@ -1948,7 +1948,7 @@ _meta_table = {
                 'unresolve_entries',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF Name
                 ''',
                 'vrf_name',
@@ -2063,13 +2063,13 @@ _meta_table = {
                 'log_index',
                 'Cisco-IOS-XR-fib-common-oper', True),
             _MetaInfoClassMember('bundle-member-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                bundle member
                 ''',
                 'bundle_member_interface_name',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('frr-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface assoc w frr nh
                 ''',
                 'frr_interface_name',
@@ -2127,7 +2127,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('frr-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'frr_interface_name',
@@ -2258,7 +2258,7 @@ _meta_table = {
                 'adjacency_address',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('interface-handle', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle
                 ''',
                 'interface_handle',
@@ -2294,7 +2294,7 @@ _meta_table = {
                 'maximum_slots',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('normalized-weights', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Normalized weights
                 ''',
                 'normalized_weights',
@@ -2306,13 +2306,13 @@ _meta_table = {
                 'number_of_ldis',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('path-indices', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Path indices
                 ''',
                 'path_indices',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('path-ldi-numbers', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Path indices
                 ''',
                 'path_ldi_numbers',
@@ -2324,19 +2324,19 @@ _meta_table = {
                 'pbts_class_is_fallback_mapped',
                 'Cisco-IOS-XR-fib-common-oper', False, max_elements=9, min_elements=9),
             _MetaInfoClassMember('pbts-class-num-paths', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                PBTS class num paths
                 ''',
                 'pbts_class_num_paths',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('pbts-class-offset', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                PBTS class offset
                 ''',
                 'pbts_class_offset',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('pbts-fallback-mapped-class', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                PBTS class falls back to class
                 ''',
                 'pbts_fallback_mapped_class',
@@ -2348,7 +2348,7 @@ _meta_table = {
                 'pbts_fallback_to_drop',
                 'Cisco-IOS-XR-fib-common-oper', False, max_elements=9, min_elements=9),
             _MetaInfoClassMember('platform-hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Platform Hardware info
                 ''',
                 'platform_hardware_information',
@@ -2366,7 +2366,7 @@ _meta_table = {
                 'sanity_flag',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('tunnel-class-value', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Tunnel class value
                 ''',
                 'tunnel_class_value',
@@ -2496,7 +2496,7 @@ _meta_table = {
                 'afi_fib_protocol_type',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('aib-l3-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                AIB L3 Address
                 ''',
                 'aib_l3_address',
@@ -2532,7 +2532,7 @@ _meta_table = {
                 'bytes_through_fib_entry',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('com-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                com st
                 ''',
                 'com_string',
@@ -2544,7 +2544,7 @@ _meta_table = {
                 'detailed_prefix_length',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('extcom-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                extcom st
                 ''',
                 'extcom_string',
@@ -2562,7 +2562,7 @@ _meta_table = {
                 'fast_adjacency_flag',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('fib-entry-adjacency-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                FIB entry adj address
                 ''',
                 'fib_entry_adjacency_address',
@@ -2652,7 +2652,7 @@ _meta_table = {
                 'packets_through_fib_entry',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('path-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                As path string
                 ''',
                 'path_string',
@@ -2741,7 +2741,7 @@ _meta_table = {
                 'ip_encap_hdr_type',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('ip-encap-hdrp', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Static Header
                 ''',
                 'ip_encap_hdrp',
@@ -2865,7 +2865,7 @@ _meta_table = {
                 'fib_path_nh_information_type_special',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('interface-associated-path', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface associated with this path
                 ''',
                 'interface_associated_path',
@@ -2889,7 +2889,7 @@ _meta_table = {
                 'lisprlocid',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('next-hop-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Next hop interface
                 ''',
                 'next_hop_interface',
@@ -2919,13 +2919,13 @@ _meta_table = {
                 'next_prefix_length2',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('next-prefix-recursion', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Next prefix recursion in the path
                 ''',
                 'next_prefix_recursion',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('next-prefix-recursion2', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Next prefix2 recursion in the path
                 ''',
                 'next_prefix_recursion2',
@@ -3021,7 +3021,7 @@ _meta_table = {
                 'number_of_labels',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                OutInterface
                 ''',
                 'out_interface',
@@ -3115,7 +3115,7 @@ _meta_table = {
                 'best_external_path',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('brief-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle
                 ''',
                 'brief_interface_handle',
@@ -3145,7 +3145,7 @@ _meta_table = {
                 'brief_qnode_address',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Hardware info
                 ''',
                 'hardware_information',
@@ -3175,7 +3175,7 @@ _meta_table = {
                 'packets_received_path',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('parent-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent Interface Handle
                 ''',
                 'parent_interface_handle',
@@ -3499,7 +3499,7 @@ _meta_table = {
                 'path_list_source',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('platform-hardware', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Platform Hardware info
                 ''',
                 'platform_hardware',
@@ -3511,13 +3511,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-fib-common-oper', False, [
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Destination IP address
                         ''',
                         'prefix',
                         'Cisco-IOS-XR-fib-common-oper', False),
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Destination IP address
                         ''',
                         'prefix',
@@ -4079,7 +4079,7 @@ _meta_table = {
                 'old_unresolve_entries',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                The router-id
                 ''',
                 'prefix',
@@ -4157,7 +4157,7 @@ _meta_table = {
                 'ss_vrf_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('ss-vxlan-ltep-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                VXLAN local Interface handle
                 ''',
                 'ss_vxlan_ltep_ifh',
@@ -4450,7 +4450,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -4570,7 +4570,7 @@ _meta_table = {
                 'p2p_interface_flag',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('per-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle
                 ''',
                 'per_interface',
@@ -4784,7 +4784,7 @@ _meta_table = {
                 'adjacency_address',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('interface-handle', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle
                 ''',
                 'interface_handle',
@@ -4820,7 +4820,7 @@ _meta_table = {
                 'maximum_slots',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('normalized-weights', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Normalized weights
                 ''',
                 'normalized_weights',
@@ -4832,13 +4832,13 @@ _meta_table = {
                 'number_of_ldis',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('path-indices', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Path indices
                 ''',
                 'path_indices',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('path-ldi-numbers', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Path indices
                 ''',
                 'path_ldi_numbers',
@@ -4850,19 +4850,19 @@ _meta_table = {
                 'pbts_class_is_fallback_mapped',
                 'Cisco-IOS-XR-fib-common-oper', False, max_elements=9, min_elements=9),
             _MetaInfoClassMember('pbts-class-num-paths', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                PBTS class num paths
                 ''',
                 'pbts_class_num_paths',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('pbts-class-offset', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                PBTS class offset
                 ''',
                 'pbts_class_offset',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('pbts-fallback-mapped-class', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                PBTS class falls back to class
                 ''',
                 'pbts_fallback_mapped_class',
@@ -4874,7 +4874,7 @@ _meta_table = {
                 'pbts_fallback_to_drop',
                 'Cisco-IOS-XR-fib-common-oper', False, max_elements=9, min_elements=9),
             _MetaInfoClassMember('platform-hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Platform Hardware info
                 ''',
                 'platform_hardware_information',
@@ -4892,7 +4892,7 @@ _meta_table = {
                 'sanity_flag',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('tunnel-class-value', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Tunnel class value
                 ''',
                 'tunnel_class_value',
@@ -5022,7 +5022,7 @@ _meta_table = {
                 'afi_fib_protocol_type',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('aib-l3-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                AIB L3 Address
                 ''',
                 'aib_l3_address',
@@ -5058,7 +5058,7 @@ _meta_table = {
                 'bytes_through_fib_entry',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('com-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                com st
                 ''',
                 'com_string',
@@ -5070,7 +5070,7 @@ _meta_table = {
                 'detailed_prefix_length',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('extcom-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                extcom st
                 ''',
                 'extcom_string',
@@ -5088,7 +5088,7 @@ _meta_table = {
                 'fast_adjacency_flag',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('fib-entry-adjacency-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                FIB entry adj address
                 ''',
                 'fib_entry_adjacency_address',
@@ -5178,7 +5178,7 @@ _meta_table = {
                 'packets_through_fib_entry',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('path-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                As path string
                 ''',
                 'path_string',
@@ -5267,7 +5267,7 @@ _meta_table = {
                 'ip_encap_hdr_type',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('ip-encap-hdrp', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Static Header
                 ''',
                 'ip_encap_hdrp',
@@ -5391,7 +5391,7 @@ _meta_table = {
                 'fib_path_nh_information_type_special',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('interface-associated-path', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface associated with this path
                 ''',
                 'interface_associated_path',
@@ -5415,7 +5415,7 @@ _meta_table = {
                 'lisprlocid',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('next-hop-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Next hop interface
                 ''',
                 'next_hop_interface',
@@ -5445,13 +5445,13 @@ _meta_table = {
                 'next_prefix_length2',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('next-prefix-recursion', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Next prefix recursion in the path
                 ''',
                 'next_prefix_recursion',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('next-prefix-recursion2', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Next prefix2 recursion in the path
                 ''',
                 'next_prefix_recursion2',
@@ -5547,7 +5547,7 @@ _meta_table = {
                 'number_of_labels',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                OutInterface
                 ''',
                 'out_interface',
@@ -5641,7 +5641,7 @@ _meta_table = {
                 'best_external_path',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('brief-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle
                 ''',
                 'brief_interface_handle',
@@ -5671,7 +5671,7 @@ _meta_table = {
                 'brief_qnode_address',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Hardware info
                 ''',
                 'hardware_information',
@@ -5701,7 +5701,7 @@ _meta_table = {
                 'packets_received_path',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('parent-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent Interface Handle
                 ''',
                 'parent_interface_handle',
@@ -6025,7 +6025,7 @@ _meta_table = {
                 'path_list_source',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('platform-hardware', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Platform Hardware info
                 ''',
                 'platform_hardware',
@@ -6037,13 +6037,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-fib-common-oper', False, [
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Destination IP address
                         ''',
                         'prefix',
                         'Cisco-IOS-XR-fib-common-oper', False),
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Destination IP address
                         ''',
                         'prefix',
@@ -6175,7 +6175,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF Name
                 ''',
                 'vrf_name',
@@ -6233,7 +6233,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nh-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Next-hop address in string format (e.g., 1
                 .2.3.4)
                 ''',
@@ -6258,13 +6258,13 @@ _meta_table = {
                 'nh_id_value',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('nh-interf-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Next-hop interface
                 ''',
                 'nh_interf_handle',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('nh-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'nh_interface_name',
@@ -7879,7 +7879,7 @@ _meta_table = {
                 'pfx_tbl_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IP Prefix
                 ''',
                 'prefix',
@@ -8055,7 +8055,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',
@@ -8343,7 +8343,7 @@ _meta_table = {
                 'fast_bundle_member_down_interface',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('frr-event-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node on which the FRR event happened
                 ''',
                 'frr_event_node_id',
@@ -8367,7 +8367,7 @@ _meta_table = {
                 'number_of_rewrites_affected',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('protected-frr-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'protected_frr_interface_name',
@@ -8414,7 +8414,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ldi-hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Hardware info
                 ''',
                 'ldi_hardware_information',
@@ -8473,7 +8473,7 @@ _meta_table = {
                 'multicast_mpls_protocol_output_paths',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('multicast-platform-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                The multicast platform data
                 ''',
                 'multicast_platform_data',
@@ -8498,7 +8498,7 @@ _meta_table = {
                 'multicast_tunnel_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('multicast-tunnel-interface-handler', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                multicast mpls tunnel
                 ''',
                 'multicast_tunnel_interface_handler',
@@ -8545,7 +8545,7 @@ _meta_table = {
                 'mac_size',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('next-hop-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Next hop interface
                 ''',
                 'next_hop_interface',
@@ -8658,7 +8658,7 @@ _meta_table = {
                 'mpls_adjacency_flags',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('outgoing-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'outgoing_interface',
@@ -8682,7 +8682,7 @@ _meta_table = {
                 'outgoing_label_string',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('outgoing-physical-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Physical Interface
                 ''',
                 'outgoing_physical_interface',
@@ -8700,7 +8700,7 @@ _meta_table = {
                 'tunnel_id_present',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel Interface
                 ''',
                 'tunnel_interface',
@@ -8747,7 +8747,7 @@ _meta_table = {
                 'eos_bit',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Hardware info
                 ''',
                 'hardware_information',
@@ -8901,7 +8901,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ldi-hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Hardware info
                 ''',
                 'ldi_hardware_information',
@@ -8960,7 +8960,7 @@ _meta_table = {
                 'multicast_mpls_protocol_output_paths',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('multicast-platform-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                The multicast platform data
                 ''',
                 'multicast_platform_data',
@@ -8985,7 +8985,7 @@ _meta_table = {
                 'multicast_tunnel_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('multicast-tunnel-interface-handler', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                multicast mpls tunnel
                 ''',
                 'multicast_tunnel_interface_handler',
@@ -9032,7 +9032,7 @@ _meta_table = {
                 'mac_size',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('next-hop-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Next hop interface
                 ''',
                 'next_hop_interface',
@@ -9145,7 +9145,7 @@ _meta_table = {
                 'mpls_adjacency_flags',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('outgoing-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'outgoing_interface',
@@ -9169,7 +9169,7 @@ _meta_table = {
                 'outgoing_label_string',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('outgoing-physical-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Physical Interface
                 ''',
                 'outgoing_physical_interface',
@@ -9187,7 +9187,7 @@ _meta_table = {
                 'tunnel_id_present',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel Interface
                 ''',
                 'tunnel_interface',
@@ -9234,7 +9234,7 @@ _meta_table = {
                 'eos_bit',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Hardware info
                 ''',
                 'hardware_information',
@@ -9388,7 +9388,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -9431,7 +9431,7 @@ _meta_table = {
                 'rpf_supported',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('rpfifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                RPF interface handle
                 ''',
                 'rpfifh',
@@ -9576,7 +9576,7 @@ _meta_table = {
                 'tunnel_fwd_class',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('tunnel-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface_name',
@@ -9630,7 +9630,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ldi-hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Hardware info
                 ''',
                 'ldi_hardware_information',
@@ -9689,7 +9689,7 @@ _meta_table = {
                 'multicast_mpls_protocol_output_paths',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('multicast-platform-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                The multicast platform data
                 ''',
                 'multicast_platform_data',
@@ -9714,7 +9714,7 @@ _meta_table = {
                 'multicast_tunnel_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('multicast-tunnel-interface-handler', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                multicast mpls tunnel
                 ''',
                 'multicast_tunnel_interface_handler',
@@ -9761,7 +9761,7 @@ _meta_table = {
                 'mac_size',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('next-hop-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Next hop interface
                 ''',
                 'next_hop_interface',
@@ -9874,7 +9874,7 @@ _meta_table = {
                 'mpls_adjacency_flags',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('outgoing-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'outgoing_interface',
@@ -9898,7 +9898,7 @@ _meta_table = {
                 'outgoing_label_string',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('outgoing-physical-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Physical Interface
                 ''',
                 'outgoing_physical_interface',
@@ -9916,7 +9916,7 @@ _meta_table = {
                 'tunnel_id_present',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel Interface
                 ''',
                 'tunnel_interface',
@@ -9957,7 +9957,7 @@ _meta_table = {
                 'eos_bit',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Hardware info
                 ''',
                 'hardware_information',
@@ -10088,7 +10088,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -10186,7 +10186,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -10280,7 +10280,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Destination prefix
                 ''',
                 'destination_prefix',
@@ -10309,7 +10309,7 @@ _meta_table = {
                 'lspid',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Source IPv4 address
                 ''',
                 'source_address',
@@ -10361,7 +10361,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Destination prefix
                 ''',
                 'destination_prefix',
@@ -10390,7 +10390,7 @@ _meta_table = {
                 'lspid',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Source IPv4 address
                 ''',
                 'source_address',
@@ -10454,7 +10454,7 @@ _meta_table = {
                 'frr_entry_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('frr-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                FRR interface
                 ''',
                 'frr_interface_name',
@@ -10466,7 +10466,7 @@ _meta_table = {
                 'frr_label',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('frr-next-hop-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop IPv4 address
                 ''',
                 'frr_next_hop_ipv4_address',
@@ -10484,7 +10484,7 @@ _meta_table = {
                 'is_mldp_lsp',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('outgoing-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'outgoing_interface',
@@ -10496,7 +10496,7 @@ _meta_table = {
                 'outgoing_label',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('tunnel-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface_name',
@@ -10525,7 +10525,7 @@ _meta_table = {
                 'frr_entry_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('frr-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                FRR interface
                 ''',
                 'frr_interface_name',
@@ -10537,7 +10537,7 @@ _meta_table = {
                 'frr_label',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('frr-next-hop-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop IPv4 address
                 ''',
                 'frr_next_hop_ipv4_address',
@@ -10573,7 +10573,7 @@ _meta_table = {
                 'multicast_tunnel_legs',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('outgoing-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'outgoing_interface',
@@ -10585,7 +10585,7 @@ _meta_table = {
                 'outgoing_label',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('tunnel-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface_name',
@@ -10655,7 +10655,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Destination prefix
                 ''',
                 'destination_prefix',
@@ -10684,7 +10684,7 @@ _meta_table = {
                 'lspid',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Source IPv4 address
                 ''',
                 'source_address',
@@ -10736,7 +10736,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Destination prefix
                 ''',
                 'destination_prefix',
@@ -10765,7 +10765,7 @@ _meta_table = {
                 'lspid',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Source IPv4 address
                 ''',
                 'source_address',
@@ -10829,7 +10829,7 @@ _meta_table = {
                 'frr_entry_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('frr-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                FRR interface
                 ''',
                 'frr_interface_name',
@@ -10841,7 +10841,7 @@ _meta_table = {
                 'frr_label',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('frr-next-hop-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop IPv4 address
                 ''',
                 'frr_next_hop_ipv4_address',
@@ -10859,7 +10859,7 @@ _meta_table = {
                 'is_mldp_lsp',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('outgoing-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'outgoing_interface',
@@ -10871,7 +10871,7 @@ _meta_table = {
                 'outgoing_label',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('tunnel-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface_name',
@@ -10900,7 +10900,7 @@ _meta_table = {
                 'frr_entry_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('frr-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                FRR interface
                 ''',
                 'frr_interface_name',
@@ -10912,7 +10912,7 @@ _meta_table = {
                 'frr_label',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('frr-next-hop-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop IPv4 address
                 ''',
                 'frr_next_hop_ipv4_address',
@@ -10948,7 +10948,7 @@ _meta_table = {
                 'multicast_tunnel_legs',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('outgoing-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'outgoing_interface',
@@ -10960,7 +10960,7 @@ _meta_table = {
                 'outgoing_label',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('tunnel-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface_name',
@@ -10977,7 +10977,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -11065,7 +11065,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -11183,7 +11183,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_name',

@@ -283,8 +283,6 @@ class RoutingPolicy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ip_prefix is not None:
                             return True
 
@@ -310,8 +308,6 @@ class RoutingPolicy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.prefix_set_name is not None:
                         return True
 
@@ -337,8 +333,6 @@ class RoutingPolicy(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.prefix_set is not None:
                     for child_ref in self.prefix_set:
                         if child_ref._has_data():
@@ -450,8 +444,6 @@ class RoutingPolicy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -474,8 +466,6 @@ class RoutingPolicy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor_set_name is not None:
                         return True
 
@@ -501,8 +491,6 @@ class RoutingPolicy(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.neighbor_set is not None:
                     for child_ref in self.neighbor_set:
                         if child_ref._has_data():
@@ -614,8 +602,6 @@ class RoutingPolicy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.value is not None:
                             return True
 
@@ -638,8 +624,6 @@ class RoutingPolicy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tag_set_name is not None:
                         return True
 
@@ -665,8 +649,6 @@ class RoutingPolicy(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tag_set is not None:
                     for child_ref in self.tag_set:
                         if child_ref._has_data():
@@ -804,8 +786,6 @@ class RoutingPolicy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.community_set_name is not None:
                             return True
 
@@ -831,8 +811,6 @@ class RoutingPolicy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.community_set is not None:
                         for child_ref in self.community_set:
                             if child_ref._has_data():
@@ -951,8 +929,6 @@ class RoutingPolicy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ext_community_set_name is not None:
                             return True
 
@@ -978,8 +954,6 @@ class RoutingPolicy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ext_community_set is not None:
                         for child_ref in self.ext_community_set:
                             if child_ref._has_data():
@@ -1056,8 +1030,6 @@ class RoutingPolicy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.as_path_set_name is not None:
                             return True
 
@@ -1083,8 +1055,6 @@ class RoutingPolicy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.as_path_set is not None:
                         for child_ref in self.as_path_set:
                             if child_ref._has_data():
@@ -1107,8 +1077,6 @@ class RoutingPolicy(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.as_path_sets is not None and self.as_path_sets._has_data():
                     return True
 
@@ -1135,8 +1103,6 @@ class RoutingPolicy(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bgp_defined_sets is not None and self.bgp_defined_sets._has_data():
                 return True
 
@@ -1390,8 +1356,6 @@ class RoutingPolicy(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.match_set_options is not None:
@@ -1457,8 +1421,6 @@ class RoutingPolicy(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.match_set_options is not None:
@@ -1524,8 +1486,6 @@ class RoutingPolicy(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.match_set_options is not None:
@@ -1568,8 +1528,6 @@ class RoutingPolicy(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 return False
 
                             @staticmethod
@@ -1768,8 +1726,6 @@ class RoutingPolicy(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.community_set is not None:
@@ -1835,8 +1791,6 @@ class RoutingPolicy(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.ext_community_set is not None:
@@ -1902,8 +1856,6 @@ class RoutingPolicy(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.as_path_set is not None:
@@ -1969,8 +1921,6 @@ class RoutingPolicy(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.operator is not None:
@@ -2036,8 +1986,6 @@ class RoutingPolicy(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.operator is not None:
@@ -2065,8 +2013,6 @@ class RoutingPolicy(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.afi_safi_in is not None:
                                     for child_ref in self.afi_safi_in:
                                         if child_ref._has_data():
@@ -2123,8 +2069,6 @@ class RoutingPolicy(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp_conditions is not None and self.bgp_conditions._has_data():
                                 return True
 
@@ -2241,8 +2185,6 @@ class RoutingPolicy(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.set_tag is not None:
                                     return True
 
@@ -2397,8 +2339,6 @@ class RoutingPolicy(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.repeat_n is not None:
@@ -2488,8 +2428,6 @@ class RoutingPolicy(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.communities is not None:
@@ -2612,8 +2550,6 @@ class RoutingPolicy(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.communities is not None:
@@ -2646,8 +2582,6 @@ class RoutingPolicy(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.set_as_path_prepend is not None and self.set_as_path_prepend._has_data():
                                     return True
 
@@ -2688,8 +2622,6 @@ class RoutingPolicy(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.accept_route is not None:
                                 return True
 
@@ -2723,8 +2655,6 @@ class RoutingPolicy(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -2753,8 +2683,6 @@ class RoutingPolicy(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.statement is not None:
                         for child_ref in self.statement:
                             if child_ref._has_data():
@@ -2779,8 +2707,6 @@ class RoutingPolicy(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -2804,8 +2730,6 @@ class RoutingPolicy(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.policy_definition is not None:
                 for child_ref in self.policy_definition:
                     if child_ref._has_data():
@@ -2828,8 +2752,6 @@ class RoutingPolicy(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.defined_sets is not None and self.defined_sets._has_data():
             return True
 

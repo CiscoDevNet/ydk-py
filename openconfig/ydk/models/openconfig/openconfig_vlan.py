@@ -182,8 +182,6 @@ class Vlans(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -286,8 +284,6 @@ class Vlans(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.member_ports is not None:
                     for child in self.member_ports:
                         if child is not None:
@@ -321,8 +317,6 @@ class Vlans(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vlan_id is not None:
                 return True
 
@@ -349,8 +343,6 @@ class Vlans(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.vlan is not None:
             for child_ref in self.vlan:
                 if child_ref._has_data():

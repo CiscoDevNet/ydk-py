@@ -58,14 +58,14 @@ _meta_table = {
                 'prefix',
                 'openconfig-local-routing', False, [
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Destination prefix for the static route, either IPv4 or
                         IPv6.
                         ''',
                         'prefix',
                         'openconfig-local-routing', False),
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Destination prefix for the static route, either IPv4 or
                         IPv6.
                         ''',
@@ -89,7 +89,7 @@ _meta_table = {
                         'set_tag',
                         'openconfig-local-routing', False),
                     _MetaInfoClassMember('set-tag', ATTRIBUTE, 'str' , None, None, 
-                        [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                        [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                         '''                        Set a generic tag value on the route. This tag can be
                         used for filtering routes that are distributed to other
                         routing protocols.
@@ -116,14 +116,14 @@ _meta_table = {
                 'prefix',
                 'openconfig-local-routing', False, [
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Destination prefix for the static route, either IPv4 or
                         IPv6.
                         ''',
                         'prefix',
                         'openconfig-local-routing', False),
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Destination prefix for the static route, either IPv4 or
                         IPv6.
                         ''',
@@ -147,7 +147,7 @@ _meta_table = {
                         'set_tag',
                         'openconfig-local-routing', False),
                     _MetaInfoClassMember('set-tag', ATTRIBUTE, 'str' , None, None, 
-                        [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                        [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                         '''                        Set a generic tag value on the route. This tag can be
                         used for filtering routes that are distributed to other
                         routing protocols.
@@ -217,7 +217,7 @@ _meta_table = {
                         'next_hop',
                         'openconfig-local-routing', False, [
                             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                The next-hop that is to be used for the static route
                                 - this may be specified as an IP address, an interface
                                 or a pre-defined next-hop type - for instance, DROP or
@@ -229,7 +229,7 @@ _meta_table = {
                                 'next_hop',
                                 'openconfig-local-routing', False),
                             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                The next-hop that is to be used for the static route
                                 - this may be specified as an IP address, an interface
                                 or a pre-defined next-hop type - for instance, DROP or
@@ -330,7 +330,7 @@ _meta_table = {
                         'next_hop',
                         'openconfig-local-routing', False, [
                             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                The next-hop that is to be used for the static route
                                 - this may be specified as an IP address, an interface
                                 or a pre-defined next-hop type - for instance, DROP or
@@ -342,7 +342,7 @@ _meta_table = {
                                 'next_hop',
                                 'openconfig-local-routing', False),
                             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                The next-hop that is to be used for the static route
                                 - this may be specified as an IP address, an interface
                                 or a pre-defined next-hop type - for instance, DROP or
@@ -537,13 +537,13 @@ _meta_table = {
                 'prefix',
                 'openconfig-local-routing', True, [
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Reference to the destination prefix list key.
                         ''',
                         'prefix',
                         'openconfig-local-routing', True),
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Reference to the destination prefix list key.
                         ''',
                         'prefix',
@@ -615,13 +615,13 @@ _meta_table = {
                 'prefix',
                 'openconfig-local-routing', False, [
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Aggregate prefix to be advertised
                         ''',
                         'prefix',
                         'openconfig-local-routing', False),
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Aggregate prefix to be advertised
                         ''',
                         'prefix',
@@ -644,7 +644,7 @@ _meta_table = {
                         'set_tag',
                         'openconfig-local-routing', False),
                     _MetaInfoClassMember('set-tag', ATTRIBUTE, 'str' , None, None, 
-                        [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                        [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                         '''                        Set a generic tag value on the route. This tag can be
                         used for filtering routes that are distributed to other
                         routing protocols.
@@ -681,13 +681,13 @@ _meta_table = {
                 'prefix',
                 'openconfig-local-routing', False, [
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Aggregate prefix to be advertised
                         ''',
                         'prefix',
                         'openconfig-local-routing', False),
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Aggregate prefix to be advertised
                         ''',
                         'prefix',
@@ -710,7 +710,7 @@ _meta_table = {
                         'set_tag',
                         'openconfig-local-routing', False),
                     _MetaInfoClassMember('set-tag', ATTRIBUTE, 'str' , None, None, 
-                        [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                        [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                         '''                        Set a generic tag value on the route. This tag can be
                         used for filtering routes that are distributed to other
                         routing protocols.
@@ -736,13 +736,13 @@ _meta_table = {
                 'prefix',
                 'openconfig-local-routing', True, [
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Reference to the configured prefix for this aggregate
                         ''',
                         'prefix',
                         'openconfig-local-routing', True),
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Reference to the configured prefix for this aggregate
                         ''',
                         'prefix',

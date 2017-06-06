@@ -721,8 +721,6 @@ class SoftwareInstall(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log is not None:
                         return True
 
@@ -767,8 +765,6 @@ class SoftwareInstall(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log is not None:
                         return True
 
@@ -791,8 +787,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.file_name is not None:
                     return True
 
@@ -819,8 +813,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.file is not None:
                 for child_ref in self.file:
                     if child_ref._has_data():
@@ -926,8 +918,6 @@ class SoftwareInstall(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log is not None:
                         return True
 
@@ -971,8 +961,6 @@ class SoftwareInstall(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log is not None:
                         return True
 
@@ -995,8 +983,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.last_n_logs is not None:
                     return True
 
@@ -1023,8 +1009,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.last_n_operation_log is not None:
                 for child_ref in self.last_n_operation_log:
                     if child_ref._has_data():
@@ -1135,8 +1119,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.package is not None:
                     return True
 
@@ -1178,8 +1160,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.package is not None:
                     return True
 
@@ -1200,8 +1180,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.activate_message is not None:
                 return True
 
@@ -1323,8 +1301,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active_packages is not None:
                     return True
 
@@ -1360,8 +1336,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.active_package_info is not None:
                 for child_ref in self.active_package_info:
                     if child_ref._has_data():
@@ -1405,8 +1379,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.log is not None:
                 return True
 
@@ -1448,8 +1420,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.log is not None:
                 return True
 
@@ -1491,8 +1461,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.log is not None:
                 return True
 
@@ -1601,8 +1569,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.issu_error is not None:
                     return True
 
@@ -1708,8 +1674,6 @@ class SoftwareInstall(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.issu_node_role is not None:
                         return True
 
@@ -1742,8 +1706,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.invinfo is not None:
                     for child_ref in self.invinfo:
                         if child_ref._has_data():
@@ -1766,8 +1728,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.inventory is not None and self.inventory._has_data():
                 return True
 
@@ -1867,8 +1827,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.boot_partition_name is not None:
                     return True
 
@@ -1904,8 +1862,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.committed_package_info is not None:
                 for child_ref in self.committed_package_info:
                     if child_ref._has_data():
@@ -1978,8 +1934,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.log is not None:
                     return True
 
@@ -2021,8 +1975,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.log is not None:
                     return True
 
@@ -2043,8 +1995,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.detail is not None and self.detail._has_data():
                 return True
 
@@ -2156,8 +2106,6 @@ class SoftwareInstall(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log is not None:
                         return True
 
@@ -2201,8 +2149,6 @@ class SoftwareInstall(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log is not None:
                         return True
 
@@ -2246,8 +2192,6 @@ class SoftwareInstall(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log is not None:
                         return True
 
@@ -2270,8 +2214,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.package_name is not None:
                     return True
 
@@ -2301,8 +2243,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.package is not None:
                 for child_ref in self.package:
                     if child_ref._has_data():
@@ -2409,8 +2349,6 @@ class SoftwareInstall(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log is not None:
                         return True
 
@@ -2455,8 +2393,6 @@ class SoftwareInstall(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log is not None:
                         return True
 
@@ -2479,8 +2415,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.log_id is not None:
                     return True
 
@@ -2507,8 +2441,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.operation_log is not None:
                 for child_ref in self.operation_log:
                     if child_ref._has_data():
@@ -2582,8 +2514,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.log is not None:
                     return True
 
@@ -2626,8 +2556,6 @@ class SoftwareInstall(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.log is not None:
                     return True
 
@@ -2648,8 +2576,6 @@ class SoftwareInstall(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.all is not None and self.all._has_data():
                 return True
 
@@ -2673,8 +2599,6 @@ class SoftwareInstall(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.active is not None and self.active._has_data():
             return True
 

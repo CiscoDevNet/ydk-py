@@ -13,11 +13,11 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'WanphyLanModeEnum' : _MetaInfoEnum('WanphyLanModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_cfg',
+    'WanphyWanModeEnum' : _MetaInfoEnum('WanphyWanModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_cfg',
         {
             'on':'on',
         }, 'Cisco-IOS-XR-wanphy-ui-cfg', _yang_ns._namespaces['Cisco-IOS-XR-wanphy-ui-cfg']),
-    'WanphyWanModeEnum' : _MetaInfoEnum('WanphyWanModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_cfg',
+    'WanphyLanModeEnum' : _MetaInfoEnum('WanphyLanModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_cfg',
         {
             'on':'on',
         }, 'Cisco-IOS-XR-wanphy-ui-cfg', _yang_ns._namespaces['Cisco-IOS-XR-wanphy-ui-cfg']),

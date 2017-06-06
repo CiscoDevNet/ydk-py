@@ -118,8 +118,6 @@ class Parser(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.indentation_disable is not None:
                 return True
 
@@ -232,8 +230,6 @@ class Parser(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.identifier is not None:
                         return True
 
@@ -257,8 +253,6 @@ class Parser(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.exec_ is not None:
                     for child_ref in self.exec_:
                         if child_ref._has_data():
@@ -337,8 +331,6 @@ class Parser(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.identifier is not None:
                         return True
 
@@ -362,8 +354,6 @@ class Parser(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.configuration is not None:
                     for child_ref in self.configuration:
                         if child_ref._has_data():
@@ -442,8 +432,6 @@ class Parser(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.identifier is not None:
                         return True
 
@@ -467,8 +455,6 @@ class Parser(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.all is not None:
                     for child_ref in self.all:
                         if child_ref._has_data():
@@ -491,8 +477,6 @@ class Parser(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.alls is not None and self.alls._has_data():
                 return True
 
@@ -542,8 +526,6 @@ class Parser(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.size is not None:
                 return True
 
@@ -585,8 +567,6 @@ class Parser(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.slot_order is not None:
                 return True
 
@@ -628,8 +608,6 @@ class Parser(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bit_count is not None:
                 return True
 
@@ -693,8 +671,6 @@ class Parser(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.usergroup is not None:
                     return True
 
@@ -715,8 +691,6 @@ class Parser(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.disable is not None and self.disable._has_data():
                 return True
 
@@ -759,8 +733,6 @@ class Parser(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.enable is not None:
                 return True
 
@@ -781,8 +753,6 @@ class Parser(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.alias is not None and self.alias._has_data():
             return True
 

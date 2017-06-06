@@ -39,7 +39,7 @@ class ObjectIdentityIdentity(object):
 
     """
 
-    _prefix = 'smiv2'
+    _prefix = 'ietf-yang-smiv2'
     _revision = '2012-06-22'
 
     def __init__(self):

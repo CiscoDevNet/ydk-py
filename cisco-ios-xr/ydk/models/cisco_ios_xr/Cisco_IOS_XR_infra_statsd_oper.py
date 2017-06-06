@@ -337,8 +337,6 @@ class InfraStatistics(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.protocol_name is not None:
                                 return True
 
@@ -391,8 +389,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.protocol is not None:
                             for child_ref in self.protocol:
                                 if child_ref._has_data():
@@ -735,8 +731,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.applique is not None:
                             return True
 
@@ -993,8 +987,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bandwidth is not None:
                             return True
 
@@ -1370,8 +1362,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.applique is not None:
                             return True
 
@@ -1499,8 +1489,6 @@ class InfraStatistics(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.data_rate is not None and self.data_rate._has_data():
                         return True
 
@@ -1717,8 +1705,6 @@ class InfraStatistics(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.protocol_name is not None:
                                 return True
 
@@ -1771,8 +1757,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.protocol is not None:
                             for child_ref in self.protocol:
                                 if child_ref._has_data():
@@ -2115,8 +2099,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.applique is not None:
                             return True
 
@@ -2373,8 +2355,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bandwidth is not None:
                             return True
 
@@ -2750,8 +2730,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.applique is not None:
                             return True
 
@@ -2879,8 +2857,6 @@ class InfraStatistics(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.data_rate is not None and self.data_rate._has_data():
                         return True
 
@@ -3097,8 +3073,6 @@ class InfraStatistics(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.protocol_name is not None:
                                 return True
 
@@ -3151,8 +3125,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.protocol is not None:
                             for child_ref in self.protocol:
                                 if child_ref._has_data():
@@ -3495,8 +3467,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.applique is not None:
                             return True
 
@@ -3753,8 +3723,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bandwidth is not None:
                             return True
 
@@ -4130,8 +4098,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.applique is not None:
                             return True
 
@@ -4259,8 +4225,6 @@ class InfraStatistics(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.data_rate is not None and self.data_rate._has_data():
                         return True
 
@@ -4434,8 +4398,6 @@ class InfraStatistics(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.protocol_name is not None:
                             return True
 
@@ -4488,8 +4450,6 @@ class InfraStatistics(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.protocol is not None:
                         for child_ref in self.protocol:
                             if child_ref._has_data():
@@ -4832,8 +4792,6 @@ class InfraStatistics(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.applique is not None:
                         return True
 
@@ -5090,8 +5048,6 @@ class InfraStatistics(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bandwidth is not None:
                         return True
 
@@ -5467,8 +5423,6 @@ class InfraStatistics(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.applique is not None:
                         return True
 
@@ -5596,8 +5550,6 @@ class InfraStatistics(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -5639,8 +5591,6 @@ class InfraStatistics(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -5663,8 +5613,6 @@ class InfraStatistics(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 

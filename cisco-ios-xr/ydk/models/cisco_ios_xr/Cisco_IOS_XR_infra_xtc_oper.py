@@ -652,8 +652,6 @@ class PceLspData(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.administrative_state is not None:
                         return True
 
@@ -701,8 +699,6 @@ class PceLspData(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer_address is not None:
                     return True
 
@@ -740,8 +736,6 @@ class PceLspData(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tunnel_info is not None:
                 for child_ref in self.tunnel_info:
                     if child_ref._has_data():
@@ -849,8 +843,6 @@ class PceLspData(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.admin_up_ls_ps is not None:
                     return True
 
@@ -968,8 +960,6 @@ class PceLspData(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_up_ls_ps is not None:
                         return True
 
@@ -1002,8 +992,6 @@ class PceLspData(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.lsp_summary is not None and self.lsp_summary._has_data():
                     return True
 
@@ -1027,8 +1015,6 @@ class PceLspData(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.all_ls_ps is not None and self.all_ls_ps._has_data():
                 return True
 
@@ -1209,8 +1195,6 @@ class PceLspData(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.event_message is not None:
                             return True
 
@@ -1236,8 +1220,6 @@ class PceLspData(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.event_buffer is not None:
                         for child_ref in self.event_buffer:
                             if child_ref._has_data():
@@ -1471,8 +1453,6 @@ class PceLspData(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.administrative_state is not None:
                             return True
 
@@ -1626,8 +1606,6 @@ class PceLspData(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hop_address is not None:
                                 return True
 
@@ -1695,8 +1673,6 @@ class PceLspData(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_addr is not None:
                                 return True
 
@@ -1751,8 +1727,6 @@ class PceLspData(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hop_address is not None:
                                 return True
 
@@ -1820,8 +1794,6 @@ class PceLspData(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_addr is not None:
                                 return True
 
@@ -1853,8 +1825,6 @@ class PceLspData(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.computed_hop_list_time is not None:
                             return True
 
@@ -2018,8 +1988,6 @@ class PceLspData(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.error_code is not None:
                                 return True
 
@@ -2051,8 +2019,6 @@ class PceLspData(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pcep_flag_a is not None:
                             return True
 
@@ -2132,8 +2098,6 @@ class PceLspData(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.association_id is not None:
                             return True
 
@@ -2223,8 +2187,6 @@ class PceLspData(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.affinity_exclude_any is not None:
                             return True
 
@@ -2359,8 +2321,6 @@ class PceLspData(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_addr is not None:
                                 return True
 
@@ -2392,8 +2352,6 @@ class PceLspData(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flags is not None:
                             return True
 
@@ -2428,8 +2386,6 @@ class PceLspData(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.actual_bandwidth is not None:
                         return True
 
@@ -2505,8 +2461,6 @@ class PceLspData(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer_address is not None:
                     return True
 
@@ -2547,8 +2501,6 @@ class PceLspData(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tunnel_detail_info is not None:
                 for child_ref in self.tunnel_detail_info:
                     if child_ref._has_data():
@@ -2571,8 +2523,6 @@ class PceLspData(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.lsp_summary is not None and self.lsp_summary._has_data():
             return True
 
@@ -3029,8 +2979,6 @@ class PcePeer(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.capability_db_version is not None:
                             return True
 
@@ -3105,8 +3053,6 @@ class PcePeer(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pc_error_type is not None:
                             return True
 
@@ -3163,8 +3109,6 @@ class PcePeer(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pc_error_type is not None:
                             return True
 
@@ -3190,8 +3134,6 @@ class PcePeer(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.brief_pcep_information is not None and self.brief_pcep_information._has_data():
                         return True
 
@@ -3307,8 +3249,6 @@ class PcePeer(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer_address is not None:
                     return True
 
@@ -3338,8 +3278,6 @@ class PcePeer(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.peer_detail_info is not None:
                 for child_ref in self.peer_detail_info:
                     if child_ref._has_data():
@@ -3504,8 +3442,6 @@ class PcePeer(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.capability_db_version is not None:
                         return True
 
@@ -3549,8 +3485,6 @@ class PcePeer(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer_address is not None:
                     return True
 
@@ -3580,8 +3514,6 @@ class PcePeer(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.peer_info is not None:
                 for child_ref in self.peer_info:
                     if child_ref._has_data():
@@ -3604,8 +3536,6 @@ class PcePeer(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.peer_detail_infos is not None and self.peer_detail_infos._has_data():
             return True
 
@@ -3795,8 +3725,6 @@ class PceTopology(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.num_links_added is not None:
                     return True
 
@@ -3832,8 +3760,6 @@ class PceTopology(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.adjacency_sids is not None:
                 return True
 
@@ -4131,8 +4057,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -4189,8 +4113,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -4239,8 +4161,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -4263,8 +4183,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -4296,8 +4214,6 @@ class PceTopology(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -4432,8 +4348,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -4490,8 +4404,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -4540,8 +4452,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -4564,8 +4474,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -4597,8 +4505,6 @@ class PceTopology(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.igp_srgb is not None and self.igp_srgb._has_data():
                             return True
 
@@ -4627,8 +4533,6 @@ class PceTopology(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.igp_information is not None:
                         for child_ref in self.igp_information:
                             if child_ref._has_data():
@@ -4790,8 +4694,6 @@ class PceTopology(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af_name is not None:
                             return True
 
@@ -4820,8 +4722,6 @@ class PceTopology(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain_identifier is not None:
                         return True
 
@@ -5067,8 +4967,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -5125,8 +5023,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -5175,8 +5071,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -5199,8 +5093,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -5232,8 +5124,6 @@ class PceTopology(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -5425,8 +5315,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -5483,8 +5371,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.area is not None:
                                         return True
 
@@ -5533,8 +5419,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.router_id is not None:
                                         return True
 
@@ -5557,8 +5441,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bgp is not None and self.bgp._has_data():
                                     return True
 
@@ -5590,8 +5472,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.domain_identifier is not None:
                                 return True
 
@@ -5726,8 +5606,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -5784,8 +5662,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.area is not None:
                                         return True
 
@@ -5834,8 +5710,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.router_id is not None:
                                         return True
 
@@ -5858,8 +5732,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bgp is not None and self.bgp._has_data():
                                     return True
 
@@ -5891,8 +5763,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.igp_srgb is not None and self.igp_srgb._has_data():
                                 return True
 
@@ -5921,8 +5791,6 @@ class PceTopology(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.igp_information is not None:
                             for child_ref in self.igp_information:
                                 if child_ref._has_data():
@@ -6084,8 +5952,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -6114,8 +5980,6 @@ class PceTopology(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -6165,8 +6029,6 @@ class PceTopology(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjacency_sid is not None:
                         for child_ref in self.adjacency_sid:
                             if child_ref._has_data():
@@ -6406,8 +6268,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -6464,8 +6324,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -6514,8 +6372,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -6538,8 +6394,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -6571,8 +6425,6 @@ class PceTopology(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -6764,8 +6616,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -6822,8 +6672,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.area is not None:
                                         return True
 
@@ -6872,8 +6720,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.router_id is not None:
                                         return True
 
@@ -6896,8 +6742,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bgp is not None and self.bgp._has_data():
                                     return True
 
@@ -6929,8 +6773,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.domain_identifier is not None:
                                 return True
 
@@ -7065,8 +6907,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -7123,8 +6963,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.area is not None:
                                         return True
 
@@ -7173,8 +7011,6 @@ class PceTopology(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.router_id is not None:
                                         return True
 
@@ -7197,8 +7033,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bgp is not None and self.bgp._has_data():
                                     return True
 
@@ -7230,8 +7064,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.igp_srgb is not None and self.igp_srgb._has_data():
                                 return True
 
@@ -7260,8 +7092,6 @@ class PceTopology(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.igp_information is not None:
                             for child_ref in self.igp_information:
                                 if child_ref._has_data():
@@ -7423,8 +7253,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -7453,8 +7281,6 @@ class PceTopology(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -7504,8 +7330,6 @@ class PceTopology(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjacency_sid is not None:
                         for child_ref in self.adjacency_sid:
                             if child_ref._has_data():
@@ -7554,8 +7378,6 @@ class PceTopology(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_identifier is not None:
                     return True
 
@@ -7600,8 +7422,6 @@ class PceTopology(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.topology_node is not None:
                 for child_ref in self.topology_node:
                     if child_ref._has_data():
@@ -7861,8 +7681,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -7919,8 +7737,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -7969,8 +7785,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -7993,8 +7807,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -8026,8 +7838,6 @@ class PceTopology(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -8162,8 +7972,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -8220,8 +8028,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -8270,8 +8076,6 @@ class PceTopology(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -8294,8 +8098,6 @@ class PceTopology(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -8327,8 +8129,6 @@ class PceTopology(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.igp_srgb is not None and self.igp_srgb._has_data():
                             return True
 
@@ -8357,8 +8157,6 @@ class PceTopology(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.igp_information is not None:
                         for child_ref in self.igp_information:
                             if child_ref._has_data():
@@ -8440,8 +8238,6 @@ class PceTopology(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af_name is not None:
                         return True
 
@@ -8470,8 +8266,6 @@ class PceTopology(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_identifier is not None:
                     return True
 
@@ -8503,8 +8297,6 @@ class PceTopology(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.prefix_info is not None:
                 for child_ref in self.prefix_info:
                     if child_ref._has_data():
@@ -8527,8 +8319,6 @@ class PceTopology(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.prefix_infos is not None and self.prefix_infos._has_data():
             return True
 
@@ -8807,8 +8597,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lspid is not None:
                         return True
 
@@ -8846,8 +8634,6 @@ class Pce(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.group_id is not None:
                     return True
 
@@ -8897,8 +8683,6 @@ class Pce(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.association_info is not None:
                 for child_ref in self.association_info:
                     if child_ref._has_data():
@@ -9052,8 +8836,6 @@ class Pce(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.num_links_added is not None:
                     return True
 
@@ -9089,8 +8871,6 @@ class Pce(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.adjacency_sids is not None:
                 return True
 
@@ -9298,8 +9078,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.administrative_state is not None:
                         return True
 
@@ -9347,8 +9125,6 @@ class Pce(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer_address is not None:
                     return True
 
@@ -9386,8 +9162,6 @@ class Pce(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tunnel_info is not None:
                 for child_ref in self.tunnel_info:
                     if child_ref._has_data():
@@ -9812,8 +9586,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.capability_db_version is not None:
                             return True
 
@@ -9888,8 +9660,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pc_error_type is not None:
                             return True
 
@@ -9946,8 +9716,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pc_error_type is not None:
                             return True
 
@@ -9973,8 +9741,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.brief_pcep_information is not None and self.brief_pcep_information._has_data():
                         return True
 
@@ -10090,8 +9856,6 @@ class Pce(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer_address is not None:
                     return True
 
@@ -10121,8 +9885,6 @@ class Pce(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.peer_detail_info is not None:
                 for child_ref in self.peer_detail_info:
                     if child_ref._has_data():
@@ -10404,8 +10166,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -10462,8 +10222,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -10512,8 +10270,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -10536,8 +10292,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -10569,8 +10323,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -10705,8 +10457,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -10763,8 +10513,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -10813,8 +10561,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -10837,8 +10583,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -10870,8 +10614,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.igp_srgb is not None and self.igp_srgb._has_data():
                             return True
 
@@ -10900,8 +10642,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.igp_information is not None:
                         for child_ref in self.igp_information:
                             if child_ref._has_data():
@@ -11063,8 +10803,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af_name is not None:
                             return True
 
@@ -11093,8 +10831,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain_identifier is not None:
                         return True
 
@@ -11340,8 +11076,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -11398,8 +11132,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -11448,8 +11180,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -11472,8 +11202,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -11505,8 +11233,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -11698,8 +11424,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -11756,8 +11480,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.area is not None:
                                         return True
 
@@ -11806,8 +11528,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.router_id is not None:
                                         return True
 
@@ -11830,8 +11550,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bgp is not None and self.bgp._has_data():
                                     return True
 
@@ -11863,8 +11581,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.domain_identifier is not None:
                                 return True
 
@@ -11999,8 +11715,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -12057,8 +11771,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.area is not None:
                                         return True
 
@@ -12107,8 +11819,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.router_id is not None:
                                         return True
 
@@ -12131,8 +11841,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bgp is not None and self.bgp._has_data():
                                     return True
 
@@ -12164,8 +11872,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.igp_srgb is not None and self.igp_srgb._has_data():
                                 return True
 
@@ -12194,8 +11900,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.igp_information is not None:
                             for child_ref in self.igp_information:
                                 if child_ref._has_data():
@@ -12357,8 +12061,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -12387,8 +12089,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -12438,8 +12138,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjacency_sid is not None:
                         for child_ref in self.adjacency_sid:
                             if child_ref._has_data():
@@ -12679,8 +12377,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -12737,8 +12433,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -12787,8 +12481,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -12811,8 +12503,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -12844,8 +12534,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -13037,8 +12725,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -13095,8 +12781,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.area is not None:
                                         return True
 
@@ -13145,8 +12829,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.router_id is not None:
                                         return True
 
@@ -13169,8 +12851,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bgp is not None and self.bgp._has_data():
                                     return True
 
@@ -13202,8 +12882,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.domain_identifier is not None:
                                 return True
 
@@ -13338,8 +13016,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -13396,8 +13072,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.area is not None:
                                         return True
 
@@ -13446,8 +13120,6 @@ class Pce(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.router_id is not None:
                                         return True
 
@@ -13470,8 +13142,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bgp is not None and self.bgp._has_data():
                                     return True
 
@@ -13503,8 +13173,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.igp_srgb is not None and self.igp_srgb._has_data():
                                 return True
 
@@ -13533,8 +13201,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.igp_information is not None:
                             for child_ref in self.igp_information:
                                 if child_ref._has_data():
@@ -13696,8 +13362,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -13726,8 +13390,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -13777,8 +13439,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjacency_sid is not None:
                         for child_ref in self.adjacency_sid:
                             if child_ref._has_data():
@@ -13827,8 +13487,6 @@ class Pce(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_identifier is not None:
                     return True
 
@@ -13873,8 +13531,6 @@ class Pce(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.topology_node is not None:
                 for child_ref in self.topology_node:
                     if child_ref._has_data():
@@ -14134,8 +13790,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -14192,8 +13846,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -14242,8 +13894,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -14266,8 +13916,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -14299,8 +13947,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_identifier is not None:
                             return True
 
@@ -14435,8 +14081,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -14493,8 +14137,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area is not None:
                                     return True
 
@@ -14543,8 +14185,6 @@ class Pce(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.router_id is not None:
                                     return True
 
@@ -14567,8 +14207,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bgp is not None and self.bgp._has_data():
                                 return True
 
@@ -14600,8 +14238,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.igp_srgb is not None and self.igp_srgb._has_data():
                             return True
 
@@ -14630,8 +14266,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.igp_information is not None:
                         for child_ref in self.igp_information:
                             if child_ref._has_data():
@@ -14713,8 +14347,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af_name is not None:
                         return True
 
@@ -14743,8 +14375,6 @@ class Pce(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_identifier is not None:
                     return True
 
@@ -14776,8 +14406,6 @@ class Pce(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.prefix_info is not None:
                 for child_ref in self.prefix_info:
                     if child_ref._has_data():
@@ -14885,8 +14513,6 @@ class Pce(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.admin_up_ls_ps is not None:
                     return True
 
@@ -15004,8 +14630,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_up_ls_ps is not None:
                         return True
 
@@ -15038,8 +14662,6 @@ class Pce(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.lsp_summary is not None and self.lsp_summary._has_data():
                     return True
 
@@ -15063,8 +14685,6 @@ class Pce(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.all_ls_ps is not None and self.all_ls_ps._has_data():
                 return True
 
@@ -15232,8 +14852,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.capability_db_version is not None:
                         return True
 
@@ -15277,8 +14895,6 @@ class Pce(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer_address is not None:
                     return True
 
@@ -15308,8 +14924,6 @@ class Pce(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.peer_info is not None:
                 for child_ref in self.peer_info:
                     if child_ref._has_data():
@@ -15487,8 +15101,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.event_message is not None:
                             return True
 
@@ -15514,8 +15126,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.event_buffer is not None:
                         for child_ref in self.event_buffer:
                             if child_ref._has_data():
@@ -15749,8 +15359,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.administrative_state is not None:
                             return True
 
@@ -15904,8 +15512,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hop_address is not None:
                                 return True
 
@@ -15973,8 +15579,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_addr is not None:
                                 return True
 
@@ -16029,8 +15633,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hop_address is not None:
                                 return True
 
@@ -16098,8 +15700,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_addr is not None:
                                 return True
 
@@ -16131,8 +15731,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.computed_hop_list_time is not None:
                             return True
 
@@ -16296,8 +15894,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.error_code is not None:
                                 return True
 
@@ -16329,8 +15925,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pcep_flag_a is not None:
                             return True
 
@@ -16410,8 +16004,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.association_id is not None:
                             return True
 
@@ -16501,8 +16093,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.affinity_exclude_any is not None:
                             return True
 
@@ -16637,8 +16227,6 @@ class Pce(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_addr is not None:
                                 return True
 
@@ -16670,8 +16258,6 @@ class Pce(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flags is not None:
                             return True
 
@@ -16706,8 +16292,6 @@ class Pce(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.actual_bandwidth is not None:
                         return True
 
@@ -16783,8 +16367,6 @@ class Pce(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer_address is not None:
                     return True
 
@@ -16825,8 +16407,6 @@ class Pce(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tunnel_detail_info is not None:
                 for child_ref in self.tunnel_detail_info:
                     if child_ref._has_data():
@@ -16849,8 +16429,6 @@ class Pce(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.association_infos is not None and self.association_infos._has_data():
             return True
 

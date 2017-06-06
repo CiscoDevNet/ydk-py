@@ -106,87 +106,70 @@ class ActiveNodes(object):
             self.ssrp_group.parent = self
 
 
-        class CiscoIosXrWdCfg_WatchdogNodeThreshold(object):
+        class Ltrace(object):
             """
-            Watchdog threshold configuration
+            Ltrace Memory configuration
             
-            .. attribute:: memory_threshold
+            .. attribute:: allocation_params
             
-            	Memory thresholds
-            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            	Select Ltrace mode and scale\-factor
+            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace.AllocationParams>`
             
             
 
             """
 
-            _prefix = 'wd-cfg'
+            _prefix = 'infra-ltrace-cfg'
             _revision = '2015-11-09'
 
             def __init__(self):
                 self.parent = None
-                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
+                self.allocation_params = ActiveNodes.ActiveNode.Ltrace.AllocationParams()
+                self.allocation_params.parent = self
 
 
-            class MemoryThreshold(object):
+            class AllocationParams(object):
                 """
-                Memory thresholds
+                Select Ltrace mode and scale\-factor
                 
-                .. attribute:: critical
+                .. attribute:: mode
                 
-                	Threshold, Range(3, severe)
-                	**type**\:  int
+                	Select an allocation mode (static\:1, dynamic \:2)
+                	**type**\:   :py:class:`InfraLtraceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceModeEnum>`
                 
-                	**range:** 3..40
+                .. attribute:: scale_factor
                 
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\:  int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\:  int
-                
-                	**range:** 4..40
+                	Select a scaling down factor
+                	**type**\:   :py:class:`InfraLtraceScaleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScaleEnum>`
                 
                 
 
                 """
 
-                _prefix = 'wd-cfg'
+                _prefix = 'infra-ltrace-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
                     self.parent = None
-                    self.critical = None
-                    self.minor = None
-                    self.severe = None
+                    self.mode = None
+                    self.scale_factor = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:memory-threshold'
+                    return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:allocation-params'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.critical is not None:
+                    if self.mode is not None:
                         return True
 
-                    if self.minor is not None:
-                        return True
-
-                    if self.severe is not None:
+                    if self.scale_factor is not None:
                         return True
 
                     return False
@@ -194,23 +177,21 @@ class ActiveNodes(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
+                    return meta._meta_table['ActiveNodes.ActiveNode.Ltrace.AllocationParams']['meta_info']
 
             @property
             def _common_path(self):
                 if self.parent is None:
                     raise YPYModelError('parent is not set . Cannot derive path.')
 
-                return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold'
+                return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:ltrace'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.memory_threshold is not None and self.memory_threshold._has_data():
+                if self.allocation_params is not None and self.allocation_params._has_data():
                     return True
 
                 return False
@@ -218,160 +199,7 @@ class ActiveNodes(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
-
-
-        class SsrpGroup(object):
-            """
-            Per\-node SSRP configuration data
-            
-            .. attribute:: groups
-            
-            	Table of SSRP Group configuration
-            	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup.Groups>`
-            
-            
-
-            """
-
-            _prefix = 'ppp-ma-ssrp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.groups = ActiveNodes.ActiveNode.SsrpGroup.Groups()
-                self.groups.parent = self
-
-
-            class Groups(object):
-                """
-                Table of SSRP Group configuration
-                
-                .. attribute:: group
-                
-                	SSRP Group configuration
-                	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup.Groups.Group>`
-                
-                
-
-                """
-
-                _prefix = 'ppp-ma-ssrp-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.group = YList()
-                    self.group.parent = self
-                    self.group.name = 'group'
-
-
-                class Group(object):
-                    """
-                    SSRP Group configuration
-                    
-                    .. attribute:: group_id  <key>
-                    
-                    	The identifier for this group
-                    	**type**\:  int
-                    
-                    	**range:** 1..65535
-                    
-                    .. attribute:: profile
-                    
-                    	This specifies the SSRP profile to use for this group
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'ppp-ma-ssrp-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.group_id = None
-                        self.profile = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.group_id is None:
-                            raise YPYModelError('Key property group_id is None')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-ssrp-cfg:group[Cisco-IOS-XR-ppp-ma-ssrp-cfg:group-id = ' + str(self.group_id) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.group_id is not None:
-                            return True
-
-                        if self.profile is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                        return meta._meta_table['ActiveNodes.ActiveNode.SsrpGroup.Groups.Group']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-ssrp-cfg:groups'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.group is not None:
-                        for child_ref in self.group:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['ActiveNodes.ActiveNode.SsrpGroup.Groups']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.groups is not None and self.groups._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['ActiveNodes.ActiveNode.SsrpGroup']['meta_info']
+                return meta._meta_table['ActiveNodes.ActiveNode.Ltrace']['meta_info']
 
 
         class LptsLocal(object):
@@ -528,8 +356,6 @@ class ActiveNodes(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.id1 is not None:
                                     return True
 
@@ -555,8 +381,6 @@ class ActiveNodes(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.np is not None:
                                 for child_ref in self.np:
                                     if child_ref._has_data():
@@ -583,8 +407,6 @@ class ActiveNodes(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.id1 is not None:
                             return True
 
@@ -610,8 +432,6 @@ class ActiveNodes(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipolicer_local_table is not None:
                         for child_ref in self.ipolicer_local_table:
                             if child_ref._has_data():
@@ -767,8 +587,6 @@ class ActiveNodes(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.precedence is not None:
                                     for child in self.precedence:
                                         if child is not None:
@@ -795,8 +613,6 @@ class ActiveNodes(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.flow_type is not None:
                                 return True
 
@@ -825,8 +641,6 @@ class ActiveNodes(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow is not None:
                             for child_ref in self.flow:
                                 if child_ref._has_data():
@@ -851,8 +665,6 @@ class ActiveNodes(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.enable is not None:
@@ -880,8 +692,6 @@ class ActiveNodes(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipolicer_local is not None and self.ipolicer_local._has_data():
                     return True
 
@@ -896,96 +706,143 @@ class ActiveNodes(object):
                 return meta._meta_table['ActiveNodes.ActiveNode.LptsLocal']['meta_info']
 
 
-        class Ltrace(object):
+        class SsrpGroup(object):
             """
-            Ltrace Memory configuration
+            Per\-node SSRP configuration data
             
-            .. attribute:: allocation_params
+            .. attribute:: groups
             
-            	Select Ltrace mode and scale\-factor
-            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace.AllocationParams>`
+            	Table of SSRP Group configuration
+            	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup.Groups>`
             
             
 
             """
 
-            _prefix = 'infra-ltrace-cfg'
+            _prefix = 'ppp-ma-ssrp-cfg'
             _revision = '2015-11-09'
 
             def __init__(self):
                 self.parent = None
-                self.allocation_params = ActiveNodes.ActiveNode.Ltrace.AllocationParams()
-                self.allocation_params.parent = self
+                self.groups = ActiveNodes.ActiveNode.SsrpGroup.Groups()
+                self.groups.parent = self
 
 
-            class AllocationParams(object):
+            class Groups(object):
                 """
-                Select Ltrace mode and scale\-factor
+                Table of SSRP Group configuration
                 
-                .. attribute:: mode
+                .. attribute:: group
                 
-                	Select an allocation mode (static\:1, dynamic \:2)
-                	**type**\:   :py:class:`InfraLtraceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceModeEnum>`
-                
-                .. attribute:: scale_factor
-                
-                	Select a scaling down factor
-                	**type**\:   :py:class:`InfraLtraceScaleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScaleEnum>`
+                	SSRP Group configuration
+                	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup.Groups.Group>`
                 
                 
 
                 """
 
-                _prefix = 'infra-ltrace-cfg'
+                _prefix = 'ppp-ma-ssrp-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
                     self.parent = None
-                    self.mode = None
-                    self.scale_factor = None
+                    self.group = YList()
+                    self.group.parent = self
+                    self.group.name = 'group'
+
+
+                class Group(object):
+                    """
+                    SSRP Group configuration
+                    
+                    .. attribute:: group_id  <key>
+                    
+                    	The identifier for this group
+                    	**type**\:  int
+                    
+                    	**range:** 1..65535
+                    
+                    .. attribute:: profile
+                    
+                    	This specifies the SSRP profile to use for this group
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ppp-ma-ssrp-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.group_id = None
+                        self.profile = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        if self.group_id is None:
+                            raise YPYModelError('Key property group_id is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-ssrp-cfg:group[Cisco-IOS-XR-ppp-ma-ssrp-cfg:group-id = ' + str(self.group_id) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.group_id is not None:
+                            return True
+
+                        if self.profile is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                        return meta._meta_table['ActiveNodes.ActiveNode.SsrpGroup.Groups.Group']['meta_info']
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:allocation-params'
+                    return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-ssrp-cfg:groups'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.mode is not None:
-                        return True
-
-                    if self.scale_factor is not None:
-                        return True
+                    if self.group is not None:
+                        for child_ref in self.group:
+                            if child_ref._has_data():
+                                return True
 
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['ActiveNodes.ActiveNode.Ltrace.AllocationParams']['meta_info']
+                    return meta._meta_table['ActiveNodes.ActiveNode.SsrpGroup.Groups']['meta_info']
 
             @property
             def _common_path(self):
                 if self.parent is None:
                     raise YPYModelError('parent is not set . Cannot derive path.')
 
-                return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:ltrace'
+                return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.allocation_params is not None and self.allocation_params._has_data():
+                if self.groups is not None and self.groups._has_data():
                     return True
 
                 return False
@@ -993,7 +850,7 @@ class ActiveNodes(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['ActiveNodes.ActiveNode.Ltrace']['meta_info']
+                return meta._meta_table['ActiveNodes.ActiveNode.SsrpGroup']['meta_info']
 
 
         class CiscoIosXrWatchdCfg_WatchdogNodeThreshold(object):
@@ -1068,8 +925,6 @@ class ActiveNodes(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.critical is not None:
                         return True
 
@@ -1098,8 +953,6 @@ class ActiveNodes(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.memory_threshold is not None and self.memory_threshold._has_data():
                     return True
 
@@ -1109,6 +962,117 @@ class ActiveNodes(object):
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
                 return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
+
+
+        class CiscoIosXrWdCfg_WatchdogNodeThreshold(object):
+            """
+            Watchdog threshold configuration
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'wd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+
+
+            class MemoryThreshold(object):
+                """
+                Memory thresholds
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\:  int
+                
+                	**range:** 3..40
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\:  int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\:  int
+                
+                	**range:** 4..40
+                
+                
+
+                """
+
+                _prefix = 'wd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.critical = None
+                    self.minor = None
+                    self.severe = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:memory-threshold'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.critical is not None:
+                        return True
+
+                    if self.minor is not None:
+                        return True
+
+                    if self.severe is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                    return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.memory_threshold is not None and self.memory_threshold._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
 
         @property
         def _common_path(self):
@@ -1122,8 +1086,6 @@ class ActiveNodes(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node_name is not None:
                 return True
 
@@ -1159,8 +1121,6 @@ class ActiveNodes(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.active_node is not None:
             for child_ref in self.active_node:
                 if child_ref._has_data():
@@ -1247,87 +1207,70 @@ class PreconfiguredNodes(object):
             self.ltrace.parent = self
 
 
-        class CiscoIosXrWdCfg_WatchdogNodeThreshold(object):
+        class Ltrace(object):
             """
-            Watchdog threshold configuration
+            Ltrace Memory configuration
             
-            .. attribute:: memory_threshold
+            .. attribute:: allocation_params
             
-            	Memory thresholds
-            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            	Select Ltrace mode and scale\-factor
+            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams>`
             
             
 
             """
 
-            _prefix = 'wd-cfg'
+            _prefix = 'infra-ltrace-cfg'
             _revision = '2015-11-09'
 
             def __init__(self):
                 self.parent = None
-                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
+                self.allocation_params = PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams()
+                self.allocation_params.parent = self
 
 
-            class MemoryThreshold(object):
+            class AllocationParams(object):
                 """
-                Memory thresholds
+                Select Ltrace mode and scale\-factor
                 
-                .. attribute:: critical
+                .. attribute:: mode
                 
-                	Threshold, Range(3, severe)
-                	**type**\:  int
+                	Select an allocation mode (static\:1, dynamic \:2)
+                	**type**\:   :py:class:`InfraLtraceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceModeEnum>`
                 
-                	**range:** 3..40
+                .. attribute:: scale_factor
                 
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\:  int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\:  int
-                
-                	**range:** 4..40
+                	Select a scaling down factor
+                	**type**\:   :py:class:`InfraLtraceScaleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScaleEnum>`
                 
                 
 
                 """
 
-                _prefix = 'wd-cfg'
+                _prefix = 'infra-ltrace-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
                     self.parent = None
-                    self.critical = None
-                    self.minor = None
-                    self.severe = None
+                    self.mode = None
+                    self.scale_factor = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:memory-threshold'
+                    return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:allocation-params'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.critical is not None:
+                    if self.mode is not None:
                         return True
 
-                    if self.minor is not None:
-                        return True
-
-                    if self.severe is not None:
+                    if self.scale_factor is not None:
                         return True
 
                     return False
@@ -1335,23 +1278,21 @@ class PreconfiguredNodes(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
+                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams']['meta_info']
 
             @property
             def _common_path(self):
                 if self.parent is None:
                     raise YPYModelError('parent is not set . Cannot derive path.')
 
-                return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold'
+                return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:ltrace'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.memory_threshold is not None and self.memory_threshold._has_data():
+                if self.allocation_params is not None and self.allocation_params._has_data():
                     return True
 
                 return False
@@ -1359,7 +1300,7 @@ class PreconfiguredNodes(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
+                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.Ltrace']['meta_info']
 
 
         class LptsLocal(object):
@@ -1516,8 +1457,6 @@ class PreconfiguredNodes(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.id1 is not None:
                                     return True
 
@@ -1543,8 +1482,6 @@ class PreconfiguredNodes(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.np is not None:
                                 for child_ref in self.np:
                                     if child_ref._has_data():
@@ -1571,8 +1508,6 @@ class PreconfiguredNodes(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.id1 is not None:
                             return True
 
@@ -1598,8 +1533,6 @@ class PreconfiguredNodes(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipolicer_local_table is not None:
                         for child_ref in self.ipolicer_local_table:
                             if child_ref._has_data():
@@ -1755,8 +1688,6 @@ class PreconfiguredNodes(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.precedence is not None:
                                     for child in self.precedence:
                                         if child is not None:
@@ -1783,8 +1714,6 @@ class PreconfiguredNodes(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.flow_type is not None:
                                 return True
 
@@ -1813,8 +1742,6 @@ class PreconfiguredNodes(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow is not None:
                             for child_ref in self.flow:
                                 if child_ref._has_data():
@@ -1839,8 +1766,6 @@ class PreconfiguredNodes(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.enable is not None:
@@ -1868,8 +1793,6 @@ class PreconfiguredNodes(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipolicer_local is not None and self.ipolicer_local._has_data():
                     return True
 
@@ -1882,106 +1805,6 @@ class PreconfiguredNodes(object):
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
                 return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal']['meta_info']
-
-
-        class Ltrace(object):
-            """
-            Ltrace Memory configuration
-            
-            .. attribute:: allocation_params
-            
-            	Select Ltrace mode and scale\-factor
-            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams>`
-            
-            
-
-            """
-
-            _prefix = 'infra-ltrace-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.allocation_params = PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams()
-                self.allocation_params.parent = self
-
-
-            class AllocationParams(object):
-                """
-                Select Ltrace mode and scale\-factor
-                
-                .. attribute:: mode
-                
-                	Select an allocation mode (static\:1, dynamic \:2)
-                	**type**\:   :py:class:`InfraLtraceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceModeEnum>`
-                
-                .. attribute:: scale_factor
-                
-                	Select a scaling down factor
-                	**type**\:   :py:class:`InfraLtraceScaleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScaleEnum>`
-                
-                
-
-                """
-
-                _prefix = 'infra-ltrace-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.mode = None
-                    self.scale_factor = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:allocation-params'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.mode is not None:
-                        return True
-
-                    if self.scale_factor is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:ltrace'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.allocation_params is not None and self.allocation_params._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.Ltrace']['meta_info']
 
 
         class CiscoIosXrWatchdCfg_WatchdogNodeThreshold(object):
@@ -2056,8 +1879,6 @@ class PreconfiguredNodes(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.critical is not None:
                         return True
 
@@ -2086,8 +1907,6 @@ class PreconfiguredNodes(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.memory_threshold is not None and self.memory_threshold._has_data():
                     return True
 
@@ -2097,6 +1916,117 @@ class PreconfiguredNodes(object):
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
                 return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
+
+
+        class CiscoIosXrWdCfg_WatchdogNodeThreshold(object):
+            """
+            Watchdog threshold configuration
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'wd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+
+
+            class MemoryThreshold(object):
+                """
+                Memory thresholds
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\:  int
+                
+                	**range:** 3..40
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\:  int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\:  int
+                
+                	**range:** 4..40
+                
+                
+
+                """
+
+                _prefix = 'wd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.critical = None
+                    self.minor = None
+                    self.severe = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:memory-threshold'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.critical is not None:
+                        return True
+
+                    if self.minor is not None:
+                        return True
+
+                    if self.severe is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.memory_threshold is not None and self.memory_threshold._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
 
         @property
         def _common_path(self):
@@ -2110,8 +2040,6 @@ class PreconfiguredNodes(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node_name is not None:
                 return True
 
@@ -2144,8 +2072,6 @@ class PreconfiguredNodes(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.preconfigured_node is not None:
             for child_ref in self.preconfigured_node:
                 if child_ref._has_data():

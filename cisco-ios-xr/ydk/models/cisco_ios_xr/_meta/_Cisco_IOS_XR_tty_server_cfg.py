@@ -65,7 +65,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the group
                 ''',
                 'name',
@@ -201,13 +201,13 @@ _meta_table = {
                 'login_timeout',
                 'Cisco-IOS-XR-tty-server-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Configure the password for the user
                 ''',
                 'password',
                 'Cisco-IOS-XR-tty-server-cfg', False),
             _MetaInfoClassMember('secret', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Configure a secure one way encrypted password
                 ''',
                 'secret',
@@ -396,7 +396,7 @@ _meta_table = {
                 'disconnect_character',
                 'Cisco-IOS-XR-tty-management-cfg', False, [
                     _MetaInfoClassMember('disconnect-character', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})*'], 
+                        [], [b'(\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})*'], 
                         '''                        Disconnect character's decimal equivalent value
                         or Character 
                         ''',
@@ -418,7 +418,7 @@ _meta_table = {
                 'escape_character',
                 'Cisco-IOS-XR-tty-management-cfg', False, [
                     _MetaInfoClassMember('escape-character', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})*)|(DEFAULT)|(BREAK)|(NONE)'], 
+                        [], [b'((\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})*)|(DEFAULT)|(BREAK)|(NONE)'], 
                         '''                        Escape character or ASCII decimal equivalent
                         value orspecial strings NONE,DEFAULT,BREAK
                         ''',
@@ -493,7 +493,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the template
                 ''',
                 'name',

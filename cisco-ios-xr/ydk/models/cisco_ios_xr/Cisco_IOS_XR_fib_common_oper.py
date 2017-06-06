@@ -1145,8 +1145,6 @@ class FibStatistics(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.acl_in_rpf_packets is not None:
                         return True
 
@@ -1235,8 +1233,6 @@ class FibStatistics(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -1260,8 +1256,6 @@ class FibStatistics(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -1284,8 +1278,6 @@ class FibStatistics(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -1499,8 +1491,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.count is not None:
                                     return True
 
@@ -1601,8 +1591,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.num_retries is not None:
                                         return True
 
@@ -1659,8 +1647,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.num_objects is not None:
                                         return True
 
@@ -1686,8 +1672,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.array_number_of_object is not None:
                                     for child_ref in self.array_number_of_object:
                                         if child_ref._has_data():
@@ -1723,8 +1707,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.common_info is not None and self.common_info._has_data():
                                 return True
 
@@ -1831,8 +1813,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.count is not None:
                                         return True
 
@@ -1914,8 +1894,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.protocol is not None:
                                             return True
 
@@ -2016,8 +1994,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.num_retries is not None:
                                                 return True
 
@@ -2074,8 +2050,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.num_objects is not None:
                                                 return True
 
@@ -2101,8 +2075,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.array_number_of_object is not None:
                                             for child_ref in self.array_number_of_object:
                                                 if child_ref._has_data():
@@ -2159,8 +2131,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.is_retry_db_empty is not None:
                                             return True
 
@@ -2183,8 +2153,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.base_object is not None and self.base_object._has_data():
                                         return True
 
@@ -2215,8 +2183,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.protocol_name is not None:
                                     return True
 
@@ -2245,8 +2211,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.proto is not None:
                                 for child_ref in self.proto:
                                     if child_ref._has_data():
@@ -2271,8 +2235,6 @@ class Fib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.protos is not None and self.protos._has_data():
                             return True
 
@@ -2401,8 +2363,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.protocol is not None:
                                         return True
 
@@ -2448,8 +2408,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.count is not None:
                                         return True
 
@@ -2474,8 +2432,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.protocol_name is not None:
                                     return True
 
@@ -2504,8 +2460,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.obj_history_proto is not None:
                                 for child_ref in self.obj_history_proto:
                                     if child_ref._has_data():
@@ -2530,8 +2484,6 @@ class Fib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.obj_history_protos is not None and self.obj_history_protos._has_data():
                             return True
 
@@ -2554,8 +2506,6 @@ class Fib(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object_history is not None and self.object_history._has_data():
                         return True
 
@@ -2913,8 +2863,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.aib_eod_time_stamp is not None:
                                     return True
 
@@ -2976,8 +2924,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.eoc_received_imdr_time_stamp is not None:
                                 return True
 
@@ -3202,8 +3148,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.srs_avg_avail is not None:
                                         return True
 
@@ -3232,8 +3176,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sr_curr_mode is not None:
                                     return True
 
@@ -3405,8 +3347,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.srs_avg_avail is not None:
                                         return True
 
@@ -3435,8 +3375,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sr_curr_mode is not None:
                                     return True
 
@@ -3608,8 +3546,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.srs_avg_avail is not None:
                                         return True
 
@@ -3638,8 +3574,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sr_curr_mode is not None:
                                     return True
 
@@ -3811,8 +3745,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.srs_avg_avail is not None:
                                         return True
 
@@ -3841,8 +3773,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sr_curr_mode is not None:
                                     return True
 
@@ -3890,8 +3820,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.resource_detail_info is not None and self.resource_detail_info._has_data():
                                 return True
 
@@ -4410,8 +4338,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.platform_shared_load_info_elements is not None:
                                         return True
 
@@ -4547,8 +4473,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.platform_shared_load_info_elements is not None:
                                         return True
 
@@ -4684,8 +4608,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.platform_shared_load_info_elements is not None:
                                         return True
 
@@ -4821,8 +4743,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.platform_shared_load_info_elements is not None:
                                         return True
 
@@ -4869,8 +4789,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cef_route_drops is not None:
                                     return True
 
@@ -5025,8 +4943,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.fib_summary is not None:
                                 for child_ref in self.fib_summary:
                                     if child_ref._has_data():
@@ -5122,8 +5038,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sep_num_ecd_pathlist is not None:
                                     return True
 
@@ -5154,8 +5068,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sesa_num_client is not None:
                                 return True
 
@@ -5378,8 +5290,6 @@ class Fib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nano_seconds is not None:
                                                     return True
 
@@ -5407,8 +5317,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.log_index is not None:
                                                 return True
 
@@ -5449,8 +5357,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.log is not None:
                                             for child_ref in self.log:
                                                 if child_ref._has_data():
@@ -5477,8 +5383,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_interface_name is not None:
                                         return True
 
@@ -5504,8 +5408,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.frr_interface is not None:
                                     for child_ref in self.frr_interface:
                                         if child_ref._has_data():
@@ -5530,8 +5432,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.frr_interfaces is not None and self.frr_interfaces._has_data():
                                 return True
 
@@ -6607,8 +6507,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.address is not None:
                                                             return True
 
@@ -6652,8 +6550,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.entry is not None:
                                                             return True
 
@@ -6697,8 +6593,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.entry is not None:
                                                             return True
 
@@ -6742,8 +6636,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.entry is not None:
                                                             return True
 
@@ -6766,8 +6658,6 @@ class Fib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.adjacency_address is not None:
                                                         for child_ref in self.adjacency_address:
                                                             if child_ref._has_data():
@@ -6867,8 +6757,6 @@ class Fib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.bytes_through_load_information is not None:
                                                     return True
 
@@ -6924,8 +6812,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.adjacency_address_length is not None:
                                                 return True
 
@@ -7618,8 +7504,6 @@ class Fib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.ip_encap_hdr_dyn is not None:
                                                                 return True
 
@@ -7648,8 +7532,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.ip_encap_hdr is not None:
                                                             for child_ref in self.ip_encap_hdr:
                                                                 if child_ref._has_data():
@@ -7701,8 +7583,6 @@ class Fib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.current_path_flag is not None:
                                                         return True
 
@@ -7919,8 +7799,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.lstack is not None:
                                                             for child in self.lstack:
                                                                 if child is not None:
@@ -7954,8 +7832,6 @@ class Fib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.igp_label_stack_array is not None:
                                                         for child_ref in self.igp_label_stack_array:
                                                             if child_ref._has_data():
@@ -7998,8 +7874,6 @@ class Fib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attached_path is not None:
                                                     return True
 
@@ -8091,8 +7965,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fib_sh_tbl_path is not None:
                                                 for child_ref in self.fib_sh_tbl_path:
                                                     if child_ref._has_data():
@@ -8188,8 +8060,6 @@ class Fib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.srv6_packets_dropped is not None:
                                                     return True
 
@@ -8215,8 +8085,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.route_is_sripv6_flag is not None:
                                                 return True
 
@@ -8305,8 +8173,6 @@ class Fib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.context_label is not None:
                                                     return True
 
@@ -8332,8 +8198,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.sfecd_le is not None and self.sfecd_le._has_data():
                                                 return True
 
@@ -8359,8 +8223,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.broadcast_forward_flag is not None:
                                             return True
 
@@ -8502,8 +8364,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ip_prefix_detail is not None:
                                         for child_ref in self.ip_prefix_detail:
                                             if child_ref._has_data():
@@ -8976,8 +8836,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.platform_shared_load_info_elements is not None:
                                             return True
 
@@ -9113,8 +8971,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.platform_shared_load_info_elements is not None:
                                             return True
 
@@ -9250,8 +9106,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.platform_shared_load_info_elements is not None:
                                             return True
 
@@ -9387,8 +9241,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.platform_shared_load_info_elements is not None:
                                             return True
 
@@ -9435,8 +9287,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.cef_route_drops is not None:
                                         return True
 
@@ -10011,8 +9861,6 @@ class Fib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.bgp_pa_input_configured_flag is not None:
                                                         return True
 
@@ -10189,8 +10037,6 @@ class Fib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.evt_data is not None:
                                                                 for child in self.evt_data:
                                                                     if child is not None:
@@ -10230,8 +10076,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.evt_class_name is not None:
                                                             return True
 
@@ -10345,8 +10189,6 @@ class Fib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.evt_data is not None:
                                                                 for child in self.evt_data:
                                                                     if child is not None:
@@ -10386,8 +10228,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.evt_class_name is not None:
                                                             return True
 
@@ -10415,8 +10255,6 @@ class Fib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.fib_idb_hist is not None and self.fib_idb_hist._has_data():
                                                         return True
 
@@ -10444,8 +10282,6 @@ class Fib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -10561,8 +10397,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface is not None:
                                                 for child_ref in self.interface:
                                                     if child_ref._has_data():
@@ -10589,8 +10423,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.link_type is not None:
                                             return True
 
@@ -10616,8 +10448,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_info is not None:
                                         for child_ref in self.interface_info:
                                             if child_ref._has_data():
@@ -11621,8 +11451,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.address is not None:
                                                             return True
 
@@ -11666,8 +11494,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.entry is not None:
                                                             return True
 
@@ -11711,8 +11537,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.entry is not None:
                                                             return True
 
@@ -11756,8 +11580,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.entry is not None:
                                                             return True
 
@@ -11780,8 +11602,6 @@ class Fib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.adjacency_address is not None:
                                                         for child_ref in self.adjacency_address:
                                                             if child_ref._has_data():
@@ -11881,8 +11701,6 @@ class Fib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.bytes_through_load_information is not None:
                                                     return True
 
@@ -11938,8 +11756,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.adjacency_address_length is not None:
                                                 return True
 
@@ -12632,8 +12448,6 @@ class Fib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.ip_encap_hdr_dyn is not None:
                                                                 return True
 
@@ -12662,8 +12476,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.ip_encap_hdr is not None:
                                                             for child_ref in self.ip_encap_hdr:
                                                                 if child_ref._has_data():
@@ -12715,8 +12527,6 @@ class Fib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.current_path_flag is not None:
                                                         return True
 
@@ -12933,8 +12743,6 @@ class Fib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.lstack is not None:
                                                             for child in self.lstack:
                                                                 if child is not None:
@@ -12968,8 +12776,6 @@ class Fib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.igp_label_stack_array is not None:
                                                         for child_ref in self.igp_label_stack_array:
                                                             if child_ref._has_data():
@@ -13012,8 +12818,6 @@ class Fib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attached_path is not None:
                                                     return True
 
@@ -13105,8 +12909,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fib_sh_tbl_path is not None:
                                                 for child_ref in self.fib_sh_tbl_path:
                                                     if child_ref._has_data():
@@ -13202,8 +13004,6 @@ class Fib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.srv6_packets_dropped is not None:
                                                     return True
 
@@ -13229,8 +13029,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.route_is_sripv6_flag is not None:
                                                 return True
 
@@ -13319,8 +13117,6 @@ class Fib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.context_label is not None:
                                                     return True
 
@@ -13346,8 +13142,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.sfecd_le is not None and self.sfecd_le._has_data():
                                                 return True
 
@@ -13373,8 +13167,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.broadcast_forward_flag is not None:
                                             return True
 
@@ -13516,8 +13308,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ip_prefix_brief is not None:
                                         for child_ref in self.ip_prefix_brief:
                                             if child_ref._has_data():
@@ -13544,8 +13334,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.vrf_name is not None:
                                     return True
 
@@ -13580,8 +13368,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf is not None:
                                 for child_ref in self.vrf:
                                     if child_ref._has_data():
@@ -13731,8 +13517,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nh_address is not None:
                                     return True
 
@@ -13785,8 +13569,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nh_id is not None:
                                 for child_ref in self.nh_id:
                                     if child_ref._has_data():
@@ -13967,8 +13749,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sep_num_ecd_pathlist is not None:
                                         return True
 
@@ -13999,8 +13779,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ecd_ver is not None:
                                     return True
 
@@ -14050,8 +13828,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.external_client_summary is not None:
                                 for child_ref in self.external_client_summary:
                                     if child_ref._has_data():
@@ -14589,8 +14365,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aib_eod_time_stamp is not None:
                                         return True
 
@@ -14652,8 +14426,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.eoc_received_imdr_time_stamp is not None:
                                     return True
 
@@ -14929,8 +14701,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.entry is not None:
                                         return True
 
@@ -14974,8 +14744,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.entry is not None:
                                         return True
 
@@ -15019,8 +14787,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.entry is not None:
                                         return True
 
@@ -15064,8 +14830,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.entry is not None:
                                         return True
 
@@ -15088,8 +14852,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fpc_dlb_support is not None:
                                     return True
 
@@ -15779,8 +15541,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.foas_max_time is not None:
                                                 return True
 
@@ -15821,8 +15581,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fos_obj_act_stat is not None:
                                             for child_ref in self.fos_obj_act_stat:
                                                 if child_ref._has_data():
@@ -15853,8 +15611,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fpus_num_failure is not None:
                                         return True
 
@@ -15998,8 +15754,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fgft_fn is not None:
                                             return True
 
@@ -16037,8 +15791,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fgt_gtrie_fn_timing is not None:
                                         for child_ref in self.fgt_gtrie_fn_timing:
                                             if child_ref._has_data():
@@ -16072,8 +15824,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fpd_adj_del is not None:
                                     return True
 
@@ -16278,8 +16028,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fpp_cntr is not None:
                                     for child in self.fpp_cntr:
                                         if child is not None:
@@ -16359,8 +16107,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.msec_time is not None:
                                     return True
 
@@ -16530,8 +16276,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mi_num_bfd_down is not None:
                                     return True
 
@@ -16596,8 +16340,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mi_clock_time is not None:
                                 return True
 
@@ -16960,8 +16702,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.pfx is not None:
                                                 return True
 
@@ -17018,8 +16758,6 @@ class Fib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.mcast_id is not None:
                                                 return True
 
@@ -17045,8 +16783,6 @@ class Fib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lsm is not None and self.lsm._has_data():
                                             return True
 
@@ -17075,8 +16811,6 @@ class Fib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ext is not None and self.ext._has_data():
                                         return True
 
@@ -17132,8 +16866,6 @@ class Fib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.conflict is not None:
                                     for child_ref in self.conflict:
                                         if child_ref._has_data():
@@ -17158,8 +16890,6 @@ class Fib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.conflicts is not None and self.conflicts._has_data():
                                 return True
 
@@ -17184,8 +16914,6 @@ class Fib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.protocol_name is not None:
                             return True
 
@@ -17238,8 +16966,6 @@ class Fib(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.protocol is not None:
                         for child_ref in self.protocol:
                             if child_ref._has_data():
@@ -17264,8 +16990,6 @@ class Fib(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -17292,8 +17016,6 @@ class Fib(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -17316,8 +17038,6 @@ class Fib(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -17689,8 +17409,6 @@ class MplsForwarding(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.deleted_stale_entries is not None:
                         return True
 
@@ -17944,8 +17662,6 @@ class MplsForwarding(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nanoseconds is not None:
                                 return True
 
@@ -17973,8 +17689,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.event_id is not None:
                             return True
 
@@ -18021,8 +17735,6 @@ class MplsForwarding(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.frr_log is not None:
                         for child_ref in self.frr_log:
                             if child_ref._has_data():
@@ -18330,8 +18042,6 @@ class MplsForwarding(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ldi_hardware_information is not None:
                                     return True
 
@@ -18481,8 +18191,6 @@ class MplsForwarding(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.multicast_encap_id is not None:
                                     return True
 
@@ -18801,8 +18509,6 @@ class MplsForwarding(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.l3_mtu is not None:
                                         return True
 
@@ -18854,8 +18560,6 @@ class MplsForwarding(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.label_information_detail is not None and self.label_information_detail._has_data():
                                     return True
 
@@ -18935,8 +18639,6 @@ class MplsForwarding(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi_table_id is not None:
                                 return True
 
@@ -19030,8 +18732,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.forwarding_detail is not None:
                             for child_ref in self.forwarding_detail:
                                 if child_ref._has_data():
@@ -19303,8 +19003,6 @@ class MplsForwarding(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ldi_hardware_information is not None:
                                     return True
 
@@ -19454,8 +19152,6 @@ class MplsForwarding(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.multicast_encap_id is not None:
                                     return True
 
@@ -19774,8 +19470,6 @@ class MplsForwarding(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.l3_mtu is not None:
                                         return True
 
@@ -19827,8 +19521,6 @@ class MplsForwarding(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.label_information_detail is not None and self.label_information_detail._has_data():
                                     return True
 
@@ -19908,8 +19600,6 @@ class MplsForwarding(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi_table_id is not None:
                                 return True
 
@@ -20003,8 +19693,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.information is not None:
                             for child_ref in self.information:
                                 if child_ref._has_data():
@@ -20154,8 +19842,6 @@ class MplsForwarding(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -20199,8 +19885,6 @@ class MplsForwarding(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface is not None:
                                 for child_ref in self.interface:
                                     if child_ref._has_data():
@@ -20256,8 +19940,6 @@ class MplsForwarding(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.multi_label_drops is not None:
                                 return True
 
@@ -20283,8 +19965,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interfaces is not None and self.interfaces._has_data():
                             return True
 
@@ -20310,8 +19990,6 @@ class MplsForwarding(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.forwarding_details is not None and self.forwarding_details._has_data():
                         return True
 
@@ -20533,8 +20211,6 @@ class MplsForwarding(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.tli_flags is not None:
                                     return True
 
@@ -20803,8 +20479,6 @@ class MplsForwarding(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ldi_hardware_information is not None:
                                         return True
 
@@ -20954,8 +20628,6 @@ class MplsForwarding(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.multicast_encap_id is not None:
                                         return True
 
@@ -21274,8 +20946,6 @@ class MplsForwarding(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.l3_mtu is not None:
                                             return True
 
@@ -21327,8 +20997,6 @@ class MplsForwarding(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.label_information_detail is not None and self.label_information_detail._has_data():
                                         return True
 
@@ -21408,8 +21076,6 @@ class MplsForwarding(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.afi_table_id is not None:
                                     return True
 
@@ -21499,8 +21165,6 @@ class MplsForwarding(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -21529,8 +21193,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.forwarding_tunnel is not None:
                             for child_ref in self.forwarding_tunnel:
                                 if child_ref._has_data():
@@ -21555,8 +21217,6 @@ class MplsForwarding(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.forwarding_tunnels is not None and self.forwarding_tunnels._has_data():
                         return True
 
@@ -21690,8 +21350,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active is not None:
                             return True
 
@@ -21805,8 +21463,6 @@ class MplsForwarding(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -21841,8 +21497,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.frrdb_protected_interface_table_summary is not None:
                             for child_ref in self.frrdb_protected_interface_table_summary:
                                 if child_ref._has_data():
@@ -21915,8 +21569,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active is not None:
                             return True
 
@@ -22193,8 +21845,6 @@ class MplsForwarding(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.destination_prefix is not None:
                                             return True
 
@@ -22259,8 +21909,6 @@ class MplsForwarding(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lspid is not None:
                                             return True
 
@@ -22289,8 +21937,6 @@ class MplsForwarding(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.head is not None and self.head._has_data():
                                         return True
 
@@ -22475,8 +22121,6 @@ class MplsForwarding(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.destination_prefix is not None:
                                                 return True
 
@@ -22541,8 +22185,6 @@ class MplsForwarding(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.lspid is not None:
                                                 return True
 
@@ -22571,8 +22213,6 @@ class MplsForwarding(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.head is not None and self.head._has_data():
                                             return True
 
@@ -22601,8 +22241,6 @@ class MplsForwarding(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.entry_frr_state is not None:
                                         return True
 
@@ -22652,8 +22290,6 @@ class MplsForwarding(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.entry_frr_state is not None:
                                     return True
 
@@ -22716,8 +22352,6 @@ class MplsForwarding(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_label is not None:
                                 return True
 
@@ -22749,8 +22383,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.frrdb_tunnel_midpoint is not None:
                             for child_ref in self.frrdb_tunnel_midpoint:
                                 if child_ref._has_data():
@@ -23020,8 +22652,6 @@ class MplsForwarding(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.destination_prefix is not None:
                                             return True
 
@@ -23086,8 +22716,6 @@ class MplsForwarding(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lspid is not None:
                                             return True
 
@@ -23116,8 +22744,6 @@ class MplsForwarding(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.head is not None and self.head._has_data():
                                         return True
 
@@ -23302,8 +22928,6 @@ class MplsForwarding(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.destination_prefix is not None:
                                                 return True
 
@@ -23368,8 +22992,6 @@ class MplsForwarding(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.lspid is not None:
                                                 return True
 
@@ -23398,8 +23020,6 @@ class MplsForwarding(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.head is not None and self.head._has_data():
                                             return True
 
@@ -23428,8 +23048,6 @@ class MplsForwarding(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.entry_frr_state is not None:
                                         return True
 
@@ -23479,8 +23097,6 @@ class MplsForwarding(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.entry_frr_state is not None:
                                     return True
 
@@ -23543,8 +23159,6 @@ class MplsForwarding(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -23576,8 +23190,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.frrdb_tunnel_head is not None:
                             for child_ref in self.frrdb_tunnel_head:
                                 if child_ref._has_data():
@@ -23650,8 +23262,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active is not None:
                             return True
 
@@ -23765,8 +23375,6 @@ class MplsForwarding(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -23801,8 +23409,6 @@ class MplsForwarding(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.frrdb_backup_interface_summary is not None:
                             for child_ref in self.frrdb_backup_interface_summary:
                                 if child_ref._has_data():
@@ -23827,8 +23433,6 @@ class MplsForwarding(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.frrdb_backup_interface_summaries is not None and self.frrdb_backup_interface_summaries._has_data():
                         return True
 
@@ -23869,8 +23473,6 @@ class MplsForwarding(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -23906,8 +23508,6 @@ class MplsForwarding(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -23930,8 +23530,6 @@ class MplsForwarding(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

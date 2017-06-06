@@ -150,7 +150,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Threshold type
                 ''',
                 'type',
@@ -289,7 +289,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Sensor name
                 ''',
                 'name',
@@ -342,7 +342,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Sensor type
                 ''',
                 'type',
@@ -382,7 +382,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('module', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Module name
                 ''',
                 'module',
@@ -428,7 +428,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('slot', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Slot name
                 ''',
                 'slot',

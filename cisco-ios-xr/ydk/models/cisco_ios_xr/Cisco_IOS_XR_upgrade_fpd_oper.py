@@ -703,8 +703,6 @@ class Fpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.card_type is not None:
                             return True
 
@@ -745,8 +743,6 @@ class Fpd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.device is not None:
                         for child_ref in self.device:
                             if child_ref._has_data():
@@ -771,8 +767,6 @@ class Fpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -796,8 +790,6 @@ class Fpd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -900,8 +892,6 @@ class Fpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.card_description is not None:
                     return True
 
@@ -940,8 +930,6 @@ class Fpd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.all_package is not None:
                 for child_ref in self.all_package:
                     if child_ref._has_data():
@@ -964,8 +952,6 @@ class Fpd(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

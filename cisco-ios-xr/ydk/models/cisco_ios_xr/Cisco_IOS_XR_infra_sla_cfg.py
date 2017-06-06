@@ -291,8 +291,6 @@ class Sla(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.buckets_size is not None:
@@ -370,8 +368,6 @@ class Sla(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.bins_count is not None:
@@ -404,8 +400,6 @@ class Sla(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.statistic_name is not None:
                                     return True
 
@@ -440,8 +434,6 @@ class Sla(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.statistic is not None:
                                 for child_ref in self.statistic:
                                     if child_ref._has_data():
@@ -550,8 +542,6 @@ class Sla(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.probe_duration is not None:
@@ -715,8 +705,6 @@ class Sla(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.burst_interval is not None:
@@ -803,8 +791,6 @@ class Sla(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.padding_type is not None:
@@ -835,8 +821,6 @@ class Sla(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.packet_size_and_padding is not None and self.packet_size_and_padding._has_data():
                                 return True
 
@@ -868,8 +852,6 @@ class Sla(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.profile_name is not None:
                             return True
 
@@ -902,8 +884,6 @@ class Sla(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profile is not None:
                         for child_ref in self.profile:
                             if child_ref._has_data():
@@ -926,8 +906,6 @@ class Sla(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.profiles is not None and self.profiles._has_data():
                     return True
 
@@ -948,8 +926,6 @@ class Sla(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ethernet is not None and self.ethernet._has_data():
                 return True
 
@@ -970,8 +946,6 @@ class Sla(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.protocols is not None and self.protocols._has_data():
             return True
 

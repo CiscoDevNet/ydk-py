@@ -269,7 +269,7 @@ _meta_table = {
                 'in_unknown_protos',
                 'openconfig-interfaces', False),
             _MetaInfoClassMember('last-clear', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                [], [b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
                 '''                Indicates the last time the interface counters were
                 cleared.
                 ''',
@@ -900,7 +900,7 @@ _meta_table = {
                 'in_unknown_protos',
                 'openconfig-interfaces', False),
             _MetaInfoClassMember('last-clear', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                [], [b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
                 '''                Indicates the last time the interface counters were
                 cleared.
                 ''',
@@ -1233,7 +1233,7 @@ _meta_table = {
                         'vlan_id',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        VLAN id for the subinterface -- specified inline for the
                         case of a local VLAN
                         ''',
@@ -1288,7 +1288,7 @@ _meta_table = {
                         'vlan_id',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        VLAN id for the subinterface -- specified inline for the
                         case of a local VLAN
                         ''',
@@ -1330,7 +1330,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv4 address on the interface.
                 ''',
@@ -1355,7 +1355,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv4 address on the interface.
                 ''',
@@ -1434,14 +1434,14 @@ _meta_table = {
                 'virtual_address',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
                         'virtual_address',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
@@ -1522,14 +1522,14 @@ _meta_table = {
                 'virtual_address',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
                         'virtual_address',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
@@ -1688,7 +1688,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                References the configured IP address
                 ''',
                 'ip',
@@ -1726,13 +1726,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The IPv4 address of the neighbor node.
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                The link-layer address of the neighbor node.
                 ''',
                 'link_layer_address',
@@ -1749,13 +1749,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The IPv4 address of the neighbor node.
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                The link-layer address of the neighbor node.
                 ''',
                 'link_layer_address',
@@ -1778,7 +1778,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                References the configured IP address
                 ''',
                 'ip',
@@ -1909,7 +1909,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv6 address on the interface.
                 ''',
@@ -1945,7 +1945,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv6 address on the interface.
                 ''',
@@ -2033,14 +2033,14 @@ _meta_table = {
                 'virtual_address',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
                         'virtual_address',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
@@ -2055,14 +2055,14 @@ _meta_table = {
                 'virtual_link_local',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-link-local', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        For VRRP on IPv6 interfaces, sets the virtual link local
                         address
                         ''',
                         'virtual_link_local',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-link-local', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        For VRRP on IPv6 interfaces, sets the virtual link local
                         address
                         ''',
@@ -2143,14 +2143,14 @@ _meta_table = {
                 'virtual_address',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
                         'virtual_address',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
@@ -2165,14 +2165,14 @@ _meta_table = {
                 'virtual_link_local',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-link-local', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        For VRRP on IPv6 interfaces, sets the virtual link local
                         address
                         ''',
                         'virtual_link_local',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-link-local', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        For VRRP on IPv6 interfaces, sets the virtual link local
                         address
                         ''',
@@ -2331,7 +2331,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                References the configured IP address
                 ''',
                 'ip',
@@ -2369,14 +2369,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv6 address of the neighbor node.
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The link-layer address of the neighbor node.
                 ''',
@@ -2402,7 +2402,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv6 address of the neighbor node.
                 ''',
@@ -2416,7 +2416,7 @@ _meta_table = {
                 'is_router',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The link-layer address of the neighbor node.
                 ''',
@@ -2449,7 +2449,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                References the configured IP neighbor address
                 ''',
                 'ip',
@@ -2836,7 +2836,7 @@ _meta_table = {
                 'enable_flow_control',
                 'openconfig-if-ethernet', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Assigns a MAC address to the Ethernet interface.  If not
                 specified, the corresponding operational state leaf is
                 expected to show the system-assigned MAC address.
@@ -2993,14 +2993,14 @@ _meta_table = {
                 'enable_flow_control',
                 'openconfig-if-ethernet', False),
             _MetaInfoClassMember('hw-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Represenets the 'burned-in',  or system-assigned, MAC
                 address for the Ethernet interface.
                 ''',
                 'hw_mac_address',
                 'openconfig-if-ethernet', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Assigns a MAC address to the Ethernet interface.  If not
                 specified, the corresponding operational state leaf is
                 expected to show the system-assigned MAC address.
@@ -3043,7 +3043,7 @@ _meta_table = {
                         'access_vlan',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Assign the access vlan to the access port.
                         ''',
                         'access_vlan',
@@ -3073,7 +3073,7 @@ _meta_table = {
                         'native_vlan',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Set the native VLAN id for untagged frames arriving on
                         a trunk interface.  This configuration is only valid on
                         a trunk interface.
@@ -3102,7 +3102,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
                         '''                        Specify VLANs, or ranges thereof, that the interface may
                         carry when in trunk mode.  If not specified, all VLANs are
                         allowed on the interface. Ranges are specified in the form
@@ -3112,7 +3112,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Specify VLANs, or ranges thereof, that the interface may
                         carry when in trunk mode.  If not specified, all VLANs are
                         allowed on the interface. Ranges are specified in the form
@@ -3132,7 +3132,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False, [
                             _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                                [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                                 '''                                Specify VLANs, or ranges thereof, that the interface may
                                 carry when in trunk mode.  If not specified, all VLANs are
                                 allowed on the interface. Ranges are specified in the form
@@ -3142,7 +3142,7 @@ _meta_table = {
                                 'trunk_vlans',
                                 'openconfig-vlan', False),
                             _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
+                                [], [b'(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
                                 '''                                Specify VLANs, or ranges thereof, that the interface may
                                 carry when in trunk mode.  If not specified, all VLANs are
                                 allowed on the interface. Ranges are specified in the form
@@ -3177,7 +3177,7 @@ _meta_table = {
                         'access_vlan',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Assign the access vlan to the access port.
                         ''',
                         'access_vlan',
@@ -3207,7 +3207,7 @@ _meta_table = {
                         'native_vlan',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Set the native VLAN id for untagged frames arriving on
                         a trunk interface.  This configuration is only valid on
                         a trunk interface.
@@ -3236,7 +3236,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
                         '''                        Specify VLANs, or ranges thereof, that the interface may
                         carry when in trunk mode.  If not specified, all VLANs are
                         allowed on the interface. Ranges are specified in the form
@@ -3246,7 +3246,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Specify VLANs, or ranges thereof, that the interface may
                         carry when in trunk mode.  If not specified, all VLANs are
                         allowed on the interface. Ranges are specified in the form
@@ -3266,7 +3266,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False, [
                             _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                                [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                                 '''                                Specify VLANs, or ranges thereof, that the interface may
                                 carry when in trunk mode.  If not specified, all VLANs are
                                 allowed on the interface. Ranges are specified in the form
@@ -3276,7 +3276,7 @@ _meta_table = {
                                 'trunk_vlans',
                                 'openconfig-vlan', False),
                             _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
+                                [], [b'(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
                                 '''                                Specify VLANs, or ranges thereof, that the interface may
                                 carry when in trunk mode.  If not specified, all VLANs are
                                 allowed on the interface. Ranges are specified in the form
@@ -3426,7 +3426,7 @@ _meta_table = {
                 'lacp_mode',
                 'openconfig-if-aggregate', False),
             _MetaInfoClassMember('system-id-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                The MAC address portion of the node's System ID. This is
                 combined with the system priority to construct the 8-octet
                 system-id
@@ -3468,7 +3468,7 @@ _meta_table = {
                 'lacp_mode',
                 'openconfig-if-aggregate', False),
             _MetaInfoClassMember('system-id-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                The MAC address portion of the node's System ID. This is
                 combined with the system priority to construct the 8-octet
                 system-id
@@ -3590,7 +3590,7 @@ _meta_table = {
                 'oper_key',
                 'openconfig-if-aggregate', False),
             _MetaInfoClassMember('partner-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address representing the protocol partner's interface
                 system ID
                 ''',
@@ -3610,7 +3610,7 @@ _meta_table = {
                 'synchronization',
                 'openconfig-if-aggregate', False),
             _MetaInfoClassMember('system-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address that defines the local system ID for the
                 aggregate interface
                 ''',
@@ -3721,7 +3721,7 @@ _meta_table = {
                         'access_vlan',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Assign the access vlan to the access port.
                         ''',
                         'access_vlan',
@@ -3751,7 +3751,7 @@ _meta_table = {
                         'native_vlan',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Set the native VLAN id for untagged frames arriving on
                         a trunk interface.  This configuration is only valid on
                         a trunk interface.
@@ -3780,7 +3780,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
                         '''                        Specify VLANs, or ranges thereof, that the interface may
                         carry when in trunk mode.  If not specified, all VLANs are
                         allowed on the interface. Ranges are specified in the form
@@ -3790,7 +3790,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Specify VLANs, or ranges thereof, that the interface may
                         carry when in trunk mode.  If not specified, all VLANs are
                         allowed on the interface. Ranges are specified in the form
@@ -3810,7 +3810,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False, [
                             _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                                [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                                 '''                                Specify VLANs, or ranges thereof, that the interface may
                                 carry when in trunk mode.  If not specified, all VLANs are
                                 allowed on the interface. Ranges are specified in the form
@@ -3820,7 +3820,7 @@ _meta_table = {
                                 'trunk_vlans',
                                 'openconfig-vlan', False),
                             _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
+                                [], [b'(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
                                 '''                                Specify VLANs, or ranges thereof, that the interface may
                                 carry when in trunk mode.  If not specified, all VLANs are
                                 allowed on the interface. Ranges are specified in the form
@@ -3855,7 +3855,7 @@ _meta_table = {
                         'access_vlan',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('access-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Assign the access vlan to the access port.
                         ''',
                         'access_vlan',
@@ -3885,7 +3885,7 @@ _meta_table = {
                         'native_vlan',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Set the native VLAN id for untagged frames arriving on
                         a trunk interface.  This configuration is only valid on
                         a trunk interface.
@@ -3914,7 +3914,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
                         '''                        Specify VLANs, or ranges thereof, that the interface may
                         carry when in trunk mode.  If not specified, all VLANs are
                         allowed on the interface. Ranges are specified in the form
@@ -3924,7 +3924,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False),
                     _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                        [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                         '''                        Specify VLANs, or ranges thereof, that the interface may
                         carry when in trunk mode.  If not specified, all VLANs are
                         allowed on the interface. Ranges are specified in the form
@@ -3944,7 +3944,7 @@ _meta_table = {
                         'trunk_vlans',
                         'openconfig-vlan', False, [
                             _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
+                                [], [b'(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.((409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])|\\*)'], 
                                 '''                                Specify VLANs, or ranges thereof, that the interface may
                                 carry when in trunk mode.  If not specified, all VLANs are
                                 allowed on the interface. Ranges are specified in the form
@@ -3954,7 +3954,7 @@ _meta_table = {
                                 'trunk_vlans',
                                 'openconfig-vlan', False),
                             _MetaInfoClassMember('trunk-vlans', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
+                                [], [b'(\\*|(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9]))\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])\\.\\.(409[0-4]|40[0-8][0-9]|[1-3][0-9]{3}|[1-9][0-9]{1,2}|[1-9])'], 
                                 '''                                Specify VLANs, or ranges thereof, that the interface may
                                 carry when in trunk mode.  If not specified, all VLANs are
                                 allowed on the interface. Ranges are specified in the form
@@ -4117,7 +4117,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv4 address on the interface.
                 ''',
@@ -4142,7 +4142,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv4 address on the interface.
                 ''',
@@ -4221,14 +4221,14 @@ _meta_table = {
                 'virtual_address',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
                         'virtual_address',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
@@ -4309,14 +4309,14 @@ _meta_table = {
                 'virtual_address',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
                         'virtual_address',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
@@ -4475,7 +4475,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                References the configured IP address
                 ''',
                 'ip',
@@ -4513,13 +4513,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The IPv4 address of the neighbor node.
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                The link-layer address of the neighbor node.
                 ''',
                 'link_layer_address',
@@ -4536,13 +4536,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The IPv4 address of the neighbor node.
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                The link-layer address of the neighbor node.
                 ''',
                 'link_layer_address',
@@ -4565,7 +4565,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                References the configured IP address
                 ''',
                 'ip',
@@ -4696,7 +4696,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv6 address on the interface.
                 ''',
@@ -4732,7 +4732,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv6 address on the interface.
                 ''',
@@ -4820,14 +4820,14 @@ _meta_table = {
                 'virtual_address',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
                         'virtual_address',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
@@ -4842,14 +4842,14 @@ _meta_table = {
                 'virtual_link_local',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-link-local', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        For VRRP on IPv6 interfaces, sets the virtual link local
                         address
                         ''',
                         'virtual_link_local',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-link-local', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        For VRRP on IPv6 interfaces, sets the virtual link local
                         address
                         ''',
@@ -4930,14 +4930,14 @@ _meta_table = {
                 'virtual_address',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
                         'virtual_address',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Configure one or more virtual addresses for the
                         VRRP group
                         ''',
@@ -4952,14 +4952,14 @@ _meta_table = {
                 'virtual_link_local',
                 'openconfig-if-ip', False, [
                     _MetaInfoClassMember('virtual-link-local', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        For VRRP on IPv6 interfaces, sets the virtual link local
                         address
                         ''',
                         'virtual_link_local',
                         'openconfig-if-ip', False),
                     _MetaInfoClassMember('virtual-link-local', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        For VRRP on IPv6 interfaces, sets the virtual link local
                         address
                         ''',
@@ -5118,7 +5118,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                References the configured IP address
                 ''',
                 'ip',
@@ -5156,14 +5156,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv6 address of the neighbor node.
                 ''',
                 'ip',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The link-layer address of the neighbor node.
                 ''',
@@ -5189,7 +5189,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The IPv6 address of the neighbor node.
                 ''',
@@ -5203,7 +5203,7 @@ _meta_table = {
                 'is_router',
                 'openconfig-if-ip', False),
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
                 The link-layer address of the neighbor node.
                 ''',
@@ -5236,7 +5236,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                References the configured IP neighbor address
                 ''',
                 'ip',

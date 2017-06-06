@@ -19,6 +19,16 @@ _meta_table = {
             'fifteen-min':'fifteen_min',
             'one-day':'one_day',
         }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
+    'AlarmClientStateEnum' : _MetaInfoEnum('AlarmClientStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
+        {
+            'start':'start',
+            'init':'init',
+            'connecting':'connecting',
+            'connected':'connected',
+            'registered':'registered',
+            'disconnected':'disconnected',
+            'ready':'ready',
+        }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
     'AlarmSeverityEnum' : _MetaInfoEnum('AlarmSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
         {
             'unknown':'unknown',
@@ -28,6 +38,26 @@ _meta_table = {
             'major':'major',
             'critical':'critical',
             'severity-last':'severity_last',
+        }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
+    'AlarmServiceAffectingEnum' : _MetaInfoEnum('AlarmServiceAffectingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
+        {
+            'unknown':'unknown',
+            'not-service-affecting':'not_service_affecting',
+            'service-affecting':'service_affecting',
+        }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
+    'AlarmClientEnum' : _MetaInfoEnum('AlarmClientEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
+        {
+            'unknown':'unknown',
+            'producer':'producer',
+            'consumer':'consumer',
+            'subscriber':'subscriber',
+            'client-last':'client_last',
+        }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
+    'AlarmNotificationSrcEnum' : _MetaInfoEnum('AlarmNotificationSrcEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
+        {
+            'not-specified':'not_specified',
+            'near-end':'near_end',
+            'far-end':'far_end',
         }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
     'AlarmDirectionEnum' : _MetaInfoEnum('AlarmDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
         {
@@ -44,41 +74,11 @@ _meta_table = {
             'suppress':'suppress',
             'last':'last',
         }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
-    'AlarmServiceAffectingEnum' : _MetaInfoEnum('AlarmServiceAffectingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
-        {
-            'unknown':'unknown',
-            'not-service-affecting':'not_service_affecting',
-            'service-affecting':'service_affecting',
-        }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
-    'AlarmNotificationSrcEnum' : _MetaInfoEnum('AlarmNotificationSrcEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
-        {
-            'not-specified':'not_specified',
-            'near-end':'near_end',
-            'far-end':'far_end',
-        }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
     'AlarmEventEnum' : _MetaInfoEnum('AlarmEventEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
         {
             'default':'default',
             'notification':'notification',
             'last':'last',
-        }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
-    'AlarmClientEnum' : _MetaInfoEnum('AlarmClientEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
-        {
-            'unknown':'unknown',
-            'producer':'producer',
-            'consumer':'consumer',
-            'subscriber':'subscriber',
-            'client-last':'client_last',
-        }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
-    'AlarmClientStateEnum' : _MetaInfoEnum('AlarmClientStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
-        {
-            'start':'start',
-            'init':'init',
-            'connecting':'connecting',
-            'connected':'connected',
-            'registered':'registered',
-            'disconnected':'disconnected',
-            'ready':'ready',
         }, 'Cisco-IOS-XR-alarmgr-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-alarmgr-server-oper']),
     'AlarmGroupsEnum' : _MetaInfoEnum('AlarmGroupsEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper',
         {
@@ -1763,7 +1763,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                NodeID of the Location
                 ''',
                 'node_id',
@@ -2096,7 +2096,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                NodeID of the Location
                 ''',
                 'node_id',

@@ -195,8 +195,6 @@ class LldpSnoopData(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.chassis_id is not None:
                         return True
 
@@ -232,8 +230,6 @@ class LldpSnoopData(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.lldp_neighbor_brief_entry is not None:
                     for child_ref in self.lldp_neighbor_brief_entry:
                         if child_ref._has_data():
@@ -256,8 +252,6 @@ class LldpSnoopData(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.neighbours is not None and self.neighbours._has_data():
                 return True
 
@@ -512,8 +506,6 @@ class LldpSnoopData(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address_type is not None:
                                 return True
 
@@ -542,8 +534,6 @@ class LldpSnoopData(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None and self.address._has_data():
                             return True
 
@@ -572,8 +562,6 @@ class LldpSnoopData(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lldp_addr_entry is not None:
                         for child_ref in self.lldp_addr_entry:
                             if child_ref._has_data():
@@ -598,8 +586,6 @@ class LldpSnoopData(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -659,8 +645,6 @@ class LldpSnoopData(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ethernet_controller_name is not None:
                 for child_ref in self.ethernet_controller_name:
                     if child_ref._has_data():
@@ -683,8 +667,6 @@ class LldpSnoopData(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.ethernet_controller_names is not None and self.ethernet_controller_names._has_data():
             return True
 

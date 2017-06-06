@@ -222,8 +222,6 @@ class Dhcpv6(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.full_write_interval is not None:
                 return True
 
@@ -396,19 +394,19 @@ class Dhcpv6(object):
                         """
                         Specify the server helper address
                         
-                        .. attribute:: helper_address  <key>
-                        
-                        	Server Global unicast address
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: vrf_name  <key>
                         
                         	VRF name
                         	**type**\:  str
                         
                         	**length:** 1..32
+                        
+                        .. attribute:: helper_address  <key>
+                        
+                        	Server Global unicast address
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -419,31 +417,29 @@ class Dhcpv6(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.helper_address = None
                             self.vrf_name = None
+                            self.helper_address = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.helper_address is None:
-                                raise YPYModelError('Key property helper_address is None')
                             if self.vrf_name is None:
                                 raise YPYModelError('Key property vrf_name is None')
+                            if self.helper_address is None:
+                                raise YPYModelError('Key property helper_address is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address = ' + str(self.helper_address) + '][Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:vrf-name = ' + str(self.vrf_name) + '][Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address = ' + str(self.helper_address) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.helper_address is not None:
+                            if self.vrf_name is not None:
                                 return True
 
-                            if self.vrf_name is not None:
+                            if self.helper_address is not None:
                                 return True
 
                             return False
@@ -465,8 +461,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.helper_address is not None:
                             for child_ref in self.helper_address:
                                 if child_ref._has_data():
@@ -491,8 +485,6 @@ class Dhcpv6(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.enable is not None:
@@ -628,8 +620,6 @@ class Dhcpv6(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.profile_name is not None:
                                 return True
 
@@ -658,8 +648,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.profile is not None:
                             for child_ref in self.profile:
                                 if child_ref._has_data():
@@ -775,8 +763,6 @@ class Dhcpv6(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.profile_name is not None:
                                     return True
 
@@ -807,8 +793,6 @@ class Dhcpv6(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.class_name is not None:
                                 return True
 
@@ -836,8 +820,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.class_ is not None:
                             for child_ref in self.class_:
                                 if child_ref._has_data():
@@ -862,8 +844,6 @@ class Dhcpv6(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.classes is not None and self.classes._has_data():
@@ -1046,8 +1026,6 @@ class Dhcpv6(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -1073,8 +1051,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -1192,8 +1168,6 @@ class Dhcpv6(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.insert is not None:
                                     return True
 
@@ -1216,8 +1190,6 @@ class Dhcpv6(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_id is not None and self.interface_id._has_data():
                                 return True
 
@@ -1252,8 +1224,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.option is not None and self.option._has_data():
                             return True
 
@@ -1391,8 +1361,6 @@ class Dhcpv6(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.helper_address is not None:
                                         return True
 
@@ -1421,8 +1389,6 @@ class Dhcpv6(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.helper_address is not None:
                                     for child_ref in self.helper_address:
                                         if child_ref._has_data():
@@ -1449,8 +1415,6 @@ class Dhcpv6(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -1476,8 +1440,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
@@ -1589,19 +1551,19 @@ class Dhcpv6(object):
                                 """
                                 Specify the server helper address
                                 
-                                .. attribute:: helper_address  <key>
-                                
-                                	Server address
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
                                 .. attribute:: vrf_name  <key>
                                 
                                 	VRF name
                                 	**type**\:  str
                                 
                                 	**length:** 1..32
+                                
+                                .. attribute:: helper_address  <key>
+                                
+                                	Server address
+                                	**type**\:  str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -1612,31 +1574,29 @@ class Dhcpv6(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.helper_address = None
                                     self.vrf_name = None
+                                    self.helper_address = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.helper_address is None:
-                                        raise YPYModelError('Key property helper_address is None')
                                     if self.vrf_name is None:
                                         raise YPYModelError('Key property vrf_name is None')
+                                    if self.helper_address is None:
+                                        raise YPYModelError('Key property helper_address is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address = ' + str(self.helper_address) + '][Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:vrf-name = ' + str(self.vrf_name) + '][Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:helper-address = ' + str(self.helper_address) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.helper_address is not None:
+                                    if self.vrf_name is not None:
                                         return True
 
-                                    if self.vrf_name is not None:
+                                    if self.helper_address is not None:
                                         return True
 
                                     return False
@@ -1658,8 +1618,6 @@ class Dhcpv6(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.helper_address is not None:
                                     for child_ref in self.helper_address:
                                         if child_ref._has_data():
@@ -1686,8 +1644,6 @@ class Dhcpv6(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.class_name is not None:
                                 return True
 
@@ -1716,8 +1672,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.class_ is not None:
                             for child_ref in self.class_:
                                 if child_ref._has_data():
@@ -1830,8 +1784,6 @@ class Dhcpv6(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.block is not None:
                                     return True
 
@@ -1860,8 +1812,6 @@ class Dhcpv6(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.throttle is not None and self.throttle._has_data():
                                 return True
 
@@ -1884,8 +1834,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mac is not None and self.mac._has_data():
                             return True
 
@@ -1908,8 +1856,6 @@ class Dhcpv6(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.classes is not None and self.classes._has_data():
@@ -2158,8 +2104,6 @@ class Dhcpv6(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.block is not None:
                                     return True
 
@@ -2188,8 +2132,6 @@ class Dhcpv6(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.throttle is not None and self.throttle._has_data():
                                 return True
 
@@ -2212,8 +2154,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mac is not None and self.mac._has_data():
                             return True
 
@@ -2271,8 +2211,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dns_server is not None:
                             for child in self.dns_server:
                                 if child is not None:
@@ -2417,8 +2355,6 @@ class Dhcpv6(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dns_server is not None:
                                     for child in self.dns_server:
                                         if child is not None:
@@ -2445,8 +2381,6 @@ class Dhcpv6(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.class_name is not None:
                                 return True
 
@@ -2484,8 +2418,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.class_ is not None:
                             for child_ref in self.class_:
                                 if child_ref._has_data():
@@ -2561,8 +2493,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.days is not None:
                             return True
 
@@ -2645,8 +2575,6 @@ class Dhcpv6(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.type is not None:
                                 return True
 
@@ -2672,8 +2600,6 @@ class Dhcpv6(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vendor_options is not None and self.vendor_options._has_data():
                             return True
 
@@ -2696,8 +2622,6 @@ class Dhcpv6(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.address_pool is not None:
@@ -2755,8 +2679,6 @@ class Dhcpv6(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.profile_name is not None:
                     return True
 
@@ -2789,8 +2711,6 @@ class Dhcpv6(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.profile is not None:
                 for child_ref in self.profile:
                     if child_ref._has_data():
@@ -2919,8 +2839,6 @@ class Dhcpv6(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profile is not None:
                         return True
 
@@ -2966,8 +2884,6 @@ class Dhcpv6(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profile is not None:
                         return True
 
@@ -3013,8 +2929,6 @@ class Dhcpv6(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profile is not None:
                         return True
 
@@ -3060,8 +2974,6 @@ class Dhcpv6(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profile is not None:
                         return True
 
@@ -3107,8 +3019,6 @@ class Dhcpv6(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profile is not None:
                         return True
 
@@ -3131,8 +3041,6 @@ class Dhcpv6(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -3168,8 +3076,6 @@ class Dhcpv6(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -3192,8 +3098,6 @@ class Dhcpv6(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self._is_presence:
             return True
         if self.allow_duid_change is not None:

@@ -266,8 +266,6 @@ class HardwareModule(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.index is not None:
                                     return True
 
@@ -311,8 +309,6 @@ class HardwareModule(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.index is not None:
                                 for child_ref in self.index:
                                     if child_ref._has_data():
@@ -337,8 +333,6 @@ class HardwareModule(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.indexes is not None and self.indexes._has_data():
                             return True
 
@@ -542,8 +536,6 @@ class HardwareModule(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.index is not None:
                                     return True
 
@@ -602,8 +594,6 @@ class HardwareModule(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.indx is not None:
                                 for child_ref in self.indx:
                                     if child_ref._has_data():
@@ -692,8 +682,6 @@ class HardwareModule(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.index is not None:
                                     return True
 
@@ -722,8 +710,6 @@ class HardwareModule(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.idx is not None:
                                 for child_ref in self.idx:
                                     if child_ref._has_data():
@@ -748,8 +734,6 @@ class HardwareModule(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.idxes is not None and self.idxes._has_data():
                             return True
 
@@ -775,8 +759,6 @@ class HardwareModule(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cpu is not None and self.cpu._has_data():
                         return True
 
@@ -802,8 +784,6 @@ class HardwareModule(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -827,8 +807,6 @@ class HardwareModule(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -851,8 +829,6 @@ class HardwareModule(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -1109,8 +1085,6 @@ class Prm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.index is not None:
                                     return True
 
@@ -1160,8 +1134,6 @@ class Prm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.index is not None:
                                 for child_ref in self.index:
                                     if child_ref._has_data():
@@ -1186,8 +1158,6 @@ class Prm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.indexes is not None and self.indexes._has_data():
                             return True
 
@@ -1210,8 +1180,6 @@ class Prm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.resource is not None and self.resource._has_data():
                         return True
 
@@ -1234,8 +1202,6 @@ class Prm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -1259,8 +1225,6 @@ class Prm(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -1283,8 +1247,6 @@ class Prm(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

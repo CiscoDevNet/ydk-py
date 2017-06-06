@@ -13,137 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'Ospfv3DomainIdEnum' : _MetaInfoEnum('Ospfv3DomainIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'type0005':'type0005',
-            'type0105':'type0105',
-            'type0205':'type0205',
-            'type8005':'type8005',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3NetworkEnum' : _MetaInfoEnum('Ospfv3NetworkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'broadcast':'broadcast',
-            'non-broadcast':'non_broadcast',
-            'point-to-point':'point_to_point',
-            'point-to-multipoint':'point_to_multipoint',
-            'non-broadcast-point-to-multipoint':'non_broadcast_point_to_multipoint',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3MetricEnum' : _MetaInfoEnum('Ospfv3MetricEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'type1':'type1',
-            'type2':'type2',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3AuthenticationType2Enum' : _MetaInfoEnum('Ospfv3AuthenticationType2Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'null':'null',
-            'md5':'md5',
-            'sha1':'sha1',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3FastReroutePriorityEnum' : _MetaInfoEnum('Ospfv3FastReroutePriorityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'critical':'critical',
-            'high':'high',
-            'medium':'medium',
-            'low':'low',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3BfdEnableModeEnum' : _MetaInfoEnum('Ospfv3BfdEnableModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'disable':'disable',
-            'default':'default',
-            'strict':'strict',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3LogAdjEnum' : _MetaInfoEnum('Ospfv3LogAdjEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'suppress':'suppress',
-            'brief':'brief',
-            'detail':'detail',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3FastRerouteEnum' : _MetaInfoEnum('Ospfv3FastRerouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'none':'none',
-            'per-link':'per_link',
-            'per-prefix':'per_prefix',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3IsisRouteEnum' : _MetaInfoEnum('Ospfv3IsisRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'level1':'level1',
-            'level2':'level2',
-            'level1-and2':'level1_and2',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3NssaExternalRouteEnum' : _MetaInfoEnum('Ospfv3NssaExternalRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'external1':'external1',
-            'external2':'external2',
-            'external':'external',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3ExternalRouteEnum' : _MetaInfoEnum('Ospfv3ExternalRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'external1':'external1',
-            'external2':'external2',
-            'external':'external',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3NsrEnum' : _MetaInfoEnum('Ospfv3NsrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'true':'true',
-            'false':'false',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'TraceBufSizeEnum' : _MetaInfoEnum('TraceBufSizeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'disable':'disable',
-            'one':'one',
-            'two':'two',
-            'three':'three',
-            'four':'four',
-            'five':'five',
-            'six':'six',
-            'seven':'seven',
-            'eight':'eight',
-            'nine':'nine',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3AddressFamilyEnum' : _MetaInfoEnum('Ospfv3AddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'ipv6':'ipv6',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3ProtocolEnum' : _MetaInfoEnum('Ospfv3ProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'all':'all',
-            'connected':'connected',
-            'static':'static',
-            'bgp':'bgp',
-            'isis':'isis',
-            'ospfv3':'ospfv3',
-            'eigrp':'eigrp',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3EncryptionAlgorithmEnum' : _MetaInfoEnum('Ospfv3EncryptionAlgorithmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'null':'null',
-            'des':'des',
-            '3des':'Y_3des',
-            'aes':'aes',
-            'aes192':'aes192',
-            'aes256':'aes256',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3ProtocolType2Enum' : _MetaInfoEnum('Ospfv3ProtocolType2Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'connected':'connected',
-            'static':'static',
-            'bgp':'bgp',
-            'isis':'isis',
-            'ospfv3':'ospfv3',
-            'eigrp':'eigrp',
-            'subscriber':'subscriber',
-            'application':'application',
-            'mobile':'mobile',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3SubsequentAddressFamilyEnum' : _MetaInfoEnum('Ospfv3SubsequentAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'unicast':'unicast',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
-    'Ospfv3EigrpRouteEnum' : _MetaInfoEnum('Ospfv3EigrpRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
-        {
-            'internal':'internal',
-            'external':'external',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3FastRerouteTiebreakersEnum' : _MetaInfoEnum('Ospfv3FastRerouteTiebreakersEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
             'downstream':'downstream',
@@ -163,6 +32,137 @@ _meta_table = {
         {
             'internal':'internal',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3NssaExternalRouteEnum' : _MetaInfoEnum('Ospfv3NssaExternalRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'external1':'external1',
+            'external2':'external2',
+            'external':'external',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3SubsequentAddressFamilyEnum' : _MetaInfoEnum('Ospfv3SubsequentAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'unicast':'unicast',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3EigrpRouteEnum' : _MetaInfoEnum('Ospfv3EigrpRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'internal':'internal',
+            'external':'external',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'TraceBufSizeEnum' : _MetaInfoEnum('TraceBufSizeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'disable':'disable',
+            'one':'one',
+            'two':'two',
+            'three':'three',
+            'four':'four',
+            'five':'five',
+            'six':'six',
+            'seven':'seven',
+            'eight':'eight',
+            'nine':'nine',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3NsrEnum' : _MetaInfoEnum('Ospfv3NsrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'true':'true',
+            'false':'false',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3ProtocolEnum' : _MetaInfoEnum('Ospfv3ProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'all':'all',
+            'connected':'connected',
+            'static':'static',
+            'bgp':'bgp',
+            'isis':'isis',
+            'ospfv3':'ospfv3',
+            'eigrp':'eigrp',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3BfdEnableModeEnum' : _MetaInfoEnum('Ospfv3BfdEnableModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'disable':'disable',
+            'default':'default',
+            'strict':'strict',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3AddressFamilyEnum' : _MetaInfoEnum('Ospfv3AddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'ipv6':'ipv6',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3EncryptionAlgorithmEnum' : _MetaInfoEnum('Ospfv3EncryptionAlgorithmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'null':'null',
+            'des':'des',
+            '3des':'Y_3des',
+            'aes':'aes',
+            'aes192':'aes192',
+            'aes256':'aes256',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3NetworkEnum' : _MetaInfoEnum('Ospfv3NetworkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'broadcast':'broadcast',
+            'non-broadcast':'non_broadcast',
+            'point-to-point':'point_to_point',
+            'point-to-multipoint':'point_to_multipoint',
+            'non-broadcast-point-to-multipoint':'non_broadcast_point_to_multipoint',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3ExternalRouteEnum' : _MetaInfoEnum('Ospfv3ExternalRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'external1':'external1',
+            'external2':'external2',
+            'external':'external',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3ProtocolType2Enum' : _MetaInfoEnum('Ospfv3ProtocolType2Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'connected':'connected',
+            'static':'static',
+            'bgp':'bgp',
+            'isis':'isis',
+            'ospfv3':'ospfv3',
+            'eigrp':'eigrp',
+            'subscriber':'subscriber',
+            'application':'application',
+            'mobile':'mobile',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3MetricEnum' : _MetaInfoEnum('Ospfv3MetricEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'type1':'type1',
+            'type2':'type2',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3FastRerouteEnum' : _MetaInfoEnum('Ospfv3FastRerouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'none':'none',
+            'per-link':'per_link',
+            'per-prefix':'per_prefix',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3DomainIdEnum' : _MetaInfoEnum('Ospfv3DomainIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'type0005':'type0005',
+            'type0105':'type0105',
+            'type0205':'type0205',
+            'type8005':'type8005',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3LogAdjEnum' : _MetaInfoEnum('Ospfv3LogAdjEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'suppress':'suppress',
+            'brief':'brief',
+            'detail':'detail',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3IsisRouteEnum' : _MetaInfoEnum('Ospfv3IsisRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'level1':'level1',
+            'level2':'level2',
+            'level1-and2':'level1_and2',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3AuthenticationType2Enum' : _MetaInfoEnum('Ospfv3AuthenticationType2Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'null':'null',
+            'md5':'md5',
+            'sha1':'sha1',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
+    'Ospfv3FastReroutePriorityEnum' : _MetaInfoEnum('Ospfv3FastReroutePriorityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
+        {
+            'critical':'critical',
+            'high':'high',
+            'medium':'medium',
+            'low':'low',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication' : {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication',
             False, 
@@ -180,7 +180,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -233,7 +233,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 prefix format
                 ''',
                 'prefix',
@@ -292,7 +292,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -310,7 +310,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -455,7 +455,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -479,7 +479,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IPV6 address
                 ''',
                 'neighbor_address',
@@ -553,7 +553,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -571,7 +571,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -693,7 +693,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -727,7 +727,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -793,7 +793,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -827,7 +827,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -923,7 +923,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to configure
                 ''',
                 'interface_name',
@@ -1099,7 +1099,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -1133,7 +1133,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -1199,7 +1199,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -1233,7 +1233,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -1358,7 +1358,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -1388,7 +1388,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -1406,7 +1406,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -1429,17 +1429,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink',
             False, 
             [
-            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Remote sham-link endpoint
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local sham-link endpoint
                 ''',
                 'source_address',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
+            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Remote sham-link endpoint
+                ''',
+                'destination_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication', 
                 [], [], 
@@ -1525,7 +1525,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -1555,7 +1555,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -1573,7 +1573,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -1597,7 +1597,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('virtual-link-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Router ID of virtual link neighbor
                 ''',
                 'virtual_link_address',
@@ -1674,7 +1674,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Area ID if in IP address format
                 ''',
                 'address',
@@ -1882,7 +1882,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -1935,7 +1935,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 prefix format
                 ''',
                 'prefix',
@@ -1994,7 +1994,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -2012,7 +2012,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -2157,7 +2157,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -2181,7 +2181,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IPV6 address
                 ''',
                 'neighbor_address',
@@ -2255,7 +2255,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -2273,7 +2273,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -2395,7 +2395,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2429,7 +2429,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2495,7 +2495,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2529,7 +2529,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2625,7 +2625,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to configure
                 ''',
                 'interface_name',
@@ -2801,7 +2801,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2835,7 +2835,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2901,7 +2901,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2935,7 +2935,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -3060,7 +3060,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -3090,7 +3090,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -3108,7 +3108,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -3131,17 +3131,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink',
             False, 
             [
-            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Remote sham-link endpoint
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local sham-link endpoint
                 ''',
                 'source_address',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
+            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Remote sham-link endpoint
+                ''',
+                'destination_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication', 
                 [], [], 
@@ -3227,7 +3227,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -3257,7 +3257,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -3275,7 +3275,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -3299,7 +3299,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('virtual-link-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Router ID of virtual link neighbor
                 ''',
                 'virtual_link_address',
@@ -3761,7 +3761,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IPv6 prefix string format
                 ''',
                 'prefix',
@@ -4270,7 +4270,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                ISIS process name if protocol is ISIS, or
                 OSPFv3 process name if protocol is OSPFv3
                 ''',
@@ -4549,13 +4549,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName',
             False, 
             [
-            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [('1', '65535')], [], 
-                '''                4-byte AS number in asdot (X.Y) format -
-                first half (X)
-                ''',
-                'as_xx',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('as-yy', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
@@ -4564,8 +4557,15 @@ _meta_table = {
                 ''',
                 'as_yy',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
+            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
+                [('1', '65535')], [], 
+                '''                4-byte AS number in asdot (X.Y) format -
+                first half (X)
+                ''',
+                'as_xx',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                If ISIS or OSPFv3, specify the instance name
                 ''',
                 'process_name',
@@ -5074,7 +5074,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -5201,7 +5201,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -5235,7 +5235,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -5301,7 +5301,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -5335,7 +5335,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -5454,7 +5454,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -5472,7 +5472,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -5716,7 +5716,7 @@ _meta_table = {
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Specify the router ID for this OSPFv3 process in
                 IPv4 address format
                 ''',
@@ -5793,17 +5793,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId',
             False, 
             [
-            _MetaInfoClassMember('domain-id-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Secondary domain ID value
-                ''',
-                'domain_id_name',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('domain-id-type', REFERENCE_ENUM_CLASS, 'Ospfv3DomainIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3DomainIdEnum', 
                 [], [], 
                 '''                Secondary domain ID type
                 ''',
                 'domain_id_type',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
+            _MetaInfoClassMember('domain-id-name', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Secondary domain ID value
+                ''',
+                'domain_id_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             ],
             'Cisco-IOS-XR-ipv6-ospfv3-cfg',
@@ -5892,7 +5892,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -5945,7 +5945,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 prefix format
                 ''',
                 'prefix',
@@ -6004,7 +6004,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -6022,7 +6022,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -6167,7 +6167,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -6191,7 +6191,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IPV6 address
                 ''',
                 'neighbor_address',
@@ -6265,7 +6265,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -6283,7 +6283,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -6405,7 +6405,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6439,7 +6439,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6505,7 +6505,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6539,7 +6539,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6635,7 +6635,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to configure
                 ''',
                 'interface_name',
@@ -6811,7 +6811,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6845,7 +6845,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6911,7 +6911,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6945,7 +6945,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -7070,7 +7070,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -7100,7 +7100,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -7118,7 +7118,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -7141,17 +7141,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink',
             False, 
             [
-            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Remote sham-link endpoint
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local sham-link endpoint
                 ''',
                 'source_address',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
+            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Remote sham-link endpoint
+                ''',
+                'destination_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication', 
                 [], [], 
@@ -7237,7 +7237,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -7267,7 +7267,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -7285,7 +7285,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -7309,7 +7309,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('virtual-link-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Router ID of virtual link neighbor
                 ''',
                 'virtual_link_address',
@@ -7386,7 +7386,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Area ID if in IP address format
                 ''',
                 'address',
@@ -7594,7 +7594,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -7647,7 +7647,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 prefix format
                 ''',
                 'prefix',
@@ -7706,7 +7706,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -7724,7 +7724,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -7869,7 +7869,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -7893,7 +7893,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IPV6 address
                 ''',
                 'neighbor_address',
@@ -7967,7 +7967,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -7985,7 +7985,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -8107,7 +8107,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8141,7 +8141,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8207,7 +8207,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8241,7 +8241,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8337,7 +8337,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to configure
                 ''',
                 'interface_name',
@@ -8513,7 +8513,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8547,7 +8547,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8613,7 +8613,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8647,7 +8647,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8772,7 +8772,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -8802,7 +8802,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -8820,7 +8820,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -8843,17 +8843,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink',
             False, 
             [
-            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Remote sham-link endpoint
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local sham-link endpoint
                 ''',
                 'source_address',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
+            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Remote sham-link endpoint
+                ''',
+                'destination_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication', 
                 [], [], 
@@ -8939,7 +8939,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -8969,7 +8969,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -8987,7 +8987,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -9011,7 +9011,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('virtual-link-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Router ID of virtual link neighbor
                 ''',
                 'virtual_link_address',
@@ -9473,7 +9473,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IPv6 prefix string format
                 ''',
                 'prefix',
@@ -9982,7 +9982,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                ISIS process name if protocol is ISIS, or
                 OSPFv3 process name if protocol is OSPFv3
                 ''',
@@ -10261,13 +10261,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName',
             False, 
             [
-            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [('1', '65535')], [], 
-                '''                4-byte AS number in asdot (X.Y) format -
-                first half (X)
-                ''',
-                'as_xx',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('as-yy', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
@@ -10276,8 +10269,15 @@ _meta_table = {
                 ''',
                 'as_yy',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
+            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
+                [('1', '65535')], [], 
+                '''                4-byte AS number in asdot (X.Y) format -
+                first half (X)
+                ''',
+                'as_xx',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                If ISIS or OSPFv3, specify the instance name
                 ''',
                 'process_name',
@@ -10786,7 +10786,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'password',
@@ -10913,7 +10913,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -10947,7 +10947,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -11013,7 +11013,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -11047,7 +11047,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -11166,7 +11166,7 @@ _meta_table = {
                 'authentication_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('authentication-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify MD5 or SHA1 password
                 ''',
                 'authentication_password',
@@ -11184,7 +11184,7 @@ _meta_table = {
                 'encryption_algorithm',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('encryption-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Encryption password
                 ''',
                 'encryption_password',
@@ -11233,7 +11233,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name for this VRF
                 ''',
                 'vrf_name',
@@ -11446,7 +11446,7 @@ _meta_table = {
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Specify the router ID for this OSPFv3 process in
                 IPv4 address format
                 ''',
@@ -11547,7 +11547,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('trace-buf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name for this VRF
                 ''',
                 'trace_buf_name',

@@ -179,7 +179,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('key-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Key name
                 ''',
                 'key_name',

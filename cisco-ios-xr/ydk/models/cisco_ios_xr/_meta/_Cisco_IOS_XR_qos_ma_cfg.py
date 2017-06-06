@@ -13,16 +13,16 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'QosFieldNotSupportedEnum' : _MetaInfoEnum('QosFieldNotSupportedEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg',
-        {
-            'not-supported':'not_supported',
-        }, 'Cisco-IOS-XR-qos-ma-cfg', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg']),
     'QosPolicyAccountEnum' : _MetaInfoEnum('QosPolicyAccountEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg',
         {
             'layer1':'layer1',
             'layer2':'layer2',
             'nolayer2':'nolayer2',
             'user-defined':'user_defined',
+        }, 'Cisco-IOS-XR-qos-ma-cfg', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg']),
+    'QosFieldNotSupportedEnum' : _MetaInfoEnum('QosFieldNotSupportedEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg',
+        {
+            'not-supported':'not_supported',
         }, 'Cisco-IOS-XR-qos-ma-cfg', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg']),
     'Qos' : {
         'meta_info' : _MetaInfoClass('Qos',

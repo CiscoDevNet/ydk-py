@@ -803,8 +803,6 @@ class Inventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.alias is not None:
                                                                 return True
 
@@ -1021,8 +1019,6 @@ class Inventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
@@ -1083,8 +1079,6 @@ class Inventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
@@ -1110,8 +1104,6 @@ class Inventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.card_administrative_state is not None:
                                                                 return True
 
@@ -1158,8 +1150,6 @@ class Inventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.basic_info is not None and self.basic_info._has_data():
                                                             return True
 
@@ -1187,8 +1177,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.number is not None:
                                                         return True
 
@@ -1214,8 +1202,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.sensor is not None:
                                                     for child_ref in self.sensor:
                                                         if child_ref._has_data():
@@ -1565,8 +1551,6 @@ class Inventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.alias is not None:
                                                                     return True
 
@@ -1783,8 +1767,6 @@ class Inventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.time_in_nano_seconds is not None:
                                                                         return True
 
@@ -1845,8 +1827,6 @@ class Inventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.time_in_nano_seconds is not None:
                                                                         return True
 
@@ -1872,8 +1852,6 @@ class Inventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.card_administrative_state is not None:
                                                                     return True
 
@@ -1920,8 +1898,6 @@ class Inventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.basic_info is not None and self.basic_info._has_data():
                                                                 return True
 
@@ -1947,8 +1923,6 @@ class Inventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.basic_attributes is not None and self.basic_attributes._has_data():
                                                             return True
 
@@ -2213,8 +2187,6 @@ class Inventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.alias is not None:
                                                                 return True
 
@@ -2431,8 +2403,6 @@ class Inventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
@@ -2493,8 +2463,6 @@ class Inventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
@@ -2520,8 +2488,6 @@ class Inventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.card_administrative_state is not None:
                                                                 return True
 
@@ -2568,8 +2534,6 @@ class Inventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.basic_info is not None and self.basic_info._has_data():
                                                             return True
 
@@ -2597,8 +2561,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.number is not None:
                                                         return True
 
@@ -2627,8 +2589,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.port_slot is not None:
                                                     for child_ref in self.port_slot:
                                                         if child_ref._has_data():
@@ -2895,8 +2855,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.alias is not None:
                                                         return True
 
@@ -3113,8 +3071,6 @@ class Inventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.time_in_nano_seconds is not None:
                                                             return True
 
@@ -3175,8 +3131,6 @@ class Inventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.time_in_nano_seconds is not None:
                                                             return True
 
@@ -3202,8 +3156,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.card_administrative_state is not None:
                                                         return True
 
@@ -3250,8 +3202,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.basic_info is not None and self.basic_info._has_data():
                                                     return True
 
@@ -3277,8 +3227,6 @@ class Inventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.basic_attributes is not None and self.basic_attributes._has_data():
                                                 return True
 
@@ -3549,8 +3497,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.alias is not None:
                                                     return True
 
@@ -3767,8 +3713,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -3829,8 +3773,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -3856,8 +3798,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.card_administrative_state is not None:
                                                     return True
 
@@ -3904,8 +3844,6 @@ class Inventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.basic_info is not None and self.basic_info._has_data():
                                                 return True
 
@@ -3933,8 +3871,6 @@ class Inventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.number is not None:
                                             return True
 
@@ -3963,8 +3899,6 @@ class Inventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sub_slot is not None:
                                         for child_ref in self.sub_slot:
                                             if child_ref._has_data():
@@ -4346,8 +4280,6 @@ class Inventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.alias is not None:
                                                             return True
 
@@ -4564,8 +4496,6 @@ class Inventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
@@ -4626,8 +4556,6 @@ class Inventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
@@ -4653,8 +4581,6 @@ class Inventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.card_administrative_state is not None:
                                                             return True
 
@@ -4701,8 +4627,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.basic_info is not None and self.basic_info._has_data():
                                                         return True
 
@@ -4730,8 +4654,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.number is not None:
                                                     return True
 
@@ -4757,8 +4679,6 @@ class Inventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.sensor is not None:
                                                 for child_ref in self.sensor:
                                                     if child_ref._has_data():
@@ -5025,8 +4945,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.alias is not None:
                                                     return True
 
@@ -5243,8 +5161,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -5305,8 +5221,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -5332,8 +5246,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.card_administrative_state is not None:
                                                     return True
 
@@ -5380,8 +5292,6 @@ class Inventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.basic_info is not None and self.basic_info._has_data():
                                                 return True
 
@@ -5409,8 +5319,6 @@ class Inventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.number is not None:
                                             return True
 
@@ -5439,8 +5347,6 @@ class Inventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.hw_component is not None:
                                         for child_ref in self.hw_component:
                                             if child_ref._has_data():
@@ -5761,8 +5667,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.alias is not None:
                                                     return True
 
@@ -5979,8 +5883,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -6041,8 +5943,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -6068,8 +5968,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.card_administrative_state is not None:
                                                     return True
 
@@ -6116,8 +6014,6 @@ class Inventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.basic_info is not None and self.basic_info._has_data():
                                                 return True
 
@@ -6145,8 +6041,6 @@ class Inventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.number is not None:
                                             return True
 
@@ -6172,8 +6066,6 @@ class Inventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sensor is not None:
                                         for child_ref in self.sensor:
                                             if child_ref._has_data():
@@ -6523,8 +6415,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.alias is not None:
                                                         return True
 
@@ -6741,8 +6631,6 @@ class Inventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.time_in_nano_seconds is not None:
                                                             return True
 
@@ -6803,8 +6691,6 @@ class Inventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.time_in_nano_seconds is not None:
                                                             return True
 
@@ -6830,8 +6716,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.card_administrative_state is not None:
                                                         return True
 
@@ -6878,8 +6762,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.basic_info is not None and self.basic_info._has_data():
                                                     return True
 
@@ -6905,8 +6787,6 @@ class Inventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.basic_attributes is not None and self.basic_attributes._has_data():
                                                 return True
 
@@ -7171,8 +7051,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.alias is not None:
                                                     return True
 
@@ -7389,8 +7267,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -7451,8 +7327,6 @@ class Inventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -7478,8 +7352,6 @@ class Inventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.card_administrative_state is not None:
                                                     return True
 
@@ -7526,8 +7398,6 @@ class Inventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.basic_info is not None and self.basic_info._has_data():
                                                 return True
 
@@ -7555,8 +7425,6 @@ class Inventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.number is not None:
                                             return True
 
@@ -7585,8 +7453,6 @@ class Inventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.port_slot is not None:
                                         for child_ref in self.port_slot:
                                             if child_ref._has_data():
@@ -7853,8 +7719,6 @@ class Inventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alias is not None:
                                             return True
 
@@ -8071,8 +7935,6 @@ class Inventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_in_nano_seconds is not None:
                                                 return True
 
@@ -8133,8 +7995,6 @@ class Inventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_in_nano_seconds is not None:
                                                 return True
 
@@ -8160,8 +8020,6 @@ class Inventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.card_administrative_state is not None:
                                             return True
 
@@ -8208,8 +8066,6 @@ class Inventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.basic_info is not None and self.basic_info._has_data():
                                         return True
 
@@ -8237,8 +8093,6 @@ class Inventory(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.number is not None:
                                     return True
 
@@ -8276,8 +8130,6 @@ class Inventory(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.card is not None:
                                 for child_ref in self.card:
                                     if child_ref._has_data():
@@ -8544,8 +8396,6 @@ class Inventory(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.alias is not None:
                                     return True
 
@@ -8762,8 +8612,6 @@ class Inventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.time_in_nano_seconds is not None:
                                         return True
 
@@ -8824,8 +8672,6 @@ class Inventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.time_in_nano_seconds is not None:
                                         return True
 
@@ -8851,8 +8697,6 @@ class Inventory(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.card_administrative_state is not None:
                                     return True
 
@@ -8899,8 +8743,6 @@ class Inventory(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.basic_info is not None and self.basic_info._has_data():
                                 return True
 
@@ -8928,8 +8770,6 @@ class Inventory(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.number is not None:
                             return True
 
@@ -8958,8 +8798,6 @@ class Inventory(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slot is not None:
                         for child_ref in self.slot:
                             if child_ref._has_data():
@@ -8984,8 +8822,6 @@ class Inventory(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.number is not None:
                     return True
 
@@ -9009,8 +8845,6 @@ class Inventory(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rack is not None:
                 for child_ref in self.rack:
                     if child_ref._has_data():
@@ -9033,8 +8867,6 @@ class Inventory(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.racks is not None and self.racks._has_data():
             return True
 

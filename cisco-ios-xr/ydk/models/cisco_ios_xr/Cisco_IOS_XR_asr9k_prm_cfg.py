@@ -206,8 +206,6 @@ class HardwareModuleQosMode(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -234,8 +232,6 @@ class HardwareModuleQosMode(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -258,8 +254,6 @@ class HardwareModuleQosMode(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -414,8 +408,6 @@ class HardwareModuleTcpMssAdjust(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.np_id is not None:
                             return True
 
@@ -441,8 +433,6 @@ class HardwareModuleTcpMssAdjust(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.np is not None:
                         for child_ref in self.np:
                             if child_ref._has_data():
@@ -467,8 +457,6 @@ class HardwareModuleTcpMssAdjust(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -492,8 +480,6 @@ class HardwareModuleTcpMssAdjust(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -516,8 +502,6 @@ class HardwareModuleTcpMssAdjust(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -602,8 +586,6 @@ class HardwareModuleLoadBalance(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.l3_parameters is not None:
                     return True
 
@@ -624,8 +606,6 @@ class HardwareModuleLoadBalance(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.l2_service is not None and self.l2_service._has_data():
                 return True
 
@@ -646,8 +626,6 @@ class HardwareModuleLoadBalance(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.bundle is not None and self.bundle._has_data():
             return True
 
@@ -753,8 +731,6 @@ class HardwareModuleTcam(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -778,8 +754,6 @@ class HardwareModuleTcam(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -802,8 +776,6 @@ class HardwareModuleTcam(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.global_profile is not None:
             return True
 
@@ -947,8 +919,6 @@ class HardwareModuleEfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self._is_presence:
                     return True
                 if self.operation is not None:
@@ -1015,8 +985,6 @@ class HardwareModuleEfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self._is_presence:
                     return True
                 if self.cos is not None:
@@ -1083,8 +1051,6 @@ class HardwareModuleEfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self._is_presence:
                     return True
                 if self.exp is not None:
@@ -1110,8 +1076,6 @@ class HardwareModuleEfd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.enable is not None:
                 return True
 
@@ -1269,8 +1233,6 @@ class HardwareModuleEfd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.operation is not None:
@@ -1339,8 +1301,6 @@ class HardwareModuleEfd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.cos is not None:
@@ -1409,8 +1369,6 @@ class HardwareModuleEfd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.exp is not None:
@@ -1438,8 +1396,6 @@ class HardwareModuleEfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -1475,8 +1431,6 @@ class HardwareModuleEfd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -1499,8 +1453,6 @@ class HardwareModuleEfd(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.node_all is not None and self.node_all._has_data():
             return True
 

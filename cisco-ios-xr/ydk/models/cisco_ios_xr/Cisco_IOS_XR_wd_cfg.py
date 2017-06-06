@@ -170,8 +170,6 @@ class Watchdog(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.critical is not None:
                 return True
 
@@ -198,8 +196,6 @@ class Watchdog(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.monitor_cpuhog_timeout is not None:
             return True
 

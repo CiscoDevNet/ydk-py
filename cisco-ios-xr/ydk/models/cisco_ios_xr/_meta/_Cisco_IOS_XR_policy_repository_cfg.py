@@ -18,7 +18,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Route policy name
                 ''',
                 'route_policy_name',
@@ -58,7 +58,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -98,7 +98,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -138,7 +138,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -178,7 +178,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -218,7 +218,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -258,7 +258,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -298,7 +298,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -338,7 +338,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -393,7 +393,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -433,7 +433,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -473,7 +473,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -513,7 +513,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -553,7 +553,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -593,7 +593,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -633,7 +633,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -673,7 +673,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -713,7 +713,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -753,7 +753,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -810,7 +810,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -850,7 +850,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -890,7 +890,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -930,7 +930,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -970,7 +970,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',
@@ -1010,7 +1010,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set name
                 ''',
                 'set_name',

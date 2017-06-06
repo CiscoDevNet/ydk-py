@@ -13,18 +13,24 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'WredEnum' : _MetaInfoEnum('WredEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
+    'QosMaSatCapsTypeEnumEnum' : _MetaInfoEnum('QosMaSatCapsTypeEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
         {
-            'wred-cos-cmd':'wred_cos_cmd',
-            'wred-dscp-cmd':'wred_dscp_cmd',
-            'wred-precedence-cmd':'wred_precedence_cmd',
-            'wred-discard-class-cmd':'wred_discard_class_cmd',
-            'wred-mpls-exp-cmd':'wred_mpls_exp_cmd',
-            'red-with-user-min-max':'red_with_user_min_max',
-            'red-with-default-min-max':'red_with_default_min_max',
-            'wred-dei-cmd':'wred_dei_cmd',
-            'wred-ecn-cmd':'wred_ecn_cmd',
-            'wred-invalid-cmd':'wred_invalid_cmd',
+            'input':'input',
+            'output':'output',
+            'unknown':'unknown',
+        }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
+    'QosCapsOperationEnumEnum' : _MetaInfoEnum('QosCapsOperationEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
+        {
+            'add':'add',
+            'remove':'remove',
+            'replace':'replace',
+            'modify':'modify',
+            'unknown':'unknown',
+        }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
+    'PolicyStateEnum' : _MetaInfoEnum('PolicyStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
+        {
+            'active':'active',
+            'suspended':'suspended',
         }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
     'PolicyParamUnitEnum' : _MetaInfoEnum('PolicyParamUnitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
         {
@@ -53,13 +59,18 @@ _meta_table = {
             'policy-param-unit-ratio':'policy_param_unit_ratio',
             'policy-param-unit-max':'policy_param_unit_max',
         }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
-    'QosCapsOperationEnumEnum' : _MetaInfoEnum('QosCapsOperationEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
+    'WredEnum' : _MetaInfoEnum('WredEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
         {
-            'add':'add',
-            'remove':'remove',
-            'replace':'replace',
-            'modify':'modify',
-            'unknown':'unknown',
+            'wred-cos-cmd':'wred_cos_cmd',
+            'wred-dscp-cmd':'wred_dscp_cmd',
+            'wred-precedence-cmd':'wred_precedence_cmd',
+            'wred-discard-class-cmd':'wred_discard_class_cmd',
+            'wred-mpls-exp-cmd':'wred_mpls_exp_cmd',
+            'red-with-user-min-max':'red_with_user_min_max',
+            'red-with-default-min-max':'red_with_default_min_max',
+            'wred-dei-cmd':'wred_dei_cmd',
+            'wred-ecn-cmd':'wred_ecn_cmd',
+            'wred-invalid-cmd':'wred_invalid_cmd',
         }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
     'CacStateEnum' : _MetaInfoEnum('CacStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
         {
@@ -68,23 +79,12 @@ _meta_table = {
             'redirect':'redirect',
             'ubrl':'ubrl',
         }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
-    'QosMaSatCapsTypeEnumEnum' : _MetaInfoEnum('QosMaSatCapsTypeEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
-        {
-            'input':'input',
-            'output':'output',
-            'unknown':'unknown',
-        }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
-    'PolicyStateEnum' : _MetaInfoEnum('PolicyStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
-        {
-            'active':'active',
-            'suspended':'suspended',
-        }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
     'Qos.NvInterfaceTable.Interface.Nodes.Node.Input.ServicePolicyNames.ServicePolicyInstance' : {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Nodes.Node.Input.ServicePolicyNames.ServicePolicyInstance',
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -1055,7 +1055,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -2026,7 +2026,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The node
                 ''',
                 'node_name',
@@ -2074,7 +2074,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -3045,7 +3045,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -4064,7 +4064,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -5035,7 +5035,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -6006,7 +6006,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of member interface
                 ''',
                 'interface_name',
@@ -6060,7 +6060,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -7031,7 +7031,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -8050,7 +8050,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -9021,7 +9021,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -9992,7 +9992,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of the interface
                 ''',
                 'interface_name',
@@ -10059,7 +10059,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -11030,7 +11030,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -12049,7 +12049,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -13020,7 +13020,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -13991,7 +13991,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of member interface
                 ''',
                 'interface_name',
@@ -14045,7 +14045,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -15016,7 +15016,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -15987,7 +15987,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of the interface
                 ''',
                 'interface_name',
@@ -16218,7 +16218,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of member interface
                 ''',
                 'interface_name',
@@ -16425,7 +16425,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of the interface
                 ''',
                 'interface_name',
@@ -16569,7 +16569,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -17540,7 +17540,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -18559,7 +18559,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -19530,7 +19530,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -20501,7 +20501,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of member interface
                 ''',
                 'interface_name',
@@ -20555,7 +20555,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -21526,7 +21526,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -22497,7 +22497,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the shared policy instance
                 ''',
                 'spi_name',
@@ -22552,7 +22552,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -23523,7 +23523,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -24494,7 +24494,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The node
                 ''',
                 'node_name',
@@ -24542,7 +24542,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -25513,7 +25513,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -26532,7 +26532,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -27503,7 +27503,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -28474,7 +28474,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of member interface
                 ''',
                 'interface_name',
@@ -28528,7 +28528,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -29499,7 +29499,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -30518,7 +30518,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -31489,7 +31489,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -32460,7 +32460,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of the interface
                 ''',
                 'interface_name',
@@ -32550,7 +32550,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The node
                 ''',
                 'node_name',
@@ -33502,7 +33502,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The node
                 ''',
                 'node_name',
@@ -35407,7 +35407,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of member interface
                 ''',
                 'interface_name',
@@ -35447,7 +35447,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of the interface
                 ''',
                 'interface_name',
@@ -35545,7 +35545,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -36516,7 +36516,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -37487,7 +37487,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The node
                 ''',
                 'node_name',
@@ -37535,7 +37535,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -38506,7 +38506,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -39525,7 +39525,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -40496,7 +40496,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -41467,7 +41467,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of member interface
                 ''',
                 'interface_name',
@@ -41521,7 +41521,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -42492,7 +42492,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -43511,7 +43511,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -44482,7 +44482,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy instance
                 ''',
                 'service_policy_name',
@@ -45453,7 +45453,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of the interface
                 ''',
                 'interface_name',

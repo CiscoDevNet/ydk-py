@@ -24,13 +24,13 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-patch-panel-cfg', False),
             _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address for patch-panel
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-patch-panel-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Password name to be used for Authentication with
                 Patch-Panel
                 ''',

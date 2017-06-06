@@ -87,8 +87,6 @@ class Vrrp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.state_change_disable is not None:
                 return True
 
@@ -440,8 +438,6 @@ class Vrrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ip_address is not None:
                                             return True
 
@@ -464,8 +460,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.global_ipv6_address is not None:
                                         for child_ref in self.global_ipv6_address:
                                             if child_ref._has_data():
@@ -549,8 +543,6 @@ class Vrrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -576,8 +568,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.track is not None:
                                         for child_ref in self.track:
                                             if child_ref._has_data():
@@ -653,8 +643,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.advertisement_time_in_msec is not None:
                                         return True
 
@@ -745,8 +733,6 @@ class Vrrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.object_name is not None:
                                             return True
 
@@ -772,8 +758,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tracked_object is not None:
                                         for child_ref in self.tracked_object:
                                             if child_ref._has_data():
@@ -839,8 +823,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.auto_configure is not None:
                                         return True
 
@@ -868,8 +850,6 @@ class Vrrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.vr_id is not None:
                                     return True
 
@@ -922,8 +902,6 @@ class Vrrp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.virtual_router is not None:
                                 for child_ref in self.virtual_router:
                                     if child_ref._has_data():
@@ -948,8 +926,6 @@ class Vrrp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.virtual_routers is not None and self.virtual_routers._has_data():
                             return True
 
@@ -1085,8 +1061,6 @@ class Vrrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.auto_configure is not None:
                                     return True
 
@@ -1171,8 +1145,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ip_address is not None:
                                         return True
 
@@ -1195,8 +1167,6 @@ class Vrrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.global_ipv6_address is not None:
                                     for child_ref in self.global_ipv6_address:
                                         if child_ref._has_data():
@@ -1223,8 +1193,6 @@ class Vrrp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.slave_virtual_router_id is not None:
                                 return True
 
@@ -1259,8 +1227,6 @@ class Vrrp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.slave_virtual_router is not None:
                             for child_ref in self.slave_virtual_router:
                                 if child_ref._has_data():
@@ -1285,8 +1251,6 @@ class Vrrp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slave_virtual_routers is not None and self.slave_virtual_routers._has_data():
                         return True
 
@@ -1347,8 +1311,6 @@ class Vrrp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.min_delay is not None:
                         return True
 
@@ -1607,8 +1569,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.advertisement_time_in_msec is not None:
                                         return True
 
@@ -1688,8 +1648,6 @@ class Vrrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ip_address is not None:
                                             return True
 
@@ -1712,8 +1670,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.secondary_ipv4_address is not None:
                                         for child_ref in self.secondary_ipv4_address:
                                             if child_ref._has_data():
@@ -1797,8 +1753,6 @@ class Vrrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.object_name is not None:
                                             return True
 
@@ -1824,8 +1778,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tracked_object is not None:
                                         for child_ref in self.tracked_object:
                                             if child_ref._has_data():
@@ -1909,8 +1861,6 @@ class Vrrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -1936,8 +1886,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.track is not None:
                                         for child_ref in self.track:
                                             if child_ref._has_data():
@@ -1964,8 +1912,6 @@ class Vrrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.vr_id is not None:
                                     return True
 
@@ -2018,8 +1964,6 @@ class Vrrp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.virtual_router is not None:
                                 for child_ref in self.virtual_router:
                                     if child_ref._has_data():
@@ -2044,8 +1988,6 @@ class Vrrp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.virtual_routers is not None and self.virtual_routers._has_data():
                             return True
 
@@ -2189,8 +2131,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ip_address is not None:
                                         return True
 
@@ -2213,8 +2153,6 @@ class Vrrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.secondary_ipv4_address is not None:
                                     for child_ref in self.secondary_ipv4_address:
                                         if child_ref._has_data():
@@ -2241,8 +2179,6 @@ class Vrrp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.slave_virtual_router_id is not None:
                                 return True
 
@@ -2277,8 +2213,6 @@ class Vrrp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.slave_virtual_router is not None:
                             for child_ref in self.slave_virtual_router:
                                 if child_ref._has_data():
@@ -2506,8 +2440,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.advertisement_time_in_msec is not None:
                                         return True
 
@@ -2587,8 +2519,6 @@ class Vrrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ip_address is not None:
                                             return True
 
@@ -2611,8 +2541,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.secondary_ipv4_address is not None:
                                         for child_ref in self.secondary_ipv4_address:
                                             if child_ref._has_data():
@@ -2696,8 +2624,6 @@ class Vrrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -2723,8 +2649,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.track is not None:
                                         for child_ref in self.track:
                                             if child_ref._has_data():
@@ -2808,8 +2732,6 @@ class Vrrp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.object_name is not None:
                                             return True
 
@@ -2835,8 +2757,6 @@ class Vrrp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tracked_object is not None:
                                         for child_ref in self.tracked_object:
                                             if child_ref._has_data():
@@ -2863,8 +2783,6 @@ class Vrrp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.vr_id is not None:
                                     return True
 
@@ -2920,8 +2838,6 @@ class Vrrp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.virtual_router is not None:
                                 for child_ref in self.virtual_router:
                                     if child_ref._has_data():
@@ -2946,8 +2862,6 @@ class Vrrp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.virtual_routers is not None and self.virtual_routers._has_data():
                             return True
 
@@ -2970,8 +2884,6 @@ class Vrrp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slave_virtual_routers is not None and self.slave_virtual_routers._has_data():
                         return True
 
@@ -3033,8 +2945,6 @@ class Vrrp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.detection_multiplier is not None:
                         return True
 
@@ -3060,8 +2970,6 @@ class Vrrp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -3097,8 +3005,6 @@ class Vrrp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -3121,8 +3027,6 @@ class Vrrp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 

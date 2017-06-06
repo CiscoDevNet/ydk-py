@@ -666,8 +666,6 @@ class Ntp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.int is not None:
                                                 return True
 
@@ -713,8 +711,6 @@ class Ntp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frac is not None:
                                                 return True
 
@@ -737,8 +733,6 @@ class Ntp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.frac_secs is not None and self.frac_secs._has_data():
                                             return True
 
@@ -816,8 +810,6 @@ class Ntp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.int is not None:
                                                 return True
 
@@ -863,8 +855,6 @@ class Ntp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frac is not None:
                                                 return True
 
@@ -887,8 +877,6 @@ class Ntp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.frac_secs is not None and self.frac_secs._has_data():
                                             return True
 
@@ -914,8 +902,6 @@ class Ntp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.clock_period is not None:
                                         return True
 
@@ -1143,8 +1129,6 @@ class Ntp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -1200,8 +1184,6 @@ class Ntp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_info_common is not None and self.peer_info_common._has_data():
                                             return True
 
@@ -1227,8 +1209,6 @@ class Ntp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_ntp_enabled is not None:
                                         return True
 
@@ -1521,8 +1501,6 @@ class Ntp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -1630,8 +1608,6 @@ class Ntp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.int is not None:
                                                     return True
 
@@ -1677,8 +1653,6 @@ class Ntp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.frac is not None:
                                                     return True
 
@@ -1701,8 +1675,6 @@ class Ntp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frac_secs is not None and self.frac_secs._has_data():
                                                 return True
 
@@ -1780,8 +1752,6 @@ class Ntp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.int is not None:
                                                     return True
 
@@ -1827,8 +1797,6 @@ class Ntp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.frac is not None:
                                                     return True
 
@@ -1851,8 +1819,6 @@ class Ntp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frac_secs is not None and self.frac_secs._has_data():
                                                 return True
 
@@ -1930,8 +1896,6 @@ class Ntp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.int is not None:
                                                     return True
 
@@ -1977,8 +1941,6 @@ class Ntp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.frac is not None:
                                                     return True
 
@@ -2001,8 +1963,6 @@ class Ntp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frac_secs is not None and self.frac_secs._has_data():
                                                 return True
 
@@ -2080,8 +2040,6 @@ class Ntp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.int is not None:
                                                     return True
 
@@ -2127,8 +2085,6 @@ class Ntp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.frac is not None:
                                                     return True
 
@@ -2151,8 +2107,6 @@ class Ntp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frac_secs is not None and self.frac_secs._has_data():
                                                 return True
 
@@ -2211,8 +2165,6 @@ class Ntp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.filter_delay is not None:
                                                 return True
 
@@ -2241,8 +2193,6 @@ class Ntp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.filter_detail is not None:
                                             for child_ref in self.filter_detail:
                                                 if child_ref._has_data():
@@ -2315,8 +2265,6 @@ class Ntp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_ntp_enabled is not None:
                                         return True
 
@@ -2349,8 +2297,6 @@ class Ntp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.number is not None:
                                     return True
 
@@ -2382,8 +2328,6 @@ class Ntp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.instance is not None:
                                 for child_ref in self.instance:
                                     if child_ref._has_data():
@@ -2410,8 +2354,6 @@ class Ntp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.number is not None:
                             return True
 
@@ -2437,8 +2379,6 @@ class Ntp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slot is not None:
                         for child_ref in self.slot:
                             if child_ref._has_data():
@@ -2463,8 +2403,6 @@ class Ntp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.number is not None:
                     return True
 
@@ -2488,8 +2426,6 @@ class Ntp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rack is not None:
                 for child_ref in self.rack:
                     if child_ref._has_data():
@@ -2512,8 +2448,6 @@ class Ntp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.racks is not None and self.racks._has_data():
             return True
 

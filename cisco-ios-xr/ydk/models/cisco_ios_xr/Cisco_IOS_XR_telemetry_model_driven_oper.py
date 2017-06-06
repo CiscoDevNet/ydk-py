@@ -486,8 +486,6 @@ class TelemetryModelDriven(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_type is not None:
                                 return True
 
@@ -516,8 +514,6 @@ class TelemetryModelDriven(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dest_ip_address is not None and self.dest_ip_address._has_data():
                             return True
 
@@ -764,8 +760,6 @@ class TelemetryModelDriven(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -1026,8 +1020,6 @@ class TelemetryModelDriven(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.avg_collection_time is not None:
                                 return True
 
@@ -1128,8 +1120,6 @@ class TelemetryModelDriven(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.avg_total_time is not None:
                             return True
 
@@ -1204,8 +1194,6 @@ class TelemetryModelDriven(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.collection_group is not None:
                         for child_ref in self.collection_group:
                             if child_ref._has_data():
@@ -1233,8 +1221,6 @@ class TelemetryModelDriven(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_id is not None:
                     return True
 
@@ -1266,8 +1252,6 @@ class TelemetryModelDriven(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.destination is not None:
                 for child_ref in self.destination:
                     if child_ref._has_data():
@@ -1533,8 +1517,6 @@ class TelemetryModelDriven(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -1563,8 +1545,6 @@ class TelemetryModelDriven(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.configured is not None:
                                 return True
 
@@ -1595,8 +1575,6 @@ class TelemetryModelDriven(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.heartbeat_interval is not None:
                             return True
 
@@ -1814,8 +1792,6 @@ class TelemetryModelDriven(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_type is not None:
                                     return True
 
@@ -1844,8 +1820,6 @@ class TelemetryModelDriven(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dest_ip_address is not None and self.dest_ip_address._has_data():
                                 return True
 
@@ -1906,8 +1880,6 @@ class TelemetryModelDriven(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.configured is not None:
                             return True
 
@@ -1938,8 +1910,6 @@ class TelemetryModelDriven(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_grp is not None:
                         for child_ref in self.destination_grp:
                             if child_ref._has_data():
@@ -2161,8 +2131,6 @@ class TelemetryModelDriven(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.path is not None:
                             return True
 
@@ -2423,8 +2391,6 @@ class TelemetryModelDriven(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.avg_collection_time is not None:
                             return True
 
@@ -2525,8 +2491,6 @@ class TelemetryModelDriven(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.avg_total_time is not None:
                         return True
 
@@ -2601,8 +2565,6 @@ class TelemetryModelDriven(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.subscription_id is not None:
                     return True
 
@@ -2637,8 +2599,6 @@ class TelemetryModelDriven(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.subscription is not None:
                 for child_ref in self.subscription:
                     if child_ref._has_data():
@@ -2767,8 +2727,6 @@ class TelemetryModelDriven(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.path is not None:
                         return True
 
@@ -2797,8 +2755,6 @@ class TelemetryModelDriven(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sensor_group_id is not None:
                     return True
 
@@ -2830,8 +2786,6 @@ class TelemetryModelDriven(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sensor_group is not None:
                 for child_ref in self.sensor_group:
                     if child_ref._has_data():
@@ -2854,8 +2808,6 @@ class TelemetryModelDriven(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.destinations is not None and self.destinations._has_data():
             return True
 

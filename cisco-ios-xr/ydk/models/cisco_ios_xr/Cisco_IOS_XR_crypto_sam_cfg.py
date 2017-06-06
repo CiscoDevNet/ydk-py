@@ -155,8 +155,6 @@ class Crypto(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self._is_presence:
                     return True
                 if self.action is not None:
@@ -182,8 +180,6 @@ class Crypto(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.prompt_interval is not None and self.prompt_interval._has_data():
                 return True
 
@@ -278,8 +274,6 @@ class Crypto(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.client_vrf is not None:
                     return True
 
@@ -468,8 +462,6 @@ class Crypto(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.hmac_sha512 is not None:
                             return True
 
@@ -490,8 +482,6 @@ class Crypto(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.hmac is not None and self.hmac._has_data():
                         return True
 
@@ -584,8 +574,6 @@ class Crypto(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf_name is not None:
                             return True
 
@@ -615,8 +603,6 @@ class Crypto(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
@@ -711,8 +697,6 @@ class Crypto(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf_name is not None:
                             return True
 
@@ -742,8 +726,6 @@ class Crypto(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
@@ -766,8 +748,6 @@ class Crypto(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.disable is not None and self.disable._has_data():
                     return True
 
@@ -821,8 +801,6 @@ class Crypto(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.client is not None and self.client._has_data():
                 return True
 
@@ -846,8 +824,6 @@ class Crypto(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.sam is not None and self.sam._has_data():
             return True
 

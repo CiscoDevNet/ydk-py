@@ -238,8 +238,6 @@ class HwModuleProfileConfig(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix_length is not None:
                                         return True
 
@@ -263,8 +261,6 @@ class HwModuleProfileConfig(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_unicast_prefix_length is not None:
                                     for child_ref in self.ipv4_unicast_prefix_length:
                                         if child_ref._has_data():
@@ -287,8 +283,6 @@ class HwModuleProfileConfig(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4_unicast_percent is not None:
                                 return True
 
@@ -312,8 +306,6 @@ class HwModuleProfileConfig(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4_unicast is not None and self.ipv4_unicast._has_data():
                             return True
 
@@ -444,8 +436,6 @@ class HwModuleProfileConfig(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix_length is not None:
                                         return True
 
@@ -469,8 +459,6 @@ class HwModuleProfileConfig(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv6_unicast_prefix_length is not None:
                                     for child_ref in self.ipv6_unicast_prefix_length:
                                         if child_ref._has_data():
@@ -493,8 +481,6 @@ class HwModuleProfileConfig(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv6_unicast_percent is not None:
                                 return True
 
@@ -518,8 +504,6 @@ class HwModuleProfileConfig(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv6_unicast is not None and self.ipv6_unicast._has_data():
                             return True
 
@@ -540,8 +524,6 @@ class HwModuleProfileConfig(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipv4_address is not None and self.ipv4_address._has_data():
                         return True
 
@@ -565,8 +547,6 @@ class HwModuleProfileConfig(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.fib_table is not None and self.fib_table._has_data():
                     return True
 
@@ -587,8 +567,6 @@ class HwModuleProfileConfig(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tcam_table is not None and self.tcam_table._has_data():
                 return True
 
@@ -609,8 +587,6 @@ class HwModuleProfileConfig(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.profile is not None and self.profile._has_data():
             return True
 

@@ -336,8 +336,6 @@ class HwModule(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.if_index is not None:
                                 return True
 
@@ -366,8 +364,6 @@ class HwModule(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.client_name is not None:
                             return True
 
@@ -398,8 +394,6 @@ class HwModule(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.client_port is not None:
                         for child_ref in self.client_port:
                             if child_ref._has_data():
@@ -451,8 +445,6 @@ class HwModule(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.slice_num is not None:
                     return True
 
@@ -478,8 +470,6 @@ class HwModule(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.slice_id is not None:
                 for child_ref in self.slice_id:
                     if child_ref._has_data():
@@ -692,8 +682,6 @@ class HwModule(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.if_index is not None:
                             return True
 
@@ -720,8 +708,6 @@ class HwModule(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.client_name is not None:
                         return True
 
@@ -750,8 +736,6 @@ class HwModule(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.client_port is not None:
                     for child_ref in self.client_port:
                         if child_ref._has_data():
@@ -801,8 +785,6 @@ class HwModule(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.slice_info is not None:
                 for child_ref in self.slice_info:
                     if child_ref._has_data():
@@ -825,8 +807,6 @@ class HwModule(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.slice_all is not None and self.slice_all._has_data():
             return True
 

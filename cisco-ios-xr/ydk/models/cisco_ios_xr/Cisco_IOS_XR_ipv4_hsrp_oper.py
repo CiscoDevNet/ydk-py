@@ -470,19 +470,19 @@ class Hsrp(object):
                 """
                 An HSRP standby group
                 
-                .. attribute:: group_number  <key>
-                
-                	The HSRP group number
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
                 .. attribute:: interface_name  <key>
                 
                 	The interface name
                 	**type**\:  str
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                .. attribute:: group_number  <key>
+                
+                	The HSRP group number
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
                 
                 .. attribute:: active_ip_address
                 
@@ -969,8 +969,8 @@ class Hsrp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.group_number = None
                     self.interface_name = None
+                    self.group_number = None
                     self.active_ip_address = None
                     self.active_ipv6_address = None
                     self.active_mac_address = None
@@ -1100,8 +1100,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -1162,8 +1160,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -1224,8 +1220,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -1286,8 +1280,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -1448,8 +1440,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_transitions is not None:
                             return True
 
@@ -1537,8 +1527,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv6_address is not None:
                             return True
 
@@ -1636,8 +1624,6 @@ class Hsrp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nanoseconds is not None:
                                 return True
 
@@ -1663,8 +1649,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.new_state is not None:
                             return True
 
@@ -1686,24 +1670,22 @@ class Hsrp(object):
 
                 @property
                 def _common_path(self):
-                    if self.group_number is None:
-                        raise YPYModelError('Key property group_number is None')
                     if self.interface_name is None:
                         raise YPYModelError('Key property interface_name is None')
+                    if self.group_number is None:
+                        raise YPYModelError('Key property group_number is None')
 
-                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv4/Cisco-IOS-XR-ipv4-hsrp-oper:groups/Cisco-IOS-XR-ipv4-hsrp-oper:group[Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + '][Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + ']'
+                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv4/Cisco-IOS-XR-ipv4-hsrp-oper:groups/Cisco-IOS-XR-ipv4-hsrp-oper:group[Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.group_number is not None:
+                    if self.interface_name is not None:
                         return True
 
-                    if self.interface_name is not None:
+                    if self.group_number is not None:
                         return True
 
                     if self.active_ip_address is not None:
@@ -1939,8 +1921,6 @@ class Hsrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.group is not None:
                     for child_ref in self.group:
                         if child_ref._has_data():
@@ -1981,19 +1961,19 @@ class Hsrp(object):
                 """
                 An HSRP tracked interface entry
                 
-                .. attribute:: group_number  <key>
-                
-                	The HSRP group number
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
                 .. attribute:: interface_name  <key>
                 
                 	The interface name of the interface
                 	**type**\:  str
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                .. attribute:: group_number  <key>
+                
+                	The HSRP group number
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
                 
                 .. attribute:: tracked_interface_name  <key>
                 
@@ -2049,8 +2029,8 @@ class Hsrp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.group_number = None
                     self.interface_name = None
+                    self.group_number = None
                     self.tracked_interface_name = None
                     self.hsrp_group_number = None
                     self.interface = None
@@ -2061,26 +2041,24 @@ class Hsrp(object):
 
                 @property
                 def _common_path(self):
-                    if self.group_number is None:
-                        raise YPYModelError('Key property group_number is None')
                     if self.interface_name is None:
                         raise YPYModelError('Key property interface_name is None')
+                    if self.group_number is None:
+                        raise YPYModelError('Key property group_number is None')
                     if self.tracked_interface_name is None:
                         raise YPYModelError('Key property tracked_interface_name is None')
 
-                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv4/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interfaces/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface[Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + '][Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface-name = ' + str(self.tracked_interface_name) + ']'
+                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv4/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interfaces/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface[Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + '][Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface-name = ' + str(self.tracked_interface_name) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.group_number is not None:
+                    if self.interface_name is not None:
                         return True
 
-                    if self.interface_name is not None:
+                    if self.group_number is not None:
                         return True
 
                     if self.tracked_interface_name is not None:
@@ -2121,8 +2099,6 @@ class Hsrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tracked_interface is not None:
                     for child_ref in self.tracked_interface:
                         if child_ref._has_data():
@@ -2301,8 +2277,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.advert_packets_received is not None:
                             return True
 
@@ -2349,8 +2323,6 @@ class Hsrp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -2380,8 +2352,6 @@ class Hsrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -2404,8 +2374,6 @@ class Hsrp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.groups is not None and self.groups._has_data():
                 return True
 
@@ -2555,8 +2523,6 @@ class Hsrp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slave_group_interface is not None:
                         return True
 
@@ -2582,8 +2548,6 @@ class Hsrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.session_name is not None:
                     return True
 
@@ -2624,8 +2588,6 @@ class Hsrp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mgo_session is not None:
                 for child_ref in self.mgo_session:
                     if child_ref._has_data():
@@ -2702,19 +2664,19 @@ class Hsrp(object):
                 """
                 An HSRP tracked interface entry
                 
-                .. attribute:: group_number  <key>
-                
-                	The HSRP group number
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
                 .. attribute:: interface_name  <key>
                 
                 	The interface name of the interface
                 	**type**\:  str
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                .. attribute:: group_number  <key>
+                
+                	The HSRP group number
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
                 
                 .. attribute:: tracked_interface_name  <key>
                 
@@ -2770,8 +2732,8 @@ class Hsrp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.group_number = None
                     self.interface_name = None
+                    self.group_number = None
                     self.tracked_interface_name = None
                     self.hsrp_group_number = None
                     self.interface = None
@@ -2782,26 +2744,24 @@ class Hsrp(object):
 
                 @property
                 def _common_path(self):
-                    if self.group_number is None:
-                        raise YPYModelError('Key property group_number is None')
                     if self.interface_name is None:
                         raise YPYModelError('Key property interface_name is None')
+                    if self.group_number is None:
+                        raise YPYModelError('Key property group_number is None')
                     if self.tracked_interface_name is None:
                         raise YPYModelError('Key property tracked_interface_name is None')
 
-                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv6/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interfaces/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface[Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + '][Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface-name = ' + str(self.tracked_interface_name) + ']'
+                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv6/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interfaces/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface[Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + '][Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface-name = ' + str(self.tracked_interface_name) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.group_number is not None:
+                    if self.interface_name is not None:
                         return True
 
-                    if self.interface_name is not None:
+                    if self.group_number is not None:
                         return True
 
                     if self.tracked_interface_name is not None:
@@ -2842,8 +2802,6 @@ class Hsrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tracked_interface is not None:
                     for child_ref in self.tracked_interface:
                         if child_ref._has_data():
@@ -2884,19 +2842,19 @@ class Hsrp(object):
                 """
                 An HSRP standby group
                 
-                .. attribute:: group_number  <key>
-                
-                	The HSRP group number
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
                 .. attribute:: interface_name  <key>
                 
                 	The interface name
                 	**type**\:  str
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                .. attribute:: group_number  <key>
+                
+                	The HSRP group number
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
                 
                 .. attribute:: active_ip_address
                 
@@ -3383,8 +3341,8 @@ class Hsrp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.group_number = None
                     self.interface_name = None
+                    self.group_number = None
                     self.active_ip_address = None
                     self.active_ipv6_address = None
                     self.active_mac_address = None
@@ -3514,8 +3472,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -3576,8 +3532,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -3638,8 +3592,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -3700,8 +3652,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -3862,8 +3812,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_transitions is not None:
                             return True
 
@@ -3951,8 +3899,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv6_address is not None:
                             return True
 
@@ -4050,8 +3996,6 @@ class Hsrp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nanoseconds is not None:
                                 return True
 
@@ -4077,8 +4021,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.new_state is not None:
                             return True
 
@@ -4100,24 +4042,22 @@ class Hsrp(object):
 
                 @property
                 def _common_path(self):
-                    if self.group_number is None:
-                        raise YPYModelError('Key property group_number is None')
                     if self.interface_name is None:
                         raise YPYModelError('Key property interface_name is None')
+                    if self.group_number is None:
+                        raise YPYModelError('Key property group_number is None')
 
-                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv6/Cisco-IOS-XR-ipv4-hsrp-oper:groups/Cisco-IOS-XR-ipv4-hsrp-oper:group[Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + '][Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + ']'
+                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv6/Cisco-IOS-XR-ipv4-hsrp-oper:groups/Cisco-IOS-XR-ipv4-hsrp-oper:group[Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.group_number is not None:
+                    if self.interface_name is not None:
                         return True
 
-                    if self.interface_name is not None:
+                    if self.group_number is not None:
                         return True
 
                     if self.active_ip_address is not None:
@@ -4353,8 +4293,6 @@ class Hsrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.group is not None:
                     for child_ref in self.group:
                         if child_ref._has_data():
@@ -4533,8 +4471,6 @@ class Hsrp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.advert_packets_received is not None:
                             return True
 
@@ -4581,8 +4517,6 @@ class Hsrp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -4612,8 +4546,6 @@ class Hsrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -4636,8 +4568,6 @@ class Hsrp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.groups is not None and self.groups._has_data():
                 return True
 
@@ -4821,8 +4751,6 @@ class Hsrp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.hsrp_group_number is not None:
                         return True
 
@@ -4850,8 +4778,6 @@ class Hsrp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -4901,8 +4827,6 @@ class Hsrp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bfd_session is not None:
                 for child_ref in self.bfd_session:
                     if child_ref._has_data():
@@ -5428,8 +5352,6 @@ class Hsrp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bfd_session_inactive is not None:
                 return True
 
@@ -5630,8 +5552,6 @@ class Hsrp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.bfd_sessions is not None and self.bfd_sessions._has_data():
             return True
 

@@ -392,8 +392,6 @@ class RoutingPolicy(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.compiled_policies_length is not None:
                 return True
 
@@ -611,8 +609,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.object is not None:
                                 for child in self.object:
                                     if child is not None:
@@ -690,8 +686,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.set_domain is not None:
                                     return True
 
@@ -719,8 +713,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sets is not None:
                                 for child_ref in self.sets:
                                     if child_ref._has_data():
@@ -797,8 +789,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.set_domain is not None:
                                     return True
 
@@ -826,8 +816,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sets is not None:
                                 for child_ref in self.sets:
                                     if child_ref._has_data():
@@ -876,8 +864,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.object is not None:
                                 for child in self.object:
                                     if child is not None:
@@ -902,8 +888,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.all_used_policies is not None and self.all_used_policies._has_data():
                             return True
 
@@ -993,8 +977,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.route_policy_name is not None:
                                 return True
 
@@ -1023,8 +1005,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.reference is not None:
                             for child_ref in self.reference:
                                 if child_ref._has_data():
@@ -1212,8 +1192,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -1293,8 +1271,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.binding is not None:
                             for child_ref in self.binding:
                                 if child_ref._has_data():
@@ -1319,8 +1295,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.route_policy_name is not None:
                         return True
 
@@ -1350,8 +1324,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.route_policy is not None:
                     for child_ref in self.route_policy:
                         if child_ref._has_data():
@@ -1398,8 +1370,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.object is not None:
                     for child in self.object:
                         if child is not None:
@@ -1446,8 +1416,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.object is not None:
                     for child in self.object:
                         if child is not None:
@@ -1494,8 +1462,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.object is not None:
                     for child in self.object:
                         if child is not None:
@@ -1518,8 +1484,6 @@ class RoutingPolicy(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.active is not None and self.active._has_data():
                 return True
 
@@ -1832,8 +1796,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -1862,8 +1824,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -2051,8 +2011,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -2132,8 +2090,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -2158,8 +2114,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -2186,8 +2140,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -2234,8 +2186,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -2282,8 +2232,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -2330,8 +2278,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -2354,8 +2300,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -2548,8 +2492,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -2578,8 +2520,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -2767,8 +2707,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -2848,8 +2786,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -2874,8 +2810,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -2902,8 +2836,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -2950,8 +2882,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -2998,8 +2928,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -3046,8 +2974,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -3070,8 +2996,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -3265,8 +3189,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -3295,8 +3217,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -3484,8 +3404,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -3565,8 +3483,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -3591,8 +3507,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -3619,8 +3533,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -3667,8 +3579,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -3715,8 +3625,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -3763,8 +3671,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -3787,8 +3693,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -3981,8 +3885,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -4011,8 +3913,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -4200,8 +4100,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -4281,8 +4179,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -4307,8 +4203,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -4335,8 +4229,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -4383,8 +4275,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -4431,8 +4321,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -4479,8 +4367,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -4503,8 +4389,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -4697,8 +4581,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -4727,8 +4609,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -4916,8 +4796,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -4997,8 +4875,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -5023,8 +4899,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -5051,8 +4925,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -5099,8 +4971,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -5147,8 +5017,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -5195,8 +5063,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -5219,8 +5085,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -5413,8 +5277,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -5443,8 +5305,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -5632,8 +5492,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -5713,8 +5571,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -5739,8 +5595,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -5767,8 +5621,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -5815,8 +5667,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -5863,8 +5713,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -5911,8 +5759,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -5935,8 +5781,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -6129,8 +5973,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -6159,8 +6001,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -6348,8 +6188,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -6429,8 +6267,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -6455,8 +6291,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -6483,8 +6317,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -6531,8 +6363,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -6579,8 +6409,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -6627,8 +6455,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -6651,8 +6477,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -6845,8 +6669,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -6875,8 +6697,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -7064,8 +6884,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -7145,8 +6963,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -7171,8 +6987,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -7199,8 +7013,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -7247,8 +7059,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -7295,8 +7105,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -7343,8 +7151,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -7367,8 +7173,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -7561,8 +7365,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -7591,8 +7393,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -7780,8 +7580,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -7861,8 +7659,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -7887,8 +7683,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -7915,8 +7709,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -7963,8 +7755,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -8011,8 +7801,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -8059,8 +7847,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -8083,8 +7869,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -8277,8 +8061,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -8307,8 +8089,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -8496,8 +8276,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -8577,8 +8355,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -8603,8 +8379,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -8631,8 +8405,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -8679,8 +8451,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -8727,8 +8497,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -8775,8 +8543,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -8799,8 +8565,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -8987,8 +8751,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -9017,8 +8779,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -9206,8 +8966,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -9287,8 +9045,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -9313,8 +9069,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -9341,8 +9095,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -9389,8 +9141,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -9437,8 +9187,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -9461,8 +9209,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.inactive is not None and self.inactive._has_data():
                     return True
 
@@ -9652,8 +9398,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -9682,8 +9426,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -9871,8 +9613,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -9952,8 +9692,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -9978,8 +9716,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -10006,8 +9742,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -10054,8 +9788,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -10102,8 +9834,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -10150,8 +9880,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -10174,8 +9902,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -10368,8 +10094,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -10398,8 +10122,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -10587,8 +10309,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -10668,8 +10388,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -10694,8 +10412,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -10722,8 +10438,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -10770,8 +10484,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -10818,8 +10530,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -10866,8 +10576,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -10890,8 +10598,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -11084,8 +10790,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -11114,8 +10818,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -11303,8 +11005,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -11384,8 +11084,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -11410,8 +11108,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -11438,8 +11134,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -11486,8 +11180,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -11534,8 +11226,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -11582,8 +11272,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -11606,8 +11294,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -11800,8 +11486,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_policy_name is not None:
                                     return True
 
@@ -11830,8 +11514,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reference is not None:
                                 for child_ref in self.reference:
                                     if child_ref._has_data():
@@ -12019,8 +11701,6 @@ class RoutingPolicy(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -12100,8 +11780,6 @@ class RoutingPolicy(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.binding is not None:
                                 for child_ref in self.binding:
                                     if child_ref._has_data():
@@ -12126,8 +11804,6 @@ class RoutingPolicy(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.set_name is not None:
                             return True
 
@@ -12154,8 +11830,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.set is not None:
                         for child_ref in self.set:
                             if child_ref._has_data():
@@ -12202,8 +11876,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -12250,8 +11922,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -12298,8 +11968,6 @@ class RoutingPolicy(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child in self.object:
                             if child is not None:
@@ -12322,8 +11990,6 @@ class RoutingPolicy(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None and self.active._has_data():
                     return True
 
@@ -12353,8 +12019,6 @@ class RoutingPolicy(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.as_path is not None and self.as_path._has_data():
                 return True
 
@@ -12417,8 +12081,6 @@ class RoutingPolicy(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.limits is not None and self.limits._has_data():
             return True
 

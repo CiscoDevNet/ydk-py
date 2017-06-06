@@ -13,11 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'EventManagerPolicySecEnum' : _MetaInfoEnum('EventManagerPolicySecEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg',
-        {
-            'rsa-2048':'rsa_2048',
-            'trust':'trust',
-        }, 'Cisco-IOS-XR-ha-eem-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg']),
     'EventManagerPolicyModeEnum' : _MetaInfoEnum('EventManagerPolicyModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg',
         {
             'cisco':'cisco',
@@ -27,6 +22,11 @@ _meta_table = {
         {
             'sha-1':'sha_1',
             'md5':'md5',
+        }, 'Cisco-IOS-XR-ha-eem-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg']),
+    'EventManagerPolicySecEnum' : _MetaInfoEnum('EventManagerPolicySecEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg',
+        {
+            'rsa-2048':'rsa_2048',
+            'trust':'trust',
         }, 'Cisco-IOS-XR-ha-eem-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg']),
     'EventManagerPolicyEnum' : _MetaInfoEnum('EventManagerPolicyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg',
         {
@@ -38,7 +38,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the policy file
                 ''',
                 'policy_name',
@@ -116,7 +116,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('thread-class-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the global variable
                 ''',
                 'thread_class_name',
@@ -173,7 +173,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('environment-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the global variable
                 ''',
                 'environment_name',

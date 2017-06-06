@@ -1847,8 +1847,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.class_number is not None:
                         return True
 
@@ -1878,8 +1876,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.class_ is not None:
                     for child_ref in self.class_:
                         if child_ref._has_data():
@@ -1902,8 +1898,6 @@ class MplsTe(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bandwidth_constraint_model is not None:
                 return True
 
@@ -2277,8 +2271,6 @@ class MplsTe(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.explicit_path_name is not None:
@@ -2311,8 +2303,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path_setup_name is not None:
                                     return True
 
@@ -2344,8 +2334,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path_setup is not None:
                                 for child_ref in self.path_setup:
                                     if child_ref._has_data():
@@ -2453,8 +2441,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.path_invalidation_action is not None:
@@ -2482,8 +2468,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.invalidation is not None and self.invalidation._has_data():
                                 return True
 
@@ -2654,8 +2638,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.underflow_threshold_limit is not None:
@@ -2743,8 +2725,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.overflow_threshold_limit is not None:
@@ -2819,8 +2799,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.bandwidth_max_limit is not None:
@@ -2896,8 +2874,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.adjustment_threshold_percent is not None:
@@ -2925,8 +2901,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.adjustment_threshold is not None and self.adjustment_threshold._has_data():
                                 return True
 
@@ -3016,8 +2990,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.hold_priority is not None:
@@ -3126,8 +3098,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.all is not None:
                                 return True
 
@@ -3233,8 +3203,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bandwidth is not None:
@@ -3352,8 +3320,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.absolute_metric is not None:
                                     return True
 
@@ -3447,8 +3413,6 @@ class MplsTe(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.segment_routing is not None:
                                         return True
 
@@ -3516,8 +3480,6 @@ class MplsTe(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.absolute_metric is not None:
                                         return True
 
@@ -3549,8 +3511,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -3630,8 +3590,6 @@ class MplsTe(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.destination_address is not None:
                                         return True
 
@@ -3654,8 +3612,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination is not None:
                                     for child_ref in self.destination:
                                         if child_ref._has_data():
@@ -3680,8 +3636,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.autoroute_announce is not None and self.autoroute_announce._has_data():
                                 return True
 
@@ -3839,8 +3793,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.affinity_type is not None:
                                     return True
 
@@ -3856,17 +3808,17 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -3877,31 +3829,29 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.affinity1 = None
                                 self.affinity_type = None
+                                self.affinity1 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.affinity1 is None:
-                                    raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity_type is None:
                                     raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 return False
@@ -3916,6 +3866,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -3930,11 +3885,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -3944,37 +3894,35 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -3989,6 +3937,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -4010,11 +3963,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -4024,33 +3972,34 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
                                     raise YPYModelError('Key property affinity3 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -4058,9 +4007,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity3 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -4075,6 +4021,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -4103,11 +4054,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -4117,16 +4063,18 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -4135,18 +4083,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity3 is None')
                                 if self.affinity4 is None:
                                     raise YPYModelError('Key property affinity4 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -4157,9 +4104,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity4 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -4174,6 +4118,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -4209,11 +4158,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -4223,17 +4167,19 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -4244,18 +4190,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity4 is None')
                                 if self.affinity5 is None:
                                     raise YPYModelError('Key property affinity5 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -4269,9 +4214,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity5 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -4286,6 +4228,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -4328,11 +4275,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -4342,18 +4284,20 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self.affinity6 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -4366,18 +4310,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity5 is None')
                                 if self.affinity6 is None:
                                     raise YPYModelError('Key property affinity6 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -4394,9 +4337,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity6 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -4411,6 +4351,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -4460,11 +4405,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -4474,6 +4414,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -4481,12 +4422,13 @@ class MplsTe(object):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self.affinity7 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -4501,18 +4443,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity6 is None')
                                 if self.affinity7 is None:
                                     raise YPYModelError('Key property affinity7 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -4532,9 +4473,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity7 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -4549,6 +4487,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -4605,11 +4548,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -4619,6 +4557,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -4627,12 +4566,13 @@ class MplsTe(object):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self.affinity8 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -4649,18 +4589,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity7 is None')
                                 if self.affinity8 is None:
                                     raise YPYModelError('Key property affinity8 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -4683,9 +4622,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity8 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -4700,6 +4636,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -4763,11 +4704,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -4777,6 +4713,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -4786,12 +4723,13 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -4810,18 +4748,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -4847,9 +4784,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity9 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -4864,16 +4798,14 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity10  <key>
-                            
-                            	The name of the tenth affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -4934,10 +4866,12 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity10  <key>
                             
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            	The name of the tenth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -4948,8 +4882,8 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
-                                self.affinity10 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
@@ -4958,16 +4892,16 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
+                                self.affinity10 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
-                                if self.affinity10 is None:
-                                    raise YPYModelError('Key property affinity10 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
@@ -4984,22 +4918,20 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity10 is None:
+                                    raise YPYModelError('Key property affinity10 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity10 is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
@@ -5026,7 +4958,7 @@ class MplsTe(object):
                                 if self.affinity9 is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity10 is not None:
                                     return True
 
                                 return False
@@ -5048,8 +4980,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.new_style_affinity_affinity_type is not None:
                                 for child_ref in self.new_style_affinity_affinity_type:
                                     if child_ref._has_data():
@@ -5167,8 +5097,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bandwidth_protection is not None:
@@ -5196,8 +5124,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.auto_bandwidth is not None and self.auto_bandwidth._has_data():
                             return True
 
@@ -5304,8 +5230,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.tunnel_id is not None:
@@ -5335,8 +5259,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tunnel_name is not None:
                         return True
 
@@ -5369,8 +5291,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tunnel is not None:
                     for child_ref in self.tunnel:
                         if child_ref._has_data():
@@ -5393,8 +5313,6 @@ class MplsTe(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.enable is not None:
                 return True
 
@@ -5527,8 +5445,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.maximum is not None:
                             return True
 
@@ -5552,8 +5468,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.holddown is not None and self.holddown._has_data():
                         return True
 
@@ -5574,8 +5488,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.path_option_timers is not None and self.path_option_timers._has_data():
                     return True
 
@@ -5693,8 +5605,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srl_gs is not None:
                             return True
 
@@ -5738,8 +5648,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.discovered_srlg_change_logging is not None:
                             return True
 
@@ -5964,8 +5872,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.preference_level is not None:
                                     return True
 
@@ -6015,8 +5921,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path_option is not None:
                                 for child_ref in self.path_option:
                                     if child_ref._has_data():
@@ -6062,8 +5966,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.srlg is not None:
                                 return True
 
@@ -6107,8 +6009,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.state_message is not None:
                                 return True
 
@@ -6174,8 +6074,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.hold_priority is not None:
@@ -6203,8 +6101,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination is not None:
                             return True
 
@@ -6251,8 +6147,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.controller_name is not None:
                         return True
 
@@ -6285,8 +6179,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.controller is not None:
                     for child_ref in self.controller:
                         if child_ref._has_data():
@@ -6309,8 +6201,6 @@ class MplsTe(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.controllers is not None and self.controllers._has_data():
                 return True
 
@@ -6756,8 +6646,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.max_tunnel_id is not None:
                             return True
 
@@ -6781,8 +6669,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tunnel_range is not None and self.tunnel_range._has_data():
                         return True
 
@@ -6857,8 +6743,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.max_tunnel_id is not None:
                             return True
 
@@ -6882,8 +6766,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tunnel_range is not None and self.tunnel_range._has_data():
                         return True
 
@@ -6989,8 +6871,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.unused is not None:
                                 return True
 
@@ -7011,8 +6891,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.removal is not None and self.removal._has_data():
                             return True
 
@@ -7065,8 +6943,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.max_tunnel_id is not None:
                             return True
 
@@ -7090,8 +6966,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.affinity_ignore is not None:
                         return True
 
@@ -7236,8 +7110,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mesh_group_id is not None:
                                 return True
 
@@ -7273,8 +7145,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mesh_group is not None:
                             for child_ref in self.mesh_group:
                                 if child_ref._has_data():
@@ -7347,8 +7217,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.unused is not None:
                                 return True
 
@@ -7369,8 +7237,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.removal is not None and self.removal._has_data():
                             return True
 
@@ -7423,8 +7289,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.max_tunnel_id is not None:
                             return True
 
@@ -7448,8 +7312,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.mesh_groups is not None and self.mesh_groups._has_data():
                         return True
 
@@ -7530,8 +7392,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.max_tunnel_id is not None:
                             return True
 
@@ -7555,8 +7415,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tunnel_range is not None and self.tunnel_range._has_data():
                         return True
 
@@ -7577,8 +7435,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.backup is not None and self.backup._has_data():
                     return True
 
@@ -7708,8 +7564,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.oor_accept_lsp_min_bandwidth is not None:
                         return True
 
@@ -7803,8 +7657,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.oor_accept_lsp_min_bandwidth is not None:
                         return True
 
@@ -7910,8 +7762,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.oor_accept_lsp_min_bandwidth is not None:
                         return True
 
@@ -7947,8 +7797,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.oor_green_state is not None and self.oor_green_state._has_data():
                     return True
 
@@ -8023,8 +7871,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.secondary_router_id_value is not None:
                         return True
 
@@ -8045,8 +7891,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.secondary_router_id is not None:
                     for child_ref in self.secondary_router_id:
                         if child_ref._has_data():
@@ -8235,8 +8079,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.from_address is not None:
                                     return True
 
@@ -8262,8 +8104,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.static_srlg_member is not None:
                                 for child_ref in self.static_srlg_member:
                                     if child_ref._has_data():
@@ -8288,8 +8128,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srlg_name is not None:
                             return True
 
@@ -8316,8 +8154,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         for child_ref in self.name:
                             if child_ref._has_data():
@@ -8463,8 +8299,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.outgoing_ipv4_address is not None:
                                     return True
 
@@ -8490,8 +8324,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4_address_map is not None:
                                 for child_ref in self.ipv4_address_map:
                                     if child_ref._has_data():
@@ -8516,8 +8348,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srlg_number is not None:
                             return True
 
@@ -8544,8 +8374,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.value is not None:
                         for child_ref in self.value:
                             if child_ref._has_data():
@@ -8568,8 +8396,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.default_admin_weight is not None:
                     return True
 
@@ -8655,8 +8481,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.role is not None:
                         return True
 
@@ -8680,8 +8504,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.queue is not None:
                     for child_ref in self.queue:
                         if child_ref._has_data():
@@ -8725,8 +8547,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.midpoint_lsp_stats_collection_disable is not None:
                     return True
 
@@ -8949,8 +8769,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bfd_reverse_path_type is not None:
@@ -9061,8 +8879,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.path_invalidation_action is not None:
@@ -9090,8 +8906,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -9203,8 +9017,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.bd_group_id is not None:
@@ -9285,8 +9097,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.dp_group_id is not None:
@@ -9317,8 +9127,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bidirectional is not None and self.bidirectional._has_data():
                                 return True
 
@@ -9390,8 +9198,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.affinity is not None:
@@ -9472,8 +9278,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bandwidth is not None:
@@ -9630,8 +9434,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.affinity_type is not None:
                                     return True
 
@@ -9647,17 +9449,17 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -9668,31 +9470,29 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.affinity1 = None
                                 self.affinity_type = None
+                                self.affinity1 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.affinity1 is None:
-                                    raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity_type is None:
                                     raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 return False
@@ -9707,6 +9507,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -9721,11 +9526,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -9735,37 +9535,35 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -9780,6 +9578,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -9801,11 +9604,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -9815,33 +9613,34 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
                                     raise YPYModelError('Key property affinity3 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -9849,9 +9648,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity3 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -9866,6 +9662,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -9894,11 +9695,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -9908,16 +9704,18 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -9926,18 +9724,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity3 is None')
                                 if self.affinity4 is None:
                                     raise YPYModelError('Key property affinity4 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -9948,9 +9745,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity4 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -9965,6 +9759,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -10000,11 +9799,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -10014,17 +9808,19 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -10035,18 +9831,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity4 is None')
                                 if self.affinity5 is None:
                                     raise YPYModelError('Key property affinity5 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -10060,9 +9855,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity5 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -10077,6 +9869,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -10119,11 +9916,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -10133,18 +9925,20 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self.affinity6 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -10157,18 +9951,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity5 is None')
                                 if self.affinity6 is None:
                                     raise YPYModelError('Key property affinity6 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -10185,9 +9978,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity6 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -10202,6 +9992,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -10251,11 +10046,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -10265,6 +10055,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -10272,12 +10063,13 @@ class MplsTe(object):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self.affinity7 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -10292,18 +10084,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity6 is None')
                                 if self.affinity7 is None:
                                     raise YPYModelError('Key property affinity7 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -10323,9 +10114,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity7 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -10340,6 +10128,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -10396,11 +10189,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -10410,6 +10198,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -10418,12 +10207,13 @@ class MplsTe(object):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self.affinity8 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -10440,18 +10230,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity7 is None')
                                 if self.affinity8 is None:
                                     raise YPYModelError('Key property affinity8 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -10474,9 +10263,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity8 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -10491,6 +10277,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -10554,11 +10345,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -10568,6 +10354,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -10577,12 +10364,13 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -10601,18 +10389,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -10638,9 +10425,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity9 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -10655,16 +10439,14 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity10  <key>
-                            
-                            	The name of the tenth affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -10725,10 +10507,12 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity10  <key>
                             
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            	The name of the tenth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -10739,8 +10523,8 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
-                                self.affinity10 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
@@ -10749,16 +10533,16 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
+                                self.affinity10 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
-                                if self.affinity10 is None:
-                                    raise YPYModelError('Key property affinity10 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
@@ -10775,22 +10559,20 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity10 is None:
+                                    raise YPYModelError('Key property affinity10 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity10 is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
@@ -10817,7 +10599,7 @@ class MplsTe(object):
                                 if self.affinity9 is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity10 is not None:
                                     return True
 
                                 return False
@@ -10839,8 +10621,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.new_style_affinity_affinity_type is not None:
                                 for child_ref in self.new_style_affinity_affinity_type:
                                     if child_ref._has_data():
@@ -10915,8 +10695,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attribute_set_name is not None:
                             return True
 
@@ -10958,8 +10736,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.path_option_attribute is not None:
                         for child_ref in self.path_option_attribute:
                             if child_ref._has_data():
@@ -11148,8 +10924,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.hold_priority is not None:
@@ -11220,8 +10994,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.affinity is not None:
@@ -11302,8 +11074,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bandwidth is not None:
@@ -11355,8 +11125,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -11505,8 +11273,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.affinity_type is not None:
                                     return True
 
@@ -11522,17 +11288,17 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -11543,31 +11309,29 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.affinity1 = None
                                 self.affinity_type = None
+                                self.affinity1 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.affinity1 is None:
-                                    raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity_type is None:
                                     raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 return False
@@ -11582,6 +11346,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -11596,11 +11365,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -11610,37 +11374,35 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -11655,6 +11417,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -11676,11 +11443,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -11690,33 +11452,34 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
                                     raise YPYModelError('Key property affinity3 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -11724,9 +11487,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity3 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -11741,6 +11501,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -11769,11 +11534,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -11783,16 +11543,18 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -11801,18 +11563,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity3 is None')
                                 if self.affinity4 is None:
                                     raise YPYModelError('Key property affinity4 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -11823,9 +11584,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity4 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -11840,6 +11598,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -11875,11 +11638,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -11889,17 +11647,19 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -11910,18 +11670,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity4 is None')
                                 if self.affinity5 is None:
                                     raise YPYModelError('Key property affinity5 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -11935,9 +11694,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity5 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -11952,6 +11708,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -11994,11 +11755,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -12008,18 +11764,20 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self.affinity6 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -12032,18 +11790,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity5 is None')
                                 if self.affinity6 is None:
                                     raise YPYModelError('Key property affinity6 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -12060,9 +11817,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity6 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -12077,6 +11831,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -12126,11 +11885,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -12140,6 +11894,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -12147,12 +11902,13 @@ class MplsTe(object):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self.affinity7 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -12167,18 +11923,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity6 is None')
                                 if self.affinity7 is None:
                                     raise YPYModelError('Key property affinity7 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -12198,9 +11953,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity7 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -12215,6 +11967,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -12271,11 +12028,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -12285,6 +12037,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -12293,12 +12046,13 @@ class MplsTe(object):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self.affinity8 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -12315,18 +12069,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity7 is None')
                                 if self.affinity8 is None:
                                     raise YPYModelError('Key property affinity8 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -12349,9 +12102,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity8 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -12366,6 +12116,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -12429,11 +12184,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -12443,6 +12193,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -12452,12 +12203,13 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -12476,18 +12228,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -12513,9 +12264,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity9 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -12530,16 +12278,14 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity10  <key>
-                            
-                            	The name of the tenth affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -12600,10 +12346,12 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity10  <key>
                             
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            	The name of the tenth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -12614,8 +12362,8 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
-                                self.affinity10 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
@@ -12624,16 +12372,16 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
+                                self.affinity10 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
-                                if self.affinity10 is None:
-                                    raise YPYModelError('Key property affinity10 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
@@ -12650,22 +12398,20 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity10 is None:
+                                    raise YPYModelError('Key property affinity10 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity10 is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
@@ -12692,7 +12438,7 @@ class MplsTe(object):
                                 if self.affinity9 is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity10 is not None:
                                     return True
 
                                 return False
@@ -12714,8 +12460,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.new_style_affinity_affinity_type is not None:
                                 for child_ref in self.new_style_affinity_affinity_type:
                                     if child_ref._has_data():
@@ -12833,8 +12577,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bandwidth_protection is not None:
@@ -12931,8 +12673,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.all is not None:
                                 return True
 
@@ -12979,8 +12719,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attribute_set_name is not None:
                             return True
 
@@ -13031,8 +12769,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.p2mpte_attribute is not None:
                         for child_ref in self.p2mpte_attribute:
                             if child_ref._has_data():
@@ -13287,8 +13023,6 @@ class MplsTe(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.index_number is not None:
                                             return True
 
@@ -13317,8 +13051,6 @@ class MplsTe(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.index is not None:
                                         for child_ref in self.index:
                                             if child_ref._has_data():
@@ -13343,8 +13075,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -13403,8 +13133,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.invalidation_timer is not None:
                                     return True
 
@@ -13430,8 +13158,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -13546,8 +13272,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.bd_group_id is not None:
@@ -13628,8 +13352,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.dp_group_id is not None:
@@ -13660,8 +13382,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bidirectional is not None and self.bidirectional._has_data():
                                 return True
 
@@ -13733,8 +13453,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.affinity is not None:
@@ -13843,8 +13561,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.all is not None:
                                 return True
 
@@ -14023,8 +13739,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.affinity_type is not None:
                                     return True
 
@@ -14040,17 +13754,17 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -14061,31 +13775,29 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.affinity1 = None
                                 self.affinity_type = None
+                                self.affinity1 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.affinity1 is None:
-                                    raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity_type is None:
                                     raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 return False
@@ -14100,6 +13812,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -14114,11 +13831,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -14128,37 +13840,35 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -14173,6 +13883,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -14194,11 +13909,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -14208,33 +13918,34 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
                                     raise YPYModelError('Key property affinity3 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -14242,9 +13953,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity3 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -14259,6 +13967,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -14287,11 +14000,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -14301,16 +14009,18 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -14319,18 +14029,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity3 is None')
                                 if self.affinity4 is None:
                                     raise YPYModelError('Key property affinity4 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -14341,9 +14050,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity4 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -14358,6 +14064,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -14393,11 +14104,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -14407,17 +14113,19 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -14428,18 +14136,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity4 is None')
                                 if self.affinity5 is None:
                                     raise YPYModelError('Key property affinity5 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -14453,9 +14160,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity5 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -14470,6 +14174,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -14512,11 +14221,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -14526,18 +14230,20 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self.affinity6 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -14550,18 +14256,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity5 is None')
                                 if self.affinity6 is None:
                                     raise YPYModelError('Key property affinity6 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -14578,9 +14283,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity6 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -14595,6 +14297,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -14644,11 +14351,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -14658,6 +14360,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -14665,12 +14368,13 @@ class MplsTe(object):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self.affinity7 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -14685,18 +14389,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity6 is None')
                                 if self.affinity7 is None:
                                     raise YPYModelError('Key property affinity7 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -14716,9 +14419,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity7 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -14733,6 +14433,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -14789,11 +14494,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -14803,6 +14503,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -14811,12 +14512,13 @@ class MplsTe(object):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self.affinity8 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -14833,18 +14535,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity7 is None')
                                 if self.affinity8 is None:
                                     raise YPYModelError('Key property affinity8 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -14867,9 +14568,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity8 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -14884,6 +14582,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -14947,11 +14650,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -14961,6 +14659,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -14970,12 +14669,13 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -14994,18 +14694,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -15031,9 +14730,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity9 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -15048,16 +14744,14 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity10  <key>
-                            
-                            	The name of the tenth affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -15118,10 +14812,12 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity10  <key>
                             
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            	The name of the tenth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -15132,8 +14828,8 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
-                                self.affinity10 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
@@ -15142,16 +14838,16 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
+                                self.affinity10 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
-                                if self.affinity10 is None:
-                                    raise YPYModelError('Key property affinity10 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
@@ -15168,22 +14864,20 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity10 is None:
+                                    raise YPYModelError('Key property affinity10 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity10 is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
@@ -15210,7 +14904,7 @@ class MplsTe(object):
                                 if self.affinity9 is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity10 is not None:
                                     return True
 
                                 return False
@@ -15232,8 +14926,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.new_style_affinity_affinity_type is not None:
                                 for child_ref in self.new_style_affinity_affinity_type:
                                     if child_ref._has_data():
@@ -15308,8 +15000,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attribute_set_name is not None:
                             return True
 
@@ -15348,8 +15038,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.p2p_te_attribute is not None:
                         for child_ref in self.p2p_te_attribute:
                             if child_ref._has_data():
@@ -15522,8 +15210,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mp_address is not None:
                                 return True
 
@@ -15594,8 +15280,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bandwidth_change_message is not None:
                                 return True
 
@@ -15670,8 +15354,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.hold_priority is not None:
@@ -15742,8 +15424,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.affinity is not None:
@@ -15792,8 +15472,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -15841,8 +15519,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.policy_class is not None:
                                 for child in self.policy_class:
                                     if child is not None:
@@ -15993,8 +15669,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.affinity_type is not None:
                                     return True
 
@@ -16010,17 +15684,17 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -16031,31 +15705,29 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.affinity1 = None
                                 self.affinity_type = None
+                                self.affinity1 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.affinity1 is None:
-                                    raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity_type is None:
                                     raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 return False
@@ -16070,6 +15742,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -16084,11 +15761,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -16098,37 +15770,35 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -16143,6 +15813,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -16164,11 +15839,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -16178,33 +15848,34 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
                                     raise YPYModelError('Key property affinity3 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -16212,9 +15883,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity3 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -16229,6 +15897,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -16257,11 +15930,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -16271,16 +15939,18 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -16289,18 +15959,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity3 is None')
                                 if self.affinity4 is None:
                                     raise YPYModelError('Key property affinity4 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -16311,9 +15980,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity4 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -16328,6 +15994,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -16363,11 +16034,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -16377,17 +16043,19 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -16398,18 +16066,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity4 is None')
                                 if self.affinity5 is None:
                                     raise YPYModelError('Key property affinity5 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -16423,9 +16090,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity5 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -16440,6 +16104,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -16482,11 +16151,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -16496,18 +16160,20 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self.affinity6 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -16520,18 +16186,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity5 is None')
                                 if self.affinity6 is None:
                                     raise YPYModelError('Key property affinity6 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -16548,9 +16213,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity6 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -16565,6 +16227,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -16614,11 +16281,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -16628,6 +16290,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -16635,12 +16298,13 @@ class MplsTe(object):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self.affinity7 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -16655,18 +16319,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity6 is None')
                                 if self.affinity7 is None:
                                     raise YPYModelError('Key property affinity7 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -16686,9 +16349,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity7 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -16703,6 +16363,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -16759,11 +16424,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -16773,6 +16433,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -16781,12 +16442,13 @@ class MplsTe(object):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self.affinity8 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -16803,18 +16465,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity7 is None')
                                 if self.affinity8 is None:
                                     raise YPYModelError('Key property affinity8 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -16837,9 +16498,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity8 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -16854,6 +16512,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -16917,11 +16580,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -16931,6 +16589,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -16940,12 +16599,13 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -16964,18 +16624,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -17001,9 +16660,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity9 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -17018,16 +16674,14 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity10  <key>
-                            
-                            	The name of the tenth affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -17088,10 +16742,12 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity10  <key>
                             
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            	The name of the tenth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -17102,8 +16758,8 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
-                                self.affinity10 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
@@ -17112,16 +16768,16 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
+                                self.affinity10 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
-                                if self.affinity10 is None:
-                                    raise YPYModelError('Key property affinity10 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
@@ -17138,22 +16794,20 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity10 is None:
+                                    raise YPYModelError('Key property affinity10 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity10 is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
@@ -17180,7 +16834,7 @@ class MplsTe(object):
                                 if self.affinity9 is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity10 is not None:
                                     return True
 
                                 return False
@@ -17202,8 +16856,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.new_style_affinity_affinity_type is not None:
                                 for child_ref in self.new_style_affinity_affinity_type:
                                     if child_ref._has_data():
@@ -17278,8 +16930,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attribute_set_name is not None:
                             return True
 
@@ -17327,8 +16977,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auto_backup_attribute is not None:
                         for child_ref in self.auto_backup_attribute:
                             if child_ref._has_data():
@@ -17578,8 +17226,6 @@ class MplsTe(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.hour is not None:
@@ -17680,8 +17326,6 @@ class MplsTe(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.day is not None:
@@ -17720,8 +17364,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.schedule_name is not None:
                                     return True
 
@@ -17759,8 +17401,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.revert_schedule_name is not None:
                                 for child_ref in self.revert_schedule_name:
                                     if child_ref._has_data():
@@ -17814,8 +17454,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.connection_mode is not None:
                                 return True
 
@@ -17876,8 +17514,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.aps_hold_off is not None:
                                 return True
 
@@ -17924,8 +17560,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -17948,8 +17582,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attribute_set_name is not None:
                             return True
 
@@ -17994,8 +17626,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.otn_pp_attribute is not None:
                         for child_ref in self.otn_pp_attribute:
                             if child_ref._has_data():
@@ -18239,8 +17869,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bandwidth_change_message is not None:
                                 return True
 
@@ -18324,8 +17952,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.hold_priority is not None:
@@ -18396,8 +18022,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.affinity is not None:
@@ -18478,8 +18102,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bandwidth is not None:
@@ -18531,8 +18153,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -18580,8 +18200,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.policy_class is not None:
                                 for child in self.policy_class:
                                     if child is not None:
@@ -18732,8 +18350,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.affinity_type is not None:
                                     return True
 
@@ -18749,17 +18365,17 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                             
                             
 
@@ -18770,31 +18386,29 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.affinity1 = None
                                 self.affinity_type = None
+                                self.affinity1 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.affinity1 is None:
-                                    raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity_type is None:
                                     raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 return False
@@ -18809,6 +18423,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -18823,11 +18442,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -18837,37 +18451,35 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -18882,6 +18494,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -18903,11 +18520,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -18917,33 +18529,34 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
                                     raise YPYModelError('Key property affinity3 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -18951,9 +18564,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity3 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -18968,6 +18578,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -18996,11 +18611,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -19010,16 +18620,18 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -19028,18 +18640,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity3 is None')
                                 if self.affinity4 is None:
                                     raise YPYModelError('Key property affinity4 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -19050,9 +18661,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity4 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -19067,6 +18675,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -19102,11 +18715,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -19116,17 +18724,19 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -19137,18 +18747,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity4 is None')
                                 if self.affinity5 is None:
                                     raise YPYModelError('Key property affinity5 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -19162,9 +18771,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity5 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -19179,6 +18785,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -19221,11 +18832,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -19235,18 +18841,20 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self.affinity6 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -19259,18 +18867,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity5 is None')
                                 if self.affinity6 is None:
                                     raise YPYModelError('Key property affinity6 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -19287,9 +18894,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity6 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -19304,6 +18908,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -19353,11 +18962,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -19367,6 +18971,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -19374,12 +18979,13 @@ class MplsTe(object):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self.affinity7 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -19394,18 +19000,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity6 is None')
                                 if self.affinity7 is None:
                                     raise YPYModelError('Key property affinity7 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -19425,9 +19030,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity7 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -19442,6 +19044,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -19498,11 +19105,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -19512,6 +19114,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -19520,12 +19123,13 @@ class MplsTe(object):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self.affinity8 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -19542,18 +19146,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity7 is None')
                                 if self.affinity8 is None:
                                     raise YPYModelError('Key property affinity8 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -19576,9 +19179,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity8 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -19593,6 +19193,11 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
@@ -19656,11 +19261,6 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
-                            
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
-                            
                             
 
                             """
@@ -19670,6 +19270,7 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
@@ -19679,12 +19280,13 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
                                 if self.affinity2 is None:
@@ -19703,18 +19305,17 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
                                 if self.affinity1 is not None:
                                     return True
 
@@ -19740,9 +19341,6 @@ class MplsTe(object):
                                     return True
 
                                 if self.affinity9 is not None:
-                                    return True
-
-                                if self.affinity_type is not None:
                                     return True
 
                                 return False
@@ -19757,16 +19355,14 @@ class MplsTe(object):
                             """
                             Tunnel new style affinity attribute
                             
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
                             .. attribute:: affinity1  <key>
                             
                             	The name of the first affinity
-                            	**type**\:  str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: affinity10  <key>
-                            
-                            	The name of the tenth affinity
                             	**type**\:  str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -19827,10 +19423,12 @@ class MplsTe(object):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
-                            .. attribute:: affinity_type  <key>
+                            .. attribute:: affinity10  <key>
                             
-                            	The type of the affinity entry
-                            	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            	The name of the tenth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
                             
 
@@ -19841,8 +19439,8 @@ class MplsTe(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.affinity_type = None
                                 self.affinity1 = None
-                                self.affinity10 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self.affinity4 = None
@@ -19851,16 +19449,16 @@ class MplsTe(object):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self.affinity9 = None
-                                self.affinity_type = None
+                                self.affinity10 = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
                                 if self.affinity1 is None:
                                     raise YPYModelError('Key property affinity1 is None')
-                                if self.affinity10 is None:
-                                    raise YPYModelError('Key property affinity10 is None')
                                 if self.affinity2 is None:
                                     raise YPYModelError('Key property affinity2 is None')
                                 if self.affinity3 is None:
@@ -19877,22 +19475,20 @@ class MplsTe(object):
                                     raise YPYModelError('Key property affinity8 is None')
                                 if self.affinity9 is None:
                                     raise YPYModelError('Key property affinity9 is None')
-                                if self.affinity_type is None:
-                                    raise YPYModelError('Key property affinity_type is None')
+                                if self.affinity10 is None:
+                                    raise YPYModelError('Key property affinity10 is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + '][Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.affinity1 is not None:
+                                if self.affinity_type is not None:
                                     return True
 
-                                if self.affinity10 is not None:
+                                if self.affinity1 is not None:
                                     return True
 
                                 if self.affinity2 is not None:
@@ -19919,7 +19515,7 @@ class MplsTe(object):
                                 if self.affinity9 is not None:
                                     return True
 
-                                if self.affinity_type is not None:
+                                if self.affinity10 is not None:
                                     return True
 
                                 return False
@@ -19941,8 +19537,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.new_style_affinity_affinity_type is not None:
                                 for child_ref in self.new_style_affinity_affinity_type:
                                     if child_ref._has_data():
@@ -20060,8 +19654,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bandwidth_protection is not None:
@@ -20089,8 +19681,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attribute_set_name is not None:
                             return True
 
@@ -20159,8 +19749,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auto_mesh_attribute is not None:
                         for child_ref in self.auto_mesh_attribute:
                             if child_ref._has_data():
@@ -20336,8 +19924,6 @@ class MplsTe(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.srlg is not None:
                                         return True
 
@@ -20363,8 +19949,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.srlg is not None:
                                     for child_ref in self.srlg:
                                         if child_ref._has_data():
@@ -20428,12 +20012,26 @@ class MplsTe(object):
                                     LSP\-based path\-diversity, referenced by
                                     FEC
                                     
+                                    .. attribute:: source  <key>
+                                    
+                                    	Source address
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
                                     .. attribute:: destination  <key>
                                     
                                     	Destination address
                                     	**type**\:  str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: tunnel_id  <key>
+                                    
+                                    	Tunnel id
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
                                     
                                     .. attribute:: extended_tunnel_id  <key>
                                     
@@ -20445,20 +20043,6 @@ class MplsTe(object):
                                     .. attribute:: lsp_id  <key>
                                     
                                     	LSP id
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: source  <key>
-                                    
-                                    	Source address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: tunnel_id  <key>
-                                    
-                                    	Tunnel id
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
@@ -20479,50 +20063,48 @@ class MplsTe(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.source = None
                                         self.destination = None
+                                        self.tunnel_id = None
                                         self.extended_tunnel_id = None
                                         self.lsp_id = None
-                                        self.source = None
-                                        self.tunnel_id = None
                                         self.conformance = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
+                                        if self.source is None:
+                                            raise YPYModelError('Key property source is None')
                                         if self.destination is None:
                                             raise YPYModelError('Key property destination is None')
+                                        if self.tunnel_id is None:
+                                            raise YPYModelError('Key property tunnel_id is None')
                                         if self.extended_tunnel_id is None:
                                             raise YPYModelError('Key property extended_tunnel_id is None')
                                         if self.lsp_id is None:
                                             raise YPYModelError('Key property lsp_id is None')
-                                        if self.source is None:
-                                            raise YPYModelError('Key property source is None')
-                                        if self.tunnel_id is None:
-                                            raise YPYModelError('Key property tunnel_id is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:fec[Cisco-IOS-XR-mpls-te-cfg:destination = ' + str(self.destination) + '][Cisco-IOS-XR-mpls-te-cfg:extended-tunnel-id = ' + str(self.extended_tunnel_id) + '][Cisco-IOS-XR-mpls-te-cfg:lsp-id = ' + str(self.lsp_id) + '][Cisco-IOS-XR-mpls-te-cfg:source = ' + str(self.source) + '][Cisco-IOS-XR-mpls-te-cfg:tunnel-id = ' + str(self.tunnel_id) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:fec[Cisco-IOS-XR-mpls-te-cfg:source = ' + str(self.source) + '][Cisco-IOS-XR-mpls-te-cfg:destination = ' + str(self.destination) + '][Cisco-IOS-XR-mpls-te-cfg:tunnel-id = ' + str(self.tunnel_id) + '][Cisco-IOS-XR-mpls-te-cfg:extended-tunnel-id = ' + str(self.extended_tunnel_id) + '][Cisco-IOS-XR-mpls-te-cfg:lsp-id = ' + str(self.lsp_id) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
+                                        if self.source is not None:
+                                            return True
+
                                         if self.destination is not None:
+                                            return True
+
+                                        if self.tunnel_id is not None:
                                             return True
 
                                         if self.extended_tunnel_id is not None:
                                             return True
 
                                         if self.lsp_id is not None:
-                                            return True
-
-                                        if self.source is not None:
-                                            return True
-
-                                        if self.tunnel_id is not None:
                                             return True
 
                                         if self.conformance is not None:
@@ -20547,8 +20129,6 @@ class MplsTe(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fec is not None:
                                         for child_ref in self.fec:
                                             if child_ref._has_data():
@@ -20573,8 +20153,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fecs is not None and self.fecs._has_data():
                                     return True
 
@@ -20597,8 +20175,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lsp is not None and self.lsp._has_data():
                                 return True
 
@@ -20645,8 +20221,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -20669,8 +20243,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attribute_set_name is not None:
                             return True
 
@@ -20700,8 +20272,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.xro_attribute is not None:
                         for child_ref in self.xro_attribute:
                             if child_ref._has_data():
@@ -20724,8 +20294,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.auto_backup_attributes is not None and self.auto_backup_attributes._has_data():
                     return True
 
@@ -20824,8 +20392,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.minimum_interval is not None:
                         return True
 
@@ -20878,8 +20444,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.down_action is not None:
                         return True
 
@@ -20903,8 +20467,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.head is not None and self.head._has_data():
                     return True
 
@@ -21183,8 +20745,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.redelegation_timeout is not None:
                             return True
 
@@ -21208,8 +20768,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cisco_extension is not None:
                         return True
 
@@ -21264,8 +20822,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     return False
 
                 @staticmethod
@@ -21361,8 +20917,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pce_peer_address is not None:
                             return True
 
@@ -21395,8 +20949,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.peer is not None:
                         for child_ref in self.peer:
                             if child_ref._has_data():
@@ -21463,8 +21015,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.peer_status is not None:
                             return True
 
@@ -21485,8 +21035,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.events is not None and self.events._has_data():
                         return True
 
@@ -21507,8 +21055,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.address is not None:
                     return True
 
@@ -21634,8 +21180,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.all_transit_lsp_threshold is not None:
                         return True
 
@@ -21690,8 +21234,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.all_transit_lsp_threshold is not None:
                         return True
 
@@ -21715,8 +21257,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.lsp_oor_red_state is not None and self.lsp_oor_red_state._has_data():
                     return True
 
@@ -21779,8 +21319,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -21864,8 +21402,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.hold_backup is not None:
                         return True
 
@@ -21889,8 +21425,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.timers is not None and self.timers._has_data():
                     return True
 
@@ -22037,8 +21571,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.class_type is not None:
                             return True
 
@@ -22062,8 +21594,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.loose_metric is not None:
                         for child_ref in self.loose_metric:
                             if child_ref._has_data():
@@ -22116,8 +21646,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.path_invalidation_action is not None:
                         return True
 
@@ -22175,8 +21703,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.head is not None:
                         return True
 
@@ -22269,8 +21795,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.class_type is not None:
                             return True
 
@@ -22297,8 +21821,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.loose_affinity is not None:
                         for child_ref in self.loose_affinity:
                             if child_ref._has_data():
@@ -22321,8 +21843,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.cost_limit is not None:
                     return True
 
@@ -22426,8 +21946,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.affinity_name is not None:
                         return True
 
@@ -22454,8 +21972,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.affinity_mapping is not None:
                     for child_ref in self.affinity_mapping:
                         if child_ref._has_data():
@@ -22478,8 +21994,6 @@ class MplsTe(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.advertise_explicit_nulls is not None:
                 return True
 
@@ -22778,8 +22292,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disable is not None:
                             return True
 
@@ -22821,8 +22333,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disable is not None:
                             return True
 
@@ -22843,8 +22353,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ais is not None:
                         return True
 
@@ -22871,8 +22379,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.protection_trigger is not None and self.protection_trigger._has_data():
                     return True
 
@@ -22960,8 +22466,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.disable is not None:
                         return True
 
@@ -22982,8 +22486,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable_alarm is not None:
                     return True
 
@@ -23092,8 +22594,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interval_standby_ms is not None:
                         return True
 
@@ -23153,8 +22653,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interval_ms is not None:
                         return True
 
@@ -23178,8 +22676,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.detection_multiplier is not None:
                     return True
 
@@ -23358,8 +22854,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.global_id is not None:
@@ -23441,8 +22935,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.global_id is not None:
@@ -23558,8 +23050,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.in_label is not None:
@@ -23590,8 +23080,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.forward_bandwidth is not None:
                             return True
 
@@ -23702,8 +23190,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.in_label is not None:
@@ -23734,8 +23220,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.reverse_bandwidth is not None:
                             return True
 
@@ -23761,8 +23245,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.midpoint_name is not None:
                         return True
 
@@ -23804,8 +23286,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.midpoint is not None:
                     for child_ref in self.midpoint:
                         if child_ref._has_data():
@@ -23828,8 +23308,6 @@ class MplsTe(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.alarm is not None and self.alarm._has_data():
                 return True
 
@@ -24020,8 +23498,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.link_id is not None:
                                 return True
 
@@ -24050,8 +23526,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.link is not None:
                             for child_ref in self.link:
                                 if child_ref._has_data():
@@ -24076,8 +23550,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.links is not None and self.links._has_data():
                         return True
 
@@ -24266,8 +23738,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.switching_id is not None:
                                 return True
 
@@ -24296,8 +23766,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.switching is not None:
                             for child_ref in self.switching:
                                 if child_ref._has_data():
@@ -24360,8 +23828,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.area_id is not None:
                             return True
 
@@ -24413,8 +23879,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attribute_name is not None:
                             for child in self.attribute_name:
                                 if child is not None:
@@ -24495,8 +23959,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.affinity_index is not None:
                                 return True
 
@@ -24524,8 +23986,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attribute_name is not None:
                             for child_ref in self.attribute_name:
                                 if child_ref._has_data():
@@ -24598,8 +24058,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.srlg_number is not None:
                                 return True
 
@@ -24622,8 +24080,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srlg is not None:
                             for child_ref in self.srlg:
                                 if child_ref._has_data():
@@ -24676,8 +24132,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.up_threshold is not None:
                             for child in self.up_threshold:
                                 if child is not None:
@@ -24730,8 +24184,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.down_threshold is not None:
                             for child in self.down_threshold:
                                 if child is not None:
@@ -24756,8 +24208,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_weight is not None:
                         return True
 
@@ -24898,8 +24348,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.tunnel_name is not None:
                                 return True
 
@@ -24922,8 +24370,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.backup_tunnel is not None:
                             for child_ref in self.backup_tunnel:
                                 if child_ref._has_data():
@@ -25033,8 +24479,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.srlg_mode is not None:
                                     return True
 
@@ -25057,8 +24501,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.attribute_set is not None:
                                 return True
 
@@ -25090,8 +24532,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.backup is not None and self.backup._has_data():
                             return True
 
@@ -25163,8 +24603,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.tunnel_number is not None:
                                 return True
 
@@ -25187,8 +24625,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.backup_path is not None:
                             for child_ref in self.backup_path:
                                 if child_ref._has_data():
@@ -25213,8 +24649,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auto_tunnel is not None and self.auto_tunnel._has_data():
                         return True
 
@@ -25243,8 +24677,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -25274,8 +24706,6 @@ class MplsTe(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -25357,6 +24787,11 @@ class MplsTe(object):
                 """
                 GMPLS\-NNI topology instance configuration
                 
+                .. attribute:: ospf_area_type  <key>
+                
+                	OSPF area format
+                	**type**\:   :py:class:`OspfAreaModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OspfAreaModeEnum>`
+                
                 .. attribute:: igp_instance_name  <key>
                 
                 	Name of IGP instance
@@ -25368,11 +24803,6 @@ class MplsTe(object):
                 
                 	IGP type
                 	**type**\:   :py:class:`MplsTeIgpProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocolEnum>`
-                
-                .. attribute:: ospf_area_type  <key>
-                
-                	OSPF area format
-                	**type**\:   :py:class:`OspfAreaModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OspfAreaModeEnum>`
                 
                 .. attribute:: ospf_int
                 
@@ -25393,9 +24823,9 @@ class MplsTe(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.ospf_area_type = None
                     self.igp_instance_name = None
                     self.igp_type = None
-                    self.ospf_area_type = None
                     self.ospf_int = YList()
                     self.ospf_int.parent = self
                     self.ospf_int.name = 'ospf_int'
@@ -25550,8 +24980,6 @@ class MplsTe(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tcmid is not None:
                                         return True
 
@@ -25579,8 +25007,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.controller_name is not None:
                                     return True
 
@@ -25615,8 +25041,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.controller is not None:
                                 for child_ref in self.controller:
                                     if child_ref._has_data():
@@ -25643,8 +25067,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.igp_area is not None:
                             return True
 
@@ -25805,8 +25227,6 @@ class MplsTe(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tcmid is not None:
                                         return True
 
@@ -25834,8 +25254,6 @@ class MplsTe(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.controller_name is not None:
                                     return True
 
@@ -25870,8 +25288,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.controller is not None:
                                 for child_ref in self.controller:
                                     if child_ref._has_data():
@@ -25898,8 +25314,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -25915,29 +25329,27 @@ class MplsTe(object):
 
                 @property
                 def _common_path(self):
+                    if self.ospf_area_type is None:
+                        raise YPYModelError('Key property ospf_area_type is None')
                     if self.igp_instance_name is None:
                         raise YPYModelError('Key property igp_instance_name is None')
                     if self.igp_type is None:
                         raise YPYModelError('Key property igp_type is None')
-                    if self.ospf_area_type is None:
-                        raise YPYModelError('Key property ospf_area_type is None')
 
-                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:gmpls-nni/Cisco-IOS-XR-mpls-te-cfg:topology-instances/Cisco-IOS-XR-mpls-te-cfg:topology-instance[Cisco-IOS-XR-mpls-te-cfg:igp-instance-name = ' + str(self.igp_instance_name) + '][Cisco-IOS-XR-mpls-te-cfg:igp-type = ' + str(self.igp_type) + '][Cisco-IOS-XR-mpls-te-cfg:ospf-area-type = ' + str(self.ospf_area_type) + ']'
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:gmpls-nni/Cisco-IOS-XR-mpls-te-cfg:topology-instances/Cisco-IOS-XR-mpls-te-cfg:topology-instance[Cisco-IOS-XR-mpls-te-cfg:ospf-area-type = ' + str(self.ospf_area_type) + '][Cisco-IOS-XR-mpls-te-cfg:igp-instance-name = ' + str(self.igp_instance_name) + '][Cisco-IOS-XR-mpls-te-cfg:igp-type = ' + str(self.igp_type) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
+                    if self.ospf_area_type is not None:
+                        return True
+
                     if self.igp_instance_name is not None:
                         return True
 
                     if self.igp_type is not None:
-                        return True
-
-                    if self.ospf_area_type is not None:
                         return True
 
                     if self.ospf_int is not None:
@@ -25967,8 +25379,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.topology_instance is not None:
                     for child_ref in self.topology_instance:
                         if child_ref._has_data():
@@ -26185,8 +25595,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bitrate is not None:
                             return True
 
@@ -26253,8 +25661,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination is not None:
                             return True
 
@@ -26305,8 +25711,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lockout is not None:
                             return True
 
@@ -26386,8 +25790,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_lsp_message is not None:
                             return True
 
@@ -26536,8 +25938,6 @@ class MplsTe(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.preference_level is not None:
                                 return True
 
@@ -26584,8 +25984,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.path_option is not None:
                             for child_ref in self.path_option:
                                 if child_ref._has_data():
@@ -26655,8 +26053,6 @@ class MplsTe(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.egress_controller_if_index is not None:
                             return True
 
@@ -26688,8 +26084,6 @@ class MplsTe(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tunnel_id is not None:
                         return True
 
@@ -26758,8 +26152,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tunnel_head is not None:
                     for child_ref in self.tunnel_head:
                         if child_ref._has_data():
@@ -26782,8 +26174,6 @@ class MplsTe(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.enable_gmpls_nni is not None:
                 return True
 
@@ -26905,8 +26295,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.detection_multiplier is not None:
                     return True
 
@@ -26966,8 +26354,6 @@ class MplsTe(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.down_stream is not None:
                     return True
 
@@ -26991,8 +26377,6 @@ class MplsTe(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bandwidth_hold_timer is not None:
                 return True
 
@@ -27025,8 +26409,6 @@ class MplsTe(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.diff_serv_traffic_engineering is not None and self.diff_serv_traffic_engineering._has_data():
             return True
 

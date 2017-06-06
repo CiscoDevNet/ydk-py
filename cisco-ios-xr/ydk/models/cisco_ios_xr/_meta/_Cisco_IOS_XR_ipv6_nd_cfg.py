@@ -13,6 +13,11 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'Ipv6SrpEncapsulationEnum' : _MetaInfoEnum('Ipv6SrpEncapsulationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg',
+        {
+            'srpa':'srpa',
+            'srpb':'srpb',
+        }, 'Cisco-IOS-XR-ipv6-nd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-cfg']),
     'Ipv6NdMonthEnum' : _MetaInfoEnum('Ipv6NdMonthEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg',
         {
             'january':'january',
@@ -34,26 +39,21 @@ _meta_table = {
             'medium':'medium',
             'low':'low',
         }, 'Cisco-IOS-XR-ipv6-nd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-cfg']),
-    'Ipv6SrpEncapsulationEnum' : _MetaInfoEnum('Ipv6SrpEncapsulationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg',
-        {
-            'srpa':'srpa',
-            'srpb':'srpb',
-        }, 'Cisco-IOS-XR-ipv6-nd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-cfg']),
     'Ipv6Neighbor.Neighbors.Neighbor' : {
         'meta_info' : _MetaInfoClass('Ipv6Neighbor.Neighbors.Neighbor',
             False, 
             [
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface name
-                ''',
-                'interface_name',
-                'Cisco-IOS-XR-ipv6-nd-cfg', True),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address
                 ''',
                 'neighbor_address',
+                'Cisco-IOS-XR-ipv6-nd-cfg', True),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
+                ''',
+                'interface_name',
                 'Cisco-IOS-XR-ipv6-nd-cfg', True),
             _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Ipv6SrpEncapsulationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6SrpEncapsulationEnum', 
                 [], [], 
@@ -63,7 +63,7 @@ _meta_table = {
                 'encapsulation',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                48-bit hardware address H.H.H
                 ''',
                 'mac_address',

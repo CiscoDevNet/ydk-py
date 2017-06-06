@@ -19,11 +19,10 @@ _meta_table = {
             'busy':'busy',
             'do-not-wait-to-talk':'do_not_wait_to_talk',
         }, 'Cisco-IOS-XR-aaa-diameter-oper', _yang_ns._namespaces['Cisco-IOS-XR-aaa-diameter-oper']),
-    'SecurityTypeValueEnum' : _MetaInfoEnum('SecurityTypeValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper',
+    'PeerEnum' : _MetaInfoEnum('PeerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper',
         {
-            'security-type-none':'security_type_none',
-            'type':'type',
-            'ipsec':'ipsec',
+            'undefined':'undefined',
+            'server':'server',
         }, 'Cisco-IOS-XR-aaa-diameter-oper', _yang_ns._namespaces['Cisco-IOS-XR-aaa-diameter-oper']),
     'PeerStateValueEnum' : _MetaInfoEnum('PeerStateValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper',
         {
@@ -35,20 +34,21 @@ _meta_table = {
             'closing':'closing',
             'suspect':'suspect',
         }, 'Cisco-IOS-XR-aaa-diameter-oper', _yang_ns._namespaces['Cisco-IOS-XR-aaa-diameter-oper']),
-    'ProtocolTypeValueEnum' : _MetaInfoEnum('ProtocolTypeValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper',
-        {
-            'protocol-none':'protocol_none',
-            'tcp':'tcp',
-        }, 'Cisco-IOS-XR-aaa-diameter-oper', _yang_ns._namespaces['Cisco-IOS-XR-aaa-diameter-oper']),
-    'PeerEnum' : _MetaInfoEnum('PeerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper',
-        {
-            'undefined':'undefined',
-            'server':'server',
-        }, 'Cisco-IOS-XR-aaa-diameter-oper', _yang_ns._namespaces['Cisco-IOS-XR-aaa-diameter-oper']),
     'WhoInitiatedDisconnectEnum' : _MetaInfoEnum('WhoInitiatedDisconnectEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper',
         {
             'none':'none',
             'host':'host',
             'peer':'peer',
+        }, 'Cisco-IOS-XR-aaa-diameter-oper', _yang_ns._namespaces['Cisco-IOS-XR-aaa-diameter-oper']),
+    'ProtocolTypeValueEnum' : _MetaInfoEnum('ProtocolTypeValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper',
+        {
+            'protocol-none':'protocol_none',
+            'tcp':'tcp',
+        }, 'Cisco-IOS-XR-aaa-diameter-oper', _yang_ns._namespaces['Cisco-IOS-XR-aaa-diameter-oper']),
+    'SecurityTypeValueEnum' : _MetaInfoEnum('SecurityTypeValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper',
+        {
+            'security-type-none':'security_type_none',
+            'type':'type',
+            'ipsec':'ipsec',
         }, 'Cisco-IOS-XR-aaa-diameter-oper', _yang_ns._namespaces['Cisco-IOS-XR-aaa-diameter-oper']),
 }

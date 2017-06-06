@@ -1263,8 +1263,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.max_window_traps is not None:
@@ -1292,8 +1290,6 @@ class Ospf(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.trap_rate_limit is not None and self.trap_rate_limit._has_data():
                         return True
 
@@ -1358,8 +1354,6 @@ class Ospf(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.instance_id is not None:
@@ -1737,8 +1731,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.domain_id_name is not None:
                                     return True
 
@@ -1780,17 +1772,17 @@ class Ospf(object):
                                 """
                                 OSPF Secondary domain ID
                                 
+                                .. attribute:: domain_id_type  <key>
+                                
+                                	Secondary domain ID type
+                                	**type**\:   :py:class:`OspfDomainIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfDomainIdEnum>`
+                                
                                 .. attribute:: domain_id_name  <key>
                                 
                                 	Secondary domain ID value
                                 	**type**\:  str
                                 
                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                
-                                .. attribute:: domain_id_type  <key>
-                                
-                                	Secondary domain ID type
-                                	**type**\:   :py:class:`OspfDomainIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfDomainIdEnum>`
                                 
                                 
 
@@ -1801,31 +1793,29 @@ class Ospf(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.domain_id_name = None
                                     self.domain_id_type = None
+                                    self.domain_id_name = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.domain_id_name is None:
-                                        raise YPYModelError('Key property domain_id_name is None')
                                     if self.domain_id_type is None:
                                         raise YPYModelError('Key property domain_id_type is None')
+                                    if self.domain_id_name is None:
+                                        raise YPYModelError('Key property domain_id_name is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:secondary-domain-id[Cisco-IOS-XR-ipv4-ospf-cfg:domain-id-name = ' + str(self.domain_id_name) + '][Cisco-IOS-XR-ipv4-ospf-cfg:domain-id-type = ' + str(self.domain_id_type) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:secondary-domain-id[Cisco-IOS-XR-ipv4-ospf-cfg:domain-id-type = ' + str(self.domain_id_type) + '][Cisco-IOS-XR-ipv4-ospf-cfg:domain-id-name = ' + str(self.domain_id_name) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.domain_id_name is not None:
+                                    if self.domain_id_type is not None:
                                         return True
 
-                                    if self.domain_id_type is not None:
+                                    if self.domain_id_name is not None:
                                         return True
 
                                     return False
@@ -1847,8 +1837,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.secondary_domain_id is not None:
                                     for child_ref in self.secondary_domain_id:
                                         if child_ref._has_data():
@@ -1873,8 +1861,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.primary_domain_id is not None and self.primary_domain_id._has_data():
                                 return True
 
@@ -1957,8 +1943,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -1984,8 +1968,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.avoidance is not None and self.avoidance._has_data():
                                 return True
 
@@ -2046,8 +2028,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.number_of_prefixes is not None:
                                 return True
 
@@ -2123,8 +2103,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.always_advertise is not None:
                                 return True
 
@@ -2193,8 +2171,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.af_name is not None:
@@ -2308,8 +2284,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dispatch_incoming is not None:
                                 return True
 
@@ -2474,8 +2448,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.external_lsa is not None:
                                     return True
 
@@ -2583,8 +2555,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.external_lsa is not None:
                                     return True
 
@@ -2693,8 +2663,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.external_lsa is not None:
                                     return True
 
@@ -2786,8 +2754,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.external_lsa is not None:
                                     return True
 
@@ -2889,8 +2855,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.external_lsa is not None:
                                     return True
 
@@ -2931,8 +2895,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.max_metric_always is not None and self.max_metric_always._has_data():
                                 return True
 
@@ -3045,8 +3007,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.cisco is not None:
                                 return True
 
@@ -3383,8 +3343,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.lower_bound is not None:
@@ -3533,8 +3491,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_name is not None:
                                                 return True
 
@@ -3557,8 +3513,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interface is not None:
                                             for child_ref in self.candidate_interface:
                                                 if child_ref._has_data():
@@ -3633,8 +3587,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_name is not None:
                                                 return True
 
@@ -3657,8 +3609,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.exclude_interface is not None:
                                             for child_ref in self.exclude_interface:
                                                 if child_ref._has_data():
@@ -3683,8 +3633,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                         return True
 
@@ -3792,8 +3740,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.maximum_cost is not None:
                                             return True
 
@@ -3868,8 +3814,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_name is not None:
                                                 return True
 
@@ -3892,8 +3836,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interface is not None:
                                             for child_ref in self.candidate_interface:
                                                 if child_ref._has_data():
@@ -3968,8 +3910,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_name is not None:
                                                 return True
 
@@ -3992,8 +3932,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.exclude_interface is not None:
                                             for child_ref in self.exclude_interface:
                                                 if child_ref._has_data():
@@ -4018,8 +3956,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                         return True
 
@@ -4054,8 +3990,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fast_reroute_enable is not None:
                                     return True
 
@@ -4120,8 +4054,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.access_list_name is not None:
@@ -4188,8 +4120,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.detection_multiplier is not None:
                                     return True
 
@@ -4288,8 +4218,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.authen_type is not None:
                                         return True
 
@@ -4378,8 +4306,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.key_id is not None:
                                             return True
 
@@ -4405,8 +4331,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.message_digest_key is not None:
                                         for child_ref in self.message_digest_key:
                                             if child_ref._has_data():
@@ -4431,8 +4355,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.key is not None:
                                     return True
 
@@ -4513,8 +4435,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.enable is not None:
                                         return True
 
@@ -4540,8 +4460,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ttl is not None and self.ttl._has_data():
                                     return True
 
@@ -4597,8 +4515,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interval is not None:
                                     return True
 
@@ -4655,8 +4571,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cost is not None:
                                     return True
 
@@ -4682,8 +4596,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.authentication is not None and self.authentication._has_data():
                                 return True
 
@@ -5012,8 +4924,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.bgp_preserve_default_info is not None:
@@ -5194,8 +5104,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.instance_name is not None:
                                             return True
 
@@ -5253,6 +5161,13 @@ class Ospf(object):
                                     """
                                     bgp
                                     
+                                    .. attribute:: instance_name  <key>
+                                    
+                                    	OSPF or ISIS process name or protocol name\: bgp, eigrp, connected
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                    
                                     .. attribute:: as_xx  <key>
                                     
                                     	First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
@@ -5266,13 +5181,6 @@ class Ospf(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
-                                    
-                                    .. attribute:: instance_name  <key>
-                                    
-                                    	OSPF or ISIS process name or protocol name\: bgp, eigrp, connected
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: bgp_preserve_default_info
                                     
@@ -5361,9 +5269,9 @@ class Ospf(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.instance_name = None
                                         self.as_xx = None
                                         self.as_yy = None
-                                        self.instance_name = None
                                         self.bgp_preserve_default_info = None
                                         self.bgp_preserve_med = None
                                         self.classful = None
@@ -5383,29 +5291,27 @@ class Ospf(object):
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
+                                        if self.instance_name is None:
+                                            raise YPYModelError('Key property instance_name is None')
                                         if self.as_xx is None:
                                             raise YPYModelError('Key property as_xx is None')
                                         if self.as_yy is None:
                                             raise YPYModelError('Key property as_yy is None')
-                                        if self.instance_name is None:
-                                            raise YPYModelError('Key property instance_name is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:bgp[Cisco-IOS-XR-ipv4-ospf-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-ospf-cfg:as-yy = ' + str(self.as_yy) + '][Cisco-IOS-XR-ipv4-ospf-cfg:instance-name = ' + str(self.instance_name) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:bgp[Cisco-IOS-XR-ipv4-ospf-cfg:instance-name = ' + str(self.instance_name) + '][Cisco-IOS-XR-ipv4-ospf-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-ospf-cfg:as-yy = ' + str(self.as_yy) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
+                                        if self.instance_name is not None:
+                                            return True
+
                                         if self.as_xx is not None:
                                             return True
 
                                         if self.as_yy is not None:
-                                            return True
-
-                                        if self.instance_name is not None:
                                             return True
 
                                         if self.bgp_preserve_default_info is not None:
@@ -5462,19 +5368,19 @@ class Ospf(object):
                                     """
                                     eigrp
                                     
-                                    .. attribute:: as_xx  <key>
-                                    
-                                    	First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
                                     .. attribute:: instance_name  <key>
                                     
                                     	OSPF or ISIS process name or protocol name\: bgp, eigrp, connected
                                     	**type**\:  str
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                    
+                                    .. attribute:: as_xx  <key>
+                                    
+                                    	First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
                                     
                                     .. attribute:: bgp_preserve_default_info
                                     
@@ -5563,8 +5469,8 @@ class Ospf(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.as_xx = None
                                         self.instance_name = None
+                                        self.as_xx = None
                                         self.bgp_preserve_default_info = None
                                         self.bgp_preserve_med = None
                                         self.classful = None
@@ -5584,24 +5490,22 @@ class Ospf(object):
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.as_xx is None:
-                                            raise YPYModelError('Key property as_xx is None')
                                         if self.instance_name is None:
                                             raise YPYModelError('Key property instance_name is None')
+                                        if self.as_xx is None:
+                                            raise YPYModelError('Key property as_xx is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:eigrp[Cisco-IOS-XR-ipv4-ospf-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-ospf-cfg:instance-name = ' + str(self.instance_name) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:eigrp[Cisco-IOS-XR-ipv4-ospf-cfg:instance-name = ' + str(self.instance_name) + '][Cisco-IOS-XR-ipv4-ospf-cfg:as-xx = ' + str(self.as_xx) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.as_xx is not None:
+                                        if self.instance_name is not None:
                                             return True
 
-                                        if self.instance_name is not None:
+                                        if self.as_xx is not None:
                                             return True
 
                                         if self.bgp_preserve_default_info is not None:
@@ -5667,8 +5571,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.protocol_name is not None:
                                         return True
 
@@ -5709,8 +5611,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.redistribute is not None:
                                     for child_ref in self.redistribute:
                                         if child_ref._has_data():
@@ -5735,8 +5635,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.redistributes is not None and self.redistributes._has_data():
                                 return True
 
@@ -5800,8 +5698,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.disable is not None:
                                 return True
 
@@ -5903,8 +5799,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.max_lsa_ignore_count is not None:
@@ -5979,8 +5873,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bandwidth is not None:
                                 return True
 
@@ -6078,8 +5970,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix_list_name is not None:
                                     return True
 
@@ -6155,8 +6045,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -6179,8 +6067,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.exclude_interface is not None:
                                     for child_ref in self.exclude_interface:
                                         if child_ref._has_data():
@@ -6205,8 +6091,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.delay_interval is not None:
                                 return True
 
@@ -6285,8 +6169,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.priority is not None:
                                     return True
 
@@ -6399,8 +6281,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.tiebreaker_type is not None:
                                             return True
 
@@ -6426,8 +6306,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tiebreaker is not None:
                                         for child_ref in self.tiebreaker:
                                             if child_ref._has_data():
@@ -6452,8 +6330,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.load_sharing_disable is not None:
                                     return True
 
@@ -6482,8 +6358,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.per_link is not None and self.per_link._has_data():
                                 return True
 
@@ -6586,8 +6460,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.not_advertise is not None:
                                     return True
 
@@ -6606,16 +6478,16 @@ class Ospf(object):
                             """
                             keys\: prefix, netmask
                             
-                            .. attribute:: netmask  <key>
+                            .. attribute:: prefix  <key>
                             
-                            	Summary netmask
+                            	IP summary prefix
                             	**type**\:  str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
-                            .. attribute:: prefix  <key>
+                            .. attribute:: netmask  <key>
                             
-                            	IP summary prefix
+                            	Summary netmask
                             	**type**\:  str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -6643,8 +6515,8 @@ class Ospf(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.netmask = None
                                 self.prefix = None
+                                self.netmask = None
                                 self.not_advertise = None
                                 self.tag = None
 
@@ -6652,24 +6524,22 @@ class Ospf(object):
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.netmask is None:
-                                    raise YPYModelError('Key property netmask is None')
                                 if self.prefix is None:
                                     raise YPYModelError('Key property prefix is None')
+                                if self.netmask is None:
+                                    raise YPYModelError('Key property netmask is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:prefix-and-netmask[Cisco-IOS-XR-ipv4-ospf-cfg:netmask = ' + str(self.netmask) + '][Cisco-IOS-XR-ipv4-ospf-cfg:prefix = ' + str(self.prefix) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:prefix-and-netmask[Cisco-IOS-XR-ipv4-ospf-cfg:prefix = ' + str(self.prefix) + '][Cisco-IOS-XR-ipv4-ospf-cfg:netmask = ' + str(self.netmask) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.netmask is not None:
+                                if self.prefix is not None:
                                     return True
 
-                                if self.prefix is not None:
+                                if self.netmask is not None:
                                     return True
 
                                 if self.not_advertise is not None:
@@ -6738,8 +6608,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -6809,8 +6677,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.netmask is not None:
                                     return True
 
@@ -6839,8 +6705,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.netmask is not None:
                                 for child_ref in self.netmask:
                                     if child_ref._has_data():
@@ -6953,8 +6817,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.protocol_name is not None:
                                     return True
 
@@ -6989,8 +6851,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.outgoing_route_update is not None:
                                 for child_ref in self.outgoing_route_update:
                                     if child_ref._has_data():
@@ -7099,8 +6959,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.external_routes is not None:
                                     return True
 
@@ -7205,8 +7063,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -7238,8 +7094,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_distance is not None:
                                     for child_ref in self.ip_distance:
                                         if child_ref._has_data():
@@ -7264,8 +7118,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.admin_distance is not None:
                                 return True
 
@@ -7625,8 +7477,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -7715,8 +7565,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.key_id is not None:
                                                         return True
 
@@ -7742,8 +7590,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
@@ -7768,8 +7614,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.key is not None:
                                                 return True
 
@@ -7831,8 +7675,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interval is not None:
                                                 return True
 
@@ -7860,8 +7702,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -7902,8 +7742,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.virtual_link_scope is not None:
                                         for child_ref in self.virtual_link_scope:
                                             if child_ref._has_data():
@@ -7944,16 +7782,16 @@ class Ospf(object):
                                     """
                                     Sham Link configuration
                                     
-                                    .. attribute:: destination_address  <key>
+                                    .. attribute:: source_address  <key>
                                     
-                                    	Address of the remote sham\-link endpoint
+                                    	Address of the local sham\-link endpoint
                                     	**type**\:  str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: source_address  <key>
+                                    .. attribute:: destination_address  <key>
                                     
-                                    	Address of the local sham\-link endpoint
+                                    	Address of the remote sham\-link endpoint
                                     	**type**\:  str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -8027,8 +7865,8 @@ class Ospf(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.destination_address = None
                                         self.source_address = None
+                                        self.destination_address = None
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication()
                                         self.authentication.parent = self
                                         self.cost = None
@@ -8122,8 +7960,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -8212,8 +8048,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.key_id is not None:
                                                         return True
 
@@ -8239,8 +8073,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
@@ -8265,8 +8097,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.key is not None:
                                                 return True
 
@@ -8328,8 +8158,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interval is not None:
                                                 return True
 
@@ -8347,24 +8175,22 @@ class Ospf(object):
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.destination_address is None:
-                                            raise YPYModelError('Key property destination_address is None')
                                         if self.source_address is None:
                                             raise YPYModelError('Key property source_address is None')
+                                        if self.destination_address is None:
+                                            raise YPYModelError('Key property destination_address is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:sham-link-scope[Cisco-IOS-XR-ipv4-ospf-cfg:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ipv4-ospf-cfg:source-address = ' + str(self.source_address) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:sham-link-scope[Cisco-IOS-XR-ipv4-ospf-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv4-ospf-cfg:destination-address = ' + str(self.destination_address) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.destination_address is not None:
+                                        if self.source_address is not None:
                                             return True
 
-                                        if self.source_address is not None:
+                                        if self.destination_address is not None:
                                             return True
 
                                         if self.authentication is not None and self.authentication._has_data():
@@ -8410,8 +8236,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sham_link_scope is not None:
                                         for child_ref in self.sham_link_scope:
                                             if child_ref._has_data():
@@ -8699,8 +8523,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.access_list_name is not None:
@@ -8767,8 +8589,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.detection_multiplier is not None:
                                             return True
 
@@ -8867,8 +8687,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authen_type is not None:
                                                 return True
 
@@ -8957,8 +8775,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.key_id is not None:
                                                     return True
 
@@ -8984,8 +8800,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
@@ -9010,8 +8824,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.key is not None:
                                             return True
 
@@ -9092,8 +8904,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.enable is not None:
                                                 return True
 
@@ -9119,8 +8929,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ttl is not None and self.ttl._has_data():
                                             return True
 
@@ -9176,8 +8984,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interval is not None:
                                             return True
 
@@ -9324,8 +9130,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -9348,8 +9152,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -9424,8 +9226,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -9448,8 +9248,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -9474,8 +9272,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -9590,8 +9386,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.maximum_cost is not None:
                                                     return True
 
@@ -9673,8 +9467,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.tiebreaker_type is not None:
                                                         return True
 
@@ -9700,8 +9492,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.tiebreaker is not None:
                                                     for child_ref in self.tiebreaker:
                                                         if child_ref._has_data():
@@ -9775,8 +9565,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -9799,8 +9587,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -9875,8 +9661,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -9899,8 +9683,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -9925,8 +9707,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -9964,8 +9744,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fast_reroute_enable is not None:
                                             return True
 
@@ -10025,8 +9803,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cost is not None:
                                             return True
 
@@ -10052,8 +9828,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.authentication is not None and self.authentication._has_data():
                                         return True
 
@@ -10498,8 +10272,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self._is_presence:
                                                 return True
                                             if self.explicit_null is not None:
@@ -10590,8 +10362,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self._is_presence:
                                                 return True
                                             if self.explicit_null is not None:
@@ -10661,8 +10431,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self._is_presence:
                                                 return True
                                             if self.access_list_name is not None:
@@ -10729,8 +10497,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.detection_multiplier is not None:
                                                 return True
 
@@ -10829,8 +10595,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -10919,8 +10683,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.key_id is not None:
                                                         return True
 
@@ -10946,8 +10708,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
@@ -10972,8 +10732,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.key is not None:
                                                 return True
 
@@ -11054,8 +10812,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.enable is not None:
                                                     return True
 
@@ -11081,8 +10837,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.ttl is not None and self.ttl._has_data():
                                                 return True
 
@@ -11194,8 +10948,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.neighbor_address is not None:
                                                     return True
 
@@ -11230,8 +10982,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor is not None:
                                                 for child_ref in self.neighbor:
                                                     if child_ref._has_data():
@@ -11289,8 +11039,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interval is not None:
                                                 return True
 
@@ -11437,8 +11185,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -11461,8 +11207,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -11537,8 +11281,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -11561,8 +11303,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -11587,8 +11327,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -11703,8 +11441,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.maximum_cost is not None:
                                                         return True
 
@@ -11786,8 +11522,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.tiebreaker_type is not None:
                                                             return True
 
@@ -11813,8 +11547,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.tiebreaker is not None:
                                                         for child_ref in self.tiebreaker:
                                                             if child_ref._has_data():
@@ -11888,8 +11620,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -11912,8 +11642,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -11988,8 +11716,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -12012,8 +11738,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -12038,8 +11762,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -12077,8 +11799,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fast_reroute_enable is not None:
                                                 return True
 
@@ -12138,8 +11858,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cost is not None:
                                                 return True
 
@@ -12167,8 +11885,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -12284,8 +12000,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.name_scope is not None:
                                         for child_ref in self.name_scope:
                                             if child_ref._has_data():
@@ -12515,8 +12229,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self._is_presence:
                                                 return True
                                             if self.access_list_name is not None:
@@ -12614,8 +12326,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -12704,8 +12414,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.key_id is not None:
                                                         return True
 
@@ -12731,8 +12439,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
@@ -12757,8 +12463,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.key is not None:
                                                 return True
 
@@ -12876,8 +12580,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.neighbor_address is not None:
                                                     return True
 
@@ -12912,8 +12614,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor is not None:
                                                 for child_ref in self.neighbor:
                                                     if child_ref._has_data():
@@ -12971,8 +12671,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interval is not None:
                                                 return True
 
@@ -13119,8 +12817,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -13143,8 +12839,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -13219,8 +12913,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -13243,8 +12935,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -13269,8 +12959,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -13385,8 +13073,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.maximum_cost is not None:
                                                         return True
 
@@ -13468,8 +13154,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.tiebreaker_type is not None:
                                                             return True
 
@@ -13495,8 +13179,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.tiebreaker is not None:
                                                         for child_ref in self.tiebreaker:
                                                             if child_ref._has_data():
@@ -13570,8 +13252,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -13594,8 +13274,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -13670,8 +13348,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -13694,8 +13370,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -13720,8 +13394,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -13759,8 +13431,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fast_reroute_enable is not None:
                                                 return True
 
@@ -13820,8 +13490,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cost is not None:
                                                 return True
 
@@ -13849,8 +13517,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -13918,8 +13584,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.multi_area_interface_scope is not None:
                                         for child_ref in self.multi_area_interface_scope:
                                             if child_ref._has_data():
@@ -14009,8 +13673,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -14039,8 +13701,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.area_range is not None:
                                         for child_ref in self.area_range:
                                             if child_ref._has_data():
@@ -14120,8 +13780,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.default_info_originate is not None:
                                         return True
 
@@ -14158,8 +13816,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -14530,8 +14186,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -14620,8 +14274,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.key_id is not None:
                                                         return True
 
@@ -14647,8 +14299,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
@@ -14673,8 +14323,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.key is not None:
                                                 return True
 
@@ -14736,8 +14384,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interval is not None:
                                                 return True
 
@@ -14765,8 +14411,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -14807,8 +14451,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.virtual_link_scope is not None:
                                         for child_ref in self.virtual_link_scope:
                                             if child_ref._has_data():
@@ -14849,16 +14491,16 @@ class Ospf(object):
                                     """
                                     Sham Link configuration
                                     
-                                    .. attribute:: destination_address  <key>
+                                    .. attribute:: source_address  <key>
                                     
-                                    	Address of the remote sham\-link endpoint
+                                    	Address of the local sham\-link endpoint
                                     	**type**\:  str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
-                                    .. attribute:: source_address  <key>
+                                    .. attribute:: destination_address  <key>
                                     
-                                    	Address of the local sham\-link endpoint
+                                    	Address of the remote sham\-link endpoint
                                     	**type**\:  str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -14932,8 +14574,8 @@ class Ospf(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.destination_address = None
                                         self.source_address = None
+                                        self.destination_address = None
                                         self.authentication = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication()
                                         self.authentication.parent = self
                                         self.cost = None
@@ -15027,8 +14669,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -15117,8 +14757,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.key_id is not None:
                                                         return True
 
@@ -15144,8 +14782,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
@@ -15170,8 +14806,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.key is not None:
                                                 return True
 
@@ -15233,8 +14867,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interval is not None:
                                                 return True
 
@@ -15252,24 +14884,22 @@ class Ospf(object):
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.destination_address is None:
-                                            raise YPYModelError('Key property destination_address is None')
                                         if self.source_address is None:
                                             raise YPYModelError('Key property source_address is None')
+                                        if self.destination_address is None:
+                                            raise YPYModelError('Key property destination_address is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:sham-link-scope[Cisco-IOS-XR-ipv4-ospf-cfg:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ipv4-ospf-cfg:source-address = ' + str(self.source_address) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:sham-link-scope[Cisco-IOS-XR-ipv4-ospf-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv4-ospf-cfg:destination-address = ' + str(self.destination_address) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.destination_address is not None:
+                                        if self.source_address is not None:
                                             return True
 
-                                        if self.source_address is not None:
+                                        if self.destination_address is not None:
                                             return True
 
                                         if self.authentication is not None and self.authentication._has_data():
@@ -15315,8 +14945,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sham_link_scope is not None:
                                         for child_ref in self.sham_link_scope:
                                             if child_ref._has_data():
@@ -15604,8 +15232,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.access_list_name is not None:
@@ -15672,8 +15298,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.detection_multiplier is not None:
                                             return True
 
@@ -15772,8 +15396,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authen_type is not None:
                                                 return True
 
@@ -15862,8 +15484,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.key_id is not None:
                                                     return True
 
@@ -15889,8 +15509,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
@@ -15915,8 +15533,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.key is not None:
                                             return True
 
@@ -15997,8 +15613,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.enable is not None:
                                                 return True
 
@@ -16024,8 +15638,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ttl is not None and self.ttl._has_data():
                                             return True
 
@@ -16081,8 +15693,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interval is not None:
                                             return True
 
@@ -16229,8 +15839,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -16253,8 +15861,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -16329,8 +15935,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -16353,8 +15957,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -16379,8 +15981,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -16495,8 +16095,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.maximum_cost is not None:
                                                     return True
 
@@ -16578,8 +16176,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.tiebreaker_type is not None:
                                                         return True
 
@@ -16605,8 +16201,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.tiebreaker is not None:
                                                     for child_ref in self.tiebreaker:
                                                         if child_ref._has_data():
@@ -16680,8 +16274,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -16704,8 +16296,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -16780,8 +16370,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -16804,8 +16392,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -16830,8 +16416,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -16869,8 +16453,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fast_reroute_enable is not None:
                                             return True
 
@@ -16930,8 +16512,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cost is not None:
                                             return True
 
@@ -16957,8 +16537,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.authentication is not None and self.authentication._has_data():
                                         return True
 
@@ -17403,8 +16981,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self._is_presence:
                                                 return True
                                             if self.explicit_null is not None:
@@ -17495,8 +17071,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self._is_presence:
                                                 return True
                                             if self.explicit_null is not None:
@@ -17566,8 +17140,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self._is_presence:
                                                 return True
                                             if self.access_list_name is not None:
@@ -17634,8 +17206,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.detection_multiplier is not None:
                                                 return True
 
@@ -17734,8 +17304,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -17824,8 +17392,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.key_id is not None:
                                                         return True
 
@@ -17851,8 +17417,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
@@ -17877,8 +17441,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.key is not None:
                                                 return True
 
@@ -17959,8 +17521,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.enable is not None:
                                                     return True
 
@@ -17986,8 +17546,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.ttl is not None and self.ttl._has_data():
                                                 return True
 
@@ -18099,8 +17657,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.neighbor_address is not None:
                                                     return True
 
@@ -18135,8 +17691,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor is not None:
                                                 for child_ref in self.neighbor:
                                                     if child_ref._has_data():
@@ -18194,8 +17748,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interval is not None:
                                                 return True
 
@@ -18342,8 +17894,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -18366,8 +17916,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -18442,8 +17990,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -18466,8 +18012,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -18492,8 +18036,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -18608,8 +18150,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.maximum_cost is not None:
                                                         return True
 
@@ -18691,8 +18231,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.tiebreaker_type is not None:
                                                             return True
 
@@ -18718,8 +18256,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.tiebreaker is not None:
                                                         for child_ref in self.tiebreaker:
                                                             if child_ref._has_data():
@@ -18793,8 +18329,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -18817,8 +18351,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -18893,8 +18425,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -18917,8 +18447,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -18943,8 +18471,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -18982,8 +18508,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fast_reroute_enable is not None:
                                                 return True
 
@@ -19043,8 +18567,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cost is not None:
                                                 return True
 
@@ -19072,8 +18594,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -19189,8 +18709,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.name_scope is not None:
                                         for child_ref in self.name_scope:
                                             if child_ref._has_data():
@@ -19420,8 +18938,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self._is_presence:
                                                 return True
                                             if self.access_list_name is not None:
@@ -19519,8 +19035,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.authen_type is not None:
                                                     return True
 
@@ -19609,8 +19123,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.key_id is not None:
                                                         return True
 
@@ -19636,8 +19148,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.message_digest_key is not None:
                                                     for child_ref in self.message_digest_key:
                                                         if child_ref._has_data():
@@ -19662,8 +19172,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.key is not None:
                                                 return True
 
@@ -19781,8 +19289,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.neighbor_address is not None:
                                                     return True
 
@@ -19817,8 +19323,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor is not None:
                                                 for child_ref in self.neighbor:
                                                     if child_ref._has_data():
@@ -19876,8 +19380,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interval is not None:
                                                 return True
 
@@ -20024,8 +19526,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -20048,8 +19548,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -20124,8 +19622,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -20148,8 +19644,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -20174,8 +19668,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -20290,8 +19782,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.maximum_cost is not None:
                                                         return True
 
@@ -20373,8 +19863,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.tiebreaker_type is not None:
                                                             return True
 
@@ -20400,8 +19888,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.tiebreaker is not None:
                                                         for child_ref in self.tiebreaker:
                                                             if child_ref._has_data():
@@ -20475,8 +19961,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -20499,8 +19983,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.candidate_interface is not None:
                                                         for child_ref in self.candidate_interface:
                                                             if child_ref._has_data():
@@ -20575,8 +20057,6 @@ class Ospf(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.interface_name is not None:
                                                             return True
 
@@ -20599,8 +20079,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.exclude_interface is not None:
                                                         for child_ref in self.exclude_interface:
                                                             if child_ref._has_data():
@@ -20625,8 +20103,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                     return True
 
@@ -20664,8 +20140,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.fast_reroute_enable is not None:
                                                 return True
 
@@ -20725,8 +20199,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.cost is not None:
                                                 return True
 
@@ -20754,8 +20226,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -20823,8 +20293,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.multi_area_interface_scope is not None:
                                         for child_ref in self.multi_area_interface_scope:
                                             if child_ref._has_data():
@@ -20914,8 +20382,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -20944,8 +20410,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.area_range is not None:
                                         for child_ref in self.area_range:
                                             if child_ref._has_data():
@@ -21025,8 +20489,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.default_info_originate is not None:
                                         return True
 
@@ -21063,8 +20525,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area_id is not None:
                                     return True
 
@@ -21135,8 +20595,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.area_address is not None:
                                 for child_ref in self.area_address:
                                     if child_ref._has_data():
@@ -21304,8 +20762,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.backoff_increment is not None:
                                     return True
 
@@ -21385,8 +20841,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.backoff_increment is not None:
                                     return True
 
@@ -21415,8 +20869,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.fast_reroute_timer is not None:
                                 return True
 
@@ -21459,8 +20911,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf_name is not None:
                             return True
 
@@ -21588,8 +21038,6 @@ class Ospf(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
@@ -21653,8 +21101,6 @@ class Ospf(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.graceful_shutdown_initial_delay is not None:
                         return True
 
@@ -21968,8 +21414,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enable is not None:
                             return True
 
@@ -22072,8 +21516,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -22099,8 +21541,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_sid_map_advertise_local is not None:
                             return True
 
@@ -22212,8 +21652,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -22239,8 +21677,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.autoroute_exclude is not None:
                             return True
 
@@ -22332,8 +21768,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -22359,8 +21793,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.avoidance is not None and self.avoidance._has_data():
                             return True
 
@@ -22421,8 +21853,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.number_of_prefixes is not None:
                             return True
 
@@ -22498,8 +21928,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.always_advertise is not None:
                             return True
 
@@ -22568,8 +21996,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.af_name is not None:
@@ -22683,8 +22109,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dispatch_incoming is not None:
                             return True
 
@@ -22849,8 +22273,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.external_lsa is not None:
                                 return True
 
@@ -22958,8 +22380,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.external_lsa is not None:
                                 return True
 
@@ -23068,8 +22488,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.external_lsa is not None:
                                 return True
 
@@ -23161,8 +22579,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.external_lsa is not None:
                                 return True
 
@@ -23264,8 +22680,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.external_lsa is not None:
                                 return True
 
@@ -23306,8 +22720,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.max_metric_always is not None and self.max_metric_always._has_data():
                             return True
 
@@ -23420,8 +22832,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.cisco is not None:
                             return True
 
@@ -23758,8 +23168,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.lower_bound is not None:
@@ -23908,8 +23316,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -23932,8 +23338,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.candidate_interface is not None:
                                         for child_ref in self.candidate_interface:
                                             if child_ref._has_data():
@@ -24008,8 +23412,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -24032,8 +23434,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.exclude_interface is not None:
                                         for child_ref in self.exclude_interface:
                                             if child_ref._has_data():
@@ -24058,8 +23458,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                     return True
 
@@ -24167,8 +23565,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.maximum_cost is not None:
                                         return True
 
@@ -24243,8 +23639,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -24267,8 +23661,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.candidate_interface is not None:
                                         for child_ref in self.candidate_interface:
                                             if child_ref._has_data():
@@ -24343,8 +23735,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -24367,8 +23757,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.exclude_interface is not None:
                                         for child_ref in self.exclude_interface:
                                             if child_ref._has_data():
@@ -24393,8 +23781,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                     return True
 
@@ -24429,8 +23815,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.fast_reroute_enable is not None:
                                 return True
 
@@ -24495,8 +23879,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.access_list_name is not None:
@@ -24563,8 +23945,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -24663,8 +24043,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.authen_type is not None:
                                     return True
 
@@ -24753,8 +24131,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.key_id is not None:
                                         return True
 
@@ -24780,8 +24156,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.message_digest_key is not None:
                                     for child_ref in self.message_digest_key:
                                         if child_ref._has_data():
@@ -24806,8 +24180,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.key is not None:
                                 return True
 
@@ -24888,8 +24260,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -24915,8 +24285,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ttl is not None and self.ttl._has_data():
                                 return True
 
@@ -24972,8 +24340,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interval is not None:
                                 return True
 
@@ -25030,8 +24396,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.cost is not None:
                                 return True
 
@@ -25057,8 +24421,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication is not None and self.authentication._has_data():
                             return True
 
@@ -25387,8 +24749,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.bgp_preserve_default_info is not None:
@@ -25569,8 +24929,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.instance_name is not None:
                                         return True
 
@@ -25628,6 +24986,13 @@ class Ospf(object):
                                 """
                                 bgp
                                 
+                                .. attribute:: instance_name  <key>
+                                
+                                	OSPF or ISIS process name or protocol name\: bgp, eigrp, connected
+                                	**type**\:  str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
                                 .. attribute:: as_xx  <key>
                                 
                                 	First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
@@ -25641,13 +25006,6 @@ class Ospf(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
-                                
-                                .. attribute:: instance_name  <key>
-                                
-                                	OSPF or ISIS process name or protocol name\: bgp, eigrp, connected
-                                	**type**\:  str
-                                
-                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: bgp_preserve_default_info
                                 
@@ -25736,9 +25094,9 @@ class Ospf(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.instance_name = None
                                     self.as_xx = None
                                     self.as_yy = None
-                                    self.instance_name = None
                                     self.bgp_preserve_default_info = None
                                     self.bgp_preserve_med = None
                                     self.classful = None
@@ -25758,29 +25116,27 @@ class Ospf(object):
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
+                                    if self.instance_name is None:
+                                        raise YPYModelError('Key property instance_name is None')
                                     if self.as_xx is None:
                                         raise YPYModelError('Key property as_xx is None')
                                     if self.as_yy is None:
                                         raise YPYModelError('Key property as_yy is None')
-                                    if self.instance_name is None:
-                                        raise YPYModelError('Key property instance_name is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:bgp[Cisco-IOS-XR-ipv4-ospf-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-ospf-cfg:as-yy = ' + str(self.as_yy) + '][Cisco-IOS-XR-ipv4-ospf-cfg:instance-name = ' + str(self.instance_name) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:bgp[Cisco-IOS-XR-ipv4-ospf-cfg:instance-name = ' + str(self.instance_name) + '][Cisco-IOS-XR-ipv4-ospf-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-ospf-cfg:as-yy = ' + str(self.as_yy) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
+                                    if self.instance_name is not None:
+                                        return True
+
                                     if self.as_xx is not None:
                                         return True
 
                                     if self.as_yy is not None:
-                                        return True
-
-                                    if self.instance_name is not None:
                                         return True
 
                                     if self.bgp_preserve_default_info is not None:
@@ -25837,19 +25193,19 @@ class Ospf(object):
                                 """
                                 eigrp
                                 
-                                .. attribute:: as_xx  <key>
-                                
-                                	First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
                                 .. attribute:: instance_name  <key>
                                 
                                 	OSPF or ISIS process name or protocol name\: bgp, eigrp, connected
                                 	**type**\:  str
                                 
                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
+                                .. attribute:: as_xx  <key>
+                                
+                                	First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP and must not be specified otherwise. Must be a non\-zero value if second half is zero
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
                                 
                                 .. attribute:: bgp_preserve_default_info
                                 
@@ -25938,8 +25294,8 @@ class Ospf(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.as_xx = None
                                     self.instance_name = None
+                                    self.as_xx = None
                                     self.bgp_preserve_default_info = None
                                     self.bgp_preserve_med = None
                                     self.classful = None
@@ -25959,24 +25315,22 @@ class Ospf(object):
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.as_xx is None:
-                                        raise YPYModelError('Key property as_xx is None')
                                     if self.instance_name is None:
                                         raise YPYModelError('Key property instance_name is None')
+                                    if self.as_xx is None:
+                                        raise YPYModelError('Key property as_xx is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:eigrp[Cisco-IOS-XR-ipv4-ospf-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-ospf-cfg:instance-name = ' + str(self.instance_name) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:eigrp[Cisco-IOS-XR-ipv4-ospf-cfg:instance-name = ' + str(self.instance_name) + '][Cisco-IOS-XR-ipv4-ospf-cfg:as-xx = ' + str(self.as_xx) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.as_xx is not None:
+                                    if self.instance_name is not None:
                                         return True
 
-                                    if self.instance_name is not None:
+                                    if self.as_xx is not None:
                                         return True
 
                                     if self.bgp_preserve_default_info is not None:
@@ -26042,8 +25396,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.protocol_name is not None:
                                     return True
 
@@ -26084,8 +25436,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.redistribute is not None:
                                 for child_ref in self.redistribute:
                                     if child_ref._has_data():
@@ -26110,8 +25460,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.redistributes is not None and self.redistributes._has_data():
                             return True
 
@@ -26175,8 +25523,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disable is not None:
                             return True
 
@@ -26278,8 +25624,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.max_lsa_ignore_count is not None:
@@ -26354,8 +25698,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bandwidth is not None:
                             return True
 
@@ -26453,8 +25795,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_list_name is not None:
                                 return True
 
@@ -26530,8 +25870,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -26554,8 +25892,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.exclude_interface is not None:
                                 for child_ref in self.exclude_interface:
                                     if child_ref._has_data():
@@ -26580,8 +25916,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.delay_interval is not None:
                             return True
 
@@ -26660,8 +25994,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.priority is not None:
                                 return True
 
@@ -26774,8 +26106,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.tiebreaker_type is not None:
                                         return True
 
@@ -26801,8 +26131,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.tiebreaker is not None:
                                     for child_ref in self.tiebreaker:
                                         if child_ref._has_data():
@@ -26827,8 +26155,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.load_sharing_disable is not None:
                                 return True
 
@@ -26857,8 +26183,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.per_link is not None and self.per_link._has_data():
                             return True
 
@@ -26961,8 +26285,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.not_advertise is not None:
                                 return True
 
@@ -26981,16 +26303,16 @@ class Ospf(object):
                         """
                         keys\: prefix, netmask
                         
-                        .. attribute:: netmask  <key>
+                        .. attribute:: prefix  <key>
                         
-                        	Summary netmask
+                        	IP summary prefix
                         	**type**\:  str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        .. attribute:: prefix  <key>
+                        .. attribute:: netmask  <key>
                         
-                        	IP summary prefix
+                        	Summary netmask
                         	**type**\:  str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -27018,8 +26340,8 @@ class Ospf(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.netmask = None
                             self.prefix = None
+                            self.netmask = None
                             self.not_advertise = None
                             self.tag = None
 
@@ -27027,24 +26349,22 @@ class Ospf(object):
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.netmask is None:
-                                raise YPYModelError('Key property netmask is None')
                             if self.prefix is None:
                                 raise YPYModelError('Key property prefix is None')
+                            if self.netmask is None:
+                                raise YPYModelError('Key property netmask is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:prefix-and-netmask[Cisco-IOS-XR-ipv4-ospf-cfg:netmask = ' + str(self.netmask) + '][Cisco-IOS-XR-ipv4-ospf-cfg:prefix = ' + str(self.prefix) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:prefix-and-netmask[Cisco-IOS-XR-ipv4-ospf-cfg:prefix = ' + str(self.prefix) + '][Cisco-IOS-XR-ipv4-ospf-cfg:netmask = ' + str(self.netmask) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.netmask is not None:
+                            if self.prefix is not None:
                                 return True
 
-                            if self.prefix is not None:
+                            if self.netmask is not None:
                                 return True
 
                             if self.not_advertise is not None:
@@ -27113,8 +26433,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix is not None:
                                 return True
 
@@ -27184,8 +26502,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.netmask is not None:
                                 return True
 
@@ -27214,8 +26530,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.netmask is not None:
                             for child_ref in self.netmask:
                                 if child_ref._has_data():
@@ -27328,8 +26642,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.protocol_name is not None:
                                 return True
 
@@ -27364,8 +26676,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.outgoing_route_update is not None:
                             for child_ref in self.outgoing_route_update:
                                 if child_ref._has_data():
@@ -27474,8 +26784,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.external_routes is not None:
                                 return True
 
@@ -27580,8 +26888,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -27613,8 +26919,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_distance is not None:
                                 for child_ref in self.ip_distance:
                                     if child_ref._has_data():
@@ -27639,8 +26943,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_distance is not None:
                             return True
 
@@ -28000,8 +27302,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authen_type is not None:
                                                 return True
 
@@ -28090,8 +27390,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.key_id is not None:
                                                     return True
 
@@ -28117,8 +27415,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
@@ -28143,8 +27439,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.key is not None:
                                             return True
 
@@ -28206,8 +27500,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interval is not None:
                                             return True
 
@@ -28235,8 +27527,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -28277,8 +27567,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.virtual_link_scope is not None:
                                     for child_ref in self.virtual_link_scope:
                                         if child_ref._has_data():
@@ -28319,16 +27607,16 @@ class Ospf(object):
                                 """
                                 Sham Link configuration
                                 
-                                .. attribute:: destination_address  <key>
+                                .. attribute:: source_address  <key>
                                 
-                                	Address of the remote sham\-link endpoint
+                                	Address of the local sham\-link endpoint
                                 	**type**\:  str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: source_address  <key>
+                                .. attribute:: destination_address  <key>
                                 
-                                	Address of the local sham\-link endpoint
+                                	Address of the remote sham\-link endpoint
                                 	**type**\:  str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -28402,8 +27690,8 @@ class Ospf(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.destination_address = None
                                     self.source_address = None
+                                    self.destination_address = None
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication()
                                     self.authentication.parent = self
                                     self.cost = None
@@ -28497,8 +27785,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authen_type is not None:
                                                 return True
 
@@ -28587,8 +27873,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.key_id is not None:
                                                     return True
 
@@ -28614,8 +27898,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
@@ -28640,8 +27922,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.key is not None:
                                             return True
 
@@ -28703,8 +27983,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interval is not None:
                                             return True
 
@@ -28722,24 +28000,22 @@ class Ospf(object):
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.destination_address is None:
-                                        raise YPYModelError('Key property destination_address is None')
                                     if self.source_address is None:
                                         raise YPYModelError('Key property source_address is None')
+                                    if self.destination_address is None:
+                                        raise YPYModelError('Key property destination_address is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:sham-link-scope[Cisco-IOS-XR-ipv4-ospf-cfg:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ipv4-ospf-cfg:source-address = ' + str(self.source_address) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:sham-link-scope[Cisco-IOS-XR-ipv4-ospf-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv4-ospf-cfg:destination-address = ' + str(self.destination_address) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.destination_address is not None:
+                                    if self.source_address is not None:
                                         return True
 
-                                    if self.source_address is not None:
+                                    if self.destination_address is not None:
                                         return True
 
                                     if self.authentication is not None and self.authentication._has_data():
@@ -28785,8 +28061,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sham_link_scope is not None:
                                     for child_ref in self.sham_link_scope:
                                         if child_ref._has_data():
@@ -29074,8 +28348,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.access_list_name is not None:
@@ -29142,8 +28414,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.detection_multiplier is not None:
                                         return True
 
@@ -29242,8 +28512,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.authen_type is not None:
                                             return True
 
@@ -29332,8 +28600,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.key_id is not None:
                                                 return True
 
@@ -29359,8 +28625,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.message_digest_key is not None:
                                             for child_ref in self.message_digest_key:
                                                 if child_ref._has_data():
@@ -29385,8 +28649,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.key is not None:
                                         return True
 
@@ -29467,8 +28729,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.enable is not None:
                                             return True
 
@@ -29494,8 +28754,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ttl is not None and self.ttl._has_data():
                                         return True
 
@@ -29551,8 +28809,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interval is not None:
                                         return True
 
@@ -29699,8 +28955,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -29723,8 +28977,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
@@ -29799,8 +29051,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -29823,8 +29073,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
@@ -29849,8 +29097,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                             return True
 
@@ -29965,8 +29211,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.maximum_cost is not None:
                                                 return True
 
@@ -30048,8 +29292,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.tiebreaker_type is not None:
                                                     return True
 
@@ -30075,8 +29317,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.tiebreaker is not None:
                                                 for child_ref in self.tiebreaker:
                                                     if child_ref._has_data():
@@ -30150,8 +29390,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -30174,8 +29412,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
@@ -30250,8 +29486,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -30274,8 +29508,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
@@ -30300,8 +29532,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                             return True
 
@@ -30339,8 +29569,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fast_reroute_enable is not None:
                                         return True
 
@@ -30400,8 +29628,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.cost is not None:
                                         return True
 
@@ -30427,8 +29653,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.authentication is not None and self.authentication._has_data():
                                     return True
 
@@ -30873,8 +30097,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.explicit_null is not None:
@@ -30965,8 +30187,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.explicit_null is not None:
@@ -31036,8 +30256,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.access_list_name is not None:
@@ -31104,8 +30322,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.detection_multiplier is not None:
                                             return True
 
@@ -31204,8 +30420,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authen_type is not None:
                                                 return True
 
@@ -31294,8 +30508,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.key_id is not None:
                                                     return True
 
@@ -31321,8 +30533,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
@@ -31347,8 +30557,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.key is not None:
                                             return True
 
@@ -31429,8 +30637,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.enable is not None:
                                                 return True
 
@@ -31456,8 +30662,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ttl is not None and self.ttl._has_data():
                                             return True
 
@@ -31569,8 +30773,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor_address is not None:
                                                 return True
 
@@ -31605,8 +30807,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.neighbor is not None:
                                             for child_ref in self.neighbor:
                                                 if child_ref._has_data():
@@ -31664,8 +30864,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interval is not None:
                                             return True
 
@@ -31812,8 +31010,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -31836,8 +31032,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -31912,8 +31106,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -31936,8 +31128,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -31962,8 +31152,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -32078,8 +31266,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.maximum_cost is not None:
                                                     return True
 
@@ -32161,8 +31347,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.tiebreaker_type is not None:
                                                         return True
 
@@ -32188,8 +31372,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.tiebreaker is not None:
                                                     for child_ref in self.tiebreaker:
                                                         if child_ref._has_data():
@@ -32263,8 +31445,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -32287,8 +31467,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -32363,8 +31541,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -32387,8 +31563,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -32413,8 +31587,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -32452,8 +31624,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fast_reroute_enable is not None:
                                             return True
 
@@ -32513,8 +31683,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cost is not None:
                                             return True
 
@@ -32542,8 +31710,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -32659,8 +31825,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.name_scope is not None:
                                     for child_ref in self.name_scope:
                                         if child_ref._has_data():
@@ -32890,8 +32054,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.access_list_name is not None:
@@ -32989,8 +32151,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authen_type is not None:
                                                 return True
 
@@ -33079,8 +32239,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.key_id is not None:
                                                     return True
 
@@ -33106,8 +32264,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
@@ -33132,8 +32288,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.key is not None:
                                             return True
 
@@ -33251,8 +32405,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor_address is not None:
                                                 return True
 
@@ -33287,8 +32439,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.neighbor is not None:
                                             for child_ref in self.neighbor:
                                                 if child_ref._has_data():
@@ -33346,8 +32496,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interval is not None:
                                             return True
 
@@ -33494,8 +32642,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -33518,8 +32664,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -33594,8 +32738,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -33618,8 +32760,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -33644,8 +32784,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -33760,8 +32898,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.maximum_cost is not None:
                                                     return True
 
@@ -33843,8 +32979,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.tiebreaker_type is not None:
                                                         return True
 
@@ -33870,8 +33004,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.tiebreaker is not None:
                                                     for child_ref in self.tiebreaker:
                                                         if child_ref._has_data():
@@ -33945,8 +33077,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -33969,8 +33099,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -34045,8 +33173,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -34069,8 +33195,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -34095,8 +33219,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -34134,8 +33256,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fast_reroute_enable is not None:
                                             return True
 
@@ -34195,8 +33315,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cost is not None:
                                             return True
 
@@ -34224,8 +33342,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -34293,8 +33409,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.multi_area_interface_scope is not None:
                                     for child_ref in self.multi_area_interface_scope:
                                         if child_ref._has_data():
@@ -34384,8 +33498,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -34414,8 +33526,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area_range is not None:
                                     for child_ref in self.area_range:
                                         if child_ref._has_data():
@@ -34495,8 +33605,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.default_info_originate is not None:
                                     return True
 
@@ -34533,8 +33641,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -34905,8 +34011,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authen_type is not None:
                                                 return True
 
@@ -34995,8 +34099,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.key_id is not None:
                                                     return True
 
@@ -35022,8 +34124,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
@@ -35048,8 +34148,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.key is not None:
                                             return True
 
@@ -35111,8 +34209,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interval is not None:
                                             return True
 
@@ -35140,8 +34236,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -35182,8 +34276,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.virtual_link_scope is not None:
                                     for child_ref in self.virtual_link_scope:
                                         if child_ref._has_data():
@@ -35224,16 +34316,16 @@ class Ospf(object):
                                 """
                                 Sham Link configuration
                                 
-                                .. attribute:: destination_address  <key>
+                                .. attribute:: source_address  <key>
                                 
-                                	Address of the remote sham\-link endpoint
+                                	Address of the local sham\-link endpoint
                                 	**type**\:  str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
-                                .. attribute:: source_address  <key>
+                                .. attribute:: destination_address  <key>
                                 
-                                	Address of the local sham\-link endpoint
+                                	Address of the remote sham\-link endpoint
                                 	**type**\:  str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -35307,8 +34399,8 @@ class Ospf(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.destination_address = None
                                     self.source_address = None
+                                    self.destination_address = None
                                     self.authentication = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication()
                                     self.authentication.parent = self
                                     self.cost = None
@@ -35402,8 +34494,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authen_type is not None:
                                                 return True
 
@@ -35492,8 +34582,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.key_id is not None:
                                                     return True
 
@@ -35519,8 +34607,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
@@ -35545,8 +34631,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.key is not None:
                                             return True
 
@@ -35608,8 +34692,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interval is not None:
                                             return True
 
@@ -35627,24 +34709,22 @@ class Ospf(object):
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.destination_address is None:
-                                        raise YPYModelError('Key property destination_address is None')
                                     if self.source_address is None:
                                         raise YPYModelError('Key property source_address is None')
+                                    if self.destination_address is None:
+                                        raise YPYModelError('Key property destination_address is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:sham-link-scope[Cisco-IOS-XR-ipv4-ospf-cfg:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ipv4-ospf-cfg:source-address = ' + str(self.source_address) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:sham-link-scope[Cisco-IOS-XR-ipv4-ospf-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv4-ospf-cfg:destination-address = ' + str(self.destination_address) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.destination_address is not None:
+                                    if self.source_address is not None:
                                         return True
 
-                                    if self.source_address is not None:
+                                    if self.destination_address is not None:
                                         return True
 
                                     if self.authentication is not None and self.authentication._has_data():
@@ -35690,8 +34770,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sham_link_scope is not None:
                                     for child_ref in self.sham_link_scope:
                                         if child_ref._has_data():
@@ -35979,8 +35057,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.access_list_name is not None:
@@ -36047,8 +35123,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.detection_multiplier is not None:
                                         return True
 
@@ -36147,8 +35221,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.authen_type is not None:
                                             return True
 
@@ -36237,8 +35309,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.key_id is not None:
                                                 return True
 
@@ -36264,8 +35334,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.message_digest_key is not None:
                                             for child_ref in self.message_digest_key:
                                                 if child_ref._has_data():
@@ -36290,8 +35358,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.key is not None:
                                         return True
 
@@ -36372,8 +35438,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.enable is not None:
                                             return True
 
@@ -36399,8 +35463,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ttl is not None and self.ttl._has_data():
                                         return True
 
@@ -36456,8 +35518,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interval is not None:
                                         return True
 
@@ -36604,8 +35664,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -36628,8 +35686,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
@@ -36704,8 +35760,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -36728,8 +35782,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
@@ -36754,8 +35806,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                             return True
 
@@ -36870,8 +35920,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.maximum_cost is not None:
                                                 return True
 
@@ -36953,8 +36001,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.tiebreaker_type is not None:
                                                     return True
 
@@ -36980,8 +36026,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.tiebreaker is not None:
                                                 for child_ref in self.tiebreaker:
                                                     if child_ref._has_data():
@@ -37055,8 +36099,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -37079,8 +36121,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interface is not None:
                                                 for child_ref in self.candidate_interface:
                                                     if child_ref._has_data():
@@ -37155,8 +36195,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.interface_name is not None:
                                                     return True
 
@@ -37179,8 +36217,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.exclude_interface is not None:
                                                 for child_ref in self.exclude_interface:
                                                     if child_ref._has_data():
@@ -37205,8 +36241,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                             return True
 
@@ -37244,8 +36278,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fast_reroute_enable is not None:
                                         return True
 
@@ -37305,8 +36337,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.cost is not None:
                                         return True
 
@@ -37332,8 +36362,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.authentication is not None and self.authentication._has_data():
                                     return True
 
@@ -37778,8 +36806,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.explicit_null is not None:
@@ -37870,8 +36896,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.explicit_null is not None:
@@ -37941,8 +36965,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.access_list_name is not None:
@@ -38009,8 +37031,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.detection_multiplier is not None:
                                             return True
 
@@ -38109,8 +37129,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authen_type is not None:
                                                 return True
 
@@ -38199,8 +37217,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.key_id is not None:
                                                     return True
 
@@ -38226,8 +37242,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
@@ -38252,8 +37266,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.key is not None:
                                             return True
 
@@ -38334,8 +37346,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.enable is not None:
                                                 return True
 
@@ -38361,8 +37371,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ttl is not None and self.ttl._has_data():
                                             return True
 
@@ -38474,8 +37482,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor_address is not None:
                                                 return True
 
@@ -38510,8 +37516,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.neighbor is not None:
                                             for child_ref in self.neighbor:
                                                 if child_ref._has_data():
@@ -38569,8 +37573,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interval is not None:
                                             return True
 
@@ -38717,8 +37719,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -38741,8 +37741,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -38817,8 +37815,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -38841,8 +37837,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -38867,8 +37861,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -38983,8 +37975,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.maximum_cost is not None:
                                                     return True
 
@@ -39066,8 +38056,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.tiebreaker_type is not None:
                                                         return True
 
@@ -39093,8 +38081,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.tiebreaker is not None:
                                                     for child_ref in self.tiebreaker:
                                                         if child_ref._has_data():
@@ -39168,8 +38154,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -39192,8 +38176,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -39268,8 +38250,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -39292,8 +38272,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -39318,8 +38296,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -39357,8 +38333,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fast_reroute_enable is not None:
                                             return True
 
@@ -39418,8 +38392,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cost is not None:
                                             return True
 
@@ -39447,8 +38419,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -39564,8 +38534,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.name_scope is not None:
                                     for child_ref in self.name_scope:
                                         if child_ref._has_data():
@@ -39795,8 +38763,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.access_list_name is not None:
@@ -39894,8 +38860,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.authen_type is not None:
                                                 return True
 
@@ -39984,8 +38948,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.key_id is not None:
                                                     return True
 
@@ -40011,8 +38973,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.message_digest_key is not None:
                                                 for child_ref in self.message_digest_key:
                                                     if child_ref._has_data():
@@ -40037,8 +38997,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.key is not None:
                                             return True
 
@@ -40156,8 +39114,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor_address is not None:
                                                 return True
 
@@ -40192,8 +39148,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.neighbor is not None:
                                             for child_ref in self.neighbor:
                                                 if child_ref._has_data():
@@ -40251,8 +39205,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interval is not None:
                                             return True
 
@@ -40399,8 +39351,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -40423,8 +39373,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -40499,8 +39447,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -40523,8 +39469,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -40549,8 +39493,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -40665,8 +39607,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.maximum_cost is not None:
                                                     return True
 
@@ -40748,8 +39688,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.tiebreaker_type is not None:
                                                         return True
 
@@ -40775,8 +39713,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.tiebreaker is not None:
                                                     for child_ref in self.tiebreaker:
                                                         if child_ref._has_data():
@@ -40850,8 +39786,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -40874,8 +39808,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.candidate_interface is not None:
                                                     for child_ref in self.candidate_interface:
                                                         if child_ref._has_data():
@@ -40950,8 +39882,6 @@ class Ospf(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.interface_name is not None:
                                                         return True
 
@@ -40974,8 +39904,6 @@ class Ospf(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.exclude_interface is not None:
                                                     for child_ref in self.exclude_interface:
                                                         if child_ref._has_data():
@@ -41000,8 +39928,6 @@ class Ospf(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
                                                 return True
 
@@ -41039,8 +39965,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.fast_reroute_enable is not None:
                                             return True
 
@@ -41100,8 +40024,6 @@ class Ospf(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.cost is not None:
                                             return True
 
@@ -41129,8 +40051,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -41198,8 +40118,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.multi_area_interface_scope is not None:
                                     for child_ref in self.multi_area_interface_scope:
                                         if child_ref._has_data():
@@ -41289,8 +40207,6 @@ class Ospf(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -41319,8 +40235,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.area_range is not None:
                                     for child_ref in self.area_range:
                                         if child_ref._has_data():
@@ -41400,8 +40314,6 @@ class Ospf(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.default_info_originate is not None:
                                     return True
 
@@ -41438,8 +40350,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.area_id is not None:
                                 return True
 
@@ -41510,8 +40420,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.area_address is not None:
                             for child_ref in self.area_address:
                                 if child_ref._has_data():
@@ -41679,8 +40587,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.backoff_increment is not None:
                                 return True
 
@@ -41760,8 +40666,6 @@ class Ospf(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.backoff_increment is not None:
                                 return True
 
@@ -41790,8 +40694,6 @@ class Ospf(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.fast_reroute_timer is not None:
                             return True
 
@@ -41832,8 +40734,6 @@ class Ospf(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.adjacency_changes is not None:
                         return True
 
@@ -41949,8 +40849,6 @@ class Ospf(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.process_name is not None:
                     return True
 
@@ -41998,8 +40896,6 @@ class Ospf(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.process is not None:
                 for child_ref in self.process:
                     if child_ref._has_data():
@@ -42043,8 +40939,6 @@ class Ospf(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.dns_name_lookup is not None:
                 return True
 
@@ -42065,8 +40959,6 @@ class Ospf(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.global_ is not None and self.global_._has_data():
             return True
 

@@ -13,6 +13,13 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'MacEnum' : _MetaInfoEnum('MacEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
+        {
+            'hmac-md5':'hmac_md5',
+            'hmac-sha1':'hmac_sha1',
+            'hmac-sha2-256':'hmac_sha2_256',
+            'hmac-sha2-512':'hmac_sha2_512',
+        }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
     'KexNameEnum' : _MetaInfoEnum('KexNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
         {
             'diffie-hellman-group1':'diffie_hellman_group1',
@@ -25,16 +32,6 @@ _meta_table = {
             'ecdh-nistp384':'ecdh_nistp384',
             'ecdh-nistp521':'ecdh_nistp521',
             'password-authenticated':'password_authenticated',
-        }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
-    'HostkeyEnum' : _MetaInfoEnum('HostkeyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
-        {
-            'ssh-dss':'ssh_dss',
-            'ssh-rsa':'ssh_rsa',
-        }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
-    'VersionEnum' : _MetaInfoEnum('VersionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
-        {
-            'v2':'v2',
-            'v1':'v1',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
     'ConnectionEnum' : _MetaInfoEnum('ConnectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
         {
@@ -61,13 +58,6 @@ _meta_table = {
             'suspended':'suspended',
             'session-closed':'session_closed',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
-    'MacEnum' : _MetaInfoEnum('MacEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
-        {
-            'hmac-md5':'hmac_md5',
-            'hmac-sha1':'hmac_sha1',
-            'hmac-sha2-256':'hmac_sha2_256',
-            'hmac-sha2-512':'hmac_sha2_512',
-        }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
     'CipherEnum' : _MetaInfoEnum('CipherEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
         {
             'aes128-cbc':'aes128_cbc',
@@ -78,11 +68,21 @@ _meta_table = {
             'aes192-ctr':'aes192_ctr',
             'aes256-ctr':'aes256_ctr',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
+    'VersionEnum' : _MetaInfoEnum('VersionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
+        {
+            'v2':'v2',
+            'v1':'v1',
+        }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
     'AuthenEnum' : _MetaInfoEnum('AuthenEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
         {
             'password':'password',
             'rsa-public-key':'rsa_public_key',
             'keyboard-interactive':'keyboard_interactive',
+        }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
+    'HostkeyEnum' : _MetaInfoEnum('HostkeyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
+        {
+            'ssh-dss':'ssh_dss',
+            'ssh-rsa':'ssh_rsa',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
     'Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo' : {
         'meta_info' : _MetaInfoClass('Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo',
@@ -229,7 +229,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',
@@ -460,7 +460,7 @@ _meta_table = {
                 'host_address',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',
@@ -555,7 +555,7 @@ _meta_table = {
                 'host_address',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',

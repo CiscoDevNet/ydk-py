@@ -294,8 +294,6 @@ class Vrfs(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self._is_presence:
                     return True
                 if self.vpn_index is not None:
@@ -389,6 +387,74 @@ class Vrfs(object):
                     self.bgp.parent = self
                     self.create = None
                     self.maximum_prefix = None
+
+
+                class MaximumPrefix(object):
+                    """
+                    Set maximum prefix limits
+                    
+                    .. attribute:: mid_threshold
+                    
+                    	Mid\-threshold (% of maximum)
+                    	**type**\:  int
+                    
+                    	**range:** 1..100
+                    
+                    .. attribute:: prefix_limit
+                    
+                    	Set table's maximum prefix limit
+                    	**type**\:  int
+                    
+                    	**range:** 32..5000000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-rib-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self._is_presence = True
+                        self.mid_threshold = None
+                        self.prefix_limit = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rib-cfg:maximum-prefix'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self._is_presence:
+                            return True
+                        if self.mid_threshold is not None:
+                            return True
+
+                        if self.prefix_limit is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['Vrfs.Vrf.Afs.Af.MaximumPrefix']['meta_info']
 
 
                 class Bgp(object):
@@ -547,6 +613,13 @@ class Vrfs(object):
                                     """
                                     as or four byte as
                                     
+                                    .. attribute:: as_xx  <key>
+                                    
+                                    	AS number
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
                                     .. attribute:: as_  <key>
                                     
                                     	AS number
@@ -557,13 +630,6 @@ class Vrfs(object):
                                     .. attribute:: as_index  <key>
                                     
                                     	AS number Index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: as_xx  <key>
-                                    
-                                    	AS number
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
@@ -584,40 +650,38 @@ class Vrfs(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.as_xx = None
                                         self.as_ = None
                                         self.as_index = None
-                                        self.as_xx = None
                                         self.stitching_rt = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
+                                        if self.as_xx is None:
+                                            raise YPYModelError('Key property as_xx is None')
                                         if self.as_ is None:
                                             raise YPYModelError('Key property as_ is None')
                                         if self.as_index is None:
                                             raise YPYModelError('Key property as_index is None')
-                                        if self.as_xx is None:
-                                            raise YPYModelError('Key property as_xx is None')
                                         if self.stitching_rt is None:
                                             raise YPYModelError('Key property stitching_rt is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:as-or-four-byte-as[Cisco-IOS-XR-ipv4-bgp-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-index = ' + str(self.as_index) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-bgp-cfg:stitching-rt = ' + str(self.stitching_rt) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:as-or-four-byte-as[Cisco-IOS-XR-ipv4-bgp-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-index = ' + str(self.as_index) + '][Cisco-IOS-XR-ipv4-bgp-cfg:stitching-rt = ' + str(self.stitching_rt) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
+                                        if self.as_xx is not None:
+                                            return True
+
                                         if self.as_ is not None:
                                             return True
 
                                         if self.as_index is not None:
-                                            return True
-
-                                        if self.as_xx is not None:
                                             return True
 
                                         if self.stitching_rt is not None:
@@ -687,8 +751,6 @@ class Vrfs(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -719,8 +781,6 @@ class Vrfs(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.type is not None:
                                         return True
 
@@ -753,8 +813,6 @@ class Vrfs(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_target is not None:
                                     for child_ref in self.route_target:
                                         if child_ref._has_data():
@@ -779,8 +837,6 @@ class Vrfs(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.route_targets is not None and self.route_targets._has_data():
                                 return True
 
@@ -878,6 +934,13 @@ class Vrfs(object):
                                     """
                                     as or four byte as
                                     
+                                    .. attribute:: as_xx  <key>
+                                    
+                                    	AS number
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
                                     .. attribute:: as_  <key>
                                     
                                     	AS number
@@ -888,13 +951,6 @@ class Vrfs(object):
                                     .. attribute:: as_index  <key>
                                     
                                     	AS number Index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: as_xx  <key>
-                                    
-                                    	AS number
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
@@ -915,40 +971,38 @@ class Vrfs(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.as_xx = None
                                         self.as_ = None
                                         self.as_index = None
-                                        self.as_xx = None
                                         self.stitching_rt = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
+                                        if self.as_xx is None:
+                                            raise YPYModelError('Key property as_xx is None')
                                         if self.as_ is None:
                                             raise YPYModelError('Key property as_ is None')
                                         if self.as_index is None:
                                             raise YPYModelError('Key property as_index is None')
-                                        if self.as_xx is None:
-                                            raise YPYModelError('Key property as_xx is None')
                                         if self.stitching_rt is None:
                                             raise YPYModelError('Key property stitching_rt is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:as-or-four-byte-as[Cisco-IOS-XR-ipv4-bgp-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-index = ' + str(self.as_index) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-bgp-cfg:stitching-rt = ' + str(self.stitching_rt) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:as-or-four-byte-as[Cisco-IOS-XR-ipv4-bgp-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-index = ' + str(self.as_index) + '][Cisco-IOS-XR-ipv4-bgp-cfg:stitching-rt = ' + str(self.stitching_rt) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
+                                        if self.as_xx is not None:
+                                            return True
+
                                         if self.as_ is not None:
                                             return True
 
                                         if self.as_index is not None:
-                                            return True
-
-                                        if self.as_xx is not None:
                                             return True
 
                                         if self.stitching_rt is not None:
@@ -1018,8 +1072,6 @@ class Vrfs(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -1050,8 +1102,6 @@ class Vrfs(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.type is not None:
                                         return True
 
@@ -1084,8 +1134,6 @@ class Vrfs(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.route_target is not None:
                                     for child_ref in self.route_target:
                                         if child_ref._has_data():
@@ -1110,8 +1158,6 @@ class Vrfs(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.route_targets is not None and self.route_targets._has_data():
                                 return True
 
@@ -1171,8 +1217,6 @@ class Vrfs(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.allow_imported_vpn is not None:
@@ -1227,8 +1271,6 @@ class Vrfs(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.allow_imported_vpn is not None:
                                 return True
 
@@ -1291,8 +1333,6 @@ class Vrfs(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.advertise_as_vpn is not None:
@@ -1320,8 +1360,6 @@ class Vrfs(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.export_route_policy is not None:
                             return True
 
@@ -1353,76 +1391,6 @@ class Vrfs(object):
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
                         return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 
-
-                class MaximumPrefix(object):
-                    """
-                    Set maximum prefix limits
-                    
-                    .. attribute:: mid_threshold
-                    
-                    	Mid\-threshold (% of maximum)
-                    	**type**\:  int
-                    
-                    	**range:** 1..100
-                    
-                    .. attribute:: prefix_limit
-                    
-                    	Set table's maximum prefix limit
-                    	**type**\:  int
-                    
-                    	**range:** 32..5000000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-rib-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.mid_threshold = None
-                        self.prefix_limit = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rib-cfg:maximum-prefix'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self._is_presence:
-                            return True
-                        if self.mid_threshold is not None:
-                            return True
-
-                        if self.prefix_limit is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
-                        return meta._meta_table['Vrfs.Vrf.Afs.Af.MaximumPrefix']['meta_info']
-
                 @property
                 def _common_path(self):
                     if self.parent is None:
@@ -1441,8 +1409,6 @@ class Vrfs(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af_name is not None:
                         return True
 
@@ -1480,8 +1446,6 @@ class Vrfs(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.af is not None:
                     for child_ref in self.af:
                         if child_ref._has_data():
@@ -1558,8 +1522,6 @@ class Vrfs(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         return True
 
@@ -1605,8 +1567,6 @@ class Vrfs(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         return True
 
@@ -1629,8 +1589,6 @@ class Vrfs(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4 is not None and self.ipv4._has_data():
                     return True
 
@@ -1656,8 +1614,6 @@ class Vrfs(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_name is not None:
                 return True
 
@@ -1702,8 +1658,6 @@ class Vrfs(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.vrf is not None:
             for child_ref in self.vrf:
                 if child_ref._has_data():
@@ -1817,8 +1771,6 @@ class GlobalAf(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.af_name is not None:
                     return True
 
@@ -1848,8 +1800,6 @@ class GlobalAf(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.af is not None:
                 for child_ref in self.af:
                     if child_ref._has_data():
@@ -1872,8 +1822,6 @@ class GlobalAf(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.afs is not None and self.afs._has_data():
             return True
 
@@ -2053,8 +2001,6 @@ class Srlg(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enable is not None:
                         return True
 
@@ -2172,8 +2118,6 @@ class Srlg(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_name_index is not None:
                                 return True
 
@@ -2202,8 +2146,6 @@ class Srlg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_name is not None:
                             for child_ref in self.group_name:
                                 if child_ref._has_data():
@@ -2228,8 +2170,6 @@ class Srlg(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enable is not None:
                         return True
 
@@ -2321,8 +2261,6 @@ class Srlg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srlg_index is not None:
                             return True
 
@@ -2351,8 +2289,6 @@ class Srlg(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.value is not None:
                         for child_ref in self.value:
                             if child_ref._has_data():
@@ -2425,8 +2361,6 @@ class Srlg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srlg_name is not None:
                             return True
 
@@ -2449,8 +2383,6 @@ class Srlg(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_srlg_name is not None:
                         for child_ref in self.interface_srlg_name:
                             if child_ref._has_data():
@@ -2475,8 +2407,6 @@ class Srlg(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -2512,8 +2442,6 @@ class Srlg(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -2594,8 +2522,6 @@ class Srlg(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.srlg_name is not None:
                     return True
 
@@ -2619,8 +2545,6 @@ class Srlg(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.srlg_name is not None:
                 for child_ref in self.srlg_name:
                     if child_ref._has_data():
@@ -2770,8 +2694,6 @@ class Srlg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srlg_index is not None:
                             return True
 
@@ -2800,8 +2722,6 @@ class Srlg(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_value is not None:
                         for child_ref in self.group_value:
                             if child_ref._has_data():
@@ -2826,8 +2746,6 @@ class Srlg(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.group_name is not None:
                     return True
 
@@ -2854,8 +2772,6 @@ class Srlg(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.group is not None:
                 for child_ref in self.group:
                     if child_ref._has_data():
@@ -3006,8 +2922,6 @@ class Srlg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srlg_index is not None:
                             return True
 
@@ -3036,8 +2950,6 @@ class Srlg(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.inherit_node_value is not None:
                         for child_ref in self.inherit_node_value:
                             if child_ref._has_data():
@@ -3062,8 +2974,6 @@ class Srlg(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.inherit_node_name is not None:
                     return True
 
@@ -3090,8 +3000,6 @@ class Srlg(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.inherit_node is not None:
                 for child_ref in self.inherit_node:
                     if child_ref._has_data():
@@ -3114,8 +3022,6 @@ class Srlg(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.enable is not None:
             return True
 
@@ -3256,8 +3162,6 @@ class VrfGroups(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf_name is not None:
                         return True
 
@@ -3280,8 +3184,6 @@ class VrfGroups(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf is not None:
                     for child_ref in self.vrf:
                         if child_ref._has_data():
@@ -3306,8 +3208,6 @@ class VrfGroups(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_group_name is not None:
                 return True
 
@@ -3334,8 +3234,6 @@ class VrfGroups(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.vrf_group is not None:
             for child_ref in self.vrf_group:
                 if child_ref._has_data():
@@ -3378,8 +3276,6 @@ class SelectiveVrfDownload(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.disable is not None:
             return True
 

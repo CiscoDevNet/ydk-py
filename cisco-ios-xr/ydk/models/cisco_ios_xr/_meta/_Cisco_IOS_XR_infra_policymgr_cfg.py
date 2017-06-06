@@ -38,11 +38,14 @@ _meta_table = {
             'traffic':'traffic',
             'control':'control',
         }, 'Cisco-IOS-XR-infra-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-policymgr-cfg']),
-    'ExecutionStrategyEnum' : _MetaInfoEnum('ExecutionStrategyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
+    'PolicyMapTypeEnum' : _MetaInfoEnum('PolicyMapTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
         {
-            'do-all':'do_all',
-            'do-until-failure':'do_until_failure',
-            'do-until-success':'do_until_success',
+            'qos':'qos',
+            'pbr':'pbr',
+            'traffic':'traffic',
+            'subscriber-control':'subscriber_control',
+            'redirect':'redirect',
+            'flow-monitor':'flow_monitor',
         }, 'Cisco-IOS-XR-infra-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-policymgr-cfg']),
     'AuthorizeIdentifierEnum' : _MetaInfoEnum('AuthorizeIdentifierEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
         {
@@ -60,27 +63,24 @@ _meta_table = {
             'traffic':'traffic',
             'subscriber-control':'subscriber_control',
         }, 'Cisco-IOS-XR-infra-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-policymgr-cfg']),
-    'PolicyMapTypeEnum' : _MetaInfoEnum('PolicyMapTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
+    'ExecutionStrategyEnum' : _MetaInfoEnum('ExecutionStrategyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
         {
-            'qos':'qos',
-            'pbr':'pbr',
-            'traffic':'traffic',
-            'subscriber-control':'subscriber_control',
-            'redirect':'redirect',
-            'flow-monitor':'flow_monitor',
+            'do-all':'do_all',
+            'do-until-failure':'do_until_failure',
+            'do-until-success':'do_until_success',
         }, 'Cisco-IOS-XR-infra-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-policymgr-cfg']),
     'PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4' : {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address.
                 ''',
                 'address',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 netmask.
                 ''',
                 'netmask',
@@ -97,7 +97,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address.
                 ''',
                 'address',
@@ -120,13 +120,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address.
                 ''',
                 'address',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 netmask.
                 ''',
                 'netmask',
@@ -143,7 +143,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address.
                 ''',
                 'address',
@@ -165,17 +165,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap.Match.DomainName',
             False, 
             [
-            _MetaInfoClassMember('format', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Domain-format name.
-                ''',
-                'format',
-                'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                Domain name or regular expression.
                 ''',
                 'name',
+                'Cisco-IOS-XR-infra-policymgr-cfg', True),
+            _MetaInfoClassMember('format', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Domain-format name.
+                ''',
+                'format',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             ],
             'Cisco-IOS-XR-infra-policymgr-cfg',
@@ -188,17 +188,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex',
             False, 
             [
-            _MetaInfoClassMember('format', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Domain-format name.
-                ''',
-                'format',
-                'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('regex', ATTRIBUTE, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                Domain name or regular expression.
                 ''',
                 'regex',
+                'Cisco-IOS-XR-infra-policymgr-cfg', True),
+            _MetaInfoClassMember('format', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Domain-format name.
+                ''',
+                'format',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             ],
             'Cisco-IOS-XR-infra-policymgr-cfg',
@@ -224,7 +224,7 @@ _meta_table = {
                         'idle_timeout',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False),
                     _MetaInfoClassMember('idle-timeout', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(None)|(none)'], 
+                        [], [b'(None)|(none)'], 
                         '''                        Maximum time of inactivity for a flow.
                         ''',
                         'idle_timeout',
@@ -248,7 +248,7 @@ _meta_table = {
                 'flow_cache',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('flow-key', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(SourceIP)|(DestinationIP)|(5Tuple)'], 
+                [], [b'(SourceIP)|(DestinationIP)|(5Tuple)'], 
                 '''                Configure the flow-key parameters.
                 ''',
                 'flow_key',
@@ -277,7 +277,7 @@ _meta_table = {
                 'atm_oam',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('authen-status', ATTRIBUTE, 'str' , None, None, 
-                [], ['(authenticated)|(unauthenticated)'], 
+                [], [b'(authenticated)|(unauthenticated)'], 
                 '''                Match authentication status.
                 ''',
                 'authen_status',
@@ -343,7 +343,7 @@ _meta_table = {
                 'destination_mac',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('destination-port', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match destination port. 
                 Should be value 0..65535 or range.
                 ''',
@@ -380,7 +380,7 @@ _meta_table = {
                 'domain_name_regex',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                Match DSCP.
                 ''',
                 'dscp',
@@ -392,7 +392,7 @@ _meta_table = {
                 'ethernet_services_acl',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('ethertype', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['((153[6-9]|15[4-9][0-9]|1[6-9][0-9][0-9]|[2-9][0-9][0-9][0-9])|([1-5][0-9][0-9][0-9][0-9]|6[0-4][0-9][0-9][0-9])|(65[0-4][0-9][0-9]|655[0-2][0-9]|6553[0-5]))|((arp)|(ipv4)|(ipv6))'], 
+                [], [b'((153[6-9]|15[4-9][0-9]|1[6-9][0-9][0-9]|[2-9][0-9][0-9][0-9])|([1-5][0-9][0-9][0-9][0-9]|6[0-4][0-9][0-9][0-9])|(65[0-4][0-9][0-9]|655[0-2][0-9]|6553[0-5]))|((arp)|(ipv4)|(ipv6))'], 
                 '''                Match Ethertype.
                 ''',
                 'ethertype',
@@ -404,7 +404,7 @@ _meta_table = {
                 'flow',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('flow-tag', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match flow-tag. Should be value 1..63 or range.
                 ''',
                 'flow_tag',
@@ -416,41 +416,41 @@ _meta_table = {
                 'fr_de',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('fragment-type', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(first-fragment)|(is-fragment)|(last-fragment)'], 
+                [], [b'(first-fragment)|(is-fragment)|(last-fragment)'], 
                 '''                Match fragment type for a packet.
                 ''',
                 'fragment_type',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=3),
             _MetaInfoClassMember('frame-relay-dlci', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match frame-relay DLCI value. 
                 Should be value 16..1007 or range.
                 ''',
                 'frame_relay_dlci',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('icmpv4-code', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv4 ICMP code. 
                 Should be value 0..255 or range.
                 ''',
                 'icmpv4_code',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('icmpv4-type', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv4 ICMP type. 
                 Should be value 0..255 or range.
                 ''',
                 'icmpv4_type',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('icmpv6-code', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv6 ICMP code. 
                 Should be value 0..255 or range.
                 ''',
                 'icmpv6_code',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('icmpv6-type', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv6 ICMP type. 
                 Should be value 0..255 or range.
                 ''',
@@ -463,7 +463,7 @@ _meta_table = {
                 'inner_cos',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('inner-vlan', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match inner VLAN ID.
                 ''',
                 'inner_vlan',
@@ -475,13 +475,13 @@ _meta_table = {
                 'ipv4_acl',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('ipv4-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                Match IPv4 DSCP.
                 ''',
                 'ipv4_dscp',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('ipv4-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv4 packet length.
                 Should be value 0..65535 or range.
                 ''',
@@ -500,7 +500,7 @@ _meta_table = {
                         'ipv4_precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
                     _MetaInfoClassMember('ipv4-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Match IPv4 precedence.
                         ''',
                         'ipv4_precedence',
@@ -513,13 +513,13 @@ _meta_table = {
                 'ipv6_acl',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('ipv6-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                Match IPv6 DSCP.
                 ''',
                 'ipv6_dscp',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('ipv6-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv6 packet length. 
                 Should be value 0..65535 or range.
                 ''',
@@ -538,7 +538,7 @@ _meta_table = {
                         'ipv6_precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
                     _MetaInfoClassMember('ipv6-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Match IPv6 precedence.
                         ''',
                         'ipv6_precedence',
@@ -569,7 +569,7 @@ _meta_table = {
                 'mpls_experimental_topmost',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match packet length. 
                 Should be value 0..65535 or range.
                 ''',
@@ -588,20 +588,20 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
                     _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Match precedence.
                         ''',
                         'precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
                 ], max_elements=8),
             _MetaInfoClassMember('protocol', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))'], 
+                [], [b'([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))'], 
                 '''                Match protocol.
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=7),
             _MetaInfoClassMember('qos-group', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match QoS group.
                 Should be value 0..512 or range.
                 ''',
@@ -650,7 +650,7 @@ _meta_table = {
                 'source_mac',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('source-port', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match source port. 
                 Should be value 0..65535 or range.
                 ''',
@@ -675,7 +675,7 @@ _meta_table = {
                 'timer_regex',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('traffic-class', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match Traffic Class.
                 Should be value 0..63 or range.
                 ''',
@@ -694,7 +694,7 @@ _meta_table = {
                 'user_name_regex',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('vlan', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match VLAN ID.
                 ''',
                 'vlan',
@@ -741,13 +741,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address.
                 ''',
                 'address',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 netmask.
                 ''',
                 'netmask',
@@ -764,7 +764,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address.
                 ''',
                 'address',
@@ -787,13 +787,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address.
                 ''',
                 'address',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 netmask.
                 ''',
                 'netmask',
@@ -810,7 +810,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address.
                 ''',
                 'address',
@@ -832,17 +832,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName',
             False, 
             [
-            _MetaInfoClassMember('format', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Domain-format name.
-                ''',
-                'format',
-                'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                Domain name or regular expression.
                 ''',
                 'name',
+                'Cisco-IOS-XR-infra-policymgr-cfg', True),
+            _MetaInfoClassMember('format', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Domain-format name.
+                ''',
+                'format',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             ],
             'Cisco-IOS-XR-infra-policymgr-cfg',
@@ -855,17 +855,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex',
             False, 
             [
-            _MetaInfoClassMember('format', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                Domain-format name.
-                ''',
-                'format',
-                'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('regex', ATTRIBUTE, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                Domain name or regular expression.
                 ''',
                 'regex',
+                'Cisco-IOS-XR-infra-policymgr-cfg', True),
+            _MetaInfoClassMember('format', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Domain-format name.
+                ''',
+                'format',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             ],
             'Cisco-IOS-XR-infra-policymgr-cfg',
@@ -896,7 +896,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authen-status', ATTRIBUTE, 'str' , None, None, 
-                [], ['(authenticated)|(unauthenticated)'], 
+                [], [b'(authenticated)|(unauthenticated)'], 
                 '''                Match authentication status.
                 ''',
                 'authen_status',
@@ -950,7 +950,7 @@ _meta_table = {
                 'destination_mac',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('destination-port', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match destination port. 
                 Should be value 0..65535 or range.
                 ''',
@@ -987,7 +987,7 @@ _meta_table = {
                 'domain_name_regex',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                Match DSCP.
                 ''',
                 'dscp',
@@ -999,7 +999,7 @@ _meta_table = {
                 'ethernet_services_acl',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('ethertype', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['((153[6-9]|15[4-9][0-9]|1[6-9][0-9][0-9]|[2-9][0-9][0-9][0-9])|([1-5][0-9][0-9][0-9][0-9]|6[0-4][0-9][0-9][0-9])|(65[0-4][0-9][0-9]|655[0-2][0-9]|6553[0-5]))|((arp)|(ipv4)|(ipv6))'], 
+                [], [b'((153[6-9]|15[4-9][0-9]|1[6-9][0-9][0-9]|[2-9][0-9][0-9][0-9])|([1-5][0-9][0-9][0-9][0-9]|6[0-4][0-9][0-9][0-9])|(65[0-4][0-9][0-9]|655[0-2][0-9]|6553[0-5]))|((arp)|(ipv4)|(ipv6))'], 
                 '''                Match Ethertype.
                 ''',
                 'ethertype',
@@ -1011,7 +1011,7 @@ _meta_table = {
                 'flow',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('flow-tag', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match flow-tag. Should be value 1..63 or range.
                 ''',
                 'flow_tag',
@@ -1023,41 +1023,41 @@ _meta_table = {
                 'fr_de',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('fragment-type', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(first-fragment)|(is-fragment)|(last-fragment)'], 
+                [], [b'(first-fragment)|(is-fragment)|(last-fragment)'], 
                 '''                Match fragment type for a packet.
                 ''',
                 'fragment_type',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=3),
             _MetaInfoClassMember('frame-relay-dlci', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match frame-relay DLCI value. 
                 Should be value 16..1007 or range.
                 ''',
                 'frame_relay_dlci',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('icmpv4-code', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv4 ICMP code. 
                 Should be value 0..255 or range.
                 ''',
                 'icmpv4_code',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('icmpv4-type', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv4 ICMP type. 
                 Should be value 0..255 or range.
                 ''',
                 'icmpv4_type',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('icmpv6-code', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv6 ICMP code. 
                 Should be value 0..255 or range.
                 ''',
                 'icmpv6_code',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('icmpv6-type', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv6 ICMP type. 
                 Should be value 0..255 or range.
                 ''',
@@ -1070,7 +1070,7 @@ _meta_table = {
                 'inner_cos',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('inner-vlan', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match inner VLAN ID.
                 ''',
                 'inner_vlan',
@@ -1082,13 +1082,13 @@ _meta_table = {
                 'ipv4_acl',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('ipv4-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                Match IPv4 DSCP.
                 ''',
                 'ipv4_dscp',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('ipv4-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv4 packet length.
                 Should be value 0..65535 or range.
                 ''',
@@ -1107,7 +1107,7 @@ _meta_table = {
                         'ipv4_precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
                     _MetaInfoClassMember('ipv4-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Match IPv4 precedence.
                         ''',
                         'ipv4_precedence',
@@ -1120,13 +1120,13 @@ _meta_table = {
                 'ipv6_acl',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('ipv6-dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                Match IPv6 DSCP.
                 ''',
                 'ipv6_dscp',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('ipv6-packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match IPv6 packet length. 
                 Should be value 0..65535 or range.
                 ''',
@@ -1145,7 +1145,7 @@ _meta_table = {
                         'ipv6_precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
                     _MetaInfoClassMember('ipv6-precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Match IPv6 precedence.
                         ''',
                         'ipv6_precedence',
@@ -1176,7 +1176,7 @@ _meta_table = {
                 'mpls_experimental_topmost',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('packet-length', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match packet length. 
                 Should be value 0..65535 or range.
                 ''',
@@ -1195,20 +1195,20 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
                     _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Match precedence.
                         ''',
                         'precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
                 ], max_elements=8),
             _MetaInfoClassMember('protocol', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))'], 
+                [], [b'([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\-([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|((ahp)|(dhcpv4)|(dhcpv6)|(eigrp)|(esp)|(gre)|(icmp)|(igmp)|(igrp)|(ipinip)|(ipv4)|(ipv6)|(ipv6icmp)|(mpls)|(nos)|(ospf)|(pcp)|(pim)|(ppp)|(sctp)|(tcp)|(udp))'], 
                 '''                Match protocol.
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=7),
             _MetaInfoClassMember('qos-group', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match QoS group.
                 Should be value 0..512 or range.
                 ''',
@@ -1257,7 +1257,7 @@ _meta_table = {
                 'source_mac',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('source-port', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match source port. 
                 Should be value 0..65535 or range.
                 ''',
@@ -1282,7 +1282,7 @@ _meta_table = {
                 'timer_regex',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('traffic-class', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match Traffic Class.
                 Should be value 0..63 or range.
                 ''',
@@ -1301,7 +1301,7 @@ _meta_table = {
                 'user_name_regex',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('vlan', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                [], [b'(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match VLAN ID.
                 ''',
                 'vlan',
@@ -1347,17 +1347,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
-                '''                Name of class-map.
-                ''',
-                'name',
-                'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'ClassMapTypeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'ClassMapTypeEnum', 
                 [], [], 
                 '''                Type of class-map.
                 ''',
                 'type',
+                'Cisco-IOS-XR-infra-policymgr-cfg', True),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
+                '''                Name of class-map.
+                ''',
+                'name',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('class-map-mode-match-all', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -1623,7 +1623,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
+                [], [b'[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
                 '''                Name of class.
                 ''',
                 'class_name',
@@ -1693,7 +1693,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bps)|(kbps)|(mbps)|(gbps)|(percent)|(per-million)|(per-thousand)'], 
+                [], [b'(bps)|(kbps)|(mbps)|(gbps)|(percent)|(per-million)|(per-thousand)'], 
                 '''                Shape bandwidth units.
                 ''',
                 'unit',
@@ -1716,7 +1716,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
+                [], [b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
                 '''                Burst size units.
                 ''',
                 'units',
@@ -1762,7 +1762,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bps)|(kbps)|(mbps)|(gbps)|(percent)|(per-million)|(per-thousand)'], 
+                [], [b'(bps)|(kbps)|(mbps)|(gbps)|(percent)|(per-million)|(per-thousand)'], 
                 '''                Minimum bandwidth units.
                 ''',
                 'unit',
@@ -1785,7 +1785,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
-                [], ['(percent)|(ratio)'], 
+                [], [b'(percent)|(ratio)'], 
                 '''                Remaining bandwidth units.
                 ''',
                 'unit',
@@ -1808,7 +1808,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)|(percent)'], 
+                [], [b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)|(percent)'], 
                 '''                Remaining bandwidth units.
                 ''',
                 'unit',
@@ -1831,7 +1831,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
+                [], [b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
                 '''                Pfc buffer size units.
                 ''',
                 'unit',
@@ -1854,7 +1854,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
+                [], [b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
                 '''                Pfc pause threshold units.
                 ''',
                 'unit',
@@ -1877,7 +1877,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
+                [], [b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
                 '''                Pfc resume threshold units.
                 ''',
                 'unit',
@@ -1931,11 +1931,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect',
             False, 
             [
-            _MetaInfoClassMember('threshold-max-units', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
-                '''                Maximum RED threshold units.
+            _MetaInfoClassMember('threshold-min-value', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Minimum RED threshold value.
                 ''',
-                'threshold_max_units',
+                'threshold_min_value',
+                'Cisco-IOS-XR-infra-policymgr-cfg', True),
+            _MetaInfoClassMember('threshold-min-units', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
+                '''                Minimum RED threshold units.
+                ''',
+                'threshold_min_units',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('threshold-max-value', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -1943,20 +1949,14 @@ _meta_table = {
                 ''',
                 'threshold_max_value',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
-            _MetaInfoClassMember('threshold-min-units', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
-                '''                Minimum RED threshold units.
+            _MetaInfoClassMember('threshold-max-units', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
+                '''                Maximum RED threshold units.
                 ''',
-                'threshold_min_units',
-                'Cisco-IOS-XR-infra-policymgr-cfg', True),
-            _MetaInfoClassMember('threshold-min-value', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Minimum RED threshold value.
-                ''',
-                'threshold_min_value',
+                'threshold_max_units',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('cos', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                WRED based on CoS.
                 ''',
                 'cos',
@@ -1974,7 +1974,7 @@ _meta_table = {
                 'discard_class',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('dscp', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(([0-9]|[1-5][0-9]|6[0-3])-([0-9]|[1-5][0-9]|6[0-3]))|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                WRED based on DSCP.
                 ''',
                 'dscp',
@@ -2004,7 +2004,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
                     _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        WRED based on precedence.
                         ''',
                         'precedence',
@@ -2046,7 +2046,7 @@ _meta_table = {
                 'dei_imposition',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Destination IPv4 address.
                 ''',
                 'destination_address',
@@ -2066,7 +2066,7 @@ _meta_table = {
                 'discard_class',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                Marks a packet by setting the DSCP in the ToS byte.
                 ''',
                 'dscp',
@@ -2118,7 +2118,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False),
                     _MetaInfoClassMember('precedence', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Sets the precedence value in the IP header.
                         ''',
                         'precedence',
@@ -2137,7 +2137,7 @@ _meta_table = {
                         'precedence_tunnel',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False),
                     _MetaInfoClassMember('precedence-tunnel', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Sets the precedence tunnel value for ipsec.
                         ''',
                         'precedence_tunnel',
@@ -2151,7 +2151,7 @@ _meta_table = {
                 'qos_group',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Source IPv4 address.
                 ''',
                 'source_address',
@@ -2181,7 +2181,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bps)|(kbps)|(mbps)|(gbps)|(pps)|(percent)|(cellsps)'], 
+                [], [b'(bps)|(kbps)|(mbps)|(gbps)|(pps)|(percent)|(cellsps)'], 
                 '''                Rate units.
                 ''',
                 'units',
@@ -2204,7 +2204,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bps)|(kbps)|(mbps)|(gbps)|(pps)|(percent)|(cellsps)'], 
+                [], [b'(bps)|(kbps)|(mbps)|(gbps)|(pps)|(percent)|(cellsps)'], 
                 '''                Peak rate units.
                 ''',
                 'units',
@@ -2227,7 +2227,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
+                [], [b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
                 '''                Burst units.
                 ''',
                 'units',
@@ -2250,7 +2250,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
+                [], [b'(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
                 '''                Peak burst units.
                 ''',
                 'units',
@@ -2297,7 +2297,7 @@ _meta_table = {
                 'dei_imposition',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Destination IPv4 address.
                 ''',
                 'destination_address',
@@ -2317,7 +2317,7 @@ _meta_table = {
                 'discard_class',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                Marks a packet by setting the DSCP in the ToS byte.
                 ''',
                 'dscp',
@@ -2369,7 +2369,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False),
                     _MetaInfoClassMember('precedence', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Sets the precedence value in the IP header.
                         ''',
                         'precedence',
@@ -2388,7 +2388,7 @@ _meta_table = {
                         'precedence_tunnel',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False),
                     _MetaInfoClassMember('precedence-tunnel', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Sets the precedence tunnel value for ipsec.
                         ''',
                         'precedence_tunnel',
@@ -2402,7 +2402,7 @@ _meta_table = {
                 'qos_group',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Source IPv4 address.
                 ''',
                 'source_address',
@@ -2485,7 +2485,7 @@ _meta_table = {
                 'dei_imposition',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Destination IPv4 address.
                 ''',
                 'destination_address',
@@ -2505,7 +2505,7 @@ _meta_table = {
                 'discard_class',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                Marks a packet by setting the DSCP in the ToS byte.
                 ''',
                 'dscp',
@@ -2557,7 +2557,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False),
                     _MetaInfoClassMember('precedence', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Sets the precedence value in the IP header.
                         ''',
                         'precedence',
@@ -2576,7 +2576,7 @@ _meta_table = {
                         'precedence_tunnel',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False),
                     _MetaInfoClassMember('precedence-tunnel', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Sets the precedence tunnel value for ipsec.
                         ''',
                         'precedence_tunnel',
@@ -2590,7 +2590,7 @@ _meta_table = {
                 'qos_group',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Source IPv4 address.
                 ''',
                 'source_address',
@@ -2673,7 +2673,7 @@ _meta_table = {
                 'dei_imposition',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Destination IPv4 address.
                 ''',
                 'destination_address',
@@ -2693,7 +2693,7 @@ _meta_table = {
                 'discard_class',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('dscp', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
+                [], [b'([0-9]|[1-5][0-9]|6[0-3])|(af11)|(af12)|(af13)|(af21)|(af22)|(af23)|(af31)|(af32)|(af33)|(af41)|(af42)|(af43)|(ef)|(default)|(cs1)|(cs2)|(cs3)|(cs4)|(cs5)|(cs6)|(cs7)'], 
                 '''                Marks a packet by setting the DSCP in the ToS byte.
                 ''',
                 'dscp',
@@ -2745,7 +2745,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False),
                     _MetaInfoClassMember('precedence', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Sets the precedence value in the IP header.
                         ''',
                         'precedence',
@@ -2764,7 +2764,7 @@ _meta_table = {
                         'precedence_tunnel',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False),
                     _MetaInfoClassMember('precedence-tunnel', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
+                        [], [b'(critical)|(flash)|(flash-override)|(immediate)|(internet)|(network)|(priority)|(routine)'], 
                         '''                        Sets the precedence tunnel value for ipsec.
                         ''',
                         'precedence_tunnel',
@@ -2778,7 +2778,7 @@ _meta_table = {
                 'qos_group',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Source IPv4 address.
                 ''',
                 'source_address',
@@ -2893,13 +2893,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
+                [], [b'[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
                 '''                Name of service-policy.
                 ''',
                 'policy_name',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['(PBR)|(QOS)|(REDIRECT)|(TRAFFIC)|(pbr)|(qos)|(redirect)|(traffic)'], 
+                [], [b'(PBR)|(QOS)|(REDIRECT)|(TRAFFIC)|(pbr)|(qos)|(redirect)|(traffic)'], 
                 '''                Type of service-policy.
                 ''',
                 'type',
@@ -2916,7 +2916,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bps)|(kbps)|(mbps)|(gbps)|(cellsps)'], 
+                [], [b'(bps)|(kbps)|(mbps)|(gbps)|(cellsps)'], 
                 '''                Rate units.
                 ''',
                 'units',
@@ -2939,7 +2939,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bps)|(kbps)|(mbps)|(gbps)|(cellsps)'], 
+                [], [b'(bps)|(kbps)|(mbps)|(gbps)|(cellsps)'], 
                 '''                Rate units.
                 ''',
                 'units',
@@ -2978,7 +2978,7 @@ _meta_table = {
                         'flow_idle_timeout',
                         'Cisco-IOS-XR-infra-policymgr-cfg', False),
                     _MetaInfoClassMember('flow-idle-timeout', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(None)|(none)'], 
+                        [], [b'(None)|(none)'], 
                         '''                        The interval after which a flow is removed, 
                         if there is no activity.
                         If timeout is 0 this flow does not expire.
@@ -3174,7 +3174,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('severity', ATTRIBUTE, 'str' , None, None, 
-                [], ['(informational)|(notification)|(warning)|(error)|(critical)|(alert)|(emergency)'], 
+                [], [b'(informational)|(notification)|(warning)|(error)|(critical)|(alert)|(emergency)'], 
                 '''                Severity of the alarm.
                 ''',
                 'severity',
@@ -3349,13 +3349,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address.
                 ''',
                 'ipv4_address',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address.
                 ''',
                 'ipv6_address',
@@ -3437,7 +3437,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
+                [], [b'[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
                 '''                Name of class-map.
                 ''',
                 'class_name',
@@ -3607,17 +3607,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
-                '''                Name of policy-map.
-                ''',
-                'name',
-                'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'PolicyMapTypeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyMapTypeEnum', 
                 [], [], 
                 '''                Type of policy-map.
                 ''',
                 'type',
+                'Cisco-IOS-XR-infra-policymgr-cfg', True),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[a-zA-Z0-9][a-zA-Z0-9\\._@$%+#:=<>\\-]{0,62}'], 
+                '''                Name of policy-map.
+                ''',
+                'name',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 

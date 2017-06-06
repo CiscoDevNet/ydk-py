@@ -24,7 +24,7 @@ _meta_table = {
                 'host_name',
                 'Cisco-IOS-XR-ip-domain-cfg', True),
             _MetaInfoClassMember('address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Host IPv6 addresses
                 ''',
                 'address',
@@ -71,13 +71,13 @@ _meta_table = {
                 'server_address',
                 'Cisco-IOS-XR-ip-domain-cfg', True, [
                     _MetaInfoClassMember('server-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        A name server address
                         ''',
                         'server_address',
                         'Cisco-IOS-XR-ip-domain-cfg', True),
                     _MetaInfoClassMember('server-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        A name server address
                         ''',
                         'server_address',
@@ -111,18 +111,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('IpDomain.Vrfs.Vrf.Lists.List',
             False, 
             [
-            _MetaInfoClassMember('list-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                A domain name
-                ''',
-                'list_name',
-                'Cisco-IOS-XR-ip-domain-cfg', True),
             _MetaInfoClassMember('order', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                This is used to sort the names in the order
                 of precedence
                 ''',
                 'order',
+                'Cisco-IOS-XR-ip-domain-cfg', True),
+            _MetaInfoClassMember('list-name', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                A domain name
+                ''',
+                'list_name',
                 'Cisco-IOS-XR-ip-domain-cfg', True),
             ],
             'Cisco-IOS-XR-ip-domain-cfg',
@@ -160,7 +160,7 @@ _meta_table = {
                 'host_name',
                 'Cisco-IOS-XR-ip-domain-cfg', True),
             _MetaInfoClassMember('address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Host IPv4 addresses
                 ''',
                 'address',
@@ -194,7 +194,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the VRF instance
                 ''',
                 'vrf_name',
@@ -244,7 +244,7 @@ _meta_table = {
                 'servers',
                 'Cisco-IOS-XR-ip-domain-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify interface for source address in
                 connections
                 ''',

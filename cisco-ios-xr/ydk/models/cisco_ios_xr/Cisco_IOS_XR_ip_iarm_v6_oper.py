@@ -350,8 +350,6 @@ class Ipv6Arm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.afi is not None:
                                         return True
 
@@ -380,8 +378,6 @@ class Ipv6Arm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -422,8 +418,6 @@ class Ipv6Arm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -464,8 +458,6 @@ class Ipv6Arm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.network is not None:
                             for child_ref in self.network:
                                 if child_ref._has_data():
@@ -658,8 +650,6 @@ class Ipv6Arm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.afi is not None:
                                         return True
 
@@ -688,8 +678,6 @@ class Ipv6Arm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -732,8 +720,6 @@ class Ipv6Arm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface is not None:
                                 return True
 
@@ -767,8 +753,6 @@ class Ipv6Arm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -793,8 +777,6 @@ class Ipv6Arm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf_name is not None:
                         return True
 
@@ -821,8 +803,6 @@ class Ipv6Arm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf is not None:
                     for child_ref in self.vrf:
                         if child_ref._has_data():
@@ -845,8 +825,6 @@ class Ipv6Arm(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrfs is not None and self.vrfs._has_data():
                 return True
 
@@ -922,8 +900,6 @@ class Ipv6Arm(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.address_conflict_count is not None:
                 return True
 
@@ -1016,8 +992,6 @@ class Ipv6Arm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -1044,8 +1018,6 @@ class Ipv6Arm(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_summary is not None:
                 for child_ref in self.vrf_summary:
                     if child_ref._has_data():
@@ -1068,8 +1040,6 @@ class Ipv6Arm(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.addresses is not None and self.addresses._has_data():
             return True
 

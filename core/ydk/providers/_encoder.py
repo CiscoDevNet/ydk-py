@@ -71,7 +71,8 @@ class XmlEncoder(object):
 
             member_elem = None
             NSMAP = {}
-            if member.mtype not in [REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST, REFERENCE_IDENTITY_CLASS, REFERENCE_UNION] or isinstance(value, DELETE) or isinstance(value, READ):
+            if member.mtype not in [REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST, REFERENCE_IDENTITY_CLASS, \
+                                    REFERENCE_UNION] or isinstance(value, DELETE) or isinstance(value, READ):
                 if entity.i_meta.namespace is not None \
                     and entity.i_meta.namespace != _yang_ns._namespaces[member.module_name]:
                     NSMAP[None] = _yang_ns._namespaces[member.module_name]

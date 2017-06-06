@@ -89,8 +89,6 @@ class InventoryConfigurations(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.name is not None:
                 return True
 
@@ -114,8 +112,6 @@ class InventoryConfigurations(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.entity is not None:
             for child_ref in self.entity:
                 if child_ref._has_data():

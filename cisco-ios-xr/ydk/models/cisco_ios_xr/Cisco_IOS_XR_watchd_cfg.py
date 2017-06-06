@@ -127,8 +127,6 @@ class Watchdog(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.critical is not None:
                 return True
 
@@ -155,8 +153,6 @@ class Watchdog(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.overload_notification is not None:
             return True
 
@@ -213,8 +209,6 @@ class Watchd(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.timeout is not None:
             return True
 

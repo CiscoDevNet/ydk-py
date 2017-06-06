@@ -23,7 +23,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[^\\*].*'], 
+                [], [b'[^\\*].*'], 
                 '''                Group name associated with this entry.
                 ''',
                 'name',
@@ -82,7 +82,7 @@ _meta_table = {
                 'access_operations',
                 'ietf-netconf-acm', False, [
                     _MetaInfoClassMember('access-operations', ATTRIBUTE, 'str' , None, None, 
-                        [], ['\\*'], 
+                        [], [b'\\*'], 
                         '''                        Access operations associated with this rule.
                         
                         This leaf matches if it has the value '*' or if the
@@ -127,7 +127,7 @@ _meta_table = {
                 'module_name',
                 'ietf-netconf-acm', False, [
                     _MetaInfoClassMember('module-name', ATTRIBUTE, 'str' , None, None, 
-                        [], ['\\*'], 
+                        [], [b'\\*'], 
                         '''                        Name of the module associated with this rule.
                         
                         This leaf matches if it has the value '*' or if the
@@ -155,7 +155,7 @@ _meta_table = {
                 'notification_name',
                 'ietf-netconf-acm', False, [
                     _MetaInfoClassMember('notification-name', ATTRIBUTE, 'str' , None, None, 
-                        [], ['\\*'], 
+                        [], [b'\\*'], 
                         '''                        This leaf matches if it has the value '*' or if its
                         value equals the requested notification name.
                         ''',
@@ -193,7 +193,7 @@ _meta_table = {
                 'rpc_name',
                 'ietf-netconf-acm', False, [
                     _MetaInfoClassMember('rpc-name', ATTRIBUTE, 'str' , None, None, 
-                        [], ['\\*'], 
+                        [], [b'\\*'], 
                         '''                        This leaf matches if it has the value '*' or if
                         its value equals the requested protocol operation
                         name.
@@ -238,7 +238,7 @@ _meta_table = {
                 'group',
                 'ietf-netconf-acm', False, [
                     _MetaInfoClassMember('group', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['\\*'], 
+                        [], [b'\\*'], 
                         '''                        List of administrative groups that will be
                         assigned the associated access rights
                         defined by the 'rule' list.
@@ -249,7 +249,7 @@ _meta_table = {
                         'group',
                         'ietf-netconf-acm', False),
                     _MetaInfoClassMember('group', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['[^\\*].*'], 
+                        [], [b'[^\\*].*'], 
                         '''                        List of administrative groups that will be
                         assigned the associated access rights
                         defined by the 'rule' list.

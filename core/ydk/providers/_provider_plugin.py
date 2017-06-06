@@ -126,6 +126,12 @@ class _ClientSPPlugin(_SPPlugin):
     def decode(self, payload, read_filter):
         if read_filter is None:
             return XmlDecoder().decode(payload)
+        if self._is_rpc_reply(read_filter):
+            if 'ok' in payload or not self._is_rpc_reply_with_output_data(read_filter):
+                return None
+            XmlDecoder()._bind_to_object(payload, read_filter.output, {})
+            return read_filter.output
+
         # In order to figure out which fields are the
         # ones we are interested find the field list
         entity = self._create_top_level_entity_from_read_filter(read_filter)
@@ -163,15 +169,13 @@ class _ClientSPPlugin(_SPPlugin):
                     if isinstance(current, YList):
                         if len(current) == 0:
                             return None
-                        if len(current) > 2:
+                        if len(current) > 0:
                             return current
-                        if len(current) == 1:
-                            current = current[0]
 
                     break
 
             if not found:
-                self.crud_logger.error('Error determing what needs to be returned')
+                self.netconf_sp_logger.error('Error determing what needs to be returned')
                 raise YPYServiceProviderError(error_msg='Error determining what needs to be returned')
 
         return current
@@ -183,7 +187,7 @@ class _ClientSPPlugin(_SPPlugin):
             non_list_filter = non_list_filter.parent
 
         if non_list_filter is None:
-            self.crud_logger.error('Cannot determine hierarchy for entity. Please set the parent reference')
+            self.netconf_sp_logger.error('Cannot determine hierarchy for entity. Please set the parent reference')
             raise YPYServiceProviderError(error_msg='Cannot determine hierarchy for entity. Please set the parent reference')
 
         top_entity_meta_info = non_list_filter._meta_info()
@@ -330,7 +334,7 @@ class _ClientSPPlugin(_SPPlugin):
         # leaflist of enum
         if hasattr(entity, 'i_meta') and entity.i_meta.mtype == REFERENCE_ENUM_CLASS:
             key_value = getattr(entity, entity.presentation_name)
-            value = key_value.name.replace('_', '-').lower()
+            key_value.name.replace('_', '-').lower()
         value = str(entity.item)
         for ch in chs:
             if ch.tag == entity.name and ch.text == value:
@@ -548,7 +552,7 @@ class _ClientSPPlugin(_SPPlugin):
         NSMAP = {}
         if entity_ns is not None and entity_ns != empty_ns:
             NSMAP[None] = empty_ns
-        member_elem = etree.SubElement(root, member.name, nsmap=NSMAP)
+        etree.SubElement(root, member.name, nsmap=NSMAP)
 
     def _encode_key(self, root, entity, meta_info, key):
         key_value = getattr(entity, key.presentation_name)
@@ -598,6 +602,12 @@ class _ClientSPPlugin(_SPPlugin):
             parent_ns = current_parent.get('xmlns')
             current_parent = current_parent.getparent()
         return parent_ns
+
+    def _is_rpc_reply(self, top_entity):
+        return hasattr(top_entity, 'is_rpc') and top_entity.is_rpc
+
+    def _is_rpc_reply_with_output_data(self, top_entity):
+        return hasattr(top_entity, 'is_rpc') and top_entity.is_rpc and hasattr(top_entity, 'output') and top_entity.output is not None
 
 
 def operation_is_edit(operation):

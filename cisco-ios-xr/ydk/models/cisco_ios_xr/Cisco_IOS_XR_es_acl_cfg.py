@@ -336,8 +336,6 @@ class EsAcl(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -394,8 +392,6 @@ class EsAcl(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -423,8 +419,6 @@ class EsAcl(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sequence_number is not None:
                             return True
 
@@ -495,8 +489,6 @@ class EsAcl(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access_list_entry is not None:
                         for child_ref in self.access_list_entry:
                             if child_ref._has_data():
@@ -521,8 +513,6 @@ class EsAcl(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -546,8 +536,6 @@ class EsAcl(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.access is not None:
                 for child_ref in self.access:
                     if child_ref._has_data():
@@ -570,8 +558,6 @@ class EsAcl(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.accesses is not None and self.accesses._has_data():
             return True
 

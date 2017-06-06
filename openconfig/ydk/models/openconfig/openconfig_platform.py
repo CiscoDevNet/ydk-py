@@ -170,8 +170,6 @@ class Components(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -265,8 +263,6 @@ class Components(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.description is not None:
                     return True
 
@@ -423,8 +419,6 @@ class Components(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -509,8 +503,6 @@ class Components(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.configurable is not None:
                             return True
 
@@ -541,8 +533,6 @@ class Components(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -571,8 +561,6 @@ class Components(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.property is not None:
                     for child_ref in self.property:
                         if child_ref._has_data():
@@ -680,8 +668,6 @@ class Components(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -727,8 +713,6 @@ class Components(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -753,8 +737,6 @@ class Components(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -783,8 +765,6 @@ class Components(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.subcomponent is not None:
                     for child_ref in self.subcomponent:
                         if child_ref._has_data():
@@ -872,8 +852,6 @@ class Components(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enabled is not None:
                         return True
 
@@ -1039,8 +1017,6 @@ class Components(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.connector_type is not None:
                         return True
 
@@ -1211,8 +1187,6 @@ class Components(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.description is not None:
                                 return True
 
@@ -1369,8 +1343,6 @@ class Components(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.avg is not None:
                                     return True
 
@@ -1453,8 +1425,6 @@ class Components(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.avg is not None:
                                     return True
 
@@ -1537,8 +1507,6 @@ class Components(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.avg is not None:
                                     return True
 
@@ -1570,8 +1538,6 @@ class Components(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.description is not None:
                                 return True
 
@@ -1617,8 +1583,6 @@ class Components(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.index is not None:
                             return True
 
@@ -1647,8 +1611,6 @@ class Components(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.channel is not None:
                         for child_ref in self.channel:
                             if child_ref._has_data():
@@ -1673,8 +1635,6 @@ class Components(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.config is not None and self.config._has_data():
                     return True
 
@@ -1781,8 +1741,6 @@ class Components(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.frequency is not None:
                         return True
 
@@ -1971,8 +1929,6 @@ class Components(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.avg is not None:
                             return True
 
@@ -2055,8 +2011,6 @@ class Components(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.avg is not None:
                             return True
 
@@ -2139,8 +2093,6 @@ class Components(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.avg is not None:
                             return True
 
@@ -2220,8 +2172,6 @@ class Components(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.avg is not None:
                             return True
 
@@ -2301,8 +2251,6 @@ class Components(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.avg is not None:
                             return True
 
@@ -2382,8 +2330,6 @@ class Components(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.avg is not None:
                             return True
 
@@ -2463,8 +2409,6 @@ class Components(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.avg is not None:
                             return True
 
@@ -2496,8 +2440,6 @@ class Components(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.chromatic_dispersion is not None and self.chromatic_dispersion._has_data():
                         return True
 
@@ -2553,8 +2495,6 @@ class Components(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.config is not None and self.config._has_data():
                     return True
 
@@ -2580,8 +2520,6 @@ class Components(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.name is not None:
                 return True
 
@@ -2620,8 +2558,6 @@ class Components(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.component is not None:
             for child_ref in self.component:
                 if child_ref._has_data():

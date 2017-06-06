@@ -1457,7 +1457,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('np-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(np0)|(np1)|(np2)|(np3)|(np4)|(np5)|(np6)|(np7)'], 
+                [], [b'(np0)|(np1)|(np2)|(np3)|(np4)|(np5)|(np6)|(np7)'], 
                 '''                NP name
                 ''',
                 'np_name',
@@ -1515,7 +1515,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                node number
                 ''',
                 'node_name',

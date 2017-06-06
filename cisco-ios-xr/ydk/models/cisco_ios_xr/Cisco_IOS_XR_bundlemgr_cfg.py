@@ -447,8 +447,6 @@ class Lacp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.system_mac is not None:
             return True
 

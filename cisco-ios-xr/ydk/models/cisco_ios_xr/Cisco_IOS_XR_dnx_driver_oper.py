@@ -1317,8 +1317,6 @@ class Fia(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.asic_instance is not None:
                                                             return True
 
@@ -1353,8 +1351,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.asic_id is not None and self.asic_id._has_data():
                                                         return True
 
@@ -1490,8 +1486,6 @@ class Fia(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.asic_instance is not None:
                                                             return True
 
@@ -1526,8 +1520,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.asic_id is not None and self.asic_id._has_data():
                                                         return True
 
@@ -1663,8 +1655,6 @@ class Fia(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.asic_instance is not None:
                                                             return True
 
@@ -1699,8 +1689,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.asic_id is not None and self.asic_id._has_data():
                                                         return True
 
@@ -1821,8 +1809,6 @@ class Fia(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.admin_state is not None:
                                                             return True
 
@@ -1857,8 +1843,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.hist is not None:
                                                         for child_ref in self.hist:
                                                             if child_ref._has_data():
@@ -1891,8 +1875,6 @@ class Fia(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.link is not None:
                                                     return True
 
@@ -1963,8 +1945,6 @@ class Fia(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.end_number is not None:
                                                 return True
 
@@ -1998,8 +1978,6 @@ class Fia(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.rx_link is not None:
                                             for child_ref in self.rx_link:
                                                 if child_ref._has_data():
@@ -2026,8 +2004,6 @@ class Fia(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.instance is not None:
                                         return True
 
@@ -2053,8 +2029,6 @@ class Fia(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.rx_asic_instance is not None:
                                     for child_ref in self.rx_asic_instance:
                                         if child_ref._has_data():
@@ -2081,8 +2055,6 @@ class Fia(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.option is not None:
                                 return True
 
@@ -2108,8 +2080,6 @@ class Fia(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.link_option is not None:
                             for child_ref in self.link_option:
                                 if child_ref._has_data():
@@ -2134,8 +2104,6 @@ class Fia(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.link_options is not None and self.link_options._has_data():
                         return True
 
@@ -2650,8 +2618,6 @@ class Fia(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.asic_instance is not None:
                                 return True
 
@@ -2686,8 +2652,6 @@ class Fia(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_state is not None:
                             return True
 
@@ -2999,8 +2963,6 @@ class Fia(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.card_flag is not None:
                                     return True
 
@@ -3041,8 +3003,6 @@ class Fia(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.count is not None:
                                 return True
 
@@ -3076,8 +3036,6 @@ class Fia(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.card_flag is not None:
                             return True
 
@@ -3145,8 +3103,6 @@ class Fia(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.asic_avail_mask is not None:
                         return True
 
@@ -3389,8 +3345,6 @@ class Fia(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.asic_instance is not None:
                                 return True
 
@@ -3416,8 +3370,6 @@ class Fia(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.asic_instance is not None:
                             for child_ref in self.asic_instance:
                                 if child_ref._has_data():
@@ -3442,8 +3394,6 @@ class Fia(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.asic_instances is not None and self.asic_instances._has_data():
                         return True
 
@@ -3875,8 +3825,6 @@ class Fia(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.asic_instance is not None:
                                                             return True
 
@@ -3911,8 +3859,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.asic_id is not None and self.asic_id._has_data():
                                                         return True
 
@@ -4048,8 +3994,6 @@ class Fia(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.asic_instance is not None:
                                                             return True
 
@@ -4084,8 +4028,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.asic_id is not None and self.asic_id._has_data():
                                                         return True
 
@@ -4143,8 +4085,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.dummy is not None:
                                                         return True
 
@@ -4253,8 +4193,6 @@ class Fia(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.admin_state is not None:
                                                             return True
 
@@ -4289,8 +4227,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.hist is not None:
                                                         for child_ref in self.hist:
                                                             if child_ref._has_data():
@@ -4323,8 +4259,6 @@ class Fia(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.link is not None:
                                                     return True
 
@@ -4392,8 +4326,6 @@ class Fia(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.end_number is not None:
                                                 return True
 
@@ -4424,8 +4356,6 @@ class Fia(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.tx_link is not None:
                                             for child_ref in self.tx_link:
                                                 if child_ref._has_data():
@@ -4452,8 +4382,6 @@ class Fia(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.instance is not None:
                                         return True
 
@@ -4479,8 +4407,6 @@ class Fia(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.tx_asic_instance is not None:
                                     for child_ref in self.tx_asic_instance:
                                         if child_ref._has_data():
@@ -4505,8 +4431,6 @@ class Fia(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.tx_asic_instances is not None and self.tx_asic_instances._has_data():
                                 return True
 
@@ -4529,8 +4453,6 @@ class Fia(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.tx_status_option is not None and self.tx_status_option._has_data():
                             return True
 
@@ -4553,8 +4475,6 @@ class Fia(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tx_status_option_table is not None and self.tx_status_option_table._has_data():
                         return True
 
@@ -4653,8 +4573,6 @@ class Fia(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.unit is not None:
                                 return True
 
@@ -4680,8 +4598,6 @@ class Fia(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.register_dump_unit is not None:
                             for child_ref in self.register_dump_unit:
                                 if child_ref._has_data():
@@ -4706,8 +4622,6 @@ class Fia(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.register_dump_units is not None and self.register_dump_units._has_data():
                         return True
 
@@ -4888,8 +4802,6 @@ class Fia(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.output is not None:
                                             return True
 
@@ -4917,8 +4829,6 @@ class Fia(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.cmd is not None:
                                         return True
 
@@ -4946,8 +4856,6 @@ class Fia(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.command is not None:
                                     for child_ref in self.command:
                                         if child_ref._has_data():
@@ -4974,8 +4882,6 @@ class Fia(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.unit is not None:
                                 return True
 
@@ -5001,8 +4907,6 @@ class Fia(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.diag_shell_unit is not None:
                             for child_ref in self.diag_shell_unit:
                                 if child_ref._has_data():
@@ -5027,8 +4931,6 @@ class Fia(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.diag_shell_units is not None and self.diag_shell_units._has_data():
                         return True
 
@@ -5649,8 +5551,6 @@ class Fia(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.asic_instance is not None:
                                                 return True
 
@@ -5685,8 +5585,6 @@ class Fia(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.admin_state is not None:
                                             return True
 
@@ -5998,8 +5896,6 @@ class Fia(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.card_flag is not None:
                                                     return True
 
@@ -6040,8 +5936,6 @@ class Fia(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.count is not None:
                                                 return True
 
@@ -6075,8 +5969,6 @@ class Fia(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.card_flag is not None:
                                             return True
 
@@ -6146,8 +6038,6 @@ class Fia(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.slot is not None:
                                         return True
 
@@ -6312,8 +6202,6 @@ class Fia(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.slot is not None:
                                     for child_ref in self.slot:
                                         if child_ref._has_data():
@@ -6340,8 +6228,6 @@ class Fia(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.flag is not None:
                                 return True
 
@@ -6367,8 +6253,6 @@ class Fia(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flag is not None:
                             for child_ref in self.flag:
                                 if child_ref._has_data():
@@ -6393,8 +6277,6 @@ class Fia(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flags is not None and self.flags._has_data():
                         return True
 
@@ -6688,8 +6570,6 @@ class Fia(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.field_name is not None:
                                                     return True
 
@@ -6718,8 +6598,6 @@ class Fia(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.block_name is not None:
                                                 return True
 
@@ -6750,8 +6628,6 @@ class Fia(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.block_info is not None:
                                             for child_ref in self.block_info:
                                                 if child_ref._has_data():
@@ -6779,8 +6655,6 @@ class Fia(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.asic_instance is not None:
                                         return True
 
@@ -6818,8 +6692,6 @@ class Fia(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pbc_stats is not None and self.pbc_stats._has_data():
                                     return True
 
@@ -7114,8 +6986,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.error_token_count is not None:
                                                         return True
 
@@ -7286,8 +7156,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
@@ -7476,8 +7344,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
@@ -7539,8 +7405,6 @@ class Fia(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.link_counters is not None and self.link_counters._has_data():
                                                     return True
 
@@ -7684,8 +7548,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.error_token_count is not None:
                                                         return True
 
@@ -7856,8 +7718,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
@@ -8046,8 +7906,6 @@ class Fia(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.rx_8b_10b_code_errors is not None:
                                                         return True
 
@@ -8109,8 +7967,6 @@ class Fia(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.link_counters is not None and self.link_counters._has_data():
                                                     return True
 
@@ -8141,8 +7997,6 @@ class Fia(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.asic is not None:
                                                 return True
 
@@ -8191,8 +8045,6 @@ class Fia(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.link is not None:
                                             return True
 
@@ -8220,8 +8072,6 @@ class Fia(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.fmac_link is not None:
                                         for child_ref in self.fmac_link:
                                             if child_ref._has_data():
@@ -8246,8 +8096,6 @@ class Fia(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fmac_links is not None and self.fmac_links._has_data():
                                     return True
 
@@ -8272,8 +8120,6 @@ class Fia(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.instance is not None:
                                 return True
 
@@ -8302,8 +8148,6 @@ class Fia(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.statistics_asic_instance is not None:
                             for child_ref in self.statistics_asic_instance:
                                 if child_ref._has_data():
@@ -8328,8 +8172,6 @@ class Fia(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.statistics_asic_instances is not None and self.statistics_asic_instances._has_data():
                         return True
 
@@ -8352,8 +8194,6 @@ class Fia(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -8398,8 +8238,6 @@ class Fia(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -8422,8 +8260,6 @@ class Fia(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

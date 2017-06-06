@@ -135,8 +135,6 @@ class Vty(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.pool_name is not None:
                     return True
 
@@ -169,8 +167,6 @@ class Vty(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vty_pool is not None:
                 for child_ref in self.vty_pool:
                     if child_ref._has_data():
@@ -193,8 +189,6 @@ class Vty(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.vty_pools is not None and self.vty_pools._has_data():
             return True
 

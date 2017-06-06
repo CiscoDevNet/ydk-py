@@ -309,8 +309,6 @@ class EsAcl(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.current_configured_ac_es is not None:
                             return True
 
@@ -340,8 +338,6 @@ class EsAcl(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.details is not None and self.details._has_data():
                         return True
 
@@ -362,8 +358,6 @@ class EsAcl(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.acl_summary is not None and self.acl_summary._has_data():
                     return True
 
@@ -673,8 +667,6 @@ class EsAcl(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sequence_number is not None:
                                     return True
 
@@ -763,8 +755,6 @@ class EsAcl(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acl_sequence_number is not None:
                                 for child_ref in self.acl_sequence_number:
                                     if child_ref._has_data():
@@ -789,8 +779,6 @@ class EsAcl(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -814,8 +802,6 @@ class EsAcl(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.acl is not None:
                         for child_ref in self.acl:
                             if child_ref._has_data():
@@ -838,8 +824,6 @@ class EsAcl(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.acls is not None and self.acls._has_data():
                     return True
 
@@ -941,8 +925,6 @@ class EsAcl(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -975,8 +957,6 @@ class EsAcl(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.oor_acl is not None:
                     for child_ref in self.oor_acl:
                         if child_ref._has_data():
@@ -1068,8 +1048,6 @@ class EsAcl(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.application_id is not None:
                         return True
 
@@ -1099,8 +1077,6 @@ class EsAcl(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.usage is not None:
                     for child_ref in self.usage:
                         if child_ref._has_data():
@@ -1123,8 +1099,6 @@ class EsAcl(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.list is not None and self.list._has_data():
                 return True
 
@@ -1154,8 +1128,6 @@ class EsAcl(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.active is not None and self.active._has_data():
             return True
 

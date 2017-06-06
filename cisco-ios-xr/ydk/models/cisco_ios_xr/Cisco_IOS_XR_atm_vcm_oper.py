@@ -1024,8 +1024,6 @@ class AtmVcm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
@@ -1056,8 +1054,6 @@ class AtmVcm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -1155,8 +1151,6 @@ class AtmVcm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vc is not None:
                         for child_ref in self.vc:
                             if child_ref._has_data():
@@ -1329,8 +1323,6 @@ class AtmVcm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
@@ -1359,8 +1351,6 @@ class AtmVcm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.cell_packing is not None and self.cell_packing._has_data():
                             return True
 
@@ -1407,8 +1397,6 @@ class AtmVcm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cell_pack is not None:
                         for child_ref in self.cell_pack:
                             if child_ref._has_data():
@@ -1693,8 +1681,6 @@ class AtmVcm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
@@ -1725,8 +1711,6 @@ class AtmVcm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -1821,8 +1805,6 @@ class AtmVcm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.pvp is not None:
                         for child_ref in self.pvp:
                             if child_ref._has_data():
@@ -1950,8 +1932,6 @@ class AtmVcm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.encapsulation_not_supported is not None:
                                 return True
 
@@ -2080,8 +2060,6 @@ class AtmVcm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.average_output_rate is not None:
                                     return True
 
@@ -2143,8 +2121,6 @@ class AtmVcm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.encapsulation_inherit_level is not None:
                                     return True
 
@@ -2217,8 +2193,6 @@ class AtmVcm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ais_rdi_failure is not None:
                                     return True
 
@@ -2298,8 +2272,6 @@ class AtmVcm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.down_count is not None:
                                     return True
 
@@ -2370,8 +2342,6 @@ class AtmVcm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ais_rdi_inherit_level is not None:
                                     return True
 
@@ -2400,8 +2370,6 @@ class AtmVcm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ais_rdi is not None and self.ais_rdi._has_data():
                                 return True
 
@@ -2438,8 +2406,6 @@ class AtmVcm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vpi is not None:
                             return True
 
@@ -2474,8 +2440,6 @@ class AtmVcm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.class_link is not None:
                         for child_ref in self.class_link:
                             if child_ref._has_data():
@@ -2718,8 +2682,6 @@ class AtmVcm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_max_cells_packed_per_packet is not None:
                                 return True
 
@@ -2750,8 +2712,6 @@ class AtmVcm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -2825,8 +2785,6 @@ class AtmVcm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -3005,8 +2963,6 @@ class AtmVcm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -3071,8 +3027,6 @@ class AtmVcm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vp_tunnel is not None:
                         for child_ref in self.vp_tunnel:
                             if child_ref._has_data():
@@ -3097,8 +3051,6 @@ class AtmVcm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -3137,8 +3089,6 @@ class AtmVcm(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3161,8 +3111,6 @@ class AtmVcm(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

@@ -115,8 +115,6 @@ class NetconfYang(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -182,8 +180,6 @@ class NetconfYang(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.absolute_timeout is not None:
                     return True
 
@@ -210,8 +206,6 @@ class NetconfYang(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rate_limit is not None:
                 return True
 
@@ -238,8 +232,6 @@ class NetconfYang(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.agent is not None and self.agent._has_data():
             return True
 

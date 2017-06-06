@@ -252,8 +252,6 @@ class TrafficCollector(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -277,8 +275,6 @@ class TrafficCollector(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.external_interface is not None:
                 for child_ref in self.external_interface:
                     if child_ref._has_data():
@@ -360,8 +356,6 @@ class TrafficCollector(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.collection_interval is not None:
                 return True
 
@@ -391,8 +385,6 @@ class TrafficCollector(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.enable_traffic_collector is not None:
             return True
 

@@ -113,8 +113,6 @@ class Statistics(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.polling_disable is not None:
                     return True
 
@@ -138,8 +136,6 @@ class Statistics(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.service_accounting is not None and self.service_accounting._has_data():
                 return True
 
@@ -160,8 +156,6 @@ class Statistics(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.period is not None and self.period._has_data():
             return True
 

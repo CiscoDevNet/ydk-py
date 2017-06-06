@@ -437,8 +437,6 @@ class MpaInternal(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bay is not None:
                                     return True
 
@@ -490,8 +488,6 @@ class MpaInternal(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.number is not None:
                                 return True
 
@@ -517,8 +513,6 @@ class MpaInternal(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ifsubsy is not None:
                             for child_ref in self.ifsubsy:
                                 if child_ref._has_data():
@@ -545,8 +539,6 @@ class MpaInternal(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.number is not None:
                         return True
 
@@ -572,8 +564,6 @@ class MpaInternal(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     return True
 
@@ -599,8 +589,6 @@ class MpaInternal(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -623,8 +611,6 @@ class MpaInternal(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -883,8 +869,6 @@ class Mpa(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bay_number is not None:
                                 return True
 
@@ -943,8 +927,6 @@ class Mpa(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mpa_detail is not None and self.mpa_detail._has_data():
                             return True
 
@@ -969,8 +951,6 @@ class Mpa(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.number is not None:
                         return True
 
@@ -996,8 +976,6 @@ class Mpa(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     return True
 
@@ -1023,8 +1001,6 @@ class Mpa(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -1047,8 +1023,6 @@ class Mpa(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

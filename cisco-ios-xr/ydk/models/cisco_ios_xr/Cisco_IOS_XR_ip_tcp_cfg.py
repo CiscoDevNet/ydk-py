@@ -196,8 +196,6 @@ class IpTcp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.directoryname is not None:
@@ -269,8 +267,6 @@ class IpTcp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.tcpmaxthrottle is not None:
@@ -339,8 +335,6 @@ class IpTcp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.tcp_in_q_threads is not None:
@@ -366,8 +360,6 @@ class IpTcp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.accept_rate is not None:
             return True
 
@@ -597,8 +589,6 @@ class Ip(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.access_control_list_name is not None:
@@ -665,8 +655,6 @@ class Ip(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.access_control_list_name is not None:
@@ -692,8 +680,6 @@ class Ip(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.tcp_small_servers is not None and self.tcp_small_servers._has_data():
                             return True
 
@@ -717,8 +703,6 @@ class Ip(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.small_servers is not None and self.small_servers._has_data():
                         return True
 
@@ -892,8 +876,6 @@ class Ip(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.access_list_name is not None:
@@ -921,8 +903,6 @@ class Ip(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.tcp is not None and self.tcp._has_data():
                                     return True
 
@@ -1021,8 +1001,6 @@ class Ip(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.access_list_name is not None:
@@ -1056,8 +1034,6 @@ class Ip(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.udp is not None and self.udp._has_data():
                                     return True
 
@@ -1080,8 +1056,6 @@ class Ip(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.telnet is not None and self.telnet._has_data():
                                 return True
 
@@ -1198,8 +1172,6 @@ class Ip(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.access_list_name is not None:
@@ -1227,8 +1199,6 @@ class Ip(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.tcp is not None and self.tcp._has_data():
                                     return True
 
@@ -1327,8 +1297,6 @@ class Ip(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self._is_presence:
                                         return True
                                     if self.access_list_name is not None:
@@ -1362,8 +1330,6 @@ class Ip(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.udp is not None and self.udp._has_data():
                                     return True
 
@@ -1386,8 +1352,6 @@ class Ip(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.telnet is not None and self.telnet._has_data():
                                 return True
 
@@ -1413,8 +1377,6 @@ class Ip(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf_name is not None:
                             return True
 
@@ -1441,8 +1403,6 @@ class Ip(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
@@ -1550,8 +1510,6 @@ class Ip(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.access_control_list_name is not None:
@@ -1577,8 +1535,6 @@ class Ip(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.tcp_small_servers is not None and self.tcp_small_servers._has_data():
                             return True
 
@@ -1599,8 +1555,6 @@ class Ip(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.small_servers is not None and self.small_servers._has_data():
                         return True
 
@@ -1621,8 +1575,6 @@ class Ip(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4 is not None and self.ipv4._has_data():
                     return True
 
@@ -1649,8 +1601,6 @@ class Ip(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.services is not None and self.services._has_data():
                 return True
 
@@ -1780,8 +1730,6 @@ class Ip(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.port_id is not None:
                             return True
 
@@ -1805,8 +1753,6 @@ class Ip(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.port is not None:
                         for child_ref in self.port:
                             if child_ref._has_data():
@@ -1829,8 +1775,6 @@ class Ip(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.disable is not None:
                     return True
 
@@ -1854,8 +1798,6 @@ class Ip(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.udp is not None and self.udp._has_data():
                 return True
 
@@ -1876,8 +1818,6 @@ class Ip(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.cinetd is not None and self.cinetd._has_data():
             return True
 

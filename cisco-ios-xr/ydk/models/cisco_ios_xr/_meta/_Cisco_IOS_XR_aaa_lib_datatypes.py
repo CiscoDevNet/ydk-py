@@ -13,12 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'AaaAccountingUpdateEnum' : _MetaInfoEnum('AaaAccountingUpdateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes',
-        {
-            'none':'none',
-            'newinfo':'newinfo',
-            'periodic':'periodic',
-        }, 'Cisco-IOS-XR-aaa-lib-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-aaa-lib-datatypes']),
     'AaaAccountingEnum' : _MetaInfoEnum('AaaAccountingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes',
         {
             'not-set':'not_set',
@@ -49,6 +43,12 @@ _meta_table = {
         {
             'disable':'disable',
             'enable':'enable',
+        }, 'Cisco-IOS-XR-aaa-lib-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-aaa-lib-datatypes']),
+    'AaaAccountingUpdateEnum' : _MetaInfoEnum('AaaAccountingUpdateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes',
+        {
+            'none':'none',
+            'newinfo':'newinfo',
+            'periodic':'periodic',
         }, 'Cisco-IOS-XR-aaa-lib-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-aaa-lib-datatypes']),
     'AaaAccountingRpFailoverEnum' : _MetaInfoEnum('AaaAccountingRpFailoverEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes',
         {

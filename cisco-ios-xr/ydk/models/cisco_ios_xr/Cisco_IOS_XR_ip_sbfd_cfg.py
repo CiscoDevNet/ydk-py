@@ -175,8 +175,6 @@ class Sbfd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.remote_discriminator is not None:
                             return True
 
@@ -199,8 +197,6 @@ class Sbfd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -226,8 +222,6 @@ class Sbfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4_address is not None:
                     for child_ref in self.ipv4_address:
                         if child_ref._has_data():
@@ -331,8 +325,6 @@ class Sbfd(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.remote_discriminator is not None:
                             return True
 
@@ -355,8 +347,6 @@ class Sbfd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -382,8 +372,6 @@ class Sbfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv6_address is not None:
                     for child_ref in self.ipv6_address:
                         if child_ref._has_data():
@@ -406,8 +394,6 @@ class Sbfd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_addresses is not None and self.ipv4_addresses._has_data():
                 return True
 
@@ -523,8 +509,6 @@ class Sbfd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -545,8 +529,6 @@ class Sbfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.intf_discriminator is not None:
                     for child_ref in self.intf_discriminator:
                         if child_ref._has_data():
@@ -617,8 +599,6 @@ class Sbfd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.discriminator is not None:
                         return True
 
@@ -639,8 +619,6 @@ class Sbfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.dynamic_discriminator is not None:
                     for child_ref in self.dynamic_discriminator:
                         if child_ref._has_data():
@@ -722,8 +700,6 @@ class Sbfd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -744,8 +720,6 @@ class Sbfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4_discriminator is not None:
                     for child_ref in self.ipv4_discriminator:
                         if child_ref._has_data():
@@ -816,8 +790,6 @@ class Sbfd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.discriminator is not None:
                         return True
 
@@ -838,8 +810,6 @@ class Sbfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.val32_discriminator is not None:
                     for child_ref in self.val32_discriminator:
                         if child_ref._has_data():
@@ -862,8 +832,6 @@ class Sbfd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.dynamic_discriminators is not None and self.dynamic_discriminators._has_data():
                 return True
 
@@ -893,8 +861,6 @@ class Sbfd(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.local_discriminator is not None and self.local_discriminator._has_data():
             return True
 

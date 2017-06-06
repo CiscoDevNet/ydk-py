@@ -24,13 +24,24 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'Speed_100GbIdentity' : {
-        'meta_info' : _MetaInfoClass('Speed_100GbIdentity',
+    'Speed_40GbIdentity' : {
+        'meta_info' : _MetaInfoClass('Speed_40GbIdentity',
             False, 
             [
             ],
             'openconfig-if-ethernet',
-            'SPEED_100Gb',
+            'SPEED_40Gb',
+            _yang_ns._namespaces['openconfig-if-ethernet'],
+        'ydk.models.openconfig.openconfig_if_ethernet'
+        ),
+    },
+    'Speed_10MbIdentity' : {
+        'meta_info' : _MetaInfoClass('Speed_10MbIdentity',
+            False, 
+            [
+            ],
+            'openconfig-if-ethernet',
+            'SPEED_10Mb',
             _yang_ns._namespaces['openconfig-if-ethernet'],
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
@@ -57,39 +68,6 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'Speed_10GbIdentity' : {
-        'meta_info' : _MetaInfoClass('Speed_10GbIdentity',
-            False, 
-            [
-            ],
-            'openconfig-if-ethernet',
-            'SPEED_10Gb',
-            _yang_ns._namespaces['openconfig-if-ethernet'],
-        'ydk.models.openconfig.openconfig_if_ethernet'
-        ),
-    },
-    'Speed_10MbIdentity' : {
-        'meta_info' : _MetaInfoClass('Speed_10MbIdentity',
-            False, 
-            [
-            ],
-            'openconfig-if-ethernet',
-            'SPEED_10Mb',
-            _yang_ns._namespaces['openconfig-if-ethernet'],
-        'ydk.models.openconfig.openconfig_if_ethernet'
-        ),
-    },
-    'Speed_40GbIdentity' : {
-        'meta_info' : _MetaInfoClass('Speed_40GbIdentity',
-            False, 
-            [
-            ],
-            'openconfig-if-ethernet',
-            'SPEED_40Gb',
-            _yang_ns._namespaces['openconfig-if-ethernet'],
-        'ydk.models.openconfig.openconfig_if_ethernet'
-        ),
-    },
     'Speed_UnknownIdentity' : {
         'meta_info' : _MetaInfoClass('Speed_UnknownIdentity',
             False, 
@@ -101,13 +79,24 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
     },
-    'Speed_50GbIdentity' : {
-        'meta_info' : _MetaInfoClass('Speed_50GbIdentity',
+    'Speed_10GbIdentity' : {
+        'meta_info' : _MetaInfoClass('Speed_10GbIdentity',
             False, 
             [
             ],
             'openconfig-if-ethernet',
-            'SPEED_50Gb',
+            'SPEED_10Gb',
+            _yang_ns._namespaces['openconfig-if-ethernet'],
+        'ydk.models.openconfig.openconfig_if_ethernet'
+        ),
+    },
+    'Speed_100GbIdentity' : {
+        'meta_info' : _MetaInfoClass('Speed_100GbIdentity',
+            False, 
+            [
+            ],
+            'openconfig-if-ethernet',
+            'SPEED_100Gb',
             _yang_ns._namespaces['openconfig-if-ethernet'],
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),
@@ -119,6 +108,17 @@ _meta_table = {
             ],
             'openconfig-if-ethernet',
             'SPEED_100Mb',
+            _yang_ns._namespaces['openconfig-if-ethernet'],
+        'ydk.models.openconfig.openconfig_if_ethernet'
+        ),
+    },
+    'Speed_50GbIdentity' : {
+        'meta_info' : _MetaInfoClass('Speed_50GbIdentity',
+            False, 
+            [
+            ],
+            'openconfig-if-ethernet',
+            'SPEED_50Gb',
             _yang_ns._namespaces['openconfig-if-ethernet'],
         'ydk.models.openconfig.openconfig_if_ethernet'
         ),

@@ -124,8 +124,6 @@ class Ssrp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -152,8 +150,6 @@ class Ssrp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.profile is not None:
                 for child_ref in self.profile:
                     if child_ref._has_data():
@@ -176,8 +172,6 @@ class Ssrp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.profiles is not None and self.profiles._has_data():
             return True
 

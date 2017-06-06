@@ -110,8 +110,6 @@ class MplsOam(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.allow_reverse_lsp is not None:
                     return True
 
@@ -132,8 +130,6 @@ class MplsOam(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.control_channel is not None and self.control_channel._has_data():
                 return True
 
@@ -154,8 +150,6 @@ class MplsOam(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.disable_vendor_extension is not None:
             return True
 

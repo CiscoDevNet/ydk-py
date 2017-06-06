@@ -553,8 +553,6 @@ class SubscriberRedundancyManager(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.group is not None:
                     return True
 
@@ -614,8 +612,6 @@ class SubscriberRedundancyManager(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.group is not None:
                 for child_ref in self.group:
                     if child_ref._has_data():
@@ -769,8 +765,6 @@ class SubscriberRedundancyManager(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.active_state is not None:
                 return True
 
@@ -918,8 +912,6 @@ class SubscriberRedundancyManager(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     return True
 
@@ -955,8 +947,6 @@ class SubscriberRedundancyManager(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -979,8 +969,6 @@ class SubscriberRedundancyManager(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.groups is not None and self.groups._has_data():
             return True
 
@@ -1282,8 +1270,6 @@ class SubscriberRedundancyAgent(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.component is not None:
                                 return True
 
@@ -1355,8 +1341,6 @@ class SubscriberRedundancyAgent(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.last_error_code is not None:
                                 return True
 
@@ -1387,8 +1371,6 @@ class SubscriberRedundancyAgent(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_id is not None:
                             return True
 
@@ -1451,8 +1433,6 @@ class SubscriberRedundancyAgent(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_id is not None:
                         for child_ref in self.group_id:
                             if child_ref._has_data():
@@ -1672,8 +1652,6 @@ class SubscriberRedundancyAgent(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.idb_oper_attr_update is not None:
                                 return True
 
@@ -1771,8 +1749,6 @@ class SubscriberRedundancyAgent(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.idb_client_eoms_pending is not None:
                                 return True
 
@@ -1857,8 +1833,6 @@ class SubscriberRedundancyAgent(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.component is not None:
                                 return True
 
@@ -1892,8 +1866,6 @@ class SubscriberRedundancyAgent(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -1960,8 +1932,6 @@ class SubscriberRedundancyAgent(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -2118,8 +2088,6 @@ class SubscriberRedundancyAgent(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_id is not None:
                             return True
 
@@ -2178,8 +2146,6 @@ class SubscriberRedundancyAgent(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_summary is not None:
                         for child_ref in self.group_summary:
                             if child_ref._has_data():
@@ -2563,8 +2529,6 @@ class SubscriberRedundancyAgent(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.forward_referenced is not None:
                                 return True
 
@@ -2598,8 +2562,6 @@ class SubscriberRedundancyAgent(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_id is not None:
                             return True
 
@@ -2741,8 +2703,6 @@ class SubscriberRedundancyAgent(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_id is not None:
                         for child_ref in self.group_id:
                             if child_ref._has_data():
@@ -2767,8 +2727,6 @@ class SubscriberRedundancyAgent(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -2801,8 +2759,6 @@ class SubscriberRedundancyAgent(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -2825,8 +2781,6 @@ class SubscriberRedundancyAgent(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

@@ -843,8 +843,6 @@ class Ipv4AclAndPrefixList(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sequence_number is not None:
                                 return True
 
@@ -900,8 +898,6 @@ class Ipv4AclAndPrefixList(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_list_sequence is not None:
                             for child_ref in self.prefix_list_sequence:
                                 if child_ref._has_data():
@@ -926,8 +922,6 @@ class Ipv4AclAndPrefixList(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.prefix_list_name is not None:
                         return True
 
@@ -951,8 +945,6 @@ class Ipv4AclAndPrefixList(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.prefix is not None:
                     for child_ref in self.prefix:
                         if child_ref._has_data():
@@ -1524,8 +1516,6 @@ class Ipv4AclAndPrefixList(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.next_hop is not None:
                                     return True
 
@@ -1601,8 +1591,6 @@ class Ipv4AclAndPrefixList(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.at_status is not None:
                                     return True
 
@@ -1676,8 +1664,6 @@ class Ipv4AclAndPrefixList(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.udf_mask is not None:
                                     return True
 
@@ -1708,8 +1694,6 @@ class Ipv4AclAndPrefixList(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sequence_number is not None:
                                 return True
 
@@ -1907,8 +1891,6 @@ class Ipv4AclAndPrefixList(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.access_list_sequence is not None:
                             for child_ref in self.access_list_sequence:
                                 if child_ref._has_data():
@@ -1987,8 +1969,6 @@ class Ipv4AclAndPrefixList(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.obj_grp_name is not None:
                                 return True
 
@@ -2014,8 +1994,6 @@ class Ipv4AclAndPrefixList(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.obj_grp_info is not None:
                             for child_ref in self.obj_grp_info:
                                 if child_ref._has_data():
@@ -2040,8 +2018,6 @@ class Ipv4AclAndPrefixList(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access_list_name is not None:
                         return True
 
@@ -2068,8 +2044,6 @@ class Ipv4AclAndPrefixList(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.access is not None:
                     for child_ref in self.access:
                         if child_ref._has_data():
@@ -2159,8 +2133,6 @@ class Ipv4AclAndPrefixList(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access_list_name is not None:
                         return True
 
@@ -2190,8 +2162,6 @@ class Ipv4AclAndPrefixList(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.usage is not None:
                     for child_ref in self.usage:
                         if child_ref._has_data():
@@ -2214,8 +2184,6 @@ class Ipv4AclAndPrefixList(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.accesses is not None and self.accesses._has_data():
                 return True
 
@@ -2372,8 +2340,6 @@ class Ipv4AclAndPrefixList(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.current_configured_ac_es is not None:
                     return True
 
@@ -2526,8 +2492,6 @@ class Ipv4AclAndPrefixList(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.prefix_list_name is not None:
                         return True
 
@@ -2572,8 +2536,6 @@ class Ipv4AclAndPrefixList(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.oor_prefix is not None:
                     for child_ref in self.oor_prefix:
                         if child_ref._has_data():
@@ -2707,8 +2669,6 @@ class Ipv4AclAndPrefixList(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access_list_name is not None:
                         return True
 
@@ -2753,8 +2713,6 @@ class Ipv4AclAndPrefixList(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.oor_access is not None:
                     for child_ref in self.oor_access:
                         if child_ref._has_data():
@@ -2879,8 +2837,6 @@ class Ipv4AclAndPrefixList(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.current_configured_ac_es is not None:
                         return True
 
@@ -2922,8 +2878,6 @@ class Ipv4AclAndPrefixList(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.details is not None and self.details._has_data():
                     return True
 
@@ -3047,8 +3001,6 @@ class Ipv4AclAndPrefixList(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.current_configured_ac_es is not None:
                         return True
 
@@ -3090,8 +3042,6 @@ class Ipv4AclAndPrefixList(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.details is not None and self.details._has_data():
                     return True
 
@@ -3112,8 +3062,6 @@ class Ipv4AclAndPrefixList(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.access_list_summary is not None and self.access_list_summary._has_data():
                 return True
 
@@ -3146,8 +3094,6 @@ class Ipv4AclAndPrefixList(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.access_list_manager is not None and self.access_list_manager._has_data():
             return True
 

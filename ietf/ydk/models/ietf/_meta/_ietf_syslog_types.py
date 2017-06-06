@@ -35,204 +35,6 @@ _meta_table = {
         'ydk.models.ietf.ietf_syslog_types'
         ),
     },
-    'Cron2Identity' : {
-        'meta_info' : _MetaInfoClass('Cron2Identity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'cron2',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'CronIdentity' : {
-        'meta_info' : _MetaInfoClass('CronIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'cron',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'SyslogIdentity' : {
-        'meta_info' : _MetaInfoClass('SyslogIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'syslog',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'Local4Identity' : {
-        'meta_info' : _MetaInfoClass('Local4Identity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'local4',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'FtpIdentity' : {
-        'meta_info' : _MetaInfoClass('FtpIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'ftp',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'UucpIdentity' : {
-        'meta_info' : _MetaInfoClass('UucpIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'uucp',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'ConsoleIdentity' : {
-        'meta_info' : _MetaInfoClass('ConsoleIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'console',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'MailIdentity' : {
-        'meta_info' : _MetaInfoClass('MailIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'mail',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'AuthprivIdentity' : {
-        'meta_info' : _MetaInfoClass('AuthprivIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'authpriv',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'NtpIdentity' : {
-        'meta_info' : _MetaInfoClass('NtpIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'ntp',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'AuthIdentity' : {
-        'meta_info' : _MetaInfoClass('AuthIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'auth',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'UserIdentity' : {
-        'meta_info' : _MetaInfoClass('UserIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'user',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'Local5Identity' : {
-        'meta_info' : _MetaInfoClass('Local5Identity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'local5',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'NewsIdentity' : {
-        'meta_info' : _MetaInfoClass('NewsIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'news',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'Local7Identity' : {
-        'meta_info' : _MetaInfoClass('Local7Identity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'local7',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'Local6Identity' : {
-        'meta_info' : _MetaInfoClass('Local6Identity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'local6',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'Local1Identity' : {
-        'meta_info' : _MetaInfoClass('Local1Identity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'local1',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'Local0Identity' : {
-        'meta_info' : _MetaInfoClass('Local0Identity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'local0',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
     'Local3Identity' : {
         'meta_info' : _MetaInfoClass('Local3Identity',
             False, 
@@ -240,28 +42,6 @@ _meta_table = {
             ],
             'ietf-syslog-types',
             'local3',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'Local2Identity' : {
-        'meta_info' : _MetaInfoClass('Local2Identity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'local2',
-            _yang_ns._namespaces['ietf-syslog-types'],
-        'ydk.models.ietf.ietf_syslog_types'
-        ),
-    },
-    'AuditIdentity' : {
-        'meta_info' : _MetaInfoClass('AuditIdentity',
-            False, 
-            [
-            ],
-            'ietf-syslog-types',
-            'audit',
             _yang_ns._namespaces['ietf-syslog-types'],
         'ydk.models.ietf.ietf_syslog_types'
         ),
@@ -277,13 +57,46 @@ _meta_table = {
         'ydk.models.ietf.ietf_syslog_types'
         ),
     },
-    'LprIdentity' : {
-        'meta_info' : _MetaInfoClass('LprIdentity',
+    'Local0Identity' : {
+        'meta_info' : _MetaInfoClass('Local0Identity',
             False, 
             [
             ],
             'ietf-syslog-types',
-            'lpr',
+            'local0',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'NtpIdentity' : {
+        'meta_info' : _MetaInfoClass('NtpIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'ntp',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'CronIdentity' : {
+        'meta_info' : _MetaInfoClass('CronIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'cron',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'AuditIdentity' : {
+        'meta_info' : _MetaInfoClass('AuditIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'audit',
             _yang_ns._namespaces['ietf-syslog-types'],
         'ydk.models.ietf.ietf_syslog_types'
         ),
@@ -295,6 +108,193 @@ _meta_table = {
             ],
             'ietf-syslog-types',
             'kern',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'Local4Identity' : {
+        'meta_info' : _MetaInfoClass('Local4Identity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'local4',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'MailIdentity' : {
+        'meta_info' : _MetaInfoClass('MailIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'mail',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'UserIdentity' : {
+        'meta_info' : _MetaInfoClass('UserIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'user',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'FtpIdentity' : {
+        'meta_info' : _MetaInfoClass('FtpIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'ftp',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'Local6Identity' : {
+        'meta_info' : _MetaInfoClass('Local6Identity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'local6',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'ConsoleIdentity' : {
+        'meta_info' : _MetaInfoClass('ConsoleIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'console',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'LprIdentity' : {
+        'meta_info' : _MetaInfoClass('LprIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'lpr',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'Local1Identity' : {
+        'meta_info' : _MetaInfoClass('Local1Identity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'local1',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'AuthIdentity' : {
+        'meta_info' : _MetaInfoClass('AuthIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'auth',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'Local2Identity' : {
+        'meta_info' : _MetaInfoClass('Local2Identity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'local2',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'Local5Identity' : {
+        'meta_info' : _MetaInfoClass('Local5Identity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'local5',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'Local7Identity' : {
+        'meta_info' : _MetaInfoClass('Local7Identity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'local7',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'UucpIdentity' : {
+        'meta_info' : _MetaInfoClass('UucpIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'uucp',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'NewsIdentity' : {
+        'meta_info' : _MetaInfoClass('NewsIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'news',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'AuthprivIdentity' : {
+        'meta_info' : _MetaInfoClass('AuthprivIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'authpriv',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'Cron2Identity' : {
+        'meta_info' : _MetaInfoClass('Cron2Identity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'cron2',
+            _yang_ns._namespaces['ietf-syslog-types'],
+        'ydk.models.ietf.ietf_syslog_types'
+        ),
+    },
+    'SyslogIdentity' : {
+        'meta_info' : _MetaInfoClass('SyslogIdentity',
+            False, 
+            [
+            ],
+            'ietf-syslog-types',
+            'syslog',
             _yang_ns._namespaces['ietf-syslog-types'],
         'ydk.models.ietf.ietf_syslog_types'
         ),

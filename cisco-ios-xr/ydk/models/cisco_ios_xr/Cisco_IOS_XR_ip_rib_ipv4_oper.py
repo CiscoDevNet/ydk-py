@@ -978,8 +978,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.address is not None:
                                                             return True
 
@@ -1117,8 +1115,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.ipv4_rib_edm_path is not None:
                                                         for child_ref in self.ipv4_rib_edm_path:
                                                             if child_ref._has_data():
@@ -1143,8 +1139,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.active is not None:
                                                     return True
 
@@ -1275,8 +1269,6 @@ class RibStdby(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.route is not None:
                                                 for child_ref in self.route:
                                                     if child_ref._has_data():
@@ -1937,8 +1929,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.address is not None:
                                                             return True
 
@@ -2076,8 +2066,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.ipv4_rib_edm_path is not None:
                                                         for child_ref in self.ipv4_rib_edm_path:
                                                             if child_ref._has_data():
@@ -2102,8 +2090,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.active is not None:
                                                     return True
 
@@ -2228,8 +2214,6 @@ class RibStdby(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.deleted_route is not None:
                                                 for child_ref in self.deleted_route:
                                                     if child_ref._has_data():
@@ -2925,8 +2909,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.address is not None:
                                                                 return True
 
@@ -3064,8 +3046,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.ipv4_rib_edm_path is not None:
                                                             for child_ref in self.ipv4_rib_edm_path:
                                                                 if child_ref._has_data():
@@ -3092,8 +3072,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.address is not None:
                                                         return True
 
@@ -3215,8 +3193,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.dest_best_route is not None:
                                                     for child_ref in self.dest_best_route:
                                                         if child_ref._has_data():
@@ -3877,8 +3853,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.address is not None:
                                                                 return True
 
@@ -4016,8 +3990,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.ipv4_rib_edm_path is not None:
                                                             for child_ref in self.ipv4_rib_edm_path:
                                                                 if child_ref._has_data():
@@ -4042,8 +4014,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.active is not None:
                                                         return True
 
@@ -4168,8 +4138,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.dest_q_route is not None:
                                                     for child_ref in self.dest_q_route:
                                                         if child_ref._has_data():
@@ -4830,8 +4798,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.address is not None:
                                                                 return True
 
@@ -4969,8 +4935,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.ipv4_rib_edm_path is not None:
                                                             for child_ref in self.ipv4_rib_edm_path:
                                                                 if child_ref._has_data():
@@ -4995,8 +4959,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.active is not None:
                                                         return True
 
@@ -5121,8 +5083,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.dest_backup_route is not None:
                                                     for child_ref in self.dest_backup_route:
                                                         if child_ref._has_data():
@@ -5775,8 +5735,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.address is not None:
                                                                 return True
 
@@ -5914,8 +5872,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.ipv4_rib_edm_path is not None:
                                                             for child_ref in self.ipv4_rib_edm_path:
                                                                 if child_ref._has_data():
@@ -5942,8 +5898,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.address is not None:
                                                         return True
 
@@ -6065,8 +6019,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.dest_next_hop_route is not None:
                                                     for child_ref in self.dest_next_hop_route:
                                                         if child_ref._has_data():
@@ -6091,8 +6043,6 @@ class RibStdby(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.dest_backup_routes is not None and self.dest_backup_routes._has_data():
                                                 return True
 
@@ -6226,8 +6176,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.data is not None:
                                                     return True
 
@@ -6271,8 +6219,6 @@ class RibStdby(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.opaque is not None:
                                                 for child_ref in self.opaque:
                                                     if child_ref._has_data():
@@ -7098,8 +7044,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -7237,8 +7181,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -7263,8 +7205,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -7389,8 +7329,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -7516,8 +7454,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -7570,8 +7506,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -7597,8 +7531,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -8308,8 +8240,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -8447,8 +8377,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -8473,8 +8401,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -8599,8 +8525,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -8726,8 +8650,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -8780,8 +8702,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -8807,8 +8727,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -9518,8 +9436,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -9657,8 +9573,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -9683,8 +9597,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -9809,8 +9721,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -9936,8 +9846,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -9990,8 +9898,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -10017,8 +9923,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -10729,8 +10633,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -10868,8 +10770,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -10894,8 +10794,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -11020,8 +10918,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -11147,8 +11043,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -11201,8 +11095,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -11228,8 +11120,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -11939,8 +11829,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -12078,8 +11966,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -12104,8 +11990,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -12230,8 +12114,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -12357,8 +12239,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -12411,8 +12291,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -12438,8 +12316,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -13158,8 +13034,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -13297,8 +13171,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -13323,8 +13195,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -13449,8 +13319,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -13576,8 +13444,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -13632,8 +13498,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.as_ is not None:
                                                         return True
 
@@ -13662,8 +13526,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
@@ -14375,8 +14237,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -14514,8 +14374,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -14540,8 +14398,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -14666,8 +14522,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -14793,8 +14647,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -14847,8 +14699,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -14874,8 +14724,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -15594,8 +15442,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -15733,8 +15579,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -15759,8 +15603,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -15885,8 +15727,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -16012,8 +15852,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -16068,8 +15906,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.as_ is not None:
                                                         return True
 
@@ -16098,8 +15934,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
@@ -16811,8 +16645,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -16950,8 +16782,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -16976,8 +16806,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -17102,8 +16930,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -17229,8 +17055,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -17283,8 +17107,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -17310,8 +17132,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -18021,8 +17841,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -18160,8 +17978,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -18186,8 +18002,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -18312,8 +18126,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -18439,8 +18251,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -18493,8 +18303,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -18520,8 +18328,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -19240,8 +19046,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -19379,8 +19183,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -19405,8 +19207,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -19531,8 +19331,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -19658,8 +19456,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -19714,8 +19510,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.as_ is not None:
                                                         return True
 
@@ -19744,8 +19538,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
@@ -20471,8 +20263,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -20610,8 +20400,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -20636,8 +20424,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -20762,8 +20548,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -20889,8 +20673,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -20943,8 +20725,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -21636,8 +21416,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -21775,8 +21553,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -21801,8 +21577,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -21927,8 +21701,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -22054,8 +21826,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -22108,8 +21878,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -22800,8 +22568,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -22939,8 +22705,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -22965,8 +22729,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -23091,8 +22853,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -23218,8 +22978,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -23272,8 +23030,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -23299,8 +23055,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.lspv is not None and self.lspv._has_data():
                                                     return True
 
@@ -24025,8 +23779,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -24164,8 +23916,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -24190,8 +23940,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -24316,8 +24064,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -24443,8 +24189,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -24499,8 +24243,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.as_ is not None:
                                                         return True
 
@@ -24529,8 +24271,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
@@ -25251,8 +24991,6 @@ class RibStdby(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -25390,8 +25128,6 @@ class RibStdby(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -25416,8 +25152,6 @@ class RibStdby(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -25542,8 +25276,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -25669,8 +25401,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -25725,8 +25455,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.as_ is not None:
                                                         return True
 
@@ -25755,8 +25483,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
@@ -25781,8 +25507,6 @@ class RibStdby(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.application is not None and self.application._has_data():
                                                 return True
 
@@ -26480,8 +26204,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.address is not None:
                                                             return True
 
@@ -26619,8 +26341,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.ipv4_rib_edm_path is not None:
                                                         for child_ref in self.ipv4_rib_edm_path:
                                                             if child_ref._has_data():
@@ -26645,8 +26365,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.active is not None:
                                                     return True
 
@@ -26771,8 +26489,6 @@ class RibStdby(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.q_route is not None:
                                                 for child_ref in self.q_route:
                                                     if child_ref._has_data():
@@ -27442,8 +27158,6 @@ class RibStdby(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.address is not None:
                                                             return True
 
@@ -27581,8 +27295,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.ipv4_rib_edm_path is not None:
                                                         for child_ref in self.ipv4_rib_edm_path:
                                                             if child_ref._has_data():
@@ -27607,8 +27319,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.active is not None:
                                                     return True
 
@@ -27736,8 +27446,6 @@ class RibStdby(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_route is not None:
                                                 for child_ref in self.backup_route:
                                                     if child_ref._has_data():
@@ -27904,8 +27612,6 @@ class RibStdby(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.client_id is not None:
                                                         return True
 
@@ -27949,8 +27655,6 @@ class RibStdby(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -27981,8 +27685,6 @@ class RibStdby(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.advert is not None:
                                                 for child_ref in self.advert:
                                                     if child_ref._has_data():
@@ -28009,8 +27711,6 @@ class RibStdby(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.route_table_name is not None:
                                             return True
 
@@ -28057,8 +27757,6 @@ class RibStdby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ip_rib_route_table_name is not None:
                                         for child_ref in self.ip_rib_route_table_name:
                                             if child_ref._has_data():
@@ -28085,8 +27783,6 @@ class RibStdby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.saf_name is not None:
                                     return True
 
@@ -28112,8 +27808,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.saf is not None:
                                 for child_ref in self.saf:
                                     if child_ref._has_data():
@@ -28140,8 +27834,6 @@ class RibStdby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af_name is not None:
                             return True
 
@@ -28167,8 +27859,6 @@ class RibStdby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af is not None:
                         for child_ref in self.af:
                             if child_ref._has_data():
@@ -28193,8 +27883,6 @@ class RibStdby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -28218,8 +27906,6 @@ class RibStdby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -28536,8 +28222,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28616,8 +28300,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28696,8 +28378,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28776,8 +28456,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28856,8 +28534,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -28936,8 +28612,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29016,8 +28690,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29096,8 +28768,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29176,8 +28846,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29256,8 +28924,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29336,8 +29002,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29416,8 +29080,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29496,8 +29158,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29576,8 +29236,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29656,8 +29314,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29736,8 +29392,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29816,8 +29470,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29896,8 +29548,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -29931,8 +29581,6 @@ class RibStdby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.protoid is not None:
                             return True
 
@@ -30015,8 +29663,6 @@ class RibStdby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.summary_proto is not None:
                         for child_ref in self.summary_proto:
                             if child_ref._has_data():
@@ -30700,8 +30346,6 @@ class RibStdby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -30839,8 +30483,6 @@ class RibStdby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_rib_edm_path is not None:
                                     for child_ref in self.ipv4_rib_edm_path:
                                         if child_ref._has_data():
@@ -30867,8 +30509,6 @@ class RibStdby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -30992,8 +30632,6 @@ class RibStdby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.handle is not None:
                             return True
 
@@ -31021,8 +30659,6 @@ class RibStdby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rib_table_itf_hndl is not None:
                         for child_ref in self.rib_table_itf_hndl:
                             if child_ref._has_data():
@@ -31047,8 +30683,6 @@ class RibStdby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tableid is not None:
                     return True
 
@@ -31075,8 +30709,6 @@ class RibStdby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rib_table_id is not None:
                 for child_ref in self.rib_table_id:
                     if child_ref._has_data():
@@ -31099,8 +30731,6 @@ class RibStdby(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.rib_table_ids is not None and self.rib_table_ids._has_data():
             return True
 
@@ -32067,8 +31697,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.address is not None:
                                                             return True
 
@@ -32206,8 +31834,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.ipv4_rib_edm_path is not None:
                                                         for child_ref in self.ipv4_rib_edm_path:
                                                             if child_ref._has_data():
@@ -32232,8 +31858,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.active is not None:
                                                     return True
 
@@ -32364,8 +31988,6 @@ class Rib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.route is not None:
                                                 for child_ref in self.route:
                                                     if child_ref._has_data():
@@ -33026,8 +32648,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.address is not None:
                                                             return True
 
@@ -33165,8 +32785,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.ipv4_rib_edm_path is not None:
                                                         for child_ref in self.ipv4_rib_edm_path:
                                                             if child_ref._has_data():
@@ -33191,8 +32809,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.active is not None:
                                                     return True
 
@@ -33317,8 +32933,6 @@ class Rib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.deleted_route is not None:
                                                 for child_ref in self.deleted_route:
                                                     if child_ref._has_data():
@@ -34014,8 +33628,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.address is not None:
                                                                 return True
 
@@ -34153,8 +33765,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.ipv4_rib_edm_path is not None:
                                                             for child_ref in self.ipv4_rib_edm_path:
                                                                 if child_ref._has_data():
@@ -34181,8 +33791,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.address is not None:
                                                         return True
 
@@ -34304,8 +33912,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.dest_best_route is not None:
                                                     for child_ref in self.dest_best_route:
                                                         if child_ref._has_data():
@@ -34966,8 +34572,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.address is not None:
                                                                 return True
 
@@ -35105,8 +34709,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.ipv4_rib_edm_path is not None:
                                                             for child_ref in self.ipv4_rib_edm_path:
                                                                 if child_ref._has_data():
@@ -35131,8 +34733,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.active is not None:
                                                         return True
 
@@ -35257,8 +34857,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.dest_q_route is not None:
                                                     for child_ref in self.dest_q_route:
                                                         if child_ref._has_data():
@@ -35919,8 +35517,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.address is not None:
                                                                 return True
 
@@ -36058,8 +35654,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.ipv4_rib_edm_path is not None:
                                                             for child_ref in self.ipv4_rib_edm_path:
                                                                 if child_ref._has_data():
@@ -36084,8 +35678,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.active is not None:
                                                         return True
 
@@ -36210,8 +35802,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.dest_backup_route is not None:
                                                     for child_ref in self.dest_backup_route:
                                                         if child_ref._has_data():
@@ -36864,8 +36454,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.address is not None:
                                                                 return True
 
@@ -37003,8 +36591,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.ipv4_rib_edm_path is not None:
                                                             for child_ref in self.ipv4_rib_edm_path:
                                                                 if child_ref._has_data():
@@ -37031,8 +36617,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.address is not None:
                                                         return True
 
@@ -37154,8 +36738,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.dest_next_hop_route is not None:
                                                     for child_ref in self.dest_next_hop_route:
                                                         if child_ref._has_data():
@@ -37180,8 +36762,6 @@ class Rib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.dest_backup_routes is not None and self.dest_backup_routes._has_data():
                                                 return True
 
@@ -37315,8 +36895,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.data is not None:
                                                     return True
 
@@ -37360,8 +36938,6 @@ class Rib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.opaque is not None:
                                                 for child_ref in self.opaque:
                                                     if child_ref._has_data():
@@ -38187,8 +37763,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -38326,8 +37900,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -38352,8 +37924,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -38478,8 +38048,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -38605,8 +38173,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -38659,8 +38225,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -38686,8 +38250,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -39397,8 +38959,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -39536,8 +39096,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -39562,8 +39120,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -39688,8 +39244,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -39815,8 +39369,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -39869,8 +39421,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -39896,8 +39446,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -40607,8 +40155,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -40746,8 +40292,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -40772,8 +40316,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -40898,8 +40440,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -41025,8 +40565,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -41079,8 +40617,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -41106,8 +40642,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -41818,8 +41352,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -41957,8 +41489,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -41983,8 +41513,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -42109,8 +41637,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -42236,8 +41762,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -42290,8 +41814,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -42317,8 +41839,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -43028,8 +42548,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -43167,8 +42685,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -43193,8 +42709,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -43319,8 +42833,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -43446,8 +42958,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -43500,8 +43010,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -43527,8 +43035,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -44247,8 +43753,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -44386,8 +43890,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -44412,8 +43914,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -44538,8 +44038,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -44665,8 +44163,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -44721,8 +44217,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.as_ is not None:
                                                         return True
 
@@ -44751,8 +44245,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
@@ -45464,8 +44956,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -45603,8 +45093,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -45629,8 +45117,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -45755,8 +45241,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -45882,8 +45366,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -45936,8 +45418,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -45963,8 +45443,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -46683,8 +46161,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -46822,8 +46298,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -46848,8 +46322,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -46974,8 +46446,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -47101,8 +46571,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -47157,8 +46625,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.as_ is not None:
                                                         return True
 
@@ -47187,8 +46653,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
@@ -47900,8 +47364,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -48039,8 +47501,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -48065,8 +47525,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -48191,8 +47649,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -48318,8 +47774,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -48372,8 +47826,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -48399,8 +47851,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -49110,8 +48560,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -49249,8 +48697,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -49275,8 +48721,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -49401,8 +48845,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -49528,8 +48970,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -49582,8 +49022,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -49609,8 +49047,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.non_as is not None and self.non_as._has_data():
                                                     return True
 
@@ -50329,8 +49765,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -50468,8 +49902,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -50494,8 +49926,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -50620,8 +50050,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -50747,8 +50175,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -50803,8 +50229,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.as_ is not None:
                                                         return True
 
@@ -50833,8 +50257,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
@@ -51560,8 +50982,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -51699,8 +51119,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -51725,8 +51143,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -51851,8 +51267,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -51978,8 +51392,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -52032,8 +51444,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -52725,8 +52135,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -52864,8 +52272,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -52890,8 +52296,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -53016,8 +52420,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -53143,8 +52545,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -53197,8 +52597,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -53889,8 +53287,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -54028,8 +53424,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -54054,8 +53448,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -54180,8 +53572,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -54307,8 +53697,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -54361,8 +53749,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.information is not None and self.information._has_data():
                                                         return True
 
@@ -54388,8 +53774,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.lspv is not None and self.lspv._has_data():
                                                     return True
 
@@ -55114,8 +54498,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -55253,8 +54635,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -55279,8 +54659,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -55405,8 +54783,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -55532,8 +54908,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -55588,8 +54962,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.as_ is not None:
                                                         return True
 
@@ -55618,8 +54990,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
@@ -56340,8 +55710,6 @@ class Rib(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.address is not None:
                                                                         return True
 
@@ -56479,8 +55847,6 @@ class Rib(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.ipv4_rib_edm_path is not None:
                                                                     for child_ref in self.ipv4_rib_edm_path:
                                                                         if child_ref._has_data():
@@ -56505,8 +55871,6 @@ class Rib(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.active is not None:
                                                                 return True
 
@@ -56631,8 +55995,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.protocol_route is not None:
                                                             for child_ref in self.protocol_route:
                                                                 if child_ref._has_data():
@@ -56758,8 +56120,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.active_routes_count is not None:
                                                             return True
 
@@ -56814,8 +56174,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.as_ is not None:
                                                         return True
 
@@ -56844,8 +56202,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.as_ is not None:
                                                     for child_ref in self.as_:
                                                         if child_ref._has_data():
@@ -56870,8 +56226,6 @@ class Rib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.application is not None and self.application._has_data():
                                                 return True
 
@@ -57569,8 +56923,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.address is not None:
                                                             return True
 
@@ -57708,8 +57060,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.ipv4_rib_edm_path is not None:
                                                         for child_ref in self.ipv4_rib_edm_path:
                                                             if child_ref._has_data():
@@ -57734,8 +57084,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.active is not None:
                                                     return True
 
@@ -57860,8 +57208,6 @@ class Rib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.q_route is not None:
                                                 for child_ref in self.q_route:
                                                     if child_ref._has_data():
@@ -58531,8 +57877,6 @@ class Rib(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.address is not None:
                                                             return True
 
@@ -58670,8 +58014,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.ipv4_rib_edm_path is not None:
                                                         for child_ref in self.ipv4_rib_edm_path:
                                                             if child_ref._has_data():
@@ -58696,8 +58038,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.active is not None:
                                                     return True
 
@@ -58825,8 +58165,6 @@ class Rib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_route is not None:
                                                 for child_ref in self.backup_route:
                                                     if child_ref._has_data():
@@ -58993,8 +58331,6 @@ class Rib(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.client_id is not None:
                                                         return True
 
@@ -59038,8 +58374,6 @@ class Rib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -59070,8 +58404,6 @@ class Rib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.advert is not None:
                                                 for child_ref in self.advert:
                                                     if child_ref._has_data():
@@ -59098,8 +58430,6 @@ class Rib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.route_table_name is not None:
                                             return True
 
@@ -59146,8 +58476,6 @@ class Rib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ip_rib_route_table_name is not None:
                                         for child_ref in self.ip_rib_route_table_name:
                                             if child_ref._has_data():
@@ -59174,8 +58502,6 @@ class Rib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.saf_name is not None:
                                     return True
 
@@ -59201,8 +58527,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.saf is not None:
                                 for child_ref in self.saf:
                                     if child_ref._has_data():
@@ -59229,8 +58553,6 @@ class Rib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af_name is not None:
                             return True
 
@@ -59256,8 +58578,6 @@ class Rib(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af is not None:
                         for child_ref in self.af:
                             if child_ref._has_data():
@@ -59282,8 +58602,6 @@ class Rib(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -59307,8 +58625,6 @@ class Rib(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -59625,8 +58941,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -59705,8 +59019,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -59785,8 +59097,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -59865,8 +59175,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -59945,8 +59253,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60025,8 +59331,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60105,8 +59409,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60185,8 +59487,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60265,8 +59565,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60345,8 +59643,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60425,8 +59721,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60505,8 +59799,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60585,8 +59877,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60665,8 +59955,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60745,8 +60033,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60825,8 +60111,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60905,8 +60189,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -60985,8 +60267,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_routes_count is not None:
                                 return True
 
@@ -61020,8 +60300,6 @@ class Rib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.protoid is not None:
                             return True
 
@@ -61104,8 +60382,6 @@ class Rib(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.summary_proto is not None:
                         for child_ref in self.summary_proto:
                             if child_ref._has_data():
@@ -61789,8 +61065,6 @@ class Rib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -61928,8 +61202,6 @@ class Rib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_rib_edm_path is not None:
                                     for child_ref in self.ipv4_rib_edm_path:
                                         if child_ref._has_data():
@@ -61956,8 +61228,6 @@ class Rib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -62081,8 +61351,6 @@ class Rib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.handle is not None:
                             return True
 
@@ -62110,8 +61378,6 @@ class Rib(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rib_table_itf_hndl is not None:
                         for child_ref in self.rib_table_itf_hndl:
                             if child_ref._has_data():
@@ -62136,8 +61402,6 @@ class Rib(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tableid is not None:
                     return True
 
@@ -62164,8 +61428,6 @@ class Rib(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rib_table_id is not None:
                 for child_ref in self.rib_table_id:
                     if child_ref._has_data():
@@ -62188,8 +61450,6 @@ class Rib(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.rib_table_ids is not None and self.rib_table_ids._has_data():
             return True
 

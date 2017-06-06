@@ -1331,8 +1331,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_neighbor_address is not None:
                         return True
 
@@ -1358,8 +1356,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.neighbor_address is not None:
                     return True
 
@@ -1388,8 +1384,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_neighbor_brief is not None:
                 for child_ref in self.interface_neighbor_brief:
                     if child_ref._has_data():
@@ -1430,6 +1424,13 @@ class RsvpStandby(object):
             """
             Brief Authentication information
             
+            .. attribute:: source_address  <key>
+            
+            	Source Address
+            	**type**\:  str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
             .. attribute:: destination_address  <key>
             
             	Destination Address
@@ -1437,24 +1438,17 @@ class RsvpStandby(object):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            .. attribute:: mode_id  <key>
+            
+            	Mode (Tx or Rx)
+            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
+            
             .. attribute:: interface_name  <key>
             
             	InterfaceName
             	**type**\:  str
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: mode_id  <key>
-            
-            	Mode (Tx or Rx)
-            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
-            
-            .. attribute:: source_address  <key>
-            
-            	Source Address
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: destination_address_xr
             
@@ -1515,10 +1509,10 @@ class RsvpStandby(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
-                self.interface_name = None
-                self.mode_id = None
                 self.source_address = None
+                self.destination_address = None
+                self.mode_id = None
+                self.interface_name = None
                 self.destination_address_xr = None
                 self.direction = None
                 self.key_id = None
@@ -1530,34 +1524,32 @@ class RsvpStandby(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
-                if self.mode_id is None:
-                    raise YPYModelError('Key property mode_id is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
+                if self.mode_id is None:
+                    raise YPYModelError('Key property mode_id is None')
+                if self.interface_name is None:
+                    raise YPYModelError('Key property interface_name is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:authentication-briefs/Cisco-IOS-XR-ip-rsvp-oper:authentication-brief[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ip-rsvp-oper:mode-id = ' + str(self.mode_id) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:authentication-briefs/Cisco-IOS-XR-ip-rsvp-oper:authentication-brief[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:mode-id = ' + str(self.mode_id) + '][Cisco-IOS-XR-ip-rsvp-oper:interface-name = ' + str(self.interface_name) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.interface_name is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.mode_id is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.interface_name is not None:
                     return True
 
                 if self.destination_address_xr is not None:
@@ -1601,8 +1593,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.authentication_brief is not None:
                 for child_ref in self.authentication_brief:
                     if child_ref._has_data():
@@ -1866,8 +1856,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -1933,8 +1921,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -2000,8 +1986,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -2067,8 +2051,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -2095,8 +2077,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -2129,8 +2109,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -2151,8 +2129,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -2206,8 +2182,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_brief is not None:
                 for child_ref in self.session_brief:
                     if child_ref._has_data():
@@ -2617,8 +2591,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -2684,8 +2656,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -2751,8 +2721,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -2818,8 +2786,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -2846,8 +2812,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -2880,8 +2844,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -2925,8 +2887,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -3035,8 +2995,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -3107,8 +3065,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -3138,8 +3094,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -3166,8 +3120,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -3271,8 +3223,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.is_bandwidth_protect is not None:
                             return True
 
@@ -3305,8 +3255,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_priority is not None:
                         return True
 
@@ -3392,8 +3340,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.traffic_average_rate is not None:
                         return True
 
@@ -3508,8 +3454,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.traffic_bit_rate is not None:
                             return True
 
@@ -3598,8 +3542,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.traffic_average_rate is not None:
                             return True
 
@@ -3632,8 +3574,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.g709otn_tspec is not None and self.g709otn_tspec._has_data():
                         return True
 
@@ -3711,8 +3651,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_bidirectional is not None:
                         return True
 
@@ -3779,8 +3717,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor_address is not None:
                         return True
 
@@ -3849,8 +3785,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_cable is not None:
                         return True
 
@@ -3954,8 +3888,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ip_source_address is not None:
                         return True
 
@@ -4029,8 +3961,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -4087,8 +4017,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_accepted is not None:
                         return True
 
@@ -4154,8 +4082,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_bypass is not None:
                         return True
 
@@ -4357,8 +4283,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -4381,8 +4305,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -4459,8 +4381,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -4483,8 +4403,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -4561,8 +4479,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -4585,8 +4501,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -4663,8 +4577,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -4687,8 +4599,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -4765,8 +4675,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -4789,8 +4697,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -4867,8 +4773,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -4891,8 +4795,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -4916,8 +4818,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.generic_local_downstream_label is not None and self.generic_local_downstream_label._has_data():
                         return True
 
@@ -5006,8 +4906,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.class_type is not None:
                         return True
 
@@ -5099,8 +4997,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.is_accepted is not None:
                             return True
 
@@ -5166,8 +5062,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.is_bypass is not None:
                             return True
 
@@ -5197,8 +5091,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.output_interface is not None:
                         return True
 
@@ -5297,8 +5189,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ero_address is not None:
                             return True
 
@@ -5368,8 +5258,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ero_interface_id is not None:
                             return True
 
@@ -5399,8 +5287,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ero_type is not None:
                         return True
 
@@ -5499,8 +5385,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ero_address is not None:
                             return True
 
@@ -5570,8 +5454,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ero_interface_id is not None:
                             return True
 
@@ -5601,8 +5483,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ero_type is not None:
                         return True
 
@@ -5629,8 +5509,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.backup_tunnel_name is not None:
                     return True
 
@@ -5753,8 +5631,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.psb_detailed is not None:
                 for child_ref in self.psb_detailed:
                     if child_ref._has_data():
@@ -5853,8 +5729,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active_instances is not None:
                     return True
 
@@ -5931,8 +5805,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active_instances is not None:
                     return True
 
@@ -5962,8 +5834,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.path_states is not None and self.path_states._has_data():
                 return True
 
@@ -6306,8 +6176,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_average_rate is not None:
                         return True
 
@@ -6424,8 +6292,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_bit_rate is not None:
                             return True
 
@@ -6455,8 +6321,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_spec_type is not None:
                         return True
 
@@ -6590,8 +6454,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -6657,8 +6519,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -6724,8 +6584,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -6791,8 +6649,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -6819,8 +6675,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -6853,8 +6707,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -6898,8 +6750,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -6941,8 +6791,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_type is not None:
                         return True
 
@@ -7051,8 +6899,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -7123,8 +6969,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -7154,8 +6998,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -7182,8 +7024,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -7249,8 +7089,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_local_receiver is not None:
                         return True
 
@@ -7314,8 +7152,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor_address is not None:
                         return True
 
@@ -7384,8 +7220,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_cable is not None:
                         return True
 
@@ -7489,8 +7323,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ip_source_address is not None:
                         return True
 
@@ -7562,8 +7394,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_accepted is not None:
                         return True
 
@@ -7625,8 +7455,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -7689,8 +7517,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_bypass is not None:
                         return True
 
@@ -7892,8 +7718,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -7916,8 +7740,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -7994,8 +7816,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -8018,8 +7838,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -8096,8 +7914,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -8120,8 +7936,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -8198,8 +8012,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -8222,8 +8034,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -8300,8 +8110,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -8324,8 +8132,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -8402,8 +8208,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -8426,8 +8230,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -8451,8 +8253,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.generic_local_downstream_label is not None and self.generic_local_downstream_label._has_data():
                         return True
 
@@ -8512,8 +8312,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -8612,8 +8410,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rsb_detailed is not None:
                 for child_ref in self.rsb_detailed:
                     if child_ref._has_data():
@@ -8832,8 +8628,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -8954,8 +8748,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -8999,8 +8791,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dste_mode is not None:
                         return True
 
@@ -9029,8 +8819,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -9069,8 +8857,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_summary is not None:
                 for child_ref in self.interface_summary:
                     if child_ref._has_data():
@@ -9111,16 +8897,16 @@ class RsvpStandby(object):
             """
             Brief info for a single hello instance
             
-            .. attribute:: destination_address  <key>
+            .. attribute:: source_address  <key>
             
-            	Destination Address
+            	Source Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: source_address  <key>
+            .. attribute:: destination_address  <key>
             
-            	Source Address
+            	Destination Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -9172,8 +8958,8 @@ class RsvpStandby(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
                 self.source_address = None
+                self.destination_address = None
                 self.destination_address_xr = None
                 self.hello_interface = None
                 self.instance_type = None
@@ -9183,24 +8969,22 @@ class RsvpStandby(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-briefs/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-brief[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-briefs/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-brief[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.destination_address_xr is not None:
@@ -9238,8 +9022,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.hello_instance_brief is not None:
                 for child_ref in self.hello_instance_brief:
                     if child_ref._has_data():
@@ -9281,6 +9063,13 @@ class RsvpStandby(object):
             """
             Brief Authentication information
             
+            .. attribute:: source_address  <key>
+            
+            	Source Address
+            	**type**\:  str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
             .. attribute:: destination_address  <key>
             
             	Destination Address
@@ -9288,24 +9077,17 @@ class RsvpStandby(object):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            .. attribute:: mode_id  <key>
+            
+            	Mode (Tx or Rx)
+            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
+            
             .. attribute:: interface_name  <key>
             
             	InterfaceName
             	**type**\:  str
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: mode_id  <key>
-            
-            	Mode (Tx or Rx)
-            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
-            
-            .. attribute:: source_address  <key>
-            
-            	Source Address
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: auth_compact
             
@@ -9363,10 +9145,10 @@ class RsvpStandby(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
-                self.interface_name = None
-                self.mode_id = None
                 self.source_address = None
+                self.destination_address = None
+                self.mode_id = None
+                self.interface_name = None
                 self.auth_compact = RsvpStandby.AuthenticationDetails.AuthenticationDetail.AuthCompact()
                 self.auth_compact.parent = self
                 self.challenge_status = None
@@ -9462,8 +9244,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_address_xr is not None:
                         return True
 
@@ -9619,8 +9399,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.authentication_challenge_responses_sent is not None:
                                 return True
 
@@ -9652,8 +9430,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.counters is not None and self.counters._has_data():
                             return True
 
@@ -9878,8 +9654,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.authentication_received_bad_digest is not None:
                                 return True
 
@@ -9947,8 +9721,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.counters is not None and self.counters._has_data():
                             return True
 
@@ -9985,8 +9757,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auth_direction is not None:
                         return True
 
@@ -10005,34 +9775,32 @@ class RsvpStandby(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
-                if self.mode_id is None:
-                    raise YPYModelError('Key property mode_id is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
+                if self.mode_id is None:
+                    raise YPYModelError('Key property mode_id is None')
+                if self.interface_name is None:
+                    raise YPYModelError('Key property interface_name is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:authentication-details/Cisco-IOS-XR-ip-rsvp-oper:authentication-detail[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ip-rsvp-oper:mode-id = ' + str(self.mode_id) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:authentication-details/Cisco-IOS-XR-ip-rsvp-oper:authentication-detail[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:mode-id = ' + str(self.mode_id) + '][Cisco-IOS-XR-ip-rsvp-oper:interface-name = ' + str(self.interface_name) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.interface_name is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.mode_id is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.interface_name is not None:
                     return True
 
                 if self.auth_compact is not None and self.auth_compact._has_data():
@@ -10073,8 +9841,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.authentication_detail is not None:
                 for child_ref in self.authentication_detail:
                     if child_ref._has_data():
@@ -10380,8 +10146,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -10447,8 +10211,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -10514,8 +10276,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -10581,8 +10341,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -10609,8 +10367,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -10643,8 +10399,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -10688,8 +10442,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -10793,8 +10545,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_average_rate is not None:
                         return True
 
@@ -10911,8 +10661,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_bit_rate is not None:
                             return True
 
@@ -10942,8 +10690,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_spec_type is not None:
                         return True
 
@@ -10988,8 +10734,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_type is not None:
                         return True
 
@@ -11098,8 +10842,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -11170,8 +10912,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -11201,8 +10941,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -11229,8 +10967,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -11251,8 +10987,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -11324,8 +11058,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rsb_brief is not None:
                 for child_ref in self.rsb_brief:
                     if child_ref._has_data():
@@ -11560,8 +11292,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.in_ack_messages is not None:
                     return True
 
@@ -11841,8 +11571,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -11920,8 +11648,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_counter is not None:
                     for child_ref in self.interface_counter:
                         if child_ref._has_data():
@@ -11944,8 +11670,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.global_counters is not None and self.global_counters._has_data():
                 return True
 
@@ -12266,8 +11990,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ack is not None:
                             return True
 
@@ -12445,8 +12167,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ack is not None:
                             return True
 
@@ -12624,8 +12344,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ack is not None:
                             return True
 
@@ -12803,8 +12521,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ack is not None:
                             return True
 
@@ -12863,8 +12579,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -12906,8 +12620,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_message is not None:
                     for child_ref in self.interface_message:
                         if child_ref._has_data():
@@ -13117,8 +12829,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ack is not None:
                         return True
 
@@ -13294,8 +13004,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ack is not None:
                         return True
 
@@ -13471,8 +13179,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ack is not None:
                         return True
 
@@ -13648,8 +13354,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ack is not None:
                         return True
 
@@ -13706,8 +13410,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bundle_received_messages is not None and self.bundle_received_messages._has_data():
                     return True
 
@@ -13899,8 +13601,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -13979,8 +13679,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -14059,8 +13757,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -14139,8 +13835,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -14172,8 +13866,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.access_list_name is not None:
                             return True
 
@@ -14206,8 +13898,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access is not None:
                         for child_ref in self.access:
                             if child_ref._has_data():
@@ -14364,8 +14054,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -14442,8 +14130,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -14520,8 +14206,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -14599,8 +14283,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -14678,8 +14360,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -14756,8 +14436,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -14787,8 +14465,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.default_action_dropped is not None and self.default_action_dropped._has_data():
                             return True
 
@@ -14963,8 +14639,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -15043,8 +14717,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -15123,8 +14795,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -15204,8 +14874,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -15285,8 +14953,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -15365,8 +15031,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -15398,8 +15062,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -15438,8 +15100,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -15462,8 +15122,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
@@ -15487,8 +15145,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.accesses is not None and self.accesses._has_data():
                     return True
 
@@ -15587,8 +15243,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dropped_path_messages is not None:
                             return True
 
@@ -15667,8 +15321,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -15692,8 +15344,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -15716,8 +15366,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
@@ -15741,8 +15389,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
@@ -15835,8 +15481,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -15866,8 +15510,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_event is not None:
                     for child_ref in self.interface_event:
                         if child_ref._has_data():
@@ -15961,8 +15603,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.last_cleared_timestamp is not None:
                     return True
 
@@ -16072,8 +15712,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.last_cleared_timestamp is not None:
                     return True
 
@@ -16176,8 +15814,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.incoming_paths is not None:
                     return True
 
@@ -16285,8 +15921,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -16316,8 +15950,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.event_sync is not None:
                     for child_ref in self.event_sync:
                         if child_ref._has_data():
@@ -16340,8 +15972,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.database is not None and self.database._has_data():
                 return True
 
@@ -16745,8 +16375,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -16867,8 +16495,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -16912,8 +16538,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dste_mode is not None:
                         return True
 
@@ -17029,8 +16653,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_backup_tunnel is not None:
                         return True
 
@@ -17181,8 +16803,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -17231,8 +16851,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.message_id is not None:
                             return True
 
@@ -17255,8 +16873,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.expiry_time is not None and self.expiry_time._has_data():
                         return True
 
@@ -17296,8 +16912,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -17398,8 +17012,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_detailed is not None:
                 for child_ref in self.interface_detailed:
                     if child_ref._has_data():
@@ -17558,8 +17170,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.nanoseconds is not None:
                     return True
 
@@ -17618,8 +17228,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.nanoseconds is not None:
                     return True
 
@@ -17672,8 +17280,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.application_type is not None:
                     return True
 
@@ -17697,8 +17303,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.global_neighbors is not None:
                 return True
 
@@ -17771,16 +17375,16 @@ class RsvpStandby(object):
             Brief info for a single interface\-based hello
             instance
             
-            .. attribute:: destination_address  <key>
+            .. attribute:: source_address  <key>
             
-            	Destination Address
+            	Source Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: source_address  <key>
+            .. attribute:: destination_address  <key>
             
-            	Source Address
+            	Destination Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -17820,8 +17424,8 @@ class RsvpStandby(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
                 self.source_address = None
+                self.destination_address = None
                 self.destination_address_xr = None
                 self.hello_interface = None
                 self.instance_type = None
@@ -17829,24 +17433,22 @@ class RsvpStandby(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-briefs/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-brief[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-briefs/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-brief[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.destination_address_xr is not None:
@@ -17878,8 +17480,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.hello_interface_instance_brief is not None:
                 for child_ref in self.hello_interface_instance_brief:
                     if child_ref._has_data():
@@ -17922,16 +17522,16 @@ class RsvpStandby(object):
             Detailed info for a single interface\-based
             hello instance
             
-            .. attribute:: destination_address  <key>
+            .. attribute:: source_address  <key>
             
-            	Destination Address
+            	Source Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: source_address  <key>
+            .. attribute:: destination_address  <key>
             
-            	Source Address
+            	Destination Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -18011,8 +17611,8 @@ class RsvpStandby(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
                 self.source_address = None
+                self.destination_address = None
                 self.destination_address_xr = None
                 self.destination_instance = None
                 self.hello_global_neighbor_id = None
@@ -18072,8 +17672,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -18089,24 +17687,22 @@ class RsvpStandby(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-details/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-detail[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-details/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-detail[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.destination_address_xr is not None:
@@ -18156,8 +17752,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.hello_interface_instance_detail is not None:
                 for child_ref in self.hello_interface_instance_detail:
                     if child_ref._has_data():
@@ -18305,8 +17899,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_neighbor_address is not None:
                         return True
 
@@ -18344,8 +17936,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.neighbor_address is not None:
                     return True
 
@@ -18374,8 +17964,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_neighbor_detail is not None:
                 for child_ref in self.interface_neighbor_detail:
                     if child_ref._has_data():
@@ -18522,8 +18110,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -18626,8 +18212,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -18663,8 +18247,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.idt_status is not None and self.idt_status._has_data():
                     return True
 
@@ -18691,8 +18273,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.status is not None and self.status._has_data():
                 return True
 
@@ -18867,8 +18447,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -18971,8 +18549,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -19008,8 +18584,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.idt_status is not None and self.idt_status._has_data():
                     return True
 
@@ -19138,8 +18712,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -19242,8 +18814,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -19279,8 +18849,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.idt_status is not None and self.idt_status._has_data():
                     return True
 
@@ -19370,8 +18938,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.incoming_paths is not None:
                     return True
 
@@ -19407,8 +18973,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.database_counters is not None and self.database_counters._has_data():
                 return True
 
@@ -19702,8 +19266,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -19769,8 +19331,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -19836,8 +19396,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -19903,8 +19461,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -19931,8 +19487,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -19965,8 +19519,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -20010,8 +19562,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -20032,8 +19582,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -20096,8 +19644,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.frr is not None:
                 for child_ref in self.frr:
                     if child_ref._has_data():
@@ -20402,8 +19948,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -20469,8 +20013,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -20536,8 +20078,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -20603,8 +20143,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -20631,8 +20169,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -20665,8 +20201,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -20710,8 +20244,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -20815,8 +20347,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_average_rate is not None:
                         return True
 
@@ -20933,8 +20463,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_bit_rate is not None:
                             return True
 
@@ -20964,8 +20492,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_spec_type is not None:
                         return True
 
@@ -21077,8 +20603,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -21149,8 +20673,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -21180,8 +20702,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -21208,8 +20728,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -21251,8 +20769,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_type is not None:
                         return True
 
@@ -21273,8 +20789,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -21346,8 +20860,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.request_brief is not None:
                 for child_ref in self.request_brief:
                     if child_ref._has_data():
@@ -21710,8 +21222,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -21777,8 +21287,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -21844,8 +21352,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -21911,8 +21417,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -21939,8 +21443,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -21973,8 +21475,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -22018,8 +21518,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -22123,8 +21621,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_average_rate is not None:
                         return True
 
@@ -22241,8 +21737,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_bit_rate is not None:
                             return True
 
@@ -22272,8 +21766,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_spec_type is not None:
                         return True
 
@@ -22385,8 +21877,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -22457,8 +21947,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -22488,8 +21976,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -22516,8 +22002,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -22559,8 +22043,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_type is not None:
                         return True
 
@@ -22668,8 +22150,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_ack_outstanding is not None:
                         return True
 
@@ -22754,8 +22234,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor_address is not None:
                         return True
 
@@ -22850,8 +22328,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ip_source_address is not None:
                         return True
 
@@ -22935,8 +22411,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_cable is not None:
                         return True
 
@@ -23002,8 +22476,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_accepted is not None:
                         return True
 
@@ -23069,8 +22541,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_bypass is not None:
                         return True
 
@@ -23201,8 +22671,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_address is not None:
                         return True
 
@@ -23354,8 +22822,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_address is not None:
                         return True
 
@@ -23406,8 +22872,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -23507,8 +22971,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.request_detail is not None:
                 for child_ref in self.request_detail:
                     if child_ref._has_data():
@@ -23695,8 +23157,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -23817,8 +23277,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -23862,8 +23320,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dste_mode is not None:
                         return True
 
@@ -23892,8 +23348,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -23920,8 +23374,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_brief is not None:
                 for child_ref in self.interface_brief:
                     if child_ref._has_data():
@@ -24222,8 +23674,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_address is not None:
                                     return True
 
@@ -24289,8 +23739,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_address is not None:
                                     return True
 
@@ -24356,8 +23804,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_address is not None:
                                     return True
 
@@ -24423,8 +23869,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.extended_tunnel_id is not None:
                                     return True
 
@@ -24451,8 +23895,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4 is not None and self.ipv4._has_data():
                                 return True
 
@@ -24485,8 +23927,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rsvp_session is not None and self.rsvp_session._has_data():
                             return True
 
@@ -24507,8 +23947,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.detail_list_size is not None:
                         return True
 
@@ -24564,8 +24002,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -24843,8 +24279,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.value is not None:
                                     for child in self.value:
                                         if child is not None:
@@ -24867,8 +24301,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.generalized_label is not None and self.generalized_label._has_data():
                                 return True
 
@@ -24951,8 +24383,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.traffic_average_rate is not None:
                                 return True
 
@@ -25067,8 +24497,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.traffic_bit_rate is not None:
                                     return True
 
@@ -25157,8 +24585,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.traffic_average_rate is not None:
                                     return True
 
@@ -25191,8 +24617,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.g709otn_tspec is not None and self.g709otn_tspec._has_data():
                                 return True
 
@@ -25307,8 +24731,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.id is not None:
                                     return True
 
@@ -25374,8 +24796,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.id is not None:
                                     return True
 
@@ -25459,8 +24879,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.extended_id is not None:
                                     for child in self.extended_id:
                                         if child is not None:
@@ -25552,8 +24970,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.extended_id is not None:
                                     for child in self.extended_id:
                                         if child is not None:
@@ -25588,8 +25004,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.association_type is not None:
                                 return True
 
@@ -25720,8 +25134,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.one_plus_one_bi is not None:
                                     return True
 
@@ -25817,8 +25229,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ded1_plus1 is not None:
                                     return True
 
@@ -25860,8 +25270,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.link_flags is not None and self.link_flags._has_data():
                                 return True
 
@@ -26017,8 +25425,6 @@ class RsvpStandby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.traffic_bit_rate is not None:
                                         return True
 
@@ -26107,8 +25513,6 @@ class RsvpStandby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.traffic_average_rate is not None:
                                         return True
 
@@ -26141,8 +25545,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.g709otn_tspec is not None and self.g709otn_tspec._has_data():
                                     return True
 
@@ -26241,8 +25643,6 @@ class RsvpStandby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ero_address is not None:
                                         return True
 
@@ -26312,8 +25712,6 @@ class RsvpStandby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ero_interface_id is not None:
                                         return True
 
@@ -26343,8 +25741,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ero_type is not None:
                                     return True
 
@@ -26396,8 +25792,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.rsvp_mgmt_rev_lsp_unsupported_subobj is not None:
                                     for child in self.rsvp_mgmt_rev_lsp_unsupported_subobj:
                                         if child is not None:
@@ -26420,8 +25814,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ero is not None:
                                 for child_ref in self.ero:
                                     if child_ref._has_data():
@@ -26524,8 +25916,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ero_address is not None:
                                     return True
 
@@ -26595,8 +25985,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ero_interface_id is not None:
                                     return True
 
@@ -26626,8 +26014,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ero_type is not None:
                                 return True
 
@@ -26778,8 +26164,6 @@ class RsvpStandby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_bandwidth_protected is not None:
                                         return True
 
@@ -26812,8 +26196,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -26904,8 +26286,6 @@ class RsvpStandby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_global_label is not None:
                                         return True
 
@@ -26926,8 +26306,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -27042,8 +26420,6 @@ class RsvpStandby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_bandwidth_protected is not None:
                                         return True
 
@@ -27076,8 +26452,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -27129,8 +26503,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.srl_gs is not None:
                                     for child in self.srl_gs:
                                         if child is not None:
@@ -27153,8 +26525,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4rro_sub_object is not None and self.ipv4rro_sub_object._has_data():
                                 return True
 
@@ -27187,8 +26557,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.association is not None and self.association._has_data():
                             return True
 
@@ -27431,8 +26799,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.value is not None:
                                     for child in self.value:
                                         if child is not None:
@@ -27455,8 +26821,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.generalized_label is not None and self.generalized_label._has_data():
                                 return True
 
@@ -27563,8 +26927,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.flow_average_rate is not None:
                                 return True
 
@@ -27681,8 +27043,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flow_bit_rate is not None:
                                     return True
 
@@ -27712,8 +27072,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.flow_spec_type is not None:
                                 return True
 
@@ -27861,8 +27219,6 @@ class RsvpStandby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_bandwidth_protected is not None:
                                         return True
 
@@ -27895,8 +27251,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -27987,8 +27341,6 @@ class RsvpStandby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_global_label is not None:
                                         return True
 
@@ -28009,8 +27361,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -28125,8 +27475,6 @@ class RsvpStandby(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_bandwidth_protected is not None:
                                         return True
 
@@ -28159,8 +27507,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -28212,8 +27558,6 @@ class RsvpStandby(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.srl_gs is not None:
                                     for child in self.srl_gs:
                                         if child is not None:
@@ -28236,8 +27580,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4rro_sub_object is not None and self.ipv4rro_sub_object._has_data():
                                 return True
 
@@ -28270,8 +27612,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.backup_interface is not None:
                             return True
 
@@ -28327,8 +27667,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.psb_info is not None:
                         for child_ref in self.psb_info:
                             if child_ref._has_data():
@@ -28356,8 +27694,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.compact is not None and self.compact._has_data():
                     return True
 
@@ -28407,8 +27743,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_detailed is not None:
                 for child_ref in self.session_detailed:
                     if child_ref._has_data():
@@ -28449,16 +27783,16 @@ class RsvpStandby(object):
             """
             Detailed info for a single hello instance
             
-            .. attribute:: destination_address  <key>
+            .. attribute:: source_address  <key>
             
-            	Destination Address
+            	Source Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: source_address  <key>
+            .. attribute:: destination_address  <key>
             
-            	Source Address
+            	Destination Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -28614,8 +27948,8 @@ class RsvpStandby(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
                 self.source_address = None
+                self.destination_address = None
                 self.communication_lost_hello_missed = None
                 self.communication_lost_interface_down = None
                 self.communication_lost_neighbor_disabled_hello = None
@@ -28688,8 +28022,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -28750,8 +28082,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -28767,24 +28097,22 @@ class RsvpStandby(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-details/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-detail[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-details/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-detail[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.communication_lost_hello_missed is not None:
@@ -28870,8 +28198,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.hello_instance_detail is not None:
                 for child_ref in self.hello_instance_detail:
                     if child_ref._has_data():
@@ -29144,8 +28470,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_application_mpls is not None:
                         return True
 
@@ -29206,8 +28530,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -29268,8 +28590,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -29330,8 +28650,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -29392,8 +28710,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -29454,8 +28770,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -29516,8 +28830,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -29543,8 +28855,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.neighbor_address is not None:
                     return True
 
@@ -29645,8 +28955,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.global_neighbor_detail is not None:
                 for child_ref in self.global_neighbor_detail:
                     if child_ref._has_data():
@@ -29951,8 +29259,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -30018,8 +29324,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -30085,8 +29389,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -30152,8 +29454,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -30180,8 +29480,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -30214,8 +29512,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -30259,8 +29555,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -30369,8 +29663,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -30441,8 +29733,6 @@ class RsvpStandby(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -30472,8 +29762,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -30500,8 +29788,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -30605,8 +29891,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.is_bandwidth_protect is not None:
                             return True
 
@@ -30639,8 +29923,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_priority is not None:
                         return True
 
@@ -30726,8 +30008,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.traffic_average_rate is not None:
                         return True
 
@@ -30842,8 +30122,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.traffic_bit_rate is not None:
                             return True
 
@@ -30932,8 +30210,6 @@ class RsvpStandby(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.traffic_average_rate is not None:
                             return True
 
@@ -30966,8 +30242,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.g709otn_tspec is not None and self.g709otn_tspec._has_data():
                         return True
 
@@ -30994,8 +30268,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -31067,8 +30339,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.psb_brief is not None:
                 for child_ref in self.psb_brief:
                     if child_ref._has_data():
@@ -31245,8 +30515,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_application_mpls is not None:
                         return True
 
@@ -31307,8 +30575,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -31369,8 +30635,6 @@ class RsvpStandby(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -31396,8 +30660,6 @@ class RsvpStandby(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.neighbor_address is not None:
                     return True
 
@@ -31460,8 +30722,6 @@ class RsvpStandby(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.global_neighbor_brief is not None:
                 for child_ref in self.global_neighbor_brief:
                     if child_ref._has_data():
@@ -31484,8 +30744,6 @@ class RsvpStandby(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.authentication_briefs is not None and self.authentication_briefs._has_data():
             return True
 
@@ -32042,8 +31300,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -32164,8 +31420,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -32209,8 +31463,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dste_mode is not None:
                         return True
 
@@ -32239,8 +31491,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.controller_name is not None:
                     return True
 
@@ -32279,8 +31529,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.controller_summary is not None:
                 for child_ref in self.controller_summary:
                     if child_ref._has_data():
@@ -32427,8 +31675,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -32531,8 +31777,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -32568,8 +31812,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.idt_status is not None and self.idt_status._has_data():
                     return True
 
@@ -32596,8 +31838,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.status is not None and self.status._has_data():
                 return True
 
@@ -32977,8 +32217,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -33099,8 +32337,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -33144,8 +32380,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dste_mode is not None:
                         return True
 
@@ -33261,8 +32495,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_backup_tunnel is not None:
                         return True
 
@@ -33413,8 +32645,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -33463,8 +32693,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.message_id is not None:
                             return True
 
@@ -33487,8 +32715,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.expiry_time is not None and self.expiry_time._has_data():
                         return True
 
@@ -33528,8 +32754,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.controller_name is not None:
                     return True
 
@@ -33630,8 +32854,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.controller_detailed is not None:
                 for child_ref in self.controller_detailed:
                     if child_ref._has_data():
@@ -33723,8 +32945,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bandwidth_configuration_model is not None:
                 return True
 
@@ -33927,8 +33147,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -34049,8 +33267,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -34094,8 +33310,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dste_mode is not None:
                         return True
 
@@ -34124,8 +33338,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.controller_name is not None:
                     return True
 
@@ -34152,8 +33364,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.controller_brief is not None:
                 for child_ref in self.controller_brief:
                     if child_ref._has_data():
@@ -34473,8 +33683,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -34540,8 +33748,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -34607,8 +33813,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -34674,8 +33878,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -34702,8 +33904,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -34736,8 +33936,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -34781,8 +33979,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -34891,8 +34087,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -34963,8 +34157,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -34994,8 +34186,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -35022,8 +34212,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -35103,8 +34291,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.traffic_average_rate is not None:
                         return True
 
@@ -35219,8 +34405,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.traffic_bit_rate is not None:
                             return True
 
@@ -35309,8 +34493,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.traffic_average_rate is not None:
                             return True
 
@@ -35343,8 +34525,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.g709otn_tspec is not None and self.g709otn_tspec._has_data():
                         return True
 
@@ -35402,8 +34582,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor_address is not None:
                         return True
 
@@ -35498,8 +34676,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ip_source_address is not None:
                         return True
 
@@ -35538,8 +34714,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -35617,8 +34791,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.pxsb_detail is not None:
                 for child_ref in self.pxsb_detail:
                     if child_ref._has_data():
@@ -35945,8 +35117,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -36012,8 +35182,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -36079,8 +35247,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -36146,8 +35312,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -36174,8 +35338,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -36208,8 +35370,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -36253,8 +35413,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -36296,8 +35454,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_type is not None:
                         return True
 
@@ -36406,8 +35562,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -36478,8 +35632,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -36509,8 +35661,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -36537,8 +35687,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -36642,8 +35790,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_average_rate is not None:
                         return True
 
@@ -36760,8 +35906,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_bit_rate is not None:
                             return True
 
@@ -36791,8 +35935,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_spec_type is not None:
                         return True
 
@@ -36847,8 +35989,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor_address is not None:
                         return True
 
@@ -36943,8 +36083,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ip_source_address is not None:
                         return True
 
@@ -36983,8 +36121,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -37065,8 +36201,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rxsb_detail is not None:
                 for child_ref in self.rxsb_detail:
                     if child_ref._has_data():
@@ -37184,8 +36318,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_neighbor_address is not None:
                         return True
 
@@ -37211,8 +36343,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.neighbor_address is not None:
                     return True
 
@@ -37241,8 +36371,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_neighbor_brief is not None:
                 for child_ref in self.interface_neighbor_brief:
                     if child_ref._has_data():
@@ -37283,6 +36411,13 @@ class Rsvp(object):
             """
             Brief Authentication information
             
+            .. attribute:: source_address  <key>
+            
+            	Source Address
+            	**type**\:  str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
             .. attribute:: destination_address  <key>
             
             	Destination Address
@@ -37290,24 +36425,17 @@ class Rsvp(object):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            .. attribute:: mode_id  <key>
+            
+            	Mode (Tx or Rx)
+            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
+            
             .. attribute:: interface_name  <key>
             
             	InterfaceName
             	**type**\:  str
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: mode_id  <key>
-            
-            	Mode (Tx or Rx)
-            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
-            
-            .. attribute:: source_address  <key>
-            
-            	Source Address
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: destination_address_xr
             
@@ -37368,10 +36496,10 @@ class Rsvp(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
-                self.interface_name = None
-                self.mode_id = None
                 self.source_address = None
+                self.destination_address = None
+                self.mode_id = None
+                self.interface_name = None
                 self.destination_address_xr = None
                 self.direction = None
                 self.key_id = None
@@ -37383,34 +36511,32 @@ class Rsvp(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
-                if self.mode_id is None:
-                    raise YPYModelError('Key property mode_id is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
+                if self.mode_id is None:
+                    raise YPYModelError('Key property mode_id is None')
+                if self.interface_name is None:
+                    raise YPYModelError('Key property interface_name is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:authentication-briefs/Cisco-IOS-XR-ip-rsvp-oper:authentication-brief[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ip-rsvp-oper:mode-id = ' + str(self.mode_id) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:authentication-briefs/Cisco-IOS-XR-ip-rsvp-oper:authentication-brief[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:mode-id = ' + str(self.mode_id) + '][Cisco-IOS-XR-ip-rsvp-oper:interface-name = ' + str(self.interface_name) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.interface_name is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.mode_id is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.interface_name is not None:
                     return True
 
                 if self.destination_address_xr is not None:
@@ -37454,8 +36580,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.authentication_brief is not None:
                 for child_ref in self.authentication_brief:
                     if child_ref._has_data():
@@ -37719,8 +36843,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -37786,8 +36908,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -37853,8 +36973,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -37920,8 +37038,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -37948,8 +37064,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -37982,8 +37096,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -38004,8 +37116,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -38059,8 +37169,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_brief is not None:
                 for child_ref in self.session_brief:
                     if child_ref._has_data():
@@ -38470,8 +37578,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -38537,8 +37643,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -38604,8 +37708,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -38671,8 +37773,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -38699,8 +37799,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -38733,8 +37831,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -38778,8 +37874,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -38888,8 +37982,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -38960,8 +38052,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -38991,8 +38081,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -39019,8 +38107,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -39124,8 +38210,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.is_bandwidth_protect is not None:
                             return True
 
@@ -39158,8 +38242,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_priority is not None:
                         return True
 
@@ -39245,8 +38327,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.traffic_average_rate is not None:
                         return True
 
@@ -39361,8 +38441,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.traffic_bit_rate is not None:
                             return True
 
@@ -39451,8 +38529,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.traffic_average_rate is not None:
                             return True
 
@@ -39485,8 +38561,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.g709otn_tspec is not None and self.g709otn_tspec._has_data():
                         return True
 
@@ -39564,8 +38638,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_bidirectional is not None:
                         return True
 
@@ -39632,8 +38704,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor_address is not None:
                         return True
 
@@ -39702,8 +38772,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_cable is not None:
                         return True
 
@@ -39807,8 +38875,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ip_source_address is not None:
                         return True
 
@@ -39882,8 +38948,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -39940,8 +39004,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_accepted is not None:
                         return True
 
@@ -40007,8 +39069,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_bypass is not None:
                         return True
 
@@ -40210,8 +39270,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -40234,8 +39292,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -40312,8 +39368,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -40336,8 +39390,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -40414,8 +39466,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -40438,8 +39488,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -40516,8 +39564,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -40540,8 +39586,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -40618,8 +39662,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -40642,8 +39684,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -40720,8 +39760,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -40744,8 +39782,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -40769,8 +39805,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.generic_local_downstream_label is not None and self.generic_local_downstream_label._has_data():
                         return True
 
@@ -40859,8 +39893,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.class_type is not None:
                         return True
 
@@ -40952,8 +39984,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.is_accepted is not None:
                             return True
 
@@ -41019,8 +40049,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.is_bypass is not None:
                             return True
 
@@ -41050,8 +40078,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.output_interface is not None:
                         return True
 
@@ -41150,8 +40176,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ero_address is not None:
                             return True
 
@@ -41221,8 +40245,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ero_interface_id is not None:
                             return True
 
@@ -41252,8 +40274,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ero_type is not None:
                         return True
 
@@ -41352,8 +40372,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ero_address is not None:
                             return True
 
@@ -41423,8 +40441,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ero_interface_id is not None:
                             return True
 
@@ -41454,8 +40470,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ero_type is not None:
                         return True
 
@@ -41482,8 +40496,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.backup_tunnel_name is not None:
                     return True
 
@@ -41606,8 +40618,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.psb_detailed is not None:
                 for child_ref in self.psb_detailed:
                     if child_ref._has_data():
@@ -41706,8 +40716,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active_instances is not None:
                     return True
 
@@ -41784,8 +40792,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active_instances is not None:
                     return True
 
@@ -41815,8 +40821,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.path_states is not None and self.path_states._has_data():
                 return True
 
@@ -42159,8 +41163,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_average_rate is not None:
                         return True
 
@@ -42277,8 +41279,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_bit_rate is not None:
                             return True
 
@@ -42308,8 +41308,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_spec_type is not None:
                         return True
 
@@ -42443,8 +41441,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -42510,8 +41506,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -42577,8 +41571,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -42644,8 +41636,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -42672,8 +41662,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -42706,8 +41694,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -42751,8 +41737,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -42794,8 +41778,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_type is not None:
                         return True
 
@@ -42904,8 +41886,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -42976,8 +41956,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -43007,8 +41985,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -43035,8 +42011,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -43102,8 +42076,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_local_receiver is not None:
                         return True
 
@@ -43167,8 +42139,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor_address is not None:
                         return True
 
@@ -43237,8 +42207,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_cable is not None:
                         return True
 
@@ -43342,8 +42310,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ip_source_address is not None:
                         return True
 
@@ -43415,8 +42381,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_accepted is not None:
                         return True
 
@@ -43478,8 +42442,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -43542,8 +42504,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_bypass is not None:
                         return True
 
@@ -43745,8 +42705,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -43769,8 +42727,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -43847,8 +42803,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -43871,8 +42825,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -43949,8 +42901,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -43973,8 +42923,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -44051,8 +42999,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -44075,8 +43021,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -44153,8 +43097,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -44177,8 +43119,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -44255,8 +43195,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.value is not None:
                                 for child in self.value:
                                     if child is not None:
@@ -44279,8 +43217,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.generalized_label is not None and self.generalized_label._has_data():
                             return True
 
@@ -44304,8 +43240,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.generic_local_downstream_label is not None and self.generic_local_downstream_label._has_data():
                         return True
 
@@ -44365,8 +43299,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -44465,8 +43397,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rsb_detailed is not None:
                 for child_ref in self.rsb_detailed:
                     if child_ref._has_data():
@@ -44685,8 +43615,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -44807,8 +43735,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -44852,8 +43778,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dste_mode is not None:
                         return True
 
@@ -44882,8 +43806,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -44922,8 +43844,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_summary is not None:
                 for child_ref in self.interface_summary:
                     if child_ref._has_data():
@@ -44964,16 +43884,16 @@ class Rsvp(object):
             """
             Brief info for a single hello instance
             
-            .. attribute:: destination_address  <key>
+            .. attribute:: source_address  <key>
             
-            	Destination Address
+            	Source Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: source_address  <key>
+            .. attribute:: destination_address  <key>
             
-            	Source Address
+            	Destination Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -45025,8 +43945,8 @@ class Rsvp(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
                 self.source_address = None
+                self.destination_address = None
                 self.destination_address_xr = None
                 self.hello_interface = None
                 self.instance_type = None
@@ -45036,24 +43956,22 @@ class Rsvp(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-briefs/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-brief[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-briefs/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-brief[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.destination_address_xr is not None:
@@ -45091,8 +44009,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.hello_instance_brief is not None:
                 for child_ref in self.hello_instance_brief:
                     if child_ref._has_data():
@@ -45134,6 +44050,13 @@ class Rsvp(object):
             """
             Brief Authentication information
             
+            .. attribute:: source_address  <key>
+            
+            	Source Address
+            	**type**\:  str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
             .. attribute:: destination_address  <key>
             
             	Destination Address
@@ -45141,24 +44064,17 @@ class Rsvp(object):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            .. attribute:: mode_id  <key>
+            
+            	Mode (Tx or Rx)
+            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
+            
             .. attribute:: interface_name  <key>
             
             	InterfaceName
             	**type**\:  str
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: mode_id  <key>
-            
-            	Mode (Tx or Rx)
-            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
-            
-            .. attribute:: source_address  <key>
-            
-            	Source Address
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             .. attribute:: auth_compact
             
@@ -45216,10 +44132,10 @@ class Rsvp(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
-                self.interface_name = None
-                self.mode_id = None
                 self.source_address = None
+                self.destination_address = None
+                self.mode_id = None
+                self.interface_name = None
                 self.auth_compact = Rsvp.AuthenticationDetails.AuthenticationDetail.AuthCompact()
                 self.auth_compact.parent = self
                 self.challenge_status = None
@@ -45315,8 +44231,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_address_xr is not None:
                         return True
 
@@ -45472,8 +44386,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.authentication_challenge_responses_sent is not None:
                                 return True
 
@@ -45505,8 +44417,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.counters is not None and self.counters._has_data():
                             return True
 
@@ -45731,8 +44641,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.authentication_received_bad_digest is not None:
                                 return True
 
@@ -45800,8 +44708,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.counters is not None and self.counters._has_data():
                             return True
 
@@ -45838,8 +44744,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auth_direction is not None:
                         return True
 
@@ -45858,34 +44762,32 @@ class Rsvp(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
-                if self.mode_id is None:
-                    raise YPYModelError('Key property mode_id is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
+                if self.mode_id is None:
+                    raise YPYModelError('Key property mode_id is None')
+                if self.interface_name is None:
+                    raise YPYModelError('Key property interface_name is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:authentication-details/Cisco-IOS-XR-ip-rsvp-oper:authentication-detail[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ip-rsvp-oper:mode-id = ' + str(self.mode_id) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:authentication-details/Cisco-IOS-XR-ip-rsvp-oper:authentication-detail[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:mode-id = ' + str(self.mode_id) + '][Cisco-IOS-XR-ip-rsvp-oper:interface-name = ' + str(self.interface_name) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.interface_name is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.mode_id is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.interface_name is not None:
                     return True
 
                 if self.auth_compact is not None and self.auth_compact._has_data():
@@ -45926,8 +44828,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.authentication_detail is not None:
                 for child_ref in self.authentication_detail:
                     if child_ref._has_data():
@@ -46233,8 +45133,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -46300,8 +45198,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -46367,8 +45263,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -46434,8 +45328,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -46462,8 +45354,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -46496,8 +45386,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -46541,8 +45429,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -46646,8 +45532,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_average_rate is not None:
                         return True
 
@@ -46764,8 +45648,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_bit_rate is not None:
                             return True
 
@@ -46795,8 +45677,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_spec_type is not None:
                         return True
 
@@ -46841,8 +45721,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_type is not None:
                         return True
 
@@ -46951,8 +45829,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -47023,8 +45899,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -47054,8 +45928,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -47082,8 +45954,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -47104,8 +45974,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -47177,8 +46045,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rsb_brief is not None:
                 for child_ref in self.rsb_brief:
                     if child_ref._has_data():
@@ -47413,8 +46279,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.in_ack_messages is not None:
                     return True
 
@@ -47694,8 +46558,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -47773,8 +46635,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_counter is not None:
                     for child_ref in self.interface_counter:
                         if child_ref._has_data():
@@ -47797,8 +46657,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.global_counters is not None and self.global_counters._has_data():
                 return True
 
@@ -48119,8 +46977,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ack is not None:
                             return True
 
@@ -48298,8 +47154,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ack is not None:
                             return True
 
@@ -48477,8 +47331,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ack is not None:
                             return True
 
@@ -48656,8 +47508,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ack is not None:
                             return True
 
@@ -48716,8 +47566,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -48759,8 +47607,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_message is not None:
                     for child_ref in self.interface_message:
                         if child_ref._has_data():
@@ -48970,8 +47816,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ack is not None:
                         return True
 
@@ -49147,8 +47991,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ack is not None:
                         return True
 
@@ -49324,8 +48166,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ack is not None:
                         return True
 
@@ -49501,8 +48341,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ack is not None:
                         return True
 
@@ -49559,8 +48397,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bundle_received_messages is not None and self.bundle_received_messages._has_data():
                     return True
 
@@ -49752,8 +48588,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -49832,8 +48666,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -49912,8 +48744,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -49992,8 +48822,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -50025,8 +48853,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.access_list_name is not None:
                             return True
 
@@ -50059,8 +48885,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access is not None:
                         for child_ref in self.access:
                             if child_ref._has_data():
@@ -50217,8 +49041,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -50295,8 +49117,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -50373,8 +49193,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -50452,8 +49270,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -50531,8 +49347,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -50609,8 +49423,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -50640,8 +49452,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.default_action_dropped is not None and self.default_action_dropped._has_data():
                             return True
 
@@ -50816,8 +49626,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -50896,8 +49704,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -50976,8 +49782,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -51057,8 +49861,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -51138,8 +49940,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -51218,8 +50018,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.path is not None:
                                     return True
 
@@ -51251,8 +50049,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -51291,8 +50087,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -51315,8 +50109,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
@@ -51340,8 +50132,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.accesses is not None and self.accesses._has_data():
                     return True
 
@@ -51440,8 +50230,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dropped_path_messages is not None:
                             return True
 
@@ -51520,8 +50308,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -51545,8 +50331,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -51569,8 +50353,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
@@ -51594,8 +50376,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
@@ -51688,8 +50468,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -51719,8 +50497,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_event is not None:
                     for child_ref in self.interface_event:
                         if child_ref._has_data():
@@ -51814,8 +50590,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.last_cleared_timestamp is not None:
                     return True
 
@@ -51925,8 +50699,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.last_cleared_timestamp is not None:
                     return True
 
@@ -52029,8 +50801,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.incoming_paths is not None:
                     return True
 
@@ -52138,8 +50908,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -52169,8 +50937,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.event_sync is not None:
                     for child_ref in self.event_sync:
                         if child_ref._has_data():
@@ -52193,8 +50959,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.database is not None and self.database._has_data():
                 return True
 
@@ -52598,8 +51362,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -52720,8 +51482,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -52765,8 +51525,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dste_mode is not None:
                         return True
 
@@ -52882,8 +51640,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_backup_tunnel is not None:
                         return True
 
@@ -53034,8 +51790,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -53084,8 +51838,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.message_id is not None:
                             return True
 
@@ -53108,8 +51860,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.expiry_time is not None and self.expiry_time._has_data():
                         return True
 
@@ -53149,8 +51899,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -53251,8 +51999,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_detailed is not None:
                 for child_ref in self.interface_detailed:
                     if child_ref._has_data():
@@ -53411,8 +52157,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.nanoseconds is not None:
                     return True
 
@@ -53471,8 +52215,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.nanoseconds is not None:
                     return True
 
@@ -53525,8 +52267,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.application_type is not None:
                     return True
 
@@ -53550,8 +52290,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.global_neighbors is not None:
                 return True
 
@@ -53624,16 +52362,16 @@ class Rsvp(object):
             Brief info for a single interface\-based hello
             instance
             
-            .. attribute:: destination_address  <key>
+            .. attribute:: source_address  <key>
             
-            	Destination Address
+            	Source Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: source_address  <key>
+            .. attribute:: destination_address  <key>
             
-            	Source Address
+            	Destination Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -53673,8 +52411,8 @@ class Rsvp(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
                 self.source_address = None
+                self.destination_address = None
                 self.destination_address_xr = None
                 self.hello_interface = None
                 self.instance_type = None
@@ -53682,24 +52420,22 @@ class Rsvp(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-briefs/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-brief[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-briefs/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-brief[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.destination_address_xr is not None:
@@ -53731,8 +52467,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.hello_interface_instance_brief is not None:
                 for child_ref in self.hello_interface_instance_brief:
                     if child_ref._has_data():
@@ -53775,16 +52509,16 @@ class Rsvp(object):
             Detailed info for a single interface\-based
             hello instance
             
-            .. attribute:: destination_address  <key>
+            .. attribute:: source_address  <key>
             
-            	Destination Address
+            	Source Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: source_address  <key>
+            .. attribute:: destination_address  <key>
             
-            	Source Address
+            	Destination Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -53864,8 +52598,8 @@ class Rsvp(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
                 self.source_address = None
+                self.destination_address = None
                 self.destination_address_xr = None
                 self.destination_instance = None
                 self.hello_global_neighbor_id = None
@@ -53925,8 +52659,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -53942,24 +52674,22 @@ class Rsvp(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-details/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-detail[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-details/Cisco-IOS-XR-ip-rsvp-oper:hello-interface-instance-detail[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.destination_address_xr is not None:
@@ -54009,8 +52739,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.hello_interface_instance_detail is not None:
                 for child_ref in self.hello_interface_instance_detail:
                     if child_ref._has_data():
@@ -54158,8 +52886,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_neighbor_address is not None:
                         return True
 
@@ -54197,8 +52923,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.neighbor_address is not None:
                     return True
 
@@ -54227,8 +52951,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_neighbor_detail is not None:
                 for child_ref in self.interface_neighbor_detail:
                     if child_ref._has_data():
@@ -54375,8 +53097,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -54479,8 +53199,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -54516,8 +53234,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.idt_status is not None and self.idt_status._has_data():
                     return True
 
@@ -54544,8 +53260,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.status is not None and self.status._has_data():
                 return True
 
@@ -54720,8 +53434,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -54824,8 +53536,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -54861,8 +53571,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.idt_status is not None and self.idt_status._has_data():
                     return True
 
@@ -54991,8 +53699,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -55095,8 +53801,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.declare_time is not None:
                         return True
 
@@ -55132,8 +53836,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.idt_status is not None and self.idt_status._has_data():
                     return True
 
@@ -55223,8 +53925,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.incoming_paths is not None:
                     return True
 
@@ -55260,8 +53960,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.database_counters is not None and self.database_counters._has_data():
                 return True
 
@@ -55555,8 +54253,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -55622,8 +54318,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -55689,8 +54383,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -55756,8 +54448,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -55784,8 +54474,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -55818,8 +54506,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -55863,8 +54549,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -55885,8 +54569,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -55949,8 +54631,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.frr is not None:
                 for child_ref in self.frr:
                     if child_ref._has_data():
@@ -56255,8 +54935,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -56322,8 +55000,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -56389,8 +55065,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -56456,8 +55130,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -56484,8 +55156,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -56518,8 +55188,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -56563,8 +55231,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -56668,8 +55334,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_average_rate is not None:
                         return True
 
@@ -56786,8 +55450,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_bit_rate is not None:
                             return True
 
@@ -56817,8 +55479,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_spec_type is not None:
                         return True
 
@@ -56930,8 +55590,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -57002,8 +55660,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -57033,8 +55689,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -57061,8 +55715,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -57104,8 +55756,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_type is not None:
                         return True
 
@@ -57126,8 +55776,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -57199,8 +55847,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.request_brief is not None:
                 for child_ref in self.request_brief:
                     if child_ref._has_data():
@@ -57563,8 +56209,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -57630,8 +56274,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -57697,8 +56339,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -57764,8 +56404,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -57792,8 +56430,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -57826,8 +56462,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -57871,8 +56505,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -57976,8 +56608,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_average_rate is not None:
                         return True
 
@@ -58094,8 +56724,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_bit_rate is not None:
                             return True
 
@@ -58125,8 +56753,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_spec_type is not None:
                         return True
 
@@ -58238,8 +56864,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -58310,8 +56934,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -58341,8 +56963,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -58369,8 +56989,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -58412,8 +57030,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_type is not None:
                         return True
 
@@ -58521,8 +57137,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_ack_outstanding is not None:
                         return True
 
@@ -58607,8 +57221,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor_address is not None:
                         return True
 
@@ -58703,8 +57315,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ip_source_address is not None:
                         return True
 
@@ -58788,8 +57398,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_cable is not None:
                         return True
 
@@ -58855,8 +57463,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_accepted is not None:
                         return True
 
@@ -58922,8 +57528,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_bypass is not None:
                         return True
 
@@ -59054,8 +57658,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_address is not None:
                         return True
 
@@ -59207,8 +57809,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_address is not None:
                         return True
 
@@ -59259,8 +57859,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -59360,8 +57958,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.request_detail is not None:
                 for child_ref in self.request_detail:
                     if child_ref._has_data():
@@ -59548,8 +58144,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -59670,8 +58264,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allocated_bit_rate is not None:
                             return True
 
@@ -59715,8 +58307,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dste_mode is not None:
                         return True
 
@@ -59745,8 +58335,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -59773,8 +58361,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_brief is not None:
                 for child_ref in self.interface_brief:
                     if child_ref._has_data():
@@ -60075,8 +58661,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_address is not None:
                                     return True
 
@@ -60142,8 +58726,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_address is not None:
                                     return True
 
@@ -60209,8 +58791,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_address is not None:
                                     return True
 
@@ -60276,8 +58856,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.extended_tunnel_id is not None:
                                     return True
 
@@ -60304,8 +58882,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4 is not None and self.ipv4._has_data():
                                 return True
 
@@ -60338,8 +58914,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rsvp_session is not None and self.rsvp_session._has_data():
                             return True
 
@@ -60360,8 +58934,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.detail_list_size is not None:
                         return True
 
@@ -60417,8 +58989,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -60696,8 +59266,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.value is not None:
                                     for child in self.value:
                                         if child is not None:
@@ -60720,8 +59288,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.generalized_label is not None and self.generalized_label._has_data():
                                 return True
 
@@ -60804,8 +59370,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.traffic_average_rate is not None:
                                 return True
 
@@ -60920,8 +59484,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.traffic_bit_rate is not None:
                                     return True
 
@@ -61010,8 +59572,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.traffic_average_rate is not None:
                                     return True
 
@@ -61044,8 +59604,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.g709otn_tspec is not None and self.g709otn_tspec._has_data():
                                 return True
 
@@ -61160,8 +59718,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.id is not None:
                                     return True
 
@@ -61227,8 +59783,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.id is not None:
                                     return True
 
@@ -61312,8 +59866,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.extended_id is not None:
                                     for child in self.extended_id:
                                         if child is not None:
@@ -61405,8 +59957,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.extended_id is not None:
                                     for child in self.extended_id:
                                         if child is not None:
@@ -61441,8 +59991,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.association_type is not None:
                                 return True
 
@@ -61573,8 +60121,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.one_plus_one_bi is not None:
                                     return True
 
@@ -61670,8 +60216,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ded1_plus1 is not None:
                                     return True
 
@@ -61713,8 +60257,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.link_flags is not None and self.link_flags._has_data():
                                 return True
 
@@ -61870,8 +60412,6 @@ class Rsvp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.traffic_bit_rate is not None:
                                         return True
 
@@ -61960,8 +60500,6 @@ class Rsvp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.traffic_average_rate is not None:
                                         return True
 
@@ -61994,8 +60532,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.g709otn_tspec is not None and self.g709otn_tspec._has_data():
                                     return True
 
@@ -62094,8 +60630,6 @@ class Rsvp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ero_address is not None:
                                         return True
 
@@ -62165,8 +60699,6 @@ class Rsvp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ero_interface_id is not None:
                                         return True
 
@@ -62196,8 +60728,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ero_type is not None:
                                     return True
 
@@ -62249,8 +60779,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.rsvp_mgmt_rev_lsp_unsupported_subobj is not None:
                                     for child in self.rsvp_mgmt_rev_lsp_unsupported_subobj:
                                         if child is not None:
@@ -62273,8 +60801,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ero is not None:
                                 for child_ref in self.ero:
                                     if child_ref._has_data():
@@ -62377,8 +60903,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ero_address is not None:
                                     return True
 
@@ -62448,8 +60972,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ero_interface_id is not None:
                                     return True
 
@@ -62479,8 +61001,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ero_type is not None:
                                 return True
 
@@ -62631,8 +61151,6 @@ class Rsvp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_bandwidth_protected is not None:
                                         return True
 
@@ -62665,8 +61183,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -62757,8 +61273,6 @@ class Rsvp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_global_label is not None:
                                         return True
 
@@ -62779,8 +61293,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -62895,8 +61407,6 @@ class Rsvp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_bandwidth_protected is not None:
                                         return True
 
@@ -62929,8 +61439,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -62982,8 +61490,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.srl_gs is not None:
                                     for child in self.srl_gs:
                                         if child is not None:
@@ -63006,8 +61512,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4rro_sub_object is not None and self.ipv4rro_sub_object._has_data():
                                 return True
 
@@ -63040,8 +61544,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.association is not None and self.association._has_data():
                             return True
 
@@ -63284,8 +61786,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.value is not None:
                                     for child in self.value:
                                         if child is not None:
@@ -63308,8 +61808,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.generalized_label is not None and self.generalized_label._has_data():
                                 return True
 
@@ -63416,8 +61914,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.flow_average_rate is not None:
                                 return True
 
@@ -63534,8 +62030,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flow_bit_rate is not None:
                                     return True
 
@@ -63565,8 +62059,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.flow_spec_type is not None:
                                 return True
 
@@ -63714,8 +62206,6 @@ class Rsvp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_bandwidth_protected is not None:
                                         return True
 
@@ -63748,8 +62238,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -63840,8 +62328,6 @@ class Rsvp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_global_label is not None:
                                         return True
 
@@ -63862,8 +62348,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -63978,8 +62462,6 @@ class Rsvp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_bandwidth_protected is not None:
                                         return True
 
@@ -64012,8 +62494,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flags is not None and self.flags._has_data():
                                     return True
 
@@ -64065,8 +62545,6 @@ class Rsvp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.srl_gs is not None:
                                     for child in self.srl_gs:
                                         if child is not None:
@@ -64089,8 +62567,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4rro_sub_object is not None and self.ipv4rro_sub_object._has_data():
                                 return True
 
@@ -64123,8 +62599,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.backup_interface is not None:
                             return True
 
@@ -64180,8 +62654,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.psb_info is not None:
                         for child_ref in self.psb_info:
                             if child_ref._has_data():
@@ -64209,8 +62681,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.compact is not None and self.compact._has_data():
                     return True
 
@@ -64260,8 +62730,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_detailed is not None:
                 for child_ref in self.session_detailed:
                     if child_ref._has_data():
@@ -64302,16 +62770,16 @@ class Rsvp(object):
             """
             Detailed info for a single hello instance
             
-            .. attribute:: destination_address  <key>
+            .. attribute:: source_address  <key>
             
-            	Destination Address
+            	Source Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: source_address  <key>
+            .. attribute:: destination_address  <key>
             
-            	Source Address
+            	Destination Address
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -64467,8 +62935,8 @@ class Rsvp(object):
 
             def __init__(self):
                 self.parent = None
-                self.destination_address = None
                 self.source_address = None
+                self.destination_address = None
                 self.communication_lost_hello_missed = None
                 self.communication_lost_interface_down = None
                 self.communication_lost_neighbor_disabled_hello = None
@@ -64541,8 +63009,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -64603,8 +63069,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -64620,24 +63084,22 @@ class Rsvp(object):
 
             @property
             def _common_path(self):
-                if self.destination_address is None:
-                    raise YPYModelError('Key property destination_address is None')
                 if self.source_address is None:
                     raise YPYModelError('Key property source_address is None')
+                if self.destination_address is None:
+                    raise YPYModelError('Key property destination_address is None')
 
-                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-details/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-detail[Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + '][Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + ']'
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-details/Cisco-IOS-XR-ip-rsvp-oper:hello-instance-detail[Cisco-IOS-XR-ip-rsvp-oper:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ip-rsvp-oper:destination-address = ' + str(self.destination_address) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.destination_address is not None:
+                if self.source_address is not None:
                     return True
 
-                if self.source_address is not None:
+                if self.destination_address is not None:
                     return True
 
                 if self.communication_lost_hello_missed is not None:
@@ -64723,8 +63185,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.hello_instance_detail is not None:
                 for child_ref in self.hello_instance_detail:
                     if child_ref._has_data():
@@ -64997,8 +63457,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_application_mpls is not None:
                         return True
 
@@ -65059,8 +63517,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -65121,8 +63577,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -65183,8 +63637,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -65245,8 +63697,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -65307,8 +63757,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -65369,8 +63817,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -65396,8 +63842,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.neighbor_address is not None:
                     return True
 
@@ -65498,8 +63942,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.global_neighbor_detail is not None:
                 for child_ref in self.global_neighbor_detail:
                     if child_ref._has_data():
@@ -65804,8 +64246,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -65871,8 +64311,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -65938,8 +64376,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -66005,8 +64441,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.extended_tunnel_id is not None:
                                 return True
 
@@ -66033,8 +64467,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
@@ -66067,8 +64499,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_session is not None and self.rsvp_session._has_data():
                         return True
 
@@ -66112,8 +64542,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.s2l_destination_address is not None:
                         return True
 
@@ -66222,8 +64650,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.source_address is not None:
                                 return True
 
@@ -66294,8 +64720,6 @@ class Rsvp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_sub_group_origin is not None:
                                 return True
 
@@ -66325,8 +64749,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.filter_type is not None:
                             return True
 
@@ -66353,8 +64775,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rsvp_filter is not None and self.rsvp_filter._has_data():
                         return True
 
@@ -66458,8 +64878,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.is_bandwidth_protect is not None:
                             return True
 
@@ -66492,8 +64910,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reservation_priority is not None:
                         return True
 
@@ -66579,8 +64995,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.traffic_average_rate is not None:
                         return True
 
@@ -66695,8 +65109,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.traffic_bit_rate is not None:
                             return True
 
@@ -66785,8 +65197,6 @@ class Rsvp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.traffic_average_rate is not None:
                             return True
 
@@ -66819,8 +65229,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.g709otn_tspec is not None and self.g709otn_tspec._has_data():
                         return True
 
@@ -66847,8 +65255,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -66920,8 +65326,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.psb_brief is not None:
                 for child_ref in self.psb_brief:
                     if child_ref._has_data():
@@ -67098,8 +65502,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_application_mpls is not None:
                         return True
 
@@ -67160,8 +65562,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -67222,8 +65622,6 @@ class Rsvp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -67249,8 +65647,6 @@ class Rsvp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.neighbor_address is not None:
                     return True
 
@@ -67313,8 +65709,6 @@ class Rsvp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.global_neighbor_brief is not None:
                 for child_ref in self.global_neighbor_brief:
                     if child_ref._has_data():
@@ -67337,8 +65731,6 @@ class Rsvp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.authentication_briefs is not None and self.authentication_briefs._has_data():
             return True
 

@@ -458,8 +458,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -545,8 +543,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -583,8 +579,6 @@ class Ipv6Network(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -618,8 +612,6 @@ class Ipv6Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.brief is not None:
                                     for child_ref in self.brief:
                                         if child_ref._has_data():
@@ -887,8 +879,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -962,8 +952,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.common_in_bound is not None:
                                             return True
 
@@ -1034,8 +1022,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.common is not None:
                                             for child in self.common:
                                                 if child is not None:
@@ -1111,8 +1097,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.allow_default_route is not None:
                                             return True
 
@@ -1208,8 +1192,6 @@ class Ipv6Network(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.destination is not None:
                                                 return True
 
@@ -1273,8 +1255,6 @@ class Ipv6Network(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.destination is not None:
                                                 return True
 
@@ -1303,8 +1283,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.input is not None and self.input._has_data():
                                             return True
 
@@ -1345,8 +1323,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -1381,8 +1357,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -1417,8 +1391,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -1453,8 +1425,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -1489,8 +1459,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -1533,8 +1501,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -1608,8 +1574,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -1667,8 +1631,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -1693,8 +1655,6 @@ class Ipv6Network(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -1786,8 +1746,6 @@ class Ipv6Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.global_detail is not None:
                                     for child_ref in self.global_detail:
                                         if child_ref._has_data():
@@ -1932,8 +1890,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -2019,8 +1975,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -2057,8 +2011,6 @@ class Ipv6Network(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -2092,8 +2044,6 @@ class Ipv6Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.global_brief is not None:
                                     for child_ref in self.global_brief:
                                         if child_ref._has_data():
@@ -2361,8 +2311,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -2436,8 +2384,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.common_in_bound is not None:
                                             return True
 
@@ -2508,8 +2454,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.common is not None:
                                             for child in self.common:
                                                 if child is not None:
@@ -2585,8 +2529,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.allow_default_route is not None:
                                             return True
 
@@ -2682,8 +2624,6 @@ class Ipv6Network(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.destination is not None:
                                                 return True
 
@@ -2747,8 +2687,6 @@ class Ipv6Network(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.destination is not None:
                                                 return True
 
@@ -2777,8 +2715,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.input is not None and self.input._has_data():
                                             return True
 
@@ -2819,8 +2755,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -2855,8 +2789,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -2891,8 +2823,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -2927,8 +2857,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -2963,8 +2891,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -3007,8 +2933,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -3082,8 +3006,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -3141,8 +3063,6 @@ class Ipv6Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -3167,8 +3087,6 @@ class Ipv6Network(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -3260,8 +3178,6 @@ class Ipv6Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.detail is not None:
                                     for child_ref in self.detail:
                                         if child_ref._has_data():
@@ -3288,8 +3204,6 @@ class Ipv6Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -3324,8 +3238,6 @@ class Ipv6Network(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
@@ -3441,8 +3353,6 @@ class Ipv6Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_assigned is not None:
                                 return True
 
@@ -3510,8 +3420,6 @@ class Ipv6Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_assigned is not None:
                                 return True
 
@@ -3579,8 +3487,6 @@ class Ipv6Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_assigned is not None:
                                 return True
 
@@ -3648,8 +3554,6 @@ class Ipv6Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_assigned is not None:
                                 return True
 
@@ -3678,8 +3582,6 @@ class Ipv6Network(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.if_down_down is not None and self.if_down_down._has_data():
                             return True
 
@@ -3714,8 +3616,6 @@ class Ipv6Network(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.summary is not None and self.summary._has_data():
                         return True
 
@@ -3741,8 +3641,6 @@ class Ipv6Network(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -3766,8 +3664,6 @@ class Ipv6Network(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3790,8 +3686,6 @@ class Ipv6Network(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

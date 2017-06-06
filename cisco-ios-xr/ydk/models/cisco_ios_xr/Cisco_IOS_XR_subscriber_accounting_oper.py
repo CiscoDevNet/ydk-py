@@ -449,8 +449,6 @@ class SubscriberAccounting(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.service_accounting_enabled_flag is not None:
                                     return True
 
@@ -491,8 +489,6 @@ class SubscriberAccounting(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.idle_timeout_direction is not None:
                                 return True
 
@@ -588,8 +584,6 @@ class SubscriberAccounting(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sub_label is not None:
                             return True
 
@@ -615,8 +609,6 @@ class SubscriberAccounting(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.subscriber_accounting_session_feature is not None:
                         for child_ref in self.subscriber_accounting_session_feature:
                             if child_ref._has_data():
@@ -979,8 +971,6 @@ class SubscriberAccounting(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.accounting_callback is not None:
                             return True
 
@@ -1184,8 +1174,6 @@ class SubscriberAccounting(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_flow_idle_timers is not None:
                             return True
 
@@ -1261,8 +1249,6 @@ class SubscriberAccounting(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_session_timers is not None:
                             return True
 
@@ -1344,8 +1330,6 @@ class SubscriberAccounting(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_flows is not None:
                             return True
 
@@ -1380,8 +1364,6 @@ class SubscriberAccounting(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.aaa_counters is not None and self.aaa_counters._has_data():
                         return True
 
@@ -1882,8 +1864,6 @@ class SubscriberAccounting(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.flow_accounting_enabled_flag is not None:
                                 return True
 
@@ -2043,8 +2023,6 @@ class SubscriberAccounting(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.class_label is not None:
                             return True
 
@@ -2070,8 +2048,6 @@ class SubscriberAccounting(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.subscriber_accounting_flow_feature is not None:
                         for child_ref in self.subscriber_accounting_flow_feature:
                             if child_ref._has_data():
@@ -2096,8 +2072,6 @@ class SubscriberAccounting(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_id is not None:
                     return True
 
@@ -2127,8 +2101,6 @@ class SubscriberAccounting(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -2151,8 +2123,6 @@ class SubscriberAccounting(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

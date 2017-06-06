@@ -161,8 +161,6 @@ class Ipv6Virtual(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.address is not None:
@@ -190,8 +188,6 @@ class Ipv6Virtual(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -215,8 +211,6 @@ class Ipv6Virtual(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -239,8 +233,6 @@ class Ipv6Virtual(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.use_as_source_address is not None:
             return True
 

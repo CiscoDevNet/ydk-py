@@ -19,12 +19,6 @@ _meta_table = {
             'connected':'connected',
             'established':'established',
         }, 'Cisco-IOS-XR-tunnel-vpdn-oper', _yang_ns._namespaces['Cisco-IOS-XR-tunnel-vpdn-oper']),
-    'VpdnStateEnum' : _MetaInfoEnum('VpdnStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper',
-        {
-            'initial-state':'initial_state',
-            'init-sync-in-progress':'init_sync_in_progress',
-            'steady-state':'steady_state',
-        }, 'Cisco-IOS-XR-tunnel-vpdn-oper', _yang_ns._namespaces['Cisco-IOS-XR-tunnel-vpdn-oper']),
     'VpdnFailcodeEnum' : _MetaInfoEnum('VpdnFailcodeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper',
         {
             'unknown':'unknown',
@@ -46,6 +40,12 @@ _meta_table = {
             'security':'security',
             'tunnel-in-resync':'tunnel_in_resync',
             'call-prarmeters':'call_prarmeters',
+        }, 'Cisco-IOS-XR-tunnel-vpdn-oper', _yang_ns._namespaces['Cisco-IOS-XR-tunnel-vpdn-oper']),
+    'VpdnStateEnum' : _MetaInfoEnum('VpdnStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper',
+        {
+            'initial-state':'initial_state',
+            'init-sync-in-progress':'init_sync_in_progress',
+            'steady-state':'steady_state',
         }, 'Cisco-IOS-XR-tunnel-vpdn-oper', _yang_ns._namespaces['Cisco-IOS-XR-tunnel-vpdn-oper']),
     'VpdnNasPortEnum' : _MetaInfoEnum('VpdnNasPortEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper',
         {
@@ -79,12 +79,6 @@ _meta_table = {
             'virtual-i-po-e-over-q-in-q':'virtual_i_po_e_over_q_in_q',
             'unknown':'unknown',
         }, 'Cisco-IOS-XR-tunnel-vpdn-oper', _yang_ns._namespaces['Cisco-IOS-XR-tunnel-vpdn-oper']),
-    'TosModeEnum' : _MetaInfoEnum('TosModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper',
-        {
-            'default':'default',
-            'set':'set',
-            'reflect':'reflect',
-        }, 'Cisco-IOS-XR-tunnel-vpdn-oper', _yang_ns._namespaces['Cisco-IOS-XR-tunnel-vpdn-oper']),
     'LsgStatusEnum' : _MetaInfoEnum('LsgStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper',
         {
             'none':'none',
@@ -92,6 +86,12 @@ _meta_table = {
             'down':'down',
             'testable':'testable',
             'testing':'testing',
+        }, 'Cisco-IOS-XR-tunnel-vpdn-oper', _yang_ns._namespaces['Cisco-IOS-XR-tunnel-vpdn-oper']),
+    'TosModeEnum' : _MetaInfoEnum('TosModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper',
+        {
+            'default':'default',
+            'set':'set',
+            'reflect':'reflect',
         }, 'Cisco-IOS-XR-tunnel-vpdn-oper', _yang_ns._namespaces['Cisco-IOS-XR-tunnel-vpdn-oper']),
     'Vpdn.Sessions.Session.Session_' : {
         'meta_info' : _MetaInfoClass('Vpdn.Sessions.Session.Session_',
@@ -104,7 +104,7 @@ _meta_table = {
                 'domain_name',
                 'Cisco-IOS-XR-tunnel-vpdn-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Session interface name
                 ''',
                 'interface_name',
@@ -176,7 +176,7 @@ _meta_table = {
                 'is_tunnel_authentication_enabled',
                 'Cisco-IOS-XR-tunnel-vpdn-oper', False),
             _MetaInfoClassMember('local-endpoint', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local endpoint IP address
                 ''',
                 'local_endpoint',
@@ -194,7 +194,7 @@ _meta_table = {
                 'local_tunnel_id',
                 'Cisco-IOS-XR-tunnel-vpdn-oper', False),
             _MetaInfoClassMember('remote-endpoint', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote endpoint IP address
                 ''',
                 'remote_endpoint',
@@ -364,7 +364,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('session-label', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Session label
                 ''',
                 'session_label',
@@ -382,7 +382,7 @@ _meta_table = {
                 'l2tp',
                 'Cisco-IOS-XR-tunnel-vpdn-oper', False),
             _MetaInfoClassMember('parent-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface name
                 ''',
                 'parent_interface_name',
@@ -434,7 +434,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -476,7 +476,7 @@ _meta_table = {
                 'status_change_time',
                 'Cisco-IOS-XR-tunnel-vpdn-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -984,7 +984,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                NAS IP address
                 ''',
                 'destination_address',
@@ -1045,13 +1045,13 @@ _meta_table = {
                 'remote_client_id',
                 'Cisco-IOS-XR-tunnel-vpdn-oper', False),
             _MetaInfoClassMember('remote-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Remote name
                 ''',
                 'remote_name',
                 'Cisco-IOS-XR-tunnel-vpdn-oper', False),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Source IP address
                 ''',
                 'source_address',

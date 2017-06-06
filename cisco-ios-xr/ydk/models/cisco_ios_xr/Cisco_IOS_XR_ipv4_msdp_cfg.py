@@ -303,8 +303,6 @@ class Msdp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.list is not None:
                         return True
 
@@ -380,8 +378,6 @@ class Msdp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.keep_alive_period is not None:
@@ -587,8 +583,6 @@ class Msdp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.as_xx is not None:
@@ -663,8 +657,6 @@ class Msdp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.keep_alive_period is not None:
@@ -708,15 +700,15 @@ class Msdp(object):
                             """
                             SA\-Filter incoming/outgoing list or RPlist
                             
-                            .. attribute:: filter_type  <key>
-                            
-                            	Incoming/Outgoing ACL
-                            	**type**\:   :py:class:`MsdpFilterTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrfEnum>`
-                            
                             .. attribute:: list  <key>
                             
                             	Src List/RP List
                             	**type**\:   :py:class:`MsdpListTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrfEnum>`
+                            
+                            .. attribute:: filter_type  <key>
+                            
+                            	Incoming/Outgoing ACL
+                            	**type**\:   :py:class:`MsdpFilterTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrfEnum>`
                             
                             .. attribute:: access_list_name
                             
@@ -736,32 +728,30 @@ class Msdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.filter_type = None
                                 self.list = None
+                                self.filter_type = None
                                 self.access_list_name = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.filter_type is None:
-                                    raise YPYModelError('Key property filter_type is None')
                                 if self.list is None:
                                     raise YPYModelError('Key property list is None')
+                                if self.filter_type is None:
+                                    raise YPYModelError('Key property filter_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-msdp-cfg:sa-filter[Cisco-IOS-XR-ipv4-msdp-cfg:filter-type = ' + str(self.filter_type) + '][Cisco-IOS-XR-ipv4-msdp-cfg:list = ' + str(self.list) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-msdp-cfg:sa-filter[Cisco-IOS-XR-ipv4-msdp-cfg:list = ' + str(self.list) + '][Cisco-IOS-XR-ipv4-msdp-cfg:filter-type = ' + str(self.filter_type) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.filter_type is not None:
+                                if self.list is not None:
                                     return True
 
-                                if self.list is not None:
+                                if self.filter_type is not None:
                                     return True
 
                                 if self.access_list_name is not None:
@@ -786,8 +776,6 @@ class Msdp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sa_filter is not None:
                                 for child_ref in self.sa_filter:
                                     if child_ref._has_data():
@@ -814,8 +802,6 @@ class Msdp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.peer_address is not None:
                             return True
 
@@ -874,8 +860,6 @@ class Msdp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.peer is not None:
                         for child_ref in self.peer:
                             if child_ref._has_data():
@@ -916,15 +900,15 @@ class Msdp(object):
                     """
                     SA\-Filter incoming/outgoing list or RPlist
                     
-                    .. attribute:: filter_type  <key>
-                    
-                    	Incoming/Outgoing ACL
-                    	**type**\:   :py:class:`MsdpFilterTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrfEnum>`
-                    
                     .. attribute:: list  <key>
                     
                     	Src List/RP List
                     	**type**\:   :py:class:`MsdpListTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrfEnum>`
+                    
+                    .. attribute:: filter_type  <key>
+                    
+                    	Incoming/Outgoing ACL
+                    	**type**\:   :py:class:`MsdpFilterTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrfEnum>`
                     
                     .. attribute:: access_list_name
                     
@@ -944,32 +928,30 @@ class Msdp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.filter_type = None
                         self.list = None
+                        self.filter_type = None
                         self.access_list_name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.filter_type is None:
-                            raise YPYModelError('Key property filter_type is None')
                         if self.list is None:
                             raise YPYModelError('Key property list is None')
+                        if self.filter_type is None:
+                            raise YPYModelError('Key property filter_type is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-msdp-cfg:sa-filter[Cisco-IOS-XR-ipv4-msdp-cfg:filter-type = ' + str(self.filter_type) + '][Cisco-IOS-XR-ipv4-msdp-cfg:list = ' + str(self.list) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-msdp-cfg:sa-filter[Cisco-IOS-XR-ipv4-msdp-cfg:list = ' + str(self.list) + '][Cisco-IOS-XR-ipv4-msdp-cfg:filter-type = ' + str(self.filter_type) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.filter_type is not None:
+                        if self.list is not None:
                             return True
 
-                        if self.list is not None:
+                        if self.filter_type is not None:
                             return True
 
                         if self.access_list_name is not None:
@@ -994,8 +976,6 @@ class Msdp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sa_filter is not None:
                         for child_ref in self.sa_filter:
                             if child_ref._has_data():
@@ -1020,8 +1000,6 @@ class Msdp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -1072,8 +1050,6 @@ class Msdp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -1239,8 +1215,6 @@ class Msdp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.list is not None:
                     return True
 
@@ -1314,8 +1288,6 @@ class Msdp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self._is_presence:
                     return True
                 if self.keep_alive_period is not None:
@@ -1521,8 +1493,6 @@ class Msdp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.as_xx is not None:
@@ -1597,8 +1567,6 @@ class Msdp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.keep_alive_period is not None:
@@ -1642,15 +1610,15 @@ class Msdp(object):
                         """
                         SA\-Filter incoming/outgoing list or RPlist
                         
-                        .. attribute:: filter_type  <key>
-                        
-                        	Incoming/Outgoing ACL
-                        	**type**\:   :py:class:`MsdpFilterTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrfEnum>`
-                        
                         .. attribute:: list  <key>
                         
                         	Src List/RP List
                         	**type**\:   :py:class:`MsdpListTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrfEnum>`
+                        
+                        .. attribute:: filter_type  <key>
+                        
+                        	Incoming/Outgoing ACL
+                        	**type**\:   :py:class:`MsdpFilterTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrfEnum>`
                         
                         .. attribute:: access_list_name
                         
@@ -1670,32 +1638,30 @@ class Msdp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.filter_type = None
                             self.list = None
+                            self.filter_type = None
                             self.access_list_name = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.filter_type is None:
-                                raise YPYModelError('Key property filter_type is None')
                             if self.list is None:
                                 raise YPYModelError('Key property list is None')
+                            if self.filter_type is None:
+                                raise YPYModelError('Key property filter_type is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-msdp-cfg:sa-filter[Cisco-IOS-XR-ipv4-msdp-cfg:filter-type = ' + str(self.filter_type) + '][Cisco-IOS-XR-ipv4-msdp-cfg:list = ' + str(self.list) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-msdp-cfg:sa-filter[Cisco-IOS-XR-ipv4-msdp-cfg:list = ' + str(self.list) + '][Cisco-IOS-XR-ipv4-msdp-cfg:filter-type = ' + str(self.filter_type) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.filter_type is not None:
+                            if self.list is not None:
                                 return True
 
-                            if self.list is not None:
+                            if self.filter_type is not None:
                                 return True
 
                             if self.access_list_name is not None:
@@ -1720,8 +1686,6 @@ class Msdp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sa_filter is not None:
                             for child_ref in self.sa_filter:
                                 if child_ref._has_data():
@@ -1746,8 +1710,6 @@ class Msdp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.peer_address is not None:
                         return True
 
@@ -1804,8 +1766,6 @@ class Msdp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer is not None:
                     for child_ref in self.peer:
                         if child_ref._has_data():
@@ -1846,15 +1806,15 @@ class Msdp(object):
                 """
                 SA\-Filter incoming/outgoing list or RPlist
                 
-                .. attribute:: filter_type  <key>
-                
-                	Incoming/Outgoing ACL
-                	**type**\:   :py:class:`MsdpFilterTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrfEnum>`
-                
                 .. attribute:: list  <key>
                 
                 	Src List/RP List
                 	**type**\:   :py:class:`MsdpListTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpListTypeVrfEnum>`
+                
+                .. attribute:: filter_type  <key>
+                
+                	Incoming/Outgoing ACL
+                	**type**\:   :py:class:`MsdpFilterTypeVrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg.MsdpFilterTypeVrfEnum>`
                 
                 .. attribute:: access_list_name
                 
@@ -1874,30 +1834,28 @@ class Msdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.filter_type = None
                     self.list = None
+                    self.filter_type = None
                     self.access_list_name = None
 
                 @property
                 def _common_path(self):
-                    if self.filter_type is None:
-                        raise YPYModelError('Key property filter_type is None')
                     if self.list is None:
                         raise YPYModelError('Key property list is None')
+                    if self.filter_type is None:
+                        raise YPYModelError('Key property filter_type is None')
 
-                    return '/Cisco-IOS-XR-ipv4-msdp-cfg:msdp/Cisco-IOS-XR-ipv4-msdp-cfg:default-context/Cisco-IOS-XR-ipv4-msdp-cfg:sa-filters/Cisco-IOS-XR-ipv4-msdp-cfg:sa-filter[Cisco-IOS-XR-ipv4-msdp-cfg:filter-type = ' + str(self.filter_type) + '][Cisco-IOS-XR-ipv4-msdp-cfg:list = ' + str(self.list) + ']'
+                    return '/Cisco-IOS-XR-ipv4-msdp-cfg:msdp/Cisco-IOS-XR-ipv4-msdp-cfg:default-context/Cisco-IOS-XR-ipv4-msdp-cfg:sa-filters/Cisco-IOS-XR-ipv4-msdp-cfg:sa-filter[Cisco-IOS-XR-ipv4-msdp-cfg:list = ' + str(self.list) + '][Cisco-IOS-XR-ipv4-msdp-cfg:filter-type = ' + str(self.filter_type) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.filter_type is not None:
+                    if self.list is not None:
                         return True
 
-                    if self.list is not None:
+                    if self.filter_type is not None:
                         return True
 
                     if self.access_list_name is not None:
@@ -1920,8 +1878,6 @@ class Msdp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sa_filter is not None:
                     for child_ref in self.sa_filter:
                         if child_ref._has_data():
@@ -1944,8 +1900,6 @@ class Msdp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.cache_state is not None and self.cache_state._has_data():
@@ -1995,8 +1949,6 @@ class Msdp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.default_context is not None and self.default_context._has_data():
             return True
 

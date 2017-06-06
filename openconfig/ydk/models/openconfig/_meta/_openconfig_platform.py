@@ -434,7 +434,7 @@ _meta_table = {
                 'connector_type',
                 'openconfig-platform-transceiver', False),
             _MetaInfoClassMember('date-code', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                [], [b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
                 '''                Representation of the transceiver date code, typically
                 stored as YYMMDD.  The time portion of the value is
                 undefined and not intended to be read.

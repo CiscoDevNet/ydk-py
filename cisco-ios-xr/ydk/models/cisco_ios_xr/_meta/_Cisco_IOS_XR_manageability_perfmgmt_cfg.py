@@ -13,6 +13,12 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'PmThresholdRearmEnum' : _MetaInfoEnum('PmThresholdRearmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg',
+        {
+            'always':'always',
+            'window':'window',
+            'toggle':'toggle',
+        }, 'Cisco-IOS-XR-manageability-perfmgmt-cfg', _yang_ns._namespaces['Cisco-IOS-XR-manageability-perfmgmt-cfg']),
     'PmThresholdOpEnum' : _MetaInfoEnum('PmThresholdOpEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg',
         {
             'eq':'eq',
@@ -22,12 +28,6 @@ _meta_table = {
             'gt':'gt',
             'ge':'ge',
             'rg':'rg',
-        }, 'Cisco-IOS-XR-manageability-perfmgmt-cfg', _yang_ns._namespaces['Cisco-IOS-XR-manageability-perfmgmt-cfg']),
-    'PmThresholdRearmEnum' : _MetaInfoEnum('PmThresholdRearmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg',
-        {
-            'always':'always',
-            'window':'window',
-            'toggle':'toggle',
         }, 'Cisco-IOS-XR-manageability-perfmgmt-cfg', _yang_ns._namespaces['Cisco-IOS-XR-manageability-perfmgmt-cfg']),
     'PerfMgmt.Resources.TftpResources' : {
         'meta_info' : _MetaInfoClass('PerfMgmt.Resources.TftpResources',
@@ -40,7 +40,7 @@ _meta_table = {
                 'directory',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('server-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address of the TFTP server
                 ''',
                 'server_address',
@@ -136,7 +136,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -219,7 +219,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -302,7 +302,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -385,7 +385,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -468,7 +468,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -551,7 +551,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -634,7 +634,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -717,7 +717,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -800,7 +800,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -883,7 +883,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -1106,7 +1106,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_id',
@@ -1203,7 +1203,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_id',
@@ -1300,7 +1300,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_id',
@@ -1555,7 +1555,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_id',
@@ -1652,7 +1652,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_id',
@@ -1749,7 +1749,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_id',
@@ -1900,7 +1900,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('session', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address of the LDP Session
                 ''',
                 'session',
@@ -1957,7 +1957,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                OSPF Instance Name
                 ''',
                 'instance_name',
@@ -2014,7 +2014,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -2112,7 +2112,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_id',
@@ -2169,7 +2169,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -2226,7 +2226,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_id',
@@ -2283,7 +2283,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                OSPF Instance Name
                 ''',
                 'instance_name',
@@ -2340,7 +2340,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_id',
@@ -2397,7 +2397,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address of the Neighbor
                 ''',
                 'peer_address',
@@ -2454,7 +2454,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -3713,7 +3713,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -4829,7 +4829,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -5504,7 +5504,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -6045,7 +6045,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -7222,7 +7222,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -7508,7 +7508,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -8037,7 +8037,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -8315,7 +8315,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -8492,7 +8492,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',
@@ -9582,7 +9582,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('template-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Template Name
                 ''',
                 'template_name',

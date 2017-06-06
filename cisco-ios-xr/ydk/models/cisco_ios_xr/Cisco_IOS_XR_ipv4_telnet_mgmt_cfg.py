@@ -133,8 +133,6 @@ class Telnet(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dscp is not None:
                         return True
 
@@ -157,8 +155,6 @@ class Telnet(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -182,8 +178,6 @@ class Telnet(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -206,8 +200,6 @@ class Telnet(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 

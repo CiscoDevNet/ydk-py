@@ -2505,17 +2505,17 @@ class Cfm(object):
                     """
                     AIS statistics for a particular interface
                     
-                    .. attribute:: direction  <key>
-                    
-                    	AIS Direction
-                    	**type**\:   :py:class:`CfmAisDirEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmAisDirEnum>`
-                    
                     .. attribute:: interface_name  <key>
                     
                     	Interface
                     	**type**\:  str
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: direction  <key>
+                    
+                    	AIS Direction
+                    	**type**\:   :py:class:`CfmAisDirEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmAisDirEnum>`
                     
                     .. attribute:: interface
                     
@@ -2553,8 +2553,8 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.direction = None
                         self.interface_name = None
+                        self.direction = None
                         self.interface = None
                         self.interface_state = None
                         self.interworking_state = None
@@ -2772,8 +2772,6 @@ class Cfm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.invalid_ccm_interval is not None:
                                         return True
 
@@ -2814,8 +2812,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ais_received is not None:
                                     return True
 
@@ -2894,8 +2890,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nanoseconds is not None:
                                     return True
 
@@ -2921,8 +2915,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.defects is not None and self.defects._has_data():
                                 return True
 
@@ -2960,24 +2952,22 @@ class Cfm(object):
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.direction is None:
-                            raise YPYModelError('Key property direction is None')
                         if self.interface_name is None:
                             raise YPYModelError('Key property interface_name is None')
+                        if self.direction is None:
+                            raise YPYModelError('Key property direction is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:interface-ais[Cisco-IOS-XR-ethernet-cfm-oper:direction = ' + str(self.direction) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface-name = ' + str(self.interface_name) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:interface-ais[Cisco-IOS-XR-ethernet-cfm-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ethernet-cfm-oper:direction = ' + str(self.direction) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.direction is not None:
+                        if self.interface_name is not None:
                             return True
 
-                        if self.interface_name is not None:
+                        if self.direction is not None:
                             return True
 
                         if self.interface is not None:
@@ -3014,8 +3004,6 @@ class Cfm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_ais is not None:
                         for child_ref in self.interface_ais:
                             if child_ref._has_data():
@@ -3144,8 +3132,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dropped_packets is not None:
                                 return True
 
@@ -3179,8 +3165,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -3209,8 +3193,6 @@ class Cfm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_statistic is not None:
                         for child_ref in self.interface_statistic:
                             if child_ref._has_data():
@@ -3456,8 +3438,6 @@ class Cfm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bnm_enabled_links is not None:
                         return True
 
@@ -3578,19 +3558,19 @@ class Cfm(object):
                     
                     	**length:** 1..79
                     
-                    .. attribute:: mac_address  <key>
-                    
-                    	MAC Address
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
                     .. attribute:: service  <key>
                     
                     	Service (Maintenance Association)
                     	**type**\:  str
                     
                     	**length:** 1..79
+                    
+                    .. attribute:: mac_address  <key>
+                    
+                    	MAC Address
+                    	**type**\:  str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
                     .. attribute:: domain_xr
                     
@@ -3641,8 +3621,8 @@ class Cfm(object):
                     def __init__(self):
                         self.parent = None
                         self.domain = None
-                        self.mac_address = None
                         self.service = None
+                        self.mac_address = None
                         self.domain_xr = None
                         self.ingress_interface = None
                         self.ingress_interface_string = None
@@ -3657,27 +3637,25 @@ class Cfm(object):
                             raise YPYModelError('parent is not set . Cannot derive path.')
                         if self.domain is None:
                             raise YPYModelError('Key property domain is None')
-                        if self.mac_address is None:
-                            raise YPYModelError('Key property mac_address is None')
                         if self.service is None:
                             raise YPYModelError('Key property service is None')
+                        if self.mac_address is None:
+                            raise YPYModelError('Key property mac_address is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:ccm-learning-database[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:mac-address = ' + str(self.mac_address) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:ccm-learning-database[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:mac-address = ' + str(self.mac_address) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain is not None:
                             return True
 
-                        if self.mac_address is not None:
+                        if self.service is not None:
                             return True
 
-                        if self.service is not None:
+                        if self.mac_address is not None:
                             return True
 
                         if self.domain_xr is not None:
@@ -3720,8 +3698,6 @@ class Cfm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ccm_learning_database is not None:
                         for child_ref in self.ccm_learning_database:
                             if child_ref._has_data():
@@ -3746,8 +3722,6 @@ class Cfm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     return True
 
@@ -3780,8 +3754,6 @@ class Cfm(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3894,12 +3866,12 @@ class Cfm(object):
                 
                 	**length:** 1..79
                 
-                .. attribute:: interface  <key>
+                .. attribute:: service  <key>
                 
-                	Interface
+                	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**length:** 1..79
                 
                 .. attribute:: mep_id  <key>
                 
@@ -3908,12 +3880,12 @@ class Cfm(object):
                 
                 	**range:** 1..8191
                 
-                .. attribute:: service  <key>
+                .. attribute:: interface  <key>
                 
-                	Service (Maintenance Association)
+                	Interface
                 	**type**\:  str
                 
-                	**length:** 1..79
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: transaction_id  <key>
                 
@@ -3946,9 +3918,9 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.interface = None
-                    self.mep_id = None
                     self.service = None
+                    self.mep_id = None
+                    self.interface = None
                     self.transaction_id = None
                     self.time_left = None
                     self.traceroute_information = Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation()
@@ -4142,8 +4114,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fdb_only is not None:
                                     return True
 
@@ -4204,8 +4174,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.delay_constant_factor is not None:
                                     return True
 
@@ -4234,8 +4202,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.basic_options is not None and self.basic_options._has_data():
                                 return True
 
@@ -4264,8 +4230,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.directed_mac_address is not None:
                             return True
 
@@ -4316,34 +4280,32 @@ class Cfm(object):
                 def _common_path(self):
                     if self.domain is None:
                         raise YPYModelError('Key property domain is None')
-                    if self.interface is None:
-                        raise YPYModelError('Key property interface is None')
-                    if self.mep_id is None:
-                        raise YPYModelError('Key property mep_id is None')
                     if self.service is None:
                         raise YPYModelError('Key property service is None')
+                    if self.mep_id is None:
+                        raise YPYModelError('Key property mep_id is None')
+                    if self.interface is None:
+                        raise YPYModelError('Key property interface is None')
                     if self.transaction_id is None:
                         raise YPYModelError('Key property transaction_id is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:incomplete-traceroutes/Cisco-IOS-XR-ethernet-cfm-oper:incomplete-traceroute[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:transaction-id = ' + str(self.transaction_id) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:incomplete-traceroutes/Cisco-IOS-XR-ethernet-cfm-oper:incomplete-traceroute[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:transaction-id = ' + str(self.transaction_id) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain is not None:
                         return True
 
-                    if self.interface is not None:
+                    if self.service is not None:
                         return True
 
                     if self.mep_id is not None:
                         return True
 
-                    if self.service is not None:
+                    if self.interface is not None:
                         return True
 
                     if self.transaction_id is not None:
@@ -4372,8 +4334,6 @@ class Cfm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.incomplete_traceroute is not None:
                     for child_ref in self.incomplete_traceroute:
                         if child_ref._has_data():
@@ -4422,19 +4382,19 @@ class Cfm(object):
                 
                 	**length:** 1..79
                 
-                .. attribute:: interface  <key>
-                
-                	Interface
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
                 .. attribute:: service  <key>
                 
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
                 	**length:** 1..79
+                
+                .. attribute:: interface  <key>
+                
+                	Interface
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: mac_address
                 
@@ -4463,8 +4423,8 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.interface = None
                     self.service = None
+                    self.interface = None
                     self.mac_address = None
                     self.maintenance_point = Cfm.Global_.MaintenancePoints.MaintenancePoint.MaintenancePoint_()
                     self.maintenance_point.parent = self
@@ -4537,8 +4497,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_name is not None:
                             return True
 
@@ -4568,27 +4526,25 @@ class Cfm(object):
                 def _common_path(self):
                     if self.domain is None:
                         raise YPYModelError('Key property domain is None')
-                    if self.interface is None:
-                        raise YPYModelError('Key property interface is None')
                     if self.service is None:
                         raise YPYModelError('Key property service is None')
+                    if self.interface is None:
+                        raise YPYModelError('Key property interface is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:maintenance-points/Cisco-IOS-XR-ethernet-cfm-oper:maintenance-point[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:maintenance-points/Cisco-IOS-XR-ethernet-cfm-oper:maintenance-point[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain is not None:
                         return True
 
-                    if self.interface is not None:
+                    if self.service is not None:
                         return True
 
-                    if self.service is not None:
+                    if self.interface is not None:
                         return True
 
                     if self.mac_address is not None:
@@ -4617,8 +4573,6 @@ class Cfm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.maintenance_point is not None:
                     for child_ref in self.maintenance_point:
                         if child_ref._has_data():
@@ -4785,8 +4739,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bridge_domain_id_format is not None:
                             return True
 
@@ -4823,8 +4775,6 @@ class Cfm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain is not None:
                         return True
 
@@ -4866,8 +4816,6 @@ class Cfm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.global_configuration_error is not None:
                     for child_ref in self.global_configuration_error:
                         if child_ref._has_data():
@@ -4916,19 +4864,19 @@ class Cfm(object):
                 
                 	**length:** 1..79
                 
-                .. attribute:: interface  <key>
-                
-                	Interface
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
                 .. attribute:: service  <key>
                 
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
                 	**length:** 1..79
+                
+                .. attribute:: interface  <key>
+                
+                	Interface
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: ais_configured
                 
@@ -5092,8 +5040,8 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.interface = None
                     self.service = None
+                    self.interface = None
                     self.ais_configured = None
                     self.bridge_domain_mismatch = None
                     self.bridge_domain_not_in_bd_infra = None
@@ -5196,8 +5144,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.domain_name is not None:
                             return True
 
@@ -5285,8 +5231,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bridge_domain_id_format is not None:
                             return True
 
@@ -5370,8 +5314,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bridge_domain_id_format is not None:
                             return True
 
@@ -5469,8 +5411,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.controller is not None:
                                 return True
 
@@ -5523,8 +5463,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.controller is not None:
                                 return True
 
@@ -5577,8 +5515,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.controller is not None:
                                 return True
 
@@ -5604,8 +5540,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.delay_measurement is not None and self.delay_measurement._has_data():
                             return True
 
@@ -5626,27 +5560,25 @@ class Cfm(object):
                 def _common_path(self):
                     if self.domain is None:
                         raise YPYModelError('Key property domain is None')
-                    if self.interface is None:
-                        raise YPYModelError('Key property interface is None')
                     if self.service is None:
                         raise YPYModelError('Key property service is None')
+                    if self.interface is None:
+                        raise YPYModelError('Key property interface is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:mep-configuration-errors/Cisco-IOS-XR-ethernet-cfm-oper:mep-configuration-error[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:mep-configuration-errors/Cisco-IOS-XR-ethernet-cfm-oper:mep-configuration-error[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain is not None:
                         return True
 
-                    if self.interface is not None:
+                    if self.service is not None:
                         return True
 
-                    if self.service is not None:
+                    if self.interface is not None:
                         return True
 
                     if self.ais_configured is not None:
@@ -5756,8 +5688,6 @@ class Cfm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mep_configuration_error is not None:
                     for child_ref in self.mep_configuration_error:
                         if child_ref._has_data():
@@ -5806,12 +5736,12 @@ class Cfm(object):
                 
                 	**length:** 1..79
                 
-                .. attribute:: interface  <key>
+                .. attribute:: service  <key>
                 
-                	Interface
+                	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**length:** 1..79
                 
                 .. attribute:: mep_id  <key>
                 
@@ -5820,12 +5750,12 @@ class Cfm(object):
                 
                 	**range:** 1..8191
                 
-                .. attribute:: service  <key>
+                .. attribute:: interface  <key>
                 
-                	Service (Maintenance Association)
+                	Interface
                 	**type**\:  str
                 
-                	**length:** 1..79
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: transaction_id  <key>
                 
@@ -5866,9 +5796,9 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.interface = None
-                    self.mep_id = None
                     self.service = None
+                    self.mep_id = None
+                    self.interface = None
                     self.transaction_id = None
                     self.exploratory_linktrace_reply = YList()
                     self.exploratory_linktrace_reply.parent = self
@@ -6068,8 +5998,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fdb_only is not None:
                                     return True
 
@@ -6130,8 +6058,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.delay_constant_factor is not None:
                                     return True
 
@@ -6160,8 +6086,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.basic_options is not None and self.basic_options._has_data():
                                 return True
 
@@ -6190,8 +6114,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.directed_mac_address is not None:
                             return True
 
@@ -6400,8 +6322,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.forwarded is not None:
                                 return True
 
@@ -6570,8 +6490,6 @@ class Cfm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.chassis_id_format is not None:
                                         return True
 
@@ -6603,8 +6521,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.chassis_id is not None:
                                     return True
 
@@ -6636,8 +6552,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.chassis_id is not None and self.chassis_id._has_data():
                                 return True
 
@@ -6726,8 +6640,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mac_address is not None:
                                     return True
 
@@ -6784,8 +6696,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mac_address is not None:
                                     return True
 
@@ -6811,8 +6721,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.last_egress_id is not None and self.last_egress_id._has_data():
                                 return True
 
@@ -6961,8 +6869,6 @@ class Cfm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.port_id_format is not None:
                                         return True
 
@@ -6994,8 +6900,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.port_id is not None:
                                     return True
 
@@ -7027,8 +6931,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.action is not None:
                                 return True
 
@@ -7180,8 +7082,6 @@ class Cfm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.port_id_format is not None:
                                         return True
 
@@ -7213,8 +7113,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.port_id is not None:
                                     return True
 
@@ -7246,8 +7144,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.action is not None:
                                 return True
 
@@ -7341,8 +7237,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mac_address is not None:
                                     return True
 
@@ -7368,8 +7262,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.egress_id is not None and self.egress_id._has_data():
                                 return True
 
@@ -7437,8 +7329,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.oui is not None:
                                 return True
 
@@ -7498,8 +7388,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.typecode is not None:
                                 return True
 
@@ -7525,8 +7413,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.egress_id is not None and self.egress_id._has_data():
                             return True
 
@@ -7736,8 +7622,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.delay_model is not None:
                                 return True
 
@@ -7912,8 +7796,6 @@ class Cfm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.chassis_id_format is not None:
                                         return True
 
@@ -7945,8 +7827,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.chassis_id is not None:
                                     return True
 
@@ -7978,8 +7858,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.chassis_id is not None and self.chassis_id._has_data():
                                 return True
 
@@ -8089,8 +7967,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mac_address is not None:
                                     return True
 
@@ -8147,8 +8023,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mac_address is not None:
                                     return True
 
@@ -8261,8 +8135,6 @@ class Cfm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.port_id_format is not None:
                                         return True
 
@@ -8294,8 +8166,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.port_id is not None:
                                     return True
 
@@ -8327,8 +8197,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.action is not None:
                                 return True
 
@@ -8444,8 +8312,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mac_address is not None:
                                     return True
 
@@ -8502,8 +8368,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mac_address is not None:
                                     return True
 
@@ -8616,8 +8480,6 @@ class Cfm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.port_id_format is not None:
                                         return True
 
@@ -8649,8 +8511,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.port_id is not None:
                                     return True
 
@@ -8682,8 +8542,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.action is not None:
                                 return True
 
@@ -8783,8 +8641,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mac_address is not None:
                                     return True
 
@@ -8810,8 +8666,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.egress_id is not None and self.egress_id._has_data():
                                 return True
 
@@ -8879,8 +8733,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.oui is not None:
                                 return True
 
@@ -8940,8 +8792,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.typecode is not None:
                                 return True
 
@@ -8967,8 +8817,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.header is not None and self.header._has_data():
                             return True
 
@@ -9008,34 +8856,32 @@ class Cfm(object):
                 def _common_path(self):
                     if self.domain is None:
                         raise YPYModelError('Key property domain is None')
-                    if self.interface is None:
-                        raise YPYModelError('Key property interface is None')
-                    if self.mep_id is None:
-                        raise YPYModelError('Key property mep_id is None')
                     if self.service is None:
                         raise YPYModelError('Key property service is None')
+                    if self.mep_id is None:
+                        raise YPYModelError('Key property mep_id is None')
+                    if self.interface is None:
+                        raise YPYModelError('Key property interface is None')
                     if self.transaction_id is None:
                         raise YPYModelError('Key property transaction_id is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:traceroute-caches/Cisco-IOS-XR-ethernet-cfm-oper:traceroute-cache[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:transaction-id = ' + str(self.transaction_id) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:traceroute-caches/Cisco-IOS-XR-ethernet-cfm-oper:traceroute-cache[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:transaction-id = ' + str(self.transaction_id) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain is not None:
                         return True
 
-                    if self.interface is not None:
+                    if self.service is not None:
                         return True
 
                     if self.mep_id is not None:
                         return True
 
-                    if self.service is not None:
+                    if self.interface is not None:
                         return True
 
                     if self.transaction_id is not None:
@@ -9074,8 +8920,6 @@ class Cfm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.traceroute_cache is not None:
                     for child_ref in self.traceroute_cache:
                         if child_ref._has_data():
@@ -9123,12 +8967,12 @@ class Cfm(object):
                 
                 	**length:** 1..79
                 
-                .. attribute:: interface  <key>
+                .. attribute:: service  <key>
                 
-                	Interface
+                	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**length:** 1..79
                 
                 .. attribute:: mep_id  <key>
                 
@@ -9137,12 +8981,12 @@ class Cfm(object):
                 
                 	**range:** 1..8191
                 
-                .. attribute:: service  <key>
+                .. attribute:: interface  <key>
                 
-                	Service (Maintenance Association)
+                	Interface
                 	**type**\:  str
                 
-                	**length:** 1..79
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: ais_statistics
                 
@@ -9335,9 +9179,9 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.interface = None
-                    self.mep_id = None
                     self.service = None
+                    self.mep_id = None
+                    self.interface = None
                     self.ais_statistics = Cfm.Global_.LocalMeps.LocalMep.AisStatistics()
                     self.ais_statistics.parent = self
                     self.ccm_generation_enabled = None
@@ -9626,8 +9470,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ai_ss_received is not None:
                             return True
 
@@ -9833,8 +9675,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nanoseconds is not None:
                                 return True
 
@@ -9895,8 +9735,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nanoseconds is not None:
                                 return True
 
@@ -9922,8 +9760,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interval is not None:
                             return True
 
@@ -10096,8 +9932,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.invalid_ccm_interval is not None:
                                 return True
 
@@ -10138,8 +9972,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ais_received is not None:
                             return True
 
@@ -10175,32 +10007,30 @@ class Cfm(object):
                 def _common_path(self):
                     if self.domain is None:
                         raise YPYModelError('Key property domain is None')
-                    if self.interface is None:
-                        raise YPYModelError('Key property interface is None')
-                    if self.mep_id is None:
-                        raise YPYModelError('Key property mep_id is None')
                     if self.service is None:
                         raise YPYModelError('Key property service is None')
+                    if self.mep_id is None:
+                        raise YPYModelError('Key property mep_id is None')
+                    if self.interface is None:
+                        raise YPYModelError('Key property interface is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:local-meps/Cisco-IOS-XR-ethernet-cfm-oper:local-mep[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:local-meps/Cisco-IOS-XR-ethernet-cfm-oper:local-mep[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:mep-id = ' + str(self.mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain is not None:
                         return True
 
-                    if self.interface is not None:
+                    if self.service is not None:
                         return True
 
                     if self.mep_id is not None:
                         return True
 
-                    if self.service is not None:
+                    if self.interface is not None:
                         return True
 
                     if self.ais_statistics is not None and self.ais_statistics._has_data():
@@ -10319,8 +10149,6 @@ class Cfm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.local_mep is not None:
                     for child_ref in self.local_mep:
                         if child_ref._has_data():
@@ -10369,6 +10197,20 @@ class Cfm(object):
                 
                 	**length:** 1..79
                 
+                .. attribute:: service  <key>
+                
+                	Service (Maintenance Association)
+                	**type**\:  str
+                
+                	**length:** 1..79
+                
+                .. attribute:: local_mep_id  <key>
+                
+                	MEP ID of Local MEP
+                	**type**\:  int
+                
+                	**range:** 1..8191
+                
                 .. attribute:: interface  <key>
                 
                 	Interface
@@ -10376,9 +10218,9 @@ class Cfm(object):
                 
                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
-                .. attribute:: local_mep_id  <key>
+                .. attribute:: peer_mep_id  <key>
                 
-                	MEP ID of Local MEP
+                	MEP ID of Peer MEP
                 	**type**\:  int
                 
                 	**range:** 1..8191
@@ -10389,20 +10231,6 @@ class Cfm(object):
                 	**type**\:  str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: peer_mep_id  <key>
-                
-                	MEP ID of Peer MEP
-                	**type**\:  int
-                
-                	**range:** 1..8191
-                
-                .. attribute:: service  <key>
-                
-                	Service (Maintenance Association)
-                	**type**\:  str
-                
-                	**length:** 1..79
                 
                 .. attribute:: domain_xr
                 
@@ -10458,11 +10286,11 @@ class Cfm(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.interface = None
-                    self.local_mep_id = None
-                    self.peer_mac_address = None
-                    self.peer_mep_id = None
                     self.service = None
+                    self.local_mep_id = None
+                    self.interface = None
+                    self.peer_mep_id = None
+                    self.peer_mac_address = None
                     self.domain_xr = None
                     self.interface_xr = None
                     self.level = None
@@ -10619,8 +10447,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.invalid_ccm_interval is not None:
                                 return True
 
@@ -10697,8 +10523,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nanoseconds is not None:
                                 return True
 
@@ -10968,8 +10792,6 @@ class Cfm(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.integer is not None:
                                             return True
 
@@ -10995,8 +10817,6 @@ class Cfm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dns_like_name is not None:
                                         return True
 
@@ -11126,8 +10946,6 @@ class Cfm(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.index is not None:
                                             return True
 
@@ -11153,8 +10971,6 @@ class Cfm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.icc_based is not None:
                                         return True
 
@@ -11195,8 +11011,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interval is not None:
                                     return True
 
@@ -11371,8 +11185,6 @@ class Cfm(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.chassis_id_format is not None:
                                             return True
 
@@ -11404,8 +11216,6 @@ class Cfm(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.chassis_id is not None:
                                         return True
 
@@ -11437,8 +11247,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.chassis_id is not None and self.chassis_id._has_data():
                                     return True
 
@@ -11488,8 +11296,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.name is not None:
                                     return True
 
@@ -11551,8 +11357,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.oui is not None:
                                     return True
 
@@ -11612,8 +11416,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.typecode is not None:
                                     return True
 
@@ -11639,8 +11441,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.additional_interface_status is not None:
                                 return True
 
@@ -11820,8 +11620,6 @@ class Cfm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nanoseconds is not None:
                                     return True
 
@@ -11847,8 +11645,6 @@ class Cfm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ccms_invalid_interval is not None:
                                 return True
 
@@ -11898,8 +11694,6 @@ class Cfm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ccm_offload is not None:
                             return True
 
@@ -11938,42 +11732,40 @@ class Cfm(object):
                 def _common_path(self):
                     if self.domain is None:
                         raise YPYModelError('Key property domain is None')
-                    if self.interface is None:
-                        raise YPYModelError('Key property interface is None')
-                    if self.local_mep_id is None:
-                        raise YPYModelError('Key property local_mep_id is None')
-                    if self.peer_mac_address is None:
-                        raise YPYModelError('Key property peer_mac_address is None')
-                    if self.peer_mep_id is None:
-                        raise YPYModelError('Key property peer_mep_id is None')
                     if self.service is None:
                         raise YPYModelError('Key property service is None')
+                    if self.local_mep_id is None:
+                        raise YPYModelError('Key property local_mep_id is None')
+                    if self.interface is None:
+                        raise YPYModelError('Key property interface is None')
+                    if self.peer_mep_id is None:
+                        raise YPYModelError('Key property peer_mep_id is None')
+                    if self.peer_mac_address is None:
+                        raise YPYModelError('Key property peer_mac_address is None')
 
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:peer-me-pv2s/Cisco-IOS-XR-ethernet-cfm-oper:peer-me-pv2[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:local-mep-id = ' + str(self.local_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mac-address = ' + str(self.peer_mac_address) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mep-id = ' + str(self.peer_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:peer-me-pv2s/Cisco-IOS-XR-ethernet-cfm-oper:peer-me-pv2[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + '][Cisco-IOS-XR-ethernet-cfm-oper:local-mep-id = ' + str(self.local_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mep-id = ' + str(self.peer_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mac-address = ' + str(self.peer_mac_address) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain is not None:
                         return True
 
-                    if self.interface is not None:
+                    if self.service is not None:
                         return True
 
                     if self.local_mep_id is not None:
                         return True
 
-                    if self.peer_mac_address is not None:
+                    if self.interface is not None:
                         return True
 
                     if self.peer_mep_id is not None:
                         return True
 
-                    if self.service is not None:
+                    if self.peer_mac_address is not None:
                         return True
 
                     if self.domain_xr is not None:
@@ -12017,8 +11809,6 @@ class Cfm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer_me_pv2 is not None:
                     for child_ref in self.peer_me_pv2:
                         if child_ref._has_data():
@@ -12041,8 +11831,6 @@ class Cfm(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.global_configuration_errors is not None and self.global_configuration_errors._has_data():
                 return True
 
@@ -12081,8 +11869,6 @@ class Cfm(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.global_ is not None and self.global_._has_data():
             return True
 

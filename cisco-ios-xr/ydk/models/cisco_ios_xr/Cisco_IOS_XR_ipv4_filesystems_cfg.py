@@ -80,8 +80,6 @@ class Rcp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.source_interface is not None:
                 return True
 
@@ -102,8 +100,6 @@ class Rcp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.rcp_client is not None and self.rcp_client._has_data():
             return True
 
@@ -188,8 +184,6 @@ class Ftp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.anonymous_password is not None:
                 return True
 
@@ -219,8 +213,6 @@ class Ftp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.ftp_client is not None and self.ftp_client._has_data():
             return True
 
@@ -285,8 +277,6 @@ class Tftp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.source_interface is not None:
                 return True
 
@@ -307,8 +297,6 @@ class Tftp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.tftp_client is not None and self.tftp_client._has_data():
             return True
 

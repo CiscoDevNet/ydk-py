@@ -13,12 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'NeighborOriginEnum' : _MetaInfoEnum('NeighborOriginEnum', 'ydk.models.openconfig.openconfig_if_ip',
-        {
-            'OTHER':'OTHER',
-            'STATIC':'STATIC',
-            'DYNAMIC':'DYNAMIC',
-        }, 'openconfig-if-ip', _yang_ns._namespaces['openconfig-if-ip']),
     'IpAddressOriginEnum' : _MetaInfoEnum('IpAddressOriginEnum', 'ydk.models.openconfig.openconfig_if_ip',
         {
             'OTHER':'OTHER',
@@ -26,5 +20,11 @@ _meta_table = {
             'DHCP':'DHCP',
             'LINK_LAYER':'LINK_LAYER',
             'RANDOM':'RANDOM',
+        }, 'openconfig-if-ip', _yang_ns._namespaces['openconfig-if-ip']),
+    'NeighborOriginEnum' : _MetaInfoEnum('NeighborOriginEnum', 'ydk.models.openconfig.openconfig_if_ip',
+        {
+            'OTHER':'OTHER',
+            'STATIC':'STATIC',
+            'DYNAMIC':'DYNAMIC',
         }, 'openconfig-if-ip', _yang_ns._namespaces['openconfig-if-ip']),
 }
