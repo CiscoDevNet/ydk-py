@@ -130,6 +130,26 @@ class Interfaces(object):
         	Controls whether linkUp/linkDown SNMP notifications should be generated for this interface.  If this node is not configured, the value 'enabled' is operationally used by the server for interfaces that do not operate on top of any other interface (i.e., there are no 'lower\-layer\-if' entries), and 'disabled' otherwise
         	**type**\:   :py:class:`LinkUpDownTrapEnableEnum <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.LinkUpDownTrapEnableEnum>`
         
+        .. attribute:: optical_transport
+        
+        	Specific optical\-transport Data
+        	**type**\:   :py:class:`OpticalTransport <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.OpticalTransport>`
+        
+        .. attribute:: optifochrsss
+        
+        	RsSs path configuration for an interface
+        	**type**\:   :py:class:`Optifochrsss <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Optifochrsss>`
+        
+        .. attribute:: ppp
+        
+        	A ppp interface must specify the global parameters
+        	**type**\:   :py:class:`Ppp <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.Ppp>`
+        
+        .. attribute:: qos_target_entry
+        
+        	policy target for inbound or outbound direction
+        	**type**\: list of    :py:class:`QosTargetEntry <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.QosTargetEntry>`
+        
         .. attribute:: type
         
         	The type of the interface.  When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.  If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
@@ -155,6 +175,15 @@ class Interfaces(object):
             self.ipv4 = None
             self.ipv6 = None
             self.link_up_down_trap_enable = None
+            self.optical_transport = Interfaces.Interface.OpticalTransport()
+            self.optical_transport.parent = self
+            self.optifochrsss = Interfaces.Interface.Optifochrsss()
+            self.optifochrsss.parent = self
+            self.ppp = Interfaces.Interface.Ppp()
+            self.ppp.parent = self
+            self.qos_target_entry = YList()
+            self.qos_target_entry.parent = self
+            self.qos_target_entry.name = 'qos_target_entry'
             self.type = None
 
         class LinkUpDownTrapEnableEnum(Enum):
@@ -1202,6 +1231,20 @@ class Interfaces(object):
             if self.link_up_down_trap_enable is not None:
                 return True
 
+            if self.optical_transport is not None and self.optical_transport._has_data():
+                return True
+
+            if self.optifochrsss is not None and self.optifochrsss._has_data():
+                return True
+
+            if self.ppp is not None and self.ppp._has_data():
+                return True
+
+            if self.qos_target_entry is not None:
+                for child_ref in self.qos_target_entry:
+                    if child_ref._has_data():
+                        return True
+
             if self.type is not None:
                 return True
 
@@ -1546,13 +1589,6 @@ class InterfacesState(object):
             .. attribute:: in_octets
             
             	The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: in_pkts
-            
-            	total packets input
             	**type**\:  int
             
             	**range:** 0..18446744073709551615

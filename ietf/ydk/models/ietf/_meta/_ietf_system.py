@@ -277,6 +277,42 @@ _meta_table = {
         'ydk.models.ietf.ietf_system'
         ),
     },
+    'System.DnsResolver.ResourceRecord' : {
+        'meta_info' : _MetaInfoClass('System.DnsResolver.ResourceRecord',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                An arbitrary name for the host.
+                ''',
+                'name',
+                'ietf-system-dns-resolver', True),
+            _MetaInfoClassMember('address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                The address of the host.
+                ''',
+                'address',
+                'ietf-system-dns-resolver', False, [
+                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        The address of the host.
+                        ''',
+                        'address',
+                        'ietf-system-dns-resolver', False),
+                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        The address of the host.
+                        ''',
+                        'address',
+                        'ietf-system-dns-resolver', False),
+                ]),
+            ],
+            'ietf-system-dns-resolver',
+            'resource-record',
+            _yang_ns._namespaces['ietf-system-dns-resolver'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
     'System.DnsResolver' : {
         'meta_info' : _MetaInfoClass('System.DnsResolver',
             False, 
@@ -289,6 +325,12 @@ _meta_table = {
                 ''',
                 'options',
                 'ietf-system', False),
+            _MetaInfoClassMember('resource-record', REFERENCE_LIST, 'ResourceRecord' , 'ydk.models.ietf.ietf_system', 'System.DnsResolver.ResourceRecord', 
+                [], [], 
+                '''                List of Resource Record entry.
+                ''',
+                'resource_record',
+                'ietf-system-dns-resolver', False),
             _MetaInfoClassMember('search', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [b'((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
                 '''                An ordered list of domains to search when resolving
@@ -832,6 +874,7 @@ _meta_table['System.Ntp.Server']['meta_info'].parent =_meta_table['System.Ntp'][
 _meta_table['System.DnsResolver.Server.UdpAndTcp']['meta_info'].parent =_meta_table['System.DnsResolver.Server']['meta_info']
 _meta_table['System.DnsResolver.Server']['meta_info'].parent =_meta_table['System.DnsResolver']['meta_info']
 _meta_table['System.DnsResolver.Options']['meta_info'].parent =_meta_table['System.DnsResolver']['meta_info']
+_meta_table['System.DnsResolver.ResourceRecord']['meta_info'].parent =_meta_table['System.DnsResolver']['meta_info']
 _meta_table['System.Radius.Server.Udp']['meta_info'].parent =_meta_table['System.Radius.Server']['meta_info']
 _meta_table['System.Radius.Server']['meta_info'].parent =_meta_table['System.Radius']['meta_info']
 _meta_table['System.Radius.Options']['meta_info'].parent =_meta_table['System.Radius']['meta_info']

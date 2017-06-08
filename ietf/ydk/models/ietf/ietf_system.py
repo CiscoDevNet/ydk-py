@@ -493,6 +493,11 @@ class System(object):
         	Resolver options.  The set of available options has been limited to those that are generally available across different resolver implementations and generally useful
         	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_system.System.DnsResolver.Options>`
         
+        .. attribute:: resource_record
+        
+        	List of Resource Record entry
+        	**type**\: list of    :py:class:`ResourceRecord <ydk.models.ietf.ietf_system.System.DnsResolver.ResourceRecord>`
+        
         .. attribute:: search
         
         	An ordered list of domains to search when resolving a host name
@@ -516,6 +521,9 @@ class System(object):
             self.parent = None
             self.options = System.DnsResolver.Options()
             self.options.parent = self
+            self.resource_record = YList()
+            self.resource_record.parent = self
+            self.resource_record.name = 'resource_record'
             self.search = YLeafList()
             self.search.parent = self
             self.search.name = 'search'
@@ -722,6 +730,76 @@ class System(object):
                 from ydk.models.ietf._meta import _ietf_system as meta
                 return meta._meta_table['System.DnsResolver.Options']['meta_info']
 
+
+        class ResourceRecord(object):
+            """
+            List of Resource Record entry.
+            
+            .. attribute:: name  <key>
+            
+            	An arbitrary name for the host
+            	**type**\:  str
+            
+            .. attribute:: address
+            
+            	The address of the host
+            	**type**\: one of the below types:
+            
+            	**type**\:  str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**mandatory**\: True
+            
+            
+            ----
+            	**type**\:  str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+            
+            	**mandatory**\: True
+            
+            
+            ----
+            
+
+            """
+
+            _prefix = 'dnsres'
+            _revision = '2016-09-23'
+
+            def __init__(self):
+                self.parent = None
+                self.name = None
+                self.address = None
+
+            @property
+            def _common_path(self):
+                if self.name is None:
+                    raise YPYModelError('Key property name is None')
+
+                return '/ietf-system:system/ietf-system:dns-resolver/ietf-system-dns-resolver:resource-record[ietf-system-dns-resolver:name = ' + str(self.name) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.name is not None:
+                    return True
+
+                if self.address is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ietf._meta import _ietf_system as meta
+                return meta._meta_table['System.DnsResolver.ResourceRecord']['meta_info']
+
         @property
         def _common_path(self):
 
@@ -734,6 +812,11 @@ class System(object):
         def _has_data(self):
             if self.options is not None and self.options._has_data():
                 return True
+
+            if self.resource_record is not None:
+                for child_ref in self.resource_record:
+                    if child_ref._has_data():
+                        return True
 
             if self.search is not None:
                 for child in self.search:

@@ -635,6 +635,30 @@ _meta_table = {
                 ''',
                 'link_up_down_trap_enable',
                 'ietf-interfaces', False),
+            _MetaInfoClassMember('optical-transport', REFERENCE_CLASS, 'OpticalTransport' , 'ydk.models.ietf.ietf_interfaces', 'Interfaces.Interface.OpticalTransport', 
+                [], [], 
+                '''                Specific optical-transport Data
+                ''',
+                'optical_transport',
+                'ietf-opt-parameters-wdm', False),
+            _MetaInfoClassMember('optIfOChRsSs', REFERENCE_CLASS, 'Optifochrsss' , 'ydk.models.ietf.ietf_interfaces', 'Interfaces.Interface.Optifochrsss', 
+                [], [], 
+                '''                RsSs path configuration for an interface
+                ''',
+                'optifochrsss',
+                'ietf-ext-xponder-wdm-if', False),
+            _MetaInfoClassMember('ppp', REFERENCE_CLASS, 'Ppp' , 'ydk.models.ietf.ietf_interfaces', 'Interfaces.Interface.Ppp', 
+                [], [], 
+                '''                A ppp interface must specify the global parameters.
+                ''',
+                'ppp',
+                'ietf-if-ext-ppp', False),
+            _MetaInfoClassMember('qos-target-entry', REFERENCE_LIST, 'QosTargetEntry' , 'ydk.models.ietf.ietf_interfaces', 'Interfaces.Interface.QosTargetEntry', 
+                [], [], 
+                '''                policy target for inbound or outbound direction
+                ''',
+                'qos_target_entry',
+                'ietf-qos-target', False),
             _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'InterfaceTypeIdentity' , 'ydk.models.ietf.ietf_interfaces', 'InterfaceTypeIdentity', 
                 [], [], 
                 '''                The type of the interface.
@@ -774,12 +798,6 @@ _meta_table = {
                 ''',
                 'in_octets',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('in-pkts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                total packets input
-                ''',
-                'in_pkts',
-                'ietf-interfaces-ext', False),
             _MetaInfoClassMember('in-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
                 '''                The number of packets, delivered by this sub-layer to a
@@ -887,12 +905,6 @@ _meta_table = {
                 ''',
                 'out_octets',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('out-pkts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                total packets output
-                ''',
-                'out_pkts',
-                'ietf-interfaces-ext', False),
             _MetaInfoClassMember('out-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
                 '''                The total number of packets that higher-level protocols
